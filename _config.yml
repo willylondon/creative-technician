@@ -1,0 +1,5 @@
+title: Willy London
+description: The Creative Technician
+markdown: kramdown
+theme: null
+permalink: /blog/:title/
