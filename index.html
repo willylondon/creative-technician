@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Willy London | The Creative Technician</title>
+  <meta name="description" content="Willy London — IT Systems Support, Automation Builder (n8n / Apps Script), AI fan, Content Creator, Basketball Coach." />
+  <meta name="theme-color" content="#0B0F14" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Willy London | The Creative Technician" />
+  <meta property="og:description" content="IT + Automation + AI + Content Creation. Systems and Stories." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0B0F14;
+      --panel:#0F1720;
+      --panel2:#0C121A;
+      --text:#F4F6F8;
+      --muted:rgba(244,246,248,.72);
+      --muted2:rgba(244,246,248,.55);
+      --line:rgba(244,246,248,.12);
+
+      --teal:#00E5FF;
+      --amber:#FFB020;
+      --lime:#35FF69;
+
+      --shadow: 0 18px 60px rgba(0,0,0,.48);
+      --shadow2: 0 12px 28px rgba(0,0,0,.40);
+      --radius: 18px;
+      --radius2: 26px;
+
+      --max: 1120px;
+      --reading: 72ch; /* Medium-like */
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(900px 550px at 15% -5%, rgba(0,229,255,.14), transparent 55%),
+        radial-gradient(800px 500px at 88% 10%, rgba(255,176,32,.10), transparent 55%),
+        radial-gradient(800px 520px at 55% 110%, rgba(53,255,105,.06), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    /* ===== Background tech + basketball layer ===== */
+    .bg-layer{
+      position:fixed; inset:0;
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    /* Subtle grid */
+    .grid{
+      position:absolute; inset:0;
+      opacity:.22;
+      background-image:
+        linear-gradient(to right, rgba(244,246,248,.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(244,246,248,.07) 1px, transparent 1px);
+      background-size:64px 64px;
+      mask-image: radial-gradient(circle at 50% 18%, rgba(0,0,0,1) 30%, rgba(0,0,0,.20) 62%, rgba(0,0,0,0) 78%);
+    }
+
+    /* Basketball court lines (very faint) */
+    .court{
+      position:absolute;
+      inset:-15%;
+      opacity:.20;
+      filter: blur(.2px);
+      transform: rotate(-8deg);
+      mask-image: radial-gradient(circle at 50% 30%, rgba(0,0,0,1) 20%, rgba(0,0,0,.12) 58%, rgba(0,0,0,0) 78%);
+    }
+    .court svg{width:100%; height:100%}
+
+    /* Floating icons */
+    .floaters{
+      position:absolute; inset:0;
+      opacity:.8;
+      mask-image: radial-gradient(circle at 50% 18%, rgba(0,0,0,1) 22%, rgba(0,0,0,.18) 55%, rgba(0,0,0,0) 78%);
+    }
+    .floater{
+      position:absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(0,229,255,.18), transparent 45%),
+        radial-gradient(circle at 70% 70%, rgba(255,176,32,.12), transparent 45%),
+        rgba(244,246,248,.02);
+      border:1px solid rgba(244,246,248,.08);
+      filter: blur(.2px);
+      animation: drift 12s ease-in-out infinite;
+    }
+    .floater:nth-child(1){left:-40px; top:120px; animation-duration: 14s}
+    .floater:nth-child(2){right:-60px; top:220px; width:260px; height:260px; animation-duration: 16s}
+    .floater:nth-child(3){left:22%; bottom:-110px; width:300px; height:300px; animation-duration: 18s}
+
+    @keyframes drift{
+      0%,100%{transform: translate3d(0,0,0)}
+      50%{transform: translate3d(0,-18px,0)}
+    }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background:rgba(11,15,20,.52);
+      border-bottom:1px solid rgba(244,246,248,.10);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      padding:12px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700; letter-spacing:.2px;
+      font-family: "Space Grotesk", Inter, sans-serif;
+    }
+    .mark{
+      width:34px; height:34px; border-radius:10px;
+      background:
+        linear-gradient(135deg, rgba(0,229,255,.22), rgba(255,176,32,.16)),
+        rgba(244,246,248,.06);
+      border:1px solid rgba(244,246,248,.18);
+      box-shadow: 0 10px 30px rgba(0,0,0,.28);
+      position:relative;
+      overflow:hidden;
+    }
+    /* signature slash */
+    .mark:after{
+      content:"";
+      position:absolute; inset:-20% -20%;
+      background: linear-gradient(120deg, transparent 46%, rgba(244,246,248,.42) 50%, transparent 54%);
+      transform: rotate(12deg);
+      opacity:.72;
+    }
+
+    .navlinks{
+      display:flex; gap:14px; align-items:center;
+      color:var(--muted);
+      font-weight:500;
+      font-size:14px;
+    }
+    .navlinks a{padding:8px 10px; border-radius:12px}
+    .navlinks a:hover{background:rgba(244,246,248,.06); color:var(--text)}
+    .cta{
+      display:flex; gap:10px; align-items:center;
+    }
+    .btn{
+      border:1px solid rgba(244,246,248,.14);
+      background:rgba(244,246,248,.06);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:14px;
+      font-weight:600;
+      font-size:14px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      display:inline-flex; gap:9px; align-items:center;
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px); background:rgba(244,246,248,.09); border-color:rgba(244,246,248,.22)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(0,229,255,.22), rgba(255,176,32,.10));
+      border-color: rgba(0,229,255,.26);
+    }
+
+    /* Hero */
+    .hero{padding:64px 0 30px}
+    .hero-wrap{
+      display:grid;
+      grid-template-columns: 1.25fr .85fr;
+      gap:20px;
+      align-items:start;
+    }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px;
+      border:1px solid rgba(244,246,248,.14);
+      background: rgba(15,23,32,.60);
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:13px;
+      width:fit-content;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:50%;
+      background: var(--teal);
+      box-shadow: 0 0 18px rgba(0,229,255,.4);
+    }
+    h1{
+      margin:14px 0 10px;
+      font-family:"Space Grotesk", Inter, sans-serif;
+      letter-spacing:-.7px;
+      font-size: clamp(34px, 3.8vw, 54px);
+      line-height:1.05;
+    }
+    .sub{
+      max-width: 60ch;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .hero-actions{
+      margin-top:18px;
+      display:flex; flex-wrap:wrap; gap:12px;
+    }
+
+    /* Profile */
+    .profile{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-top: 18px;
+      padding: 14px 14px;
+      border:1px solid rgba(244,246,248,.14);
+      background: rgba(15,23,32,.52);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow2);
+    }
+    .avatar{
+      width:56px; height:56px;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(0,229,255,.22), transparent 45%),
+        radial-gradient(circle at 70% 70%, rgba(255,176,32,.18), transparent 45%),
+        rgba(244,246,248,.06);
+      border:1px solid rgba(244,246,248,.16);
+      position:relative;
+      overflow:hidden;
+    }
+    .avatar:after{
+      content:"";
+      position:absolute; inset:-15% -15%;
+      background: linear-gradient(120deg, transparent 46%, rgba(244,246,248,.42) 50%, transparent 54%);
+      transform: rotate(10deg);
+      opacity:.55;
+    }
+    .profile h4{margin:0; font-size:14px; font-weight:900}
+    .profile p{margin:2px 0 0; color:var(--muted); font-size:13px}
+
+    /* Motion cards */
+    .stack{
+      display:grid;
+      gap:12px;
+      padding-top:12px;
+    }
+    .card{
+      border:1px solid rgba(244,246,248,.14);
+      background:
+        linear-gradient(180deg, rgba(244,246,248,.05), rgba(244,246,248,.03));
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow2);
+      padding:16px 16px;
+      position:relative;
+      overflow:hidden;
+      transform: translateY(10px);
+      opacity:0;
+      transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .5s ease;
+    }
+    .card.show{transform: translateY(0); opacity:1}
+    .card:before{
+      content:"";
+      position:absolute; inset:-2px -2px;
+      background:
+        radial-gradient(420px 220px at 20% 0%, rgba(0,229,255,.12), transparent 45%),
+        radial-gradient(420px 220px at 80% 100%, rgba(255,176,32,.08), transparent 45%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .card > *{position:relative}
+
+    .card-title{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      font-weight:800;
+      font-size:14px;
+      letter-spacing:.2px;
+    }
+    .badge{
+      font-size:12px;
+      color: var(--muted);
+      border:1px solid rgba(244,246,248,.14);
+      background: rgba(11,15,20,.40);
+      padding:6px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    .card p{margin:8px 0 0; color:var(--muted); font-size:13.5px}
+
+    /* Stats chips */
+    .stats{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .chip{
+      border:1px solid rgba(244,246,248,.14);
+      background: rgba(15,23,32,.60);
+      padding:9px 12px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:13px;
+      color: rgba(244,246,248,.86);
+      display:flex; gap:10px; align-items:center;
+    }
+    .chip span{color:var(--muted); font-weight:600}
+
+    /* Sections */
+    section{padding:36px 0}
+    .section-title{
+      display:flex; align-items:end; justify-content:space-between; gap:16px;
+      margin-bottom:14px;
+    }
+    h2{
+      margin:0;
+      font-family:"Space Grotesk", Inter, sans-serif;
+      font-size:22px;
+      letter-spacing:-.2px;
+    }
+    .section-sub{margin:0; color:var(--muted); font-size:14px}
+
+    .grid2{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .tile{
+      border:1px solid rgba(244,246,248,.14);
+      background: rgba(15,23,32,.52);
+      border-radius: var(--radius2);
+      padding:16px;
+      box-shadow: var(--shadow2);
+      position:relative;
+      overflow:hidden;
+      transform: translateY(10px);
+      opacity:0;
+      transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .5s ease, border-color .2s ease;
+      min-height: 150px;
+    }
+    .tile.show{transform: translateY(0); opacity:1}
+    .tile:hover{border-color: rgba(0,229,255,.26)}
+    .tile h3{
+      margin:0 0 8px;
+      font-size:15px;
+      font-weight:800;
+      letter-spacing:.1px;
+    }
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      font-size:12px;
+      color: var(--muted);
+      border:1px solid rgba(244,246,248,.14);
+      background: rgba(11,15,20,.45);
+      padding:6px 9px;
+      border-radius:999px;
+      cursor:pointer;
+    }
+    a.tag:hover{border-color: rgba(0,229,255,.26); color: rgba(244,246,248,.90)}
+
+    /* Blog (Medium-like) */
+    .reading{
+      max-width: var(--reading);
+      margin: 0 auto;
+      border:1px solid rgba(244,246,248,.12);
+      background: rgba(15,23,32,.42);
+      border-radius: var(--radius2);
+      padding: 18px 18px;
+      box-shadow: var(--shadow2);
+    }
+    .reading article + article{margin-top:14px; padding-top:14px; border-top:1px solid rgba(244,246,248,.10)}
+    .post-title{
+      font-family:"Space Grotesk", Inter, sans-serif;
+      margin:0 0 6px;
+      font-size:18px;
+      letter-spacing:-.2px;
+    }
+    .meta{color:var(--muted2); font-size:13px; margin:0 0 10px}
+    .excerpt{margin:0; color:var(--muted); font-size:15px}
+
+    /* Footer */
+    footer{
+      padding:28px 0 34px;
+      border-top:1px solid rgba(244,246,248,.10);
+      color:var(--muted2);
+      font-size:13px;
+    }
+    .foot{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero-wrap{grid-template-columns:1fr; gap:14px}
+      .grid2{grid-template-columns:1fr}
+      .navlinks{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background layer -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="grid"></div>
+
+    <!-- Basketball court lines -->
+    <div class="court">
+      <svg viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="120" y="90" width="960" height="620" rx="40" stroke="rgba(244,246,248,.20)" stroke-width="2"/>
+        <line x1="600" y1="90" x2="600" y2="710" stroke="rgba(244,246,248,.20)" stroke-width="2"/>
+        <circle cx="600" cy="400" r="80" stroke="rgba(244,246,248,.20)" stroke-width="2"/>
+        <rect x="120" y="240" width="170" height="320" rx="20" stroke="rgba(244,246,248,.20)" stroke-width="2"/>
+        <rect x="910" y="240" width="170" height="320" rx="20" stroke="rgba(244,246,248,.20)" stroke-width="2"/>
+        <path d="M290 310c60 0 110 40 110 90s-50 90-110 90" stroke="rgba(244,246,248,.20)" stroke-width="2"/>
+        <path d="M910 310c-60 0-110 40-110 90s50 90 110 90" stroke="rgba(244,246,248,.20)" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <!-- Floating tech bubbles -->
+    <div class="floaters">
+      <div class="floater"></div>
+      <div class="floater"></div>
+      <div class="floater"></div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="brand">
+          <div class="mark"></div>
+          <div>
+            <div style="font-size:14px; line-height:1.1;">Willy London</div>
+            <div style="font-size:12px; color:rgba(244,246,248,.60); font-weight:600; line-height:1.1;">
+              The Creative Technician
+            </div>
+          </div>
+        </div>
+
+        <nav class="navlinks" aria-label="Primary">
+          <a href="#work">Work</a>
+          <a href="#stack">Skill Stack</a>
+          <a href="#blog">Writing</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="https://www.tiktok.com/@jamrockai" target="_blank" rel="noopener">JamrockAI</a>
+          <a class="btn primary" href="#contact">Hire / Collaborate</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-wrap">
+          <div>
+            <div class="kicker">
+              <span class="dot"></span>
+              Systems • Automation • AI • Content
+            </div>
+
+            <h1>IT brain.<br/>Creator hands.<br/>Coach discipline.</h1>
+
+            <p class="sub">
+              I’m Willy London — IT Systems Support (Google Workspace, Networking, Cisco Meraki),
+              automation builder (n8n / Google Apps Script), AI fan, content creator and basketball coach.
+              I build systems that work and stories that move.
+            </p>
+
+            <!-- Profile block -->
+            <div class="profile">
+              <div class="avatar"></div>
+              <div>
+                <h4>Willard “Willy” Wells</h4>
+                <p>IT Support • Automation Builder • Creator • Basketball Coach • Jamaica</p>
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#work">View Featured Work</a>
+              <a class="btn" href="mailto:willardwells@gmail.com">Business: willardwells@gmail.com</a>
+
+              <a class="btn" href="https://www.tiktok.com/@willylondon" target="_blank" rel="noopener">TikTok: @willylondon</a>
+              <a class="btn" href="https://www.instagram.com/willylondon/" target="_blank" rel="noopener">IG: @willylondon</a>
+              <a class="btn" href="https://www.youtube.com/@JamrockAI" target="_blank" rel="noopener">YouTube: JamrockAI</a>
+            </div>
+
+            <div class="stats">
+              <div class="chip">20+ yrs <span>IT industry</span></div>
+              <div class="chip">Automation <span>n8n + Apps Script</span></div>
+              <div class="chip">Creator <span>AI + video</span></div>
+            </div>
+          </div>
+
+          <!-- Motion identity cards -->
+          <div class="stack">
+            <div class="card reveal">
+              <div class="card-title">
+                IT Systems Support
+                <span class="badge">Google Workspace • Meraki</span>
+              </div>
+              <p>Admin, troubleshooting, endpoint & network support, cloud-first environments.</p>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                Automation Builder
+                <span class="badge">n8n • Apps Script</span>
+              </div>
+              <p>Workflows that remove repetitive work: intake → processing → reporting → notifications.</p>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                AI + Content
+                <span class="badge">Video • Story • Utility</span>
+              </div>
+              <p>AI visuals, video creation, and creator workflows that scale output.</p>
+            </div>
+
+            <div class="card reveal">
+              <div class="card-title">
+                Coach + Leadership
+                <span class="badge">Basketball • Mentorship</span>
+              </div>
+              <p>Team development, discipline culture, and mentoring young athletes.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Featured Work</h2>
+            <p class="section-sub">Proof of ability across tech, automation, AI, and content.</p>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="tile reveal">
+            <h3>n8n YouTube Automation Workflow</h3>
+            <p class="section-sub">Drive → title/description generation → merge → upload pipeline.</p>
+            <div class="tags">
+              <span class="tag">n8n</span><span class="tag">Google Drive</span><span class="tag">OpenAI</span><span class="tag">YouTube</span>
+            </div>
+          </div>
+
+          <div class="tile reveal">
+            <h3>Google Workspace Administration</h3>
+            <p class="section-sub">Identity, groups, policies, device support in a cloud-first setup.</p>
+            <div class="tags">
+              <span class="tag">Admin Console</span><span class="tag">Security</span><span class="tag">Support</span>
+            </div>
+          </div>
+
+          <div class="tile reveal">
+            <h3>JamrockAI — AI Culture Content</h3>
+            <p class="section-sub">Narration, story edits, AI visuals. Built for reach + retention.</p>
+            <div class="tags">
+              <span class="tag">TikTok</span><span class="tag">AI Video</span><span class="tag">Storytelling</span>
+            </div>
+          </div>
+
+          <div class="tile reveal">
+            <h3>Portfolio Landing Pages</h3>
+            <p class="section-sub">Fast, modern, deployable pages for professionals and brands.</p>
+            <div class="tags">
+              <span class="tag">HTML/CSS</span><span class="tag">GitHub Pages</span><span class="tag">SEO</span>
+            </div>
+          </div>
+
+          <div class="tile reveal">
+            <h3>Jamaica Basketball Page</h3>
+            <p class="section-sub">Basketball updates + community building.</p>
+            <div class="tags">
+              <span class="tag">Sports Media</span><span class="tag">Community</span><span class="tag">Leadership</span>
+            </div>
+          </div>
+
+          <div class="tile reveal">
+            <h3>When Wi Hungry — Food Reviews</h3>
+            <p class="section-sub">Clean review storytelling: visuals, pacing, honesty.</p>
+            <div class="tags">
+              <span class="tag">Food Reviews</span><span class="tag">Canva</span><span class="tag">Editing</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn" href="https://www.tiktok.com/@jamrockai" target="_blank" rel="noopener">TikTok: @jamrockai</a>
+          <a class="btn" href="https://www.tiktok.com/@whenwihungry" target="_blank" rel="noopener">TikTok: @whenwihungry</a>
+          <a class="btn" href="https://www.tiktok.com/@willylondon" target="_blank" rel="noopener">TikTok: @willylondon</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section id="stack">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Skill Stack</h2>
+            <p class="section-sub">A technician’s foundation with a creator’s output.</p>
+          </div>
+        </div>
+
+        <div class="reading">
+          <article>
+            <h3 class="post-title">IT & Systems</h3>
+            <p class="excerpt">
+              Google Workspace • Troubleshooting • Endpoint support • Networking • Cisco Meraki • A+ • Network+
+            </p>
+          </article>
+          <article>
+            <h3 class="post-title">Automation</h3>
+            <p class="excerpt">
+              n8n workflows • Google Apps Script • Integration design • SOP documentation • reliability-first thinking
+            </p>
+          </article>
+          <article>
+            <h3 class="post-title">AI & Content</h3>
+            <p class="excerpt">
+              AI visuals/video • Creator workflows • Story edits • Canva • Short-form strategy • Narration + pacing
+            </p>
+          </article>
+          <article>
+            <h3 class="post-title">Leadership</h3>
+            <p class="excerpt">
+              Coaching • Team discipline culture • Mentorship • Building confidence + consistency
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Writing (Medium-style)</h2>
+            <p class="section-sub">Short, clean thoughts. Lessons. Systems. Culture.</p>
+          </div>
+        </div>
+
+        <div class="reading">
+          <article>
+            <h3 class="post-title">Discipline is a System</h3>
+            <p class="meta">Draft • 4 min read</p>
+            <p class="excerpt">
+              Talent is noisy. Discipline is quiet. Systems win when motivation disappears.
+            </p>
+          </article>
+
+          <article>
+            <h3 class="post-title">Automation = Respect for Your Time</h3>
+            <p class="meta">Draft • 5 min read</p>
+            <p class="excerpt">
+              Repetition is the enemy. When the process is stable, automate it and move on to higher-value work.
+            </p>
+          </article>
+
+          <article>
+            <h3 class="post-title">The Creative Technician</h3>
+            <p class="meta">Pinned • 3 min read</p>
+            <p class="excerpt">
+              I’m not choosing between tech and creativity. I’m combining them. One builds structure, the other builds meaning.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Contact</h2>
+            <p class="section-sub">Business enquiries + social links.</p>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="tile reveal">
+            <h3>Email (Business)</h3>
+            <p class="section-sub">Fastest response for work/collabs.</p>
+            <div class="tags">
+              <a class="tag" href="mailto:willardwells@gmail.com">willardwells@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="tile reveal">
+            <h3>Social Accounts</h3>
+            <p class="section-sub">Main: @willylondon</p>
+            <div class="tags">
+              <a class="tag" href="https://www.tiktok.com/@willylondon" target="_blank" rel="noopener">TikTok</a>
+              <a class="tag" href="https://www.instagram.com/willylondon/" target="_blank" rel="noopener">Instagram</a>
+              <a class="tag" href="https://www.youtube.com/@JamrockAI" target="_blank" rel="noopener">YouTube</a>
+            </div>
+          </div>
+
+          <div class="tile reveal">
+            <h3>Content Brands</h3>
+            <p class="section-sub">Projects/pages I run.</p>
+            <div class="tags">
+              <a class="tag" href="https://www.tiktok.com/@jamrockai" target="_blank" rel="noopener">@jamrockai</a>
+              <a class="tag" href="https://www.tiktok.com/@whenwihungry" target="_blank" rel="noopener">@whenwihungry</a>
+              <a class="tag" href="https://www.tiktok.com/@willylondon" target="_blank" rel="noopener">@willylondon</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" href="mailto:willardwells@gmail.com">Email: willardwells@gmail.com</a>
+          <a class="btn" href="https://www.tiktok.com/@willylondon" target="_blank" rel="noopener">@willylondon</a>
+          <a class="btn" href="https://www.tiktok.com/@jamrockai" target="_blank" rel="noopener">@jamrockai</a>
+          <a class="btn" href="https://www.tiktok.com/@whenwihungry" target="_blank" rel="noopener">@whenwihungry</a>
+          <a class="btn" href="https://www.youtube.com/@JamrockAI" target="_blank" rel="noopener">YouTube: JamrockAI</a>
+          <a class="btn" href="https://www.instagram.com/willylondon/" target="_blank" rel="noopener">IG: willylondon</a>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="foot">
+          <div>© <span id="year"></span> Willy London — The Creative Technician</div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="#work" class="btn" style="padding:8px 12px;">Work</a>
+            <a href="#blog" class="btn" style="padding:8px 12px;">Writing</a>
+            <a href="#contact" class="btn primary" style="padding:8px 12px;">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal animations
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add('show');
+      });
+    }, { threshold: 0.18 });
+
+    els.forEach(el => io.observe(el));
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (ev) => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const target = document.querySelector(id);
+        if (!target) return;
+        ev.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>
