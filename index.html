@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Willy London | The Creative Technician</title>
-  <meta name="description" content="Willy London — IT Systems Support, Automation Builder (n8n / Apps Script), AI fan, Content Creator, Basketball Coach." />
+  <meta name="description" content="The Creative Technician — IT Systems Support • Automation Builder (n8n / Apps Script) • AI fan • Content Creator • Basketball Coach (Jamaica)" />
   <meta name="theme-color" content="#0B0F14" />
 
   <!-- Open Graph -->
@@ -236,22 +236,19 @@
       box-shadow: var(--shadow2);
     }
     .avatar{
-      width:56px; height:56px;
-      border-radius: 18px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(0,229,255,.22), transparent 45%),
-        radial-gradient(circle at 70% 70%, rgba(255,176,32,.18), transparent 45%),
-        rgba(244,246,248,.06);
+      width:56px;
+      height:56px;
+      border-radius:18px;
       border:1px solid rgba(244,246,248,.16);
-      position:relative;
       overflow:hidden;
+      background: rgba(244,246,248,.06);
+      flex: 0 0 auto;
     }
-    .avatar:after{
-      content:"";
-      position:absolute; inset:-15% -15%;
-      background: linear-gradient(120deg, transparent 46%, rgba(244,246,248,.42) 50%, transparent 54%);
-      transform: rotate(10deg);
-      opacity:.55;
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
     }
     .profile h4{margin:0; font-size:14px; font-weight:900}
     .profile p{margin:2px 0 0; color:var(--muted); font-size:13px}
@@ -487,7 +484,10 @@
 
             <!-- Profile block -->
             <div class="profile">
-              <div class="avatar"></div>
+              <!-- IMPORTANT: put your photo here: assets/profile.jpg -->
+              <div class="avatar">
+                <img src="assets/profile.jpg" alt="Willy London profile photo">
+              </div>
               <div>
                 <h4>Willard “Willy” Wells</h4>
                 <p>IT Support • Automation Builder • Creator • Basketball Coach • Jamaica</p>
