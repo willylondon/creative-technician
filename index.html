@@ -89,7 +89,7 @@
     }
     .court svg{width:100%; height:100%}
 
-    /* Floating icons */
+    /* Floating tech bubbles */
     .floaters{
       position:absolute; inset:0;
       opacity:.8;
@@ -144,7 +144,6 @@
       position:relative;
       overflow:hidden;
     }
-    /* signature slash */
     .mark:after{
       content:"";
       position:absolute; inset:-20% -20%;
@@ -161,9 +160,8 @@
     }
     .navlinks a{padding:8px 10px; border-radius:12px}
     .navlinks a:hover{background:rgba(244,246,248,.06); color:var(--text)}
-    .cta{
-      display:flex; gap:10px; align-items:center;
-    }
+    .cta{display:flex; gap:10px; align-items:center}
+
     .btn{
       border:1px solid rgba(244,246,248,.14);
       background:rgba(244,246,248,.06);
@@ -203,7 +201,7 @@
     }
     .dot{
       width:8px; height:8px; border-radius:50%;
-      background: var(--teal);
+      background: #00E5FF;
       box-shadow: 0 0 18px rgba(0,229,255,.4);
     }
     h1{
@@ -243,6 +241,8 @@
       overflow:hidden;
       background: rgba(244,246,248,.06);
       flex: 0 0 auto;
+      position:relative;
+      z-index:5;
     }
     .avatar img{
       width:100%;
@@ -367,7 +367,6 @@
       background: rgba(11,15,20,.45);
       padding:6px 9px;
       border-radius:999px;
-      cursor:pointer;
     }
     a.tag:hover{border-color: rgba(0,229,255,.26); color: rgba(244,246,248,.90)}
 
@@ -390,6 +389,11 @@
     }
     .meta{color:var(--muted2); font-size:13px; margin:0 0 10px}
     .excerpt{margin:0; color:var(--muted); font-size:15px}
+
+    /* Make posts clickable */
+    .post-link{display:block}
+    .post-link article{transition: border-color .2s ease}
+    .post-link:hover article{border-color: rgba(0,229,255,.26)}
 
     /* Footer */
     footer{
@@ -484,9 +488,8 @@
 
             <!-- Profile block -->
             <div class="profile">
-              <!-- IMPORTANT: put your photo here: assets/profile.jpg -->
               <div class="avatar">
-                <img src="assets/profile.jpg" alt="Willy London profile photo">
+                <img src="./assets/profile.jpg" alt="Willy London profile photo">
               </div>
               <div>
                 <h4>Willard “Willy” Wells</h4>
@@ -668,29 +671,15 @@
         </div>
 
         <div class="reading">
-          <article>
-            <h3 class="post-title">Discipline is a System</h3>
-            <p class="meta">Draft • 4 min read</p>
-            <p class="excerpt">
-              Talent is noisy. Discipline is quiet. Systems win when motivation disappears.
-            </p>
-          </article>
-
-          <article>
-            <h3 class="post-title">Automation = Respect for Your Time</h3>
-            <p class="meta">Draft • 5 min read</p>
-            <p class="excerpt">
-              Repetition is the enemy. When the process is stable, automate it and move on to higher-value work.
-            </p>
-          </article>
-
-          <article>
-            <h3 class="post-title">The Creative Technician</h3>
-            <p class="meta">Pinned • 3 min read</p>
-            <p class="excerpt">
-              I’m not choosing between tech and creativity. I’m combining them. One builds structure, the other builds meaning.
-            </p>
-          </article>
+          {% for post in site.posts limit:6 %}
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            <article>
+              <h3 class="post-title">{{ post.title }}</h3>
+              <p class="meta">{{ post.date | date: "%b %d, %Y" }} • {{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min read</p>
+              <p class="excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+            </article>
+          </a>
+          {% endfor %}
         </div>
       </div>
     </section>
