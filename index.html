@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -395,6 +398,13 @@
     .post-link article{transition: border-color .2s ease}
     .post-link:hover article{border-color: rgba(0,229,255,.26)}
 
+    /* Empty state */
+    .empty{
+      color: rgba(244,246,248,.62);
+      font-weight: 600;
+      padding: 8px 2px;
+    }
+
     /* Footer */
     footer{
       padding:28px 0 34px;
@@ -671,6 +681,11 @@
         </div>
 
         <div class="reading">
+          {% assign total_posts = site.posts | size %}
+          {% if total_posts == 0 %}
+            <p class="empty">No posts yet. Create your first post inside <strong>_posts</strong> to see it here.</p>
+          {% endif %}
+
           {% for post in site.posts limit:6 %}
           <a class="post-link" href="{{ post.url | relative_url }}">
             <article>
