@@ -684,7 +684,51 @@ layout: null
       .form-grid{grid-template-columns:1fr}
     }
 
-  </style>
+  
+    /* Skill Stack: animated hover highlight */
+    #stack .reading article{
+      position:relative;
+      border-radius:14px;
+      padding:18px 16px;
+      overflow:hidden;
+      border:1px solid rgba(244,246,248,.10);
+      background: rgba(10,16,22,.35);
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+      will-change: transform;
+    }
+    #stack .reading article::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(0,229,255,.18), transparent 40%),
+                  linear-gradient(110deg, rgba(255,93,158,.12), rgba(0,229,255,.10), rgba(124,92,255,.10));
+      opacity:0;
+      transition: opacity .25s ease;
+      pointer-events:none;
+    }
+    #stack .reading article::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(90deg, transparent, rgba(0,229,255,.14), transparent);
+      transform: translateX(-120%);
+      opacity:0;
+      pointer-events:none;
+    }
+    #stack .reading article:hover{
+      transform: translateY(-3px);
+      border-color: rgba(0,229,255,.35);
+      box-shadow: 0 14px 40px rgba(0,0,0,.40);
+    }
+    #stack .reading article:hover::before{opacity:1}
+    #stack .reading article:hover::after{
+      opacity:1;
+      animation: stackSweep 1.2s ease forwards;
+    }
+    @keyframes stackSweep{
+      0%{transform:translateX(-120%)}
+      100%{transform:translateX(120%)}
+    }
+
+</style>
 </head>
 
 <body>
@@ -743,7 +787,9 @@ layout: null
             <svg class="icon" id="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18a6 6 0 1 1 4.24-10.24 1 1 0 0 0 1.41-1.41A8 8 0 1 0 20 12a1 1 0 0 0-2 0 6 6 0 0 1-6 6Z"/></svg>
           </button>
 
+          <a class="btn" href="https://www.instagram.com/jamaicabasketball/" target="_blank" rel="noopener">JamaicaBasketball</a>
           <a class="btn" href="https://www.tiktok.com/@jamrockai" target="_blank" rel="noopener">JamrockAI</a>
+          <a class="btn" href="https://www.tiktok.com/@whenwihungry" target="_blank" rel="noopener">WhenWiHungry</a>
           <a class="btn primary" href="#contact">Hire / Collaborate</a>
         </div>
       </div>
@@ -775,7 +821,9 @@ layout: null
       </nav>
 
       <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-        <a class="btn" href="https://www.tiktok.com/@jamrockai" target="_blank" rel="noopener">JamrockAI</a>
+        <a class="btn" href="https://www.instagram.com/jamaicabasketball/" target="_blank" rel="noopener">JamaicaBasketball</a>
+          <a class="btn" href="https://www.tiktok.com/@jamrockai" target="_blank" rel="noopener">JamrockAI</a>
+          <a class="btn" href="https://www.tiktok.com/@whenwihungry" target="_blank" rel="noopener">WhenWiHungry</a>
         <a class="btn primary" href="#contact">Hire / Collaborate</a>
       </div>
     </div>
@@ -808,7 +856,7 @@ layout: null
                 <img src="./assets/profile.jpg" alt="Willy London profile photo">
               </div>
               <div>
-                <h4>Willard “Willy” Wells</h4>
+                <h4>Willard “Willy London” Wells</h4>
                 <p>IT Support • Automation Builder • Creator • Basketball Coach • Jamaica</p>
               </div>
             </div>
@@ -819,6 +867,11 @@ layout: null
 
               <a class="btn" href="https://www.tiktok.com/@willylondon" target="_blank" rel="noopener">TikTok: @willylondon</a>
               <a class="btn" href="https://www.instagram.com/willylondon/" target="_blank" rel="noopener">IG: @willylondon</a>
+
+              <a class="btn" href="https://x.com/willylondon" target="_blank" rel="noopener">Twitter/X: @willylondon</a>
+              <a class="btn" href="https://www.tiktok.com/@whenwihungry" target="_blank" rel="noopener">TikTok: @whenwihungry</a>
+              <a class="btn" href="https://www.tiktok.com/@jamrockai" target="_blank" rel="noopener">TikTok: @jamrockai</a>
+              <a class="btn" href="https://www.instagram.com/jamaicabasketball/" target="_blank" rel="noopener">IG: @jamaicabasketball</a>
               <a class="btn" href="https://www.youtube.com/@JamrockAI" target="_blank" rel="noopener">YouTube: JamrockAI</a>
             </div>
 
@@ -941,7 +994,7 @@ layout: null
                data-desc="Basketball updates + community building."
                data-details="Community basketball coverage and updates. Highlights local talent, discipline culture, and leadership-driven team building."
                data-tags="Sports Media, Community, Leadership"
-               data-links='[["TikTok: @willylondon", "https://www.tiktok.com/@willylondon"]]'>
+               data-links='[[\"IG: @jamaicabasketball\", \"https://www.instagram.com/jamaicabasketball/\"], [\"TikTok: @willylondon\", \"https://www.tiktok.com/@willylondon\"]]'>
             <h3>Jamaica Basketball Page</h3>
             <p class="section-sub">Basketball updates + community building.</p>
             <div class="tags">
@@ -1533,6 +1586,24 @@ layout: null
       if (!img.hasAttribute('loading')) img.setAttribute('loading','lazy');
       if (!img.hasAttribute('decoding')) img.setAttribute('decoding','async');
     });
+    // =============================
+    // Skill Stack hover spotlight
+    // =============================
+    (function(){
+      const stack = document.getElementById('stack');
+      if(!stack) return;
+      const cards = stack.querySelectorAll('.reading article');
+      cards.forEach(card=>{
+        card.addEventListener('mousemove', (e)=>{
+          const r = card.getBoundingClientRect();
+          const x = ((e.clientX - r.left) / r.width) * 100;
+          const y = ((e.clientY - r.top) / r.height) * 100;
+          card.style.setProperty('--mx', x + '%');
+          card.style.setProperty('--my', y + '%');
+        }, {passive:true});
+      });
+    })();
+
   </script>
 
 
