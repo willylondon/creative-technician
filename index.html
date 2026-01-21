@@ -420,10 +420,275 @@ layout: null
       .grid2{grid-template-columns:1fr}
       .navlinks{display:none}
     }
+  
+    /* ===== Improvements ===== */
+    html{scroll-behavior:smooth}
+    /* Scroll progress bar */
+    .scroll-progress{
+      position:fixed; top:0; left:0; height:3px; width:0%;
+      background: linear-gradient(90deg, rgba(0,229,255,.9), rgba(255,176,32,.85));
+      z-index:9999;
+      box-shadow: 0 6px 20px rgba(0,0,0,.45);
+    }
+
+    /* Light theme overrides */
+    body.light{
+      --bg:#F6F8FB;
+      --panel:#FFFFFF;
+      --panel2:#F2F5FA;
+      --text:#0B0F14;
+      --muted:rgba(11,15,20,.72);
+      --muted2:rgba(11,15,20,.55);
+      --line:rgba(11,15,20,.14);
+      --shadow: 0 18px 50px rgba(11,15,20,.12);
+      --shadow2: 0 12px 24px rgba(11,15,20,.10);
+      background:
+        radial-gradient(900px 550px at 15% -5%, rgba(0,229,255,.10), transparent 55%),
+        radial-gradient(800px 500px at 88% 10%, rgba(255,176,32,.10), transparent 55%),
+        radial-gradient(800px 520px at 55% 110%, rgba(53,255,105,.06), transparent 55%),
+        var(--bg);
+    }
+    body.light header{background: rgba(246,248,251,.72)}
+    body.light .grid{opacity:.16}
+    body.light .court{opacity:.10}
+
+    /* Theme toggle button */
+    .icon-btn{
+      width:44px; height:44px;
+      border-radius:14px;
+      display:inline-flex; align-items:center; justify-content:center;
+      border:1px solid rgba(244,246,248,.14);
+      background: rgba(244,246,248,.06);
+      cursor:pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .icon-btn:hover{transform: translateY(-1px); background:rgba(244,246,248,.09); border-color:rgba(244,246,248,.22)}
+    body.light .icon-btn{border-color: rgba(11,15,20,.14); background: rgba(11,15,20,.04)}
+    .icon{
+      width:20px; height:20px; display:block;
+      fill: currentColor;
+    }
+
+    /* Active nav link */
+    .navlinks a.active{
+      background: rgba(244,246,248,.08);
+      color: var(--text);
+      border:1px solid rgba(0,229,255,.18);
+    }
+    body.light .navlinks a.active{background: rgba(11,15,20,.05)}
+
+    /* Card hover and click affordance */
+    .tile{
+      cursor:pointer;
+    }
+    .tile:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(0,0,0,.30);
+    }
+    body.light .tile:hover{box-shadow: 0 18px 38px rgba(11,15,20,.12)}
+
+    /* Mobile menu */
+    .hamburger{display:none}
+    .mobile-panel{
+      position:fixed;
+      inset:0;
+      background: rgba(11,15,20,.62);
+      backdrop-filter: blur(10px);
+      z-index:999;
+      opacity:0; pointer-events:none;
+      transition: opacity .18s ease;
+    }
+    .mobile-panel.show{opacity:1; pointer-events:auto}
+    .mobile-sheet{
+      position:absolute; top:12px; left:12px; right:12px;
+      border-radius: 22px;
+      border:1px solid rgba(244,246,248,.14);
+      background: rgba(15,23,32,.92);
+      box-shadow: var(--shadow);
+      padding: 14px;
+      transform: translateY(-10px);
+      transition: transform .22s ease;
+    }
+    .mobile-panel.show .mobile-sheet{transform: translateY(0)}
+    .mobile-nav{
+      display:flex; flex-direction:column; gap:10px;
+      margin-top:10px;
+    }
+    .mobile-nav a{
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(244,246,248,.12);
+      background: rgba(244,246,248,.06);
+      color: var(--text);
+      font-weight: 700;
+    }
+    .mobile-nav a:hover{border-color: rgba(0,229,255,.24)}
+    body.light .mobile-sheet{background: rgba(255,255,255,.94); border-color: rgba(11,15,20,.12)}
+    body.light .mobile-nav a{background: rgba(11,15,20,.04); border-color: rgba(11,15,20,.10)}
+
+    /* Modal */
+    .modal{
+      position:fixed; inset:0;
+      display:flex; align-items:center; justify-content:center;
+      padding: 18px;
+      background: rgba(11,15,20,.70);
+      backdrop-filter: blur(10px);
+      z-index:1000;
+      opacity:0; pointer-events:none;
+      transition: opacity .18s ease;
+    }
+    .modal.show{opacity:1; pointer-events:auto}
+    .modal-card{
+      width:min(860px, 100%);
+      border-radius: 26px;
+      border:1px solid rgba(244,246,248,.14);
+      background: rgba(15,23,32,.92);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      transform: translateY(8px) scale(.985);
+      transition: transform .18s ease;
+    }
+    .modal.show .modal-card{transform: translateY(0) scale(1)}
+    body.light .modal-card{background: rgba(255,255,255,.96); border-color: rgba(11,15,20,.12)}
+    .modal-head{
+      padding:14px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      border-bottom:1px solid rgba(244,246,248,.10);
+    }
+    body.light .modal-head{border-bottom-color: rgba(11,15,20,.10)}
+    .modal-title{
+      margin:0;
+      font-family:"Space Grotesk", Inter, sans-serif;
+      font-size:16px;
+      letter-spacing:-.2px;
+      font-weight: 800;
+    }
+    .modal-body{
+      padding: 16px;
+      color: var(--muted);
+      font-size: 14.5px;
+    }
+    .modal-actions{
+      padding: 14px 16px;
+      border-top:1px solid rgba(244,246,248,.10);
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    body.light .modal-actions{border-top-color: rgba(11,15,20,.10)}
+    .close-x{
+      width:42px; height:42px;
+      border-radius: 14px;
+      border:1px solid rgba(244,246,248,.14);
+      background: rgba(244,246,248,.06);
+      color: var(--text);
+      cursor:pointer;
+      display:inline-flex; align-items:center; justify-content:center;
+    }
+    body.light .close-x{border-color: rgba(11,15,20,.12); background: rgba(11,15,20,.04)}
+    .close-x:hover{border-color: rgba(0,229,255,.24)}
+
+    /* Blog toolbar */
+    .toolbar{
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center;
+      margin-bottom: 12px;
+    }
+    .field{
+      flex:1 1 220px;
+      display:flex;
+      border:1px solid rgba(244,246,248,.14);
+      background: rgba(11,15,20,.35);
+      border-radius: 16px;
+      overflow:hidden;
+    }
+    body.light .field{background: rgba(11,15,20,.04); border-color: rgba(11,15,20,.12)}
+    .field input{
+      width:100%;
+      border:0;
+      outline:0;
+      background: transparent;
+      color: var(--text);
+      padding: 12px 12px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .select{
+      border:1px solid rgba(244,246,248,.14);
+      background: rgba(11,15,20,.35);
+      border-radius: 16px;
+      padding: 10px 12px;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 14px;
+      outline:none;
+    }
+    body.light .select{background: rgba(11,15,20,.04); border-color: rgba(11,15,20,.12); color: var(--text)}
+
+    /* Contact form */
+    form.contact{
+      border:1px solid rgba(244,246,248,.14);
+      background: rgba(15,23,32,.52);
+      border-radius: var(--radius2);
+      padding: 16px;
+      box-shadow: var(--shadow2);
+    }
+    body.light form.contact{background: rgba(255,255,255,.86); border-color: rgba(11,15,20,.12)}
+    .form-grid{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    .form-grid .full{grid-column: 1 / -1}
+    .control label{
+      display:block;
+      font-weight: 900;
+      font-size: 12px;
+      color: var(--muted2);
+      margin: 0 0 6px;
+      letter-spacing:.2px;
+    }
+    .control input, .control textarea{
+      width:100%;
+      border-radius: 16px;
+      border:1px solid rgba(244,246,248,.14);
+      background: rgba(11,15,20,.35);
+      padding: 12px 12px;
+      color: var(--text);
+      font-weight: 650;
+      font-size: 14px;
+      outline: none;
+    }
+    body.light .control input, body.light .control textarea{
+      background: rgba(11,15,20,.04);
+      border-color: rgba(11,15,20,.12);
+    }
+    .control textarea{min-height: 140px; resize: vertical}
+    .hint{font-size: 12.5px; color: var(--muted2); margin-top:6px}
+    .error{
+      margin-top:6px;
+      font-size: 12.5px;
+      color: rgba(255,120,120,.95);
+      font-weight: 800;
+      display:none;
+    }
+    .error.show{display:block}
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      *{scroll-behavior:auto !important}
+      .tile,.card{transition:none !important}
+      .modal,.mobile-panel{transition:none !important}
+      .floaters .floater{animation:none !important}
+    }
+
+    /* Mobile */
+    @media (max-width: 960px){
+      .hamburger{display:inline-flex}
+      .cta{gap:8px}
+      .hero-actions .btn{width:100%}
+      .form-grid{grid-template-columns:1fr}
+    }
+
   </style>
 </head>
 
 <body>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
   <!-- Background layer -->
   <div class="bg-layer" aria-hidden="true">
     <div class="grid"></div>
@@ -470,12 +735,53 @@ layout: null
         </nav>
 
         <div class="cta">
+          <button class="icon-btn hamburger" id="menu-btn" aria-label="Open menu" title="Menu">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16a1 1 0 0 0 0-2H4a1 1 0 0 0 0 2Zm16 4H4a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2Zm0 6H4a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2Z"/></svg>
+          </button>
+
+          <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+            <svg class="icon" id="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18a6 6 0 1 1 4.24-10.24 1 1 0 0 0 1.41-1.41A8 8 0 1 0 20 12a1 1 0 0 0-2 0 6 6 0 0 1-6 6Z"/></svg>
+          </button>
+
           <a class="btn" href="https://www.tiktok.com/@jamrockai" target="_blank" rel="noopener">JamrockAI</a>
           <a class="btn primary" href="#contact">Hire / Collaborate</a>
         </div>
       </div>
     </div>
-  </header>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-panel" id="mobile-panel" aria-hidden="true">
+    <div class="mobile-sheet" role="dialog" aria-modal="true" aria-label="Menu">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+        <div class="brand" style="gap:10px;">
+          <div class="mark" style="width:32px; height:32px;"></div>
+          <div>
+            <div style="font-size:14px; line-height:1.1;">Willy London</div>
+            <div style="font-size:12px; color:rgba(244,246,248,.60); font-weight:600; line-height:1.1;">
+              The Creative Technician
+            </div>
+          </div>
+        </div>
+        <button class="close-x" id="menu-close" aria-label="Close menu" title="Close">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12 5.7 16.89a1 1 0 0 0 1.41 1.41L12 13.41l4.89 4.89a1 1 0 0 0 1.41-1.41L13.41 12l4.89-4.89a1 1 0 0 0 0-1.4Z"/></svg>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" aria-label="Mobile primary">
+        <a href="#work">Work</a>
+        <a href="#stack">Skill Stack</a>
+        <a href="#blog">Writing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn" href="https://www.tiktok.com/@jamrockai" target="_blank" rel="noopener">JamrockAI</a>
+        <a class="btn primary" href="#contact">Hire / Collaborate</a>
+      </div>
+    </div>
+  </div>
+
+</header>
 
   <main>
     <!-- HERO -->
@@ -573,7 +879,13 @@ layout: null
         </div>
 
         <div class="grid2">
-          <div class="tile reveal">
+          <div class="tile reveal" role="button" tabindex="0"
+               data-type="project"
+               data-title="n8n YouTube Automation Workflow"
+               data-desc="Drive → title/description generation → merge → upload pipeline."
+               data-details="Built an end-to-end automation that ingests videos from Google Drive, generates YouTube metadata (titles, descriptions, tags), merges outputs, and uploads automatically. Focus: reliability, clean naming, repeatability."
+               data-tags="n8n, Google Drive, OpenAI, YouTube"
+               data-links='[["See JamrockAI", "https://www.youtube.com/@JamrockAI"]]'>
             <h3>n8n YouTube Automation Workflow</h3>
             <p class="section-sub">Drive → title/description generation → merge → upload pipeline.</p>
             <div class="tags">
@@ -581,7 +893,13 @@ layout: null
             </div>
           </div>
 
-          <div class="tile reveal">
+          <div class="tile reveal" role="button" tabindex="0"
+               data-type="project"
+               data-title="Google Workspace Administration"
+               data-desc="Identity, groups, policies, device support in a cloud-first setup."
+               data-details="Hands-on administration: user lifecycle, groups/OUs, security policies, device management, and rapid troubleshooting for staff and students."
+               data-tags="Admin Console, Security, Support"
+               data-links='[["Google Workspace", "https://workspace.google.com/"]]'>
             <h3>Google Workspace Administration</h3>
             <p class="section-sub">Identity, groups, policies, device support in a cloud-first setup.</p>
             <div class="tags">
@@ -589,7 +907,13 @@ layout: null
             </div>
           </div>
 
-          <div class="tile reveal">
+          <div class="tile reveal" role="button" tabindex="0"
+               data-type="project"
+               data-title="JamrockAI — AI Culture Content"
+               data-desc="Narration, story edits, AI visuals. Built for reach + retention."
+               data-details="A culture-focused AI content brand: Jamaican stories, folklore, and commentary. Optimized for retention with clean narration pacing, on-brand visuals, and strong hooks."
+               data-tags="TikTok, AI Video, Storytelling"
+               data-links='[["@jamrockai", "https://www.tiktok.com/@jamrockai"]]'>
             <h3>JamrockAI — AI Culture Content</h3>
             <p class="section-sub">Narration, story edits, AI visuals. Built for reach + retention.</p>
             <div class="tags">
@@ -597,7 +921,13 @@ layout: null
             </div>
           </div>
 
-          <div class="tile reveal">
+          <div class="tile reveal" role="button" tabindex="0"
+               data-type="project"
+               data-title="Portfolio Landing Pages"
+               data-desc="Fast, modern, deployable pages for professionals and brands."
+               data-details="Modern landing pages: responsive layout, SEO, social previews, and fast load times. Built to deploy on GitHub Pages with minimal maintenance."
+               data-tags="HTML/CSS, GitHub Pages, SEO"
+               data-links='[["GitHub Pages", "https://pages.github.com/"]]'>
             <h3>Portfolio Landing Pages</h3>
             <p class="section-sub">Fast, modern, deployable pages for professionals and brands.</p>
             <div class="tags">
@@ -605,7 +935,13 @@ layout: null
             </div>
           </div>
 
-          <div class="tile reveal">
+          <div class="tile reveal" role="button" tabindex="0"
+               data-type="project"
+               data-title="Jamaica Basketball Page"
+               data-desc="Basketball updates + community building."
+               data-details="Community basketball coverage and updates. Highlights local talent, discipline culture, and leadership-driven team building."
+               data-tags="Sports Media, Community, Leadership"
+               data-links='[["TikTok: @willylondon", "https://www.tiktok.com/@willylondon"]]'>
             <h3>Jamaica Basketball Page</h3>
             <p class="section-sub">Basketball updates + community building.</p>
             <div class="tags">
@@ -613,7 +949,13 @@ layout: null
             </div>
           </div>
 
-          <div class="tile reveal">
+          <div class="tile reveal" role="button" tabindex="0"
+               data-type="project"
+               data-title="When Wi Hungry — Food Reviews"
+               data-desc="Clean review storytelling: visuals, pacing, honesty."
+               data-details="Food review content: concise editing, strong pacing, and honest storytelling. Built for consistent upload and audience trust."
+               data-tags="Food Reviews, Canva, Editing"
+               data-links='[["@whenwihungry", "https://www.tiktok.com/@whenwihungry"]]'>
             <h3>When Wi Hungry — Food Reviews</h3>
             <p class="section-sub">Clean review storytelling: visuals, pacing, honesty.</p>
             <div class="tags">
@@ -680,7 +1022,21 @@ layout: null
           </div>
         </div>
 
-        <div class="reading">
+        
+        <div class="reading" id="blog-reading">
+          <div class="toolbar" aria-label="Blog tools">
+            <div class="field">
+              <input id="site-search" type="search" placeholder="Search posts + projects..." autocomplete="off" />
+            </div>
+            <select class="select" id="blog-filter" aria-label="Filter results">
+              <option value="all">All</option>
+              <option value="posts">Posts</option>
+              <option value="projects">Projects</option>
+            </select>
+          </div>
+
+          <div id="search-results" style="display:none;"></div>
+
           {% assign total_posts = site.posts | size %}
           {% if total_posts == 0 %}
             <p class="empty">No posts yet. Create your first post inside <strong>_posts</strong> to see it here.</p>
@@ -710,6 +1066,45 @@ layout: null
         </div>
 
         <div class="grid2">
+          <div class="tile reveal" style="cursor:default">
+            <h3>Send a Message</h3>
+            <p class="section-sub">Quick form (opens email if no backend).</p>
+
+            <form class="contact" id="contact-form" novalidate>
+              <div class="form-grid">
+                <div class="control">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" required minlength="2" placeholder="Your name" />
+                  <div class="error" id="err-name">Enter your name.</div>
+                </div>
+
+                <div class="control">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" required placeholder="you@example.com" />
+                  <div class="error" id="err-email">Enter a valid email.</div>
+                </div>
+
+                <div class="control full">
+                  <label for="subject">Subject</label>
+                  <input id="subject" name="subject" type="text" required minlength="3" placeholder="What is this about?" />
+                  <div class="error" id="err-subject">Enter a subject.</div>
+                </div>
+
+                <div class="control full">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" required minlength="10" placeholder="Type your message..."></textarea>
+                  <div class="error" id="err-message">Message must be at least 10 characters.</div>
+                  <div class="hint" id="form-status"></div>
+                </div>
+
+                <div class="full" style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
+                  <button class="btn primary" type="submit">Send</button>
+                  <button class="btn" type="reset">Reset</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
           <div class="tile reveal">
             <h3>Email (Business)</h3>
             <p class="section-sub">Fastest response for work/collabs.</p>
@@ -765,31 +1160,395 @@ layout: null
     </footer>
   </main>
 
+  
   <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // =============================
+    // Utilities
+    // =============================
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
-    // Reveal animations
-    const els = document.querySelectorAll('.reveal');
+    // Year
+    $('#year').textContent = new Date().getFullYear();
+
+    // =============================
+    // Scroll progress bar
+    // =============================
+    const progress = $('#scroll-progress');
+    const onScrollProgress = () => {
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop || document.body.scrollTop;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      progress.style.width = pct.toFixed(2) + '%';
+    };
+    window.addEventListener('scroll', onScrollProgress, { passive:true });
+    onScrollProgress();
+
+    // =============================
+    // Reveal animations (staggered)
+    // =============================
+    const reveals = $$('.reveal');
+    reveals.forEach((el, i) => el.style.transitionDelay = (Math.min(i, 10) * 55) + 'ms');
+
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) e.target.classList.add('show');
       });
     }, { threshold: 0.18 });
 
-    els.forEach(el => io.observe(el));
+    reveals.forEach(el => io.observe(el));
 
-    // Smooth scroll for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
+    // =============================
+    // Dynamic navigation (active link)
+    // =============================
+    const navLinks = $$('.navlinks a[href^="#"]');
+    const sections = navLinks
+      .map(a => $(a.getAttribute('href')))
+      .filter(Boolean);
+
+    const setActive = (id) => {
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    };
+
+    const navIO = new IntersectionObserver((entries) => {
+      const vis = entries.filter(e => e.isIntersecting)
+                         .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (vis && vis.target.id) setActive(vis.target.id);
+    }, { rootMargin: "-40% 0px -55% 0px", threshold: [0.15, 0.25, 0.5, 0.75] });
+
+    sections.forEach(s => navIO.observe(s));
+
+    // Smooth scroll for internal links (desktop + mobile)
+    const smoothTo = (id) => {
+      const target = $(id);
+      if (!target) return;
+      target.scrollIntoView({ behavior:'smooth', block:'start' });
+    };
+
+    $$('a[href^="#"]').forEach(a => {
       a.addEventListener('click', (ev) => {
         const id = a.getAttribute('href');
         if (!id || id === '#') return;
-        const target = document.querySelector(id);
+        const target = $(id);
         if (!target) return;
         ev.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        smoothTo(id);
+        closeMobile();
       });
     });
+
+    // =============================
+    // Theme switcher (persist)
+    // =============================
+    const themeToggle = $('#theme-toggle');
+    const themeIcon = $('#theme-icon');
+    const THEME_KEY = 'willy_theme';
+
+    const applyTheme = (mode) => {
+      document.body.classList.toggle('light', mode === 'light');
+      // update icon (moon/sun)
+      if (mode === 'light') {
+        themeIcon.innerHTML = '<path d="M6.76 4.84 5.35 3.43 3.93 4.85l1.41 1.41 1.42-1.42Zm10.48 0 1.41-1.41 1.42 1.42-1.41 1.41-1.42-1.42ZM12 2h0a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 17a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1ZM3 11a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm15-1h2a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm8.07 9.15 1.42 1.41-1.42 1.42-1.41-1.41 1.41-1.42ZM4.85 20.07 3.43 21.5l1.42 1.41 1.41-1.41-1.41-1.43Z"/>';
+      } else {
+        themeIcon.innerHTML = '<path d="M12 18a6 6 0 1 1 4.24-10.24 1 1 0 0 0 1.41-1.41A8 8 0 1 0 20 12a1 1 0 0 0-2 0 6 6 0 0 1-6 6Z"/>';
+      }
+      localStorage.setItem(THEME_KEY, mode);
+    };
+
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    if (savedTheme) applyTheme(savedTheme);
+
+    themeToggle?.addEventListener('click', () => {
+      const isLight = document.body.classList.contains('light');
+      applyTheme(isLight ? 'dark' : 'light');
+    });
+
+    // =============================
+    // Mobile menu
+    // =============================
+    const panel = $('#mobile-panel');
+    const menuBtn = $('#menu-btn');
+    const menuClose = $('#menu-close');
+
+    const openMobile = () => {
+      panel.classList.add('show');
+      panel.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeMobile = () => {
+      panel.classList.remove('show');
+      panel.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    menuBtn?.addEventListener('click', openMobile);
+    menuClose?.addEventListener('click', closeMobile);
+    panel?.addEventListener('click', (e) => {
+      if (e.target === panel) closeMobile();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMobile();
+        closeModal();
+      }
+    });
+
+    // =============================
+    // Projects modal (interactive cards)
+    // =============================
+    const modal = $('#modal');
+    const modalTitle = $('#modal-title');
+    const modalBody = $('#modal-body');
+    const modalActions = $('#modal-actions');
+    const modalClose = $('#modal-close');
+
+    const openModal = (data) => {
+      modalTitle.textContent = data.title || 'Details';
+      const tags = (data.tags || '').split(',').map(t=>t.trim()).filter(Boolean);
+      const tagPills = tags.length
+        ? `<div class="tags" style="margin:0 0 12px;">${tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>`
+        : '';
+
+      modalBody.innerHTML = `
+        ${tagPills}
+        <p style="margin:0 0 10px; color:var(--text); font-weight:900">${data.desc || ''}</p>
+        <p style="margin:0">${data.details || ''}</p>
+      `;
+
+      let links = [];
+      try { links = JSON.parse(data.links || '[]'); } catch {}
+      modalActions.innerHTML = links.map(([label, url]) => {
+        const safe = String(url||'').replace(/"/g,'');
+        return `<a class="btn primary" href="${safe}" target="_blank" rel="noopener">${label}</a>`;
+      }).join('') + '<button class="btn" id="modal-ok" type="button">Close</button>';
+
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+
+      $('#modal-ok')?.addEventListener('click', closeModal);
+    };
+
+    const closeModal = () => {
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    };
+
+    modalClose?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Click/Enter on tiles
+    const tiles = $$('.tile[data-type="project"]');
+    tiles.forEach(tile => {
+      const open = () => openModal({
+        title: tile.dataset.title,
+        desc: tile.dataset.desc,
+        details: tile.dataset.details,
+        tags: tile.dataset.tags,
+        links: tile.dataset.links
+      });
+
+      tile.addEventListener('click', open);
+      tile.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+      });
+    });
+
+    // =============================
+    // Search across projects + posts
+    // =============================
+    const searchInput = $('#site-search');
+    const filterSel = $('#blog-filter');
+    const results = $('#search-results');
+    const blogReading = $('#blog-reading');
+
+    // Build searchable items: projects from tiles
+    const projectItems = tiles.map(tile => ({
+      type: 'project',
+      title: tile.dataset.title || '',
+      desc: tile.dataset.desc || '',
+      tags: tile.dataset.tags || '',
+      details: tile.dataset.details || '',
+      links: tile.dataset.links || '[]',
+      open: () => tile.click()
+    }));
+
+    // Posts are static rendered by Jekyll. Capture existing post links.
+    const postLinks = $$('#blog .post-link');
+    const postItems = postLinks.map(a => {
+      const title = $('.post-title', a)?.textContent?.trim() || '';
+      const meta = $('.meta', a)?.textContent?.trim() || '';
+      const excerpt = $('.excerpt', a)?.textContent?.trim() || '';
+      return { type:'post', title, meta, excerpt, href: a.getAttribute('href') || '#' };
+    });
+
+    const renderResults = (list) => {
+      if (!list.length) {
+        results.innerHTML = `<p class="empty">No results found.</p>`;
+        results.style.display = '';
+        return;
+      }
+
+      results.innerHTML = list.slice(0, 12).map(item => {
+        if (item.type === 'project') {
+          return `
+            <div class="tile" style="min-height:auto; cursor:pointer; margin-bottom:12px"
+                 data-open="project" data-title="${item.title.replace(/"/g,'&quot;')}">
+              <h3>${item.title}</h3>
+              <p class="section-sub">${item.desc}</p>
+              <div class="tags" style="margin-top:10px">${(item.tags||'').split(',').map(t=>t.trim()).filter(Boolean).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+            </div>`;
+        }
+        return `
+          <a class="post-link" href="${item.href}">
+            <article style="border:1px solid rgba(244,246,248,.10); border-radius:18px; padding:14px; margin-bottom:12px;">
+              <h3 class="post-title">${item.title}</h3>
+              <p class="meta">${item.meta}</p>
+              <p class="excerpt">${item.excerpt}</p>
+            </article>
+          </a>`;
+      }).join('');
+
+      // wire project opens
+      $$('[data-open="project"]', results).forEach(card => {
+        const t = card.dataset.title;
+        const p = projectItems.find(x => x.title === t);
+        card.addEventListener('click', () => p?.open());
+      });
+
+      results.style.display = '';
+    };
+
+    const updateSearch = () => {
+      const q = (searchInput?.value || '').trim().toLowerCase();
+      const filter = filterSel?.value || 'all';
+
+      if (!q) {
+        results.style.display = 'none';
+        // show original posts list
+        // (do nothing; posts remain visible)
+        return;
+      }
+
+      const match = (s) => String(s||'').toLowerCase().includes(q);
+
+      let list = [];
+      if (filter === 'all' || filter === 'projects') {
+        list = list.concat(projectItems.filter(p =>
+          match(p.title) || match(p.desc) || match(p.tags) || match(p.details)
+        ));
+      }
+      if (filter === 'all' || filter === 'posts') {
+        list = list.concat(postItems.filter(p =>
+          match(p.title) || match(p.meta) || match(p.excerpt)
+        ));
+      }
+
+      // hide original posts when searching
+      postLinks.forEach(a => a.style.display = 'none');
+      renderResults(list);
+
+      // if filter is only projects, hide original posts too (already hidden)
+    };
+
+    searchInput?.addEventListener('input', () => {
+      // restore posts if query cleared
+      if (!searchInput.value.trim()) {
+        results.style.display = 'none';
+        postLinks.forEach(a => a.style.display = '');
+      } else {
+        updateSearch();
+      }
+    });
+
+    filterSel?.addEventListener('change', () => {
+      if (searchInput?.value.trim()) updateSearch();
+    });
+
+    // =============================
+    // Contact form validation + mailto fallback
+    // =============================
+    const form = $('#contact-form');
+    const status = $('#form-status');
+
+    const setErr = (id, on) => {
+      const el = $('#' + id);
+      if (!el) return;
+      el.classList.toggle('show', !!on);
+    };
+
+    const validate = () => {
+      const name = $('#name')?.value.trim();
+      const email = $('#email')?.value.trim();
+      const subject = $('#subject')?.value.trim();
+      const message = $('#message')?.value.trim();
+
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || '');
+      setErr('err-name', !name || name.length < 2);
+      setErr('err-email', !emailOk);
+      setErr('err-subject', !subject || subject.length < 3);
+      setErr('err-message', !message || message.length < 10);
+
+      return !!name && emailOk && !!subject && !!message && message.length >= 10;
+    };
+
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      status.textContent = '';
+
+      if (!validate()) {
+        status.textContent = 'Fix the highlighted fields.';
+        return;
+      }
+
+      const name = $('#name').value.trim();
+      const email = $('#email').value.trim();
+      const subject = $('#subject').value.trim();
+      const message = $('#message').value.trim();
+
+      const full = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+      const mailto = `mailto:willardwells@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(full)}`;
+
+      // open mail client (GitHub Pages-safe)
+      window.location.href = mailto;
+      status.textContent = 'Opening your email app...';
+      form.reset();
+    });
+
+    form?.addEventListener('input', () => {
+      // live validation without being annoying
+      if (status.textContent) status.textContent = '';
+    });
+
+    // =============================
+    // Performance: lazy load images
+    // =============================
+    $$('img').forEach(img => {
+      if (!img.hasAttribute('loading')) img.setAttribute('loading','lazy');
+      if (!img.hasAttribute('decoding')) img.setAttribute('decoding','async');
+    });
   </script>
+
+
+  <!-- Modal (Projects / Items) -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Details">
+      <div class="modal-head">
+        <h3 class="modal-title" id="modal-title">Title</h3>
+        <button class="close-x" id="modal-close" aria-label="Close modal" title="Close">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12 5.7 16.89a1 1 0 0 0 1.41 1.41L12 13.41l4.89 4.89a1 1 0 0 0 1.41-1.41L13.41 12l4.89-4.89a1 1 0 0 0 0-1.4Z"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-actions" id="modal-actions"></div>
+    </div>
+  </div>
+
 </body>
 </html>
