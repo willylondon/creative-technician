@@ -1,6 +1,3 @@
----
-layout: null
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +15,9 @@ layout: null
     :root {
       /* Theme Variables */
       --bg: #050505;
-      --bg-gradient: radial-gradient(circle at 50% 0%, #1a202c 0%, #050505 70%);
       --surface: rgba(255, 255, 255, 0.03);
       --surface-hover: rgba(255, 255, 255, 0.06);
       --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.2);
       
       --text-main: #ECECEC;
       --text-muted: #94A3B8;
@@ -79,7 +74,7 @@ layout: null
     /* Noise Texture */
     .noise-overlay {
       position: fixed; inset: 0; width: 100%; height: 100%;
-      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
       pointer-events: none; z-index: 50; opacity: 0.07;
     }
 
@@ -107,6 +102,7 @@ layout: null
     .items-center { align-items: center; }
     .justify-between { justify-content: space-between; }
     .gap-4 { gap: 1rem; }
+    .gap-2 { gap: 0.5rem; }
     .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
     .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
 
@@ -357,20 +353,21 @@ layout: null
         <h2 class="reveal" style="margin-bottom: 40px;">Observations & Logs</h2>
         
         <div class="reveal">
-          {% assign total_posts = site.posts | size %}
-          {% if total_posts == 0 %}
-            <div class="card" style="text-align: center; padding: 40px;">
-              <p style="color: var(--text-muted);">No logs found in the system yet. (Check _posts folder)</p>
-            </div>
-          {% endif %}
+          <a href="#" class="card data-hover" style="margin-bottom:16px; display:block;">
+            <span style="font-size:12px; color:var(--text-muted);">Feb 2026</span>
+            <h3 class="font-heading" style="font-size: 20px; margin-top:4px;">How I Automate YouTube Uploads with n8n</h3>
+          </a>
+          
+          <a href="#" class="card data-hover" style="margin-bottom:16px; display:block;">
+            <span style="font-size:12px; color:var(--text-muted);">Jan 2026</span>
+            <h3 class="font-heading" style="font-size: 20px; margin-top:4px;">Building "JamrockAI": Tools & Stack</h3>
+          </a>
 
-          {% for post in site.posts limit:5 %}
-            <a href="{{ post.url | relative_url }}" class="card data-hover" style="margin-bottom:16px; display:block;">
-              <span style="font-size:12px; color:var(--text-muted);">{{ post.date | date: "%b %d, %Y" }}</span>
-              <h3 class="font-heading" style="font-size: 20px; margin-top:4px;">{{ post.title }}</h3>
-            </a>
-          {% endfor %}
-          </div>
+          <a href="#" class="card data-hover" style="margin-bottom:16px; display:block;">
+            <span style="font-size:12px; color:var(--text-muted);">Dec 2025</span>
+            <h3 class="font-heading" style="font-size: 20px; margin-top:4px;">Google Workspace Security Essentials</h3>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -435,10 +432,16 @@ layout: null
         cursorDot.style.left = `${posX}px`;
         cursorDot.style.top = `${posY}px`;
 
-        cursorOutline.animate({
-          left: `${posX}px`,
-          top: `${posY}px`
-        }, { duration: 500, fill: "forwards" });
+        if (cursorOutline.animate) {
+          cursorOutline.animate({
+            left: `${posX}px`,
+            top: `${posY}px`
+          }, { duration: 500, fill: "forwards" });
+        } else {
+            // Fallback for older browsers
+            cursorOutline.style.left = `${posX}px`;
+            cursorOutline.style.top = `${posY}px`;
+        }
       });
 
       // Hover effects for links
