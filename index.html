@@ -70,7 +70,7 @@
       border-color: var(--accent-cyan);
     }
 
-    /* Background Layers (Restored) */
+    /* Background Layers */
     .bg-layer { position: fixed; inset: 0; pointer-events: none; z-index: -1; }
     
     .grid-lines {
@@ -146,7 +146,7 @@
     .hero-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
+      gap: 50px;
       align-items: center;
     }
     
@@ -154,15 +154,22 @@
       display: inline-block; padding: 6px 12px; border-radius: 100px;
       background: rgba(0, 229, 255, 0.1); color: var(--accent-cyan);
       font-size: 12px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.05em; margin-bottom: 24px;
+      letter-spacing: 0.05em; margin-bottom: 20px;
       border: 1px solid rgba(0, 229, 255, 0.2);
     }
     h1 {
-      font-size: clamp(48px, 6vw, 72px); line-height: 1.1; margin-bottom: 24px;
+      font-size: clamp(40px, 5vw, 64px); line-height: 1.1; margin-bottom: 24px;
       background: linear-gradient(to right, #fff, #94A3B8);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .hero p { font-size: 18px; color: var(--text-muted); margin-bottom: 32px; }
+    
+    /* Bio Text Styling */
+    .bio-text { margin-bottom: 32px; max-width: 650px; }
+    .bio-text p {
+      font-size: 15px; color: var(--text-muted); margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .bio-text p strong { color: var(--text-main); font-weight: 600; }
 
     /* Profile Image Container */
     .hero-image-wrap {
@@ -181,7 +188,7 @@
       width: 100%; height: 100%; object-fit: cover;
       border-radius: 24px;
       border: 1px solid rgba(255,255,255,0.1);
-      background: #111; /* Fallback color */
+      background: #111;
     }
 
     /* Cards */
@@ -283,10 +290,18 @@
             Creator Hands.<br>
             Coach Discipline.
           </h1>
-          <p class="reveal" style="transition-delay: 200ms;">
-            I bridge the gap between technical complexity and creative storytelling. 
-            Specializing in <strong>Google Workspace, n8n Automation</strong>, and <strong>AI Content workflows</strong>.
-          </p>
+          
+          <div class="bio-text reveal" style="transition-delay: 200ms;">
+            <p>
+              <strong>Willard “Willy London” Wells</strong> is a Jamaica-based IT professional with over 20 years of hands-on experience delivering dependable, high-impact technology support. He currently works at Hillel Academy, an international K–12 school, where he supports critical systems and builds practical automations that improve efficiency, consistency, and day-to-day operations.
+            </p>
+            <p>
+              In addition to his IT career, Willy is a digital growth coach and content creator with a combined following of over 50,000 across multiple platforms. He has led workshops for organizations such as JPS and at Hillel Academy focused on content creation with AI and online tools—helping job seekers and professionals improve their digital footprint, build a strong personal brand, and increase visibility in the modern job market.
+            </p>
+            <p>
+              Outside of work, Willy has coached multiple basketball teams and stays active through basketball, hiking, and pickleball. Passionate about technology and the future of AI, he’s excited by its possibilities while advocating strongly for responsible implementation and proper guardrails.
+            </p>
+          </div>
           
           <div class="flex flex-wrap gap-4 reveal" style="transition-delay: 300ms; align-items: center;">
             <a href="#work" class="btn primary data-hover">View Selected Work</a>
