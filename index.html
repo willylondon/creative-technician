@@ -139,16 +139,10 @@
     .btn-icon { width: 44px; height: 44px; padding: 0; border-radius: 50%; }
 
     /* Sections */
-    section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.03); position: relative; }
+    section { padding: 80px 0; border-bottom: 1px solid rgba(255,255,255,0.03); position: relative; }
 
-    /* HERO GRID LAYOUT */
-    .hero { min-height: 90vh; display: flex; align-items: center; padding-top: var(--header-height); }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 50px;
-      align-items: center;
-    }
+    /* HERO SECTION */
+    .hero { min-height: 60vh; display: flex; align-items: center; padding-top: var(--header-height); }
     
     .kicker {
       display: inline-block; padding: 6px 12px; border-radius: 100px;
@@ -158,26 +152,23 @@
       border: 1px solid rgba(0, 229, 255, 0.2);
     }
     h1 {
-      font-size: clamp(40px, 5vw, 64px); line-height: 1.1; margin-bottom: 24px;
+      font-size: clamp(48px, 6vw, 80px); line-height: 1.1; margin-bottom: 24px;
       background: linear-gradient(to right, #fff, #94A3B8);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    
-    /* Bio Text Styling */
-    .bio-text { margin-bottom: 32px; max-width: 650px; }
-    .bio-text p {
-      font-size: 15px; color: var(--text-muted); margin-bottom: 12px;
-      line-height: 1.6;
-    }
-    .bio-text p strong { color: var(--text-main); font-weight: 600; }
+    .hero-sub { font-size: 20px; color: var(--text-muted); margin-bottom: 32px; max-width: 600px; }
 
-    /* Profile Image Container */
+    /* ABOUT / BIO SECTION */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    
     .hero-image-wrap {
-      position: relative;
-      width: 100%;
-      max-width: 400px;
-      aspect-ratio: 1/1;
-      margin: 0 auto;
+      position: sticky; top: 100px; /* Sticks when scrolling */
+      width: 100%; aspect-ratio: 1/1;
     }
     .hero-image-wrap::before {
       content: ''; position: absolute; inset: -10px;
@@ -190,6 +181,12 @@
       border: 1px solid rgba(255,255,255,0.1);
       background: #111;
     }
+
+    .bio-text p {
+      font-size: 16px; color: var(--text-muted); margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    .bio-text p strong { color: var(--text-main); font-weight: 600; }
 
     /* Cards */
     .card {
@@ -229,8 +226,8 @@
     /* Mobile */
     @media (max-width: 1024px) {
         .brand-links { display: none; }
-        .hero-grid { grid-template-columns: 1fr; text-align: left; }
-        .hero-image-wrap { margin: 40px 0 0 0; max-width: 300px; }
+        .about-grid { grid-template-columns: 1fr; gap: 30px; }
+        .hero-image-wrap { position: relative; top: 0; max-width: 300px; margin: 0 auto; }
         .grid-2, .grid-3 { grid-template-columns: 1fr; }
         .nav-links-desktop { display: none; }
         .cursor-dot, .cursor-outline { display: none; }
@@ -264,6 +261,7 @@
       </a>
       
       <nav class="nav-links-desktop flex gap-2">
+        <a href="#about" class="nav-link data-hover">About</a>
         <a href="#work" class="nav-link data-hover">Work</a>
         <a href="#stack" class="nav-link data-hover">Skill Stack</a>
         <a href="#contact" class="nav-link data-hover">Contact</a>
@@ -281,49 +279,55 @@
 
   <main>
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="container">
+        <div class="kicker reveal">Systems • Automation • AI • Content</div>
+        <h1 class="reveal" style="transition-delay: 100ms;">
+          IT Brain.<br>
+          Creator Hands.<br>
+          Coach Discipline.
+        </h1>
+        <p class="hero-sub reveal" style="transition-delay: 200ms;">
+          I bridge the gap between technical complexity and creative storytelling. 
+        </p>
         
-        <div>
-          <div class="kicker reveal">Systems • Automation • AI • Content</div>
-          <h1 class="reveal" style="transition-delay: 100ms;">
-            IT Brain.<br>
-            Creator Hands.<br>
-            Coach Discipline.
-          </h1>
-          
-          <div class="bio-text reveal" style="transition-delay: 200ms;">
-            <p>
-              <strong>Willard “Willy London” Wells</strong> is a Jamaica-based IT professional with over 20 years of hands-on experience delivering dependable, high-impact technology support. He currently works at Hillel Academy, an international K–12 school, where he supports critical systems and builds practical automations that improve efficiency, consistency, and day-to-day operations.
-            </p>
-            <p>
-              In addition to his IT career, Willy is a digital growth coach and content creator with a combined following of over 50,000 across multiple platforms. He has led workshops for organizations such as JPS and at Hillel Academy focused on content creation with AI and online tools—helping job seekers and professionals improve their digital footprint, build a strong personal brand, and increase visibility in the modern job market.
-            </p>
-            <p>
-              Outside of work, Willy has coached multiple basketball teams and stays active through basketball, hiking, and pickleball. Passionate about technology and the future of AI, he’s excited by its possibilities while advocating strongly for responsible implementation and proper guardrails.
-            </p>
-          </div>
-          
-          <div class="flex flex-wrap gap-4 reveal" style="transition-delay: 300ms; align-items: center;">
-            <a href="#work" class="btn primary data-hover">View Selected Work</a>
-            
-            <div class="flex gap-2">
-              <a href="https://www.tiktok.com/@willylondon" target="_blank" class="btn btn-icon data-hover" title="TikTok">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
-              </a>
-              <a href="https://www.instagram.com/willylondon/" target="_blank" class="btn btn-icon data-hover" title="IG">
-                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              </a>
-              <a href="https://x.com/willylondon" target="_blank" class="btn btn-icon data-hover" title="X">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              </a>
-            </div>
-          </div>
+        <div class="flex flex-wrap gap-4 reveal" style="transition-delay: 300ms; align-items: center;">
+          <a href="#work" class="btn primary data-hover">View Featured Work</a>
+          <a href="#about" class="btn data-hover">Read Full Bio &darr;</a>
         </div>
+      </div>
+    </section>
 
-        <div class="hero-image-wrap reveal" style="transition-delay: 200ms;">
+    <section id="about">
+      <div class="container about-grid">
+        
+        <div class="hero-image-wrap reveal">
            <img src="./assets/profile.jpg" alt="Willy London" class="profile-img">
         </div>
 
+        <div class="bio-text reveal" style="transition-delay: 100ms;">
+          <h2 style="margin-bottom: 24px; font-size: 32px;">About Me</h2>
+          <p>
+            <strong>Willard “Willy London” Wells</strong> is a Jamaica-based IT professional with over 20 years of hands-on experience delivering dependable, high-impact technology support. He currently works at Hillel Academy, an international K–12 school, where he supports critical systems and builds practical automations that improve efficiency, consistency, and day-to-day operations.
+          </p>
+          <p>
+            In addition to his IT career, Willy is a digital growth coach and content creator with a combined following of over 50,000 across multiple platforms. He has led workshops for organizations such as JPS and at Hillel Academy focused on content creation with AI and online tools—helping job seekers and professionals improve their digital footprint, build a strong personal brand, and increase visibility in the modern job market.
+          </p>
+          <p>
+            Outside of work, Willy has coached multiple basketball teams and stays active through basketball, hiking, and pickleball. Passionate about technology and the future of AI, he’s excited by its possibilities while advocating strongly for responsible implementation and proper guardrails.
+          </p>
+
+          <div class="flex gap-2" style="margin-top: 24px;">
+            <a href="https://www.tiktok.com/@willylondon" target="_blank" class="btn btn-icon data-hover" title="TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/willylondon/" target="_blank" class="btn btn-icon data-hover" title="IG">
+               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://x.com/willylondon" target="_blank" class="btn btn-icon data-hover" title="X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
