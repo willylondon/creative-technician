@@ -6,15 +6,9 @@ layout: null
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Willy London | The Creative Technician</title>
-  <meta name="description" content="IT Systems Support • Automation Builder (n8n / Apps Script) • AI Content Creator • Basketball Coach. Systems that work, stories that move." />
+  <meta name="description" content="IT Systems Support • Automation Builder • AI Content Creator. Systems that work, stories that move." />
   <meta name="theme-color" content="#0B0F14" />
-
-  <meta property="og:title" content="Willy London | The Creative Technician" />
-  <meta property="og:description" content="IT + Automation + AI + Content Creation. Systems and Stories." />
-  <meta property="og:image" content="./assets/og-image.jpg" />
-  <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +16,7 @@ layout: null
 
   <style>
     :root {
-      /* Colors */
+      /* Theme Variables */
       --bg: #050505;
       --bg-gradient: radial-gradient(circle at 50% 0%, #1a202c 0%, #050505 70%);
       --surface: rgba(255, 255, 255, 0.03);
@@ -62,46 +56,39 @@ layout: null
       -webkit-font-smoothing: antialiased;
     }
 
+    /* === BELLS & WHISTLES: VISUAL FX === */
+    
     /* Custom Cursor */
-    .cursor-dot,
-    .cursor-outline {
-      position: fixed;
-      top: 0;
-      left: 0;
+    .cursor-dot, .cursor-outline {
+      position: fixed; top: 0; left: 0;
       transform: translate(-50%, -50%);
-      border-radius: 50%;
-      z-index: 9999;
-      pointer-events: none;
+      border-radius: 50%; z-index: 9999; pointer-events: none;
     }
-    .cursor-dot {
-      width: 8px;
-      height: 8px;
-      background-color: var(--accent-cyan);
-    }
+    .cursor-dot { width: 8px; height: 8px; background-color: var(--accent-cyan); }
     .cursor-outline {
-      width: 40px;
-      height: 40px;
+      width: 40px; height: 40px;
       border: 1px solid rgba(255, 255, 255, 0.2);
       transition: width 0.2s, height 0.2s, background-color 0.2s;
     }
-    /* Hover state for cursor */
     body.hovering .cursor-outline {
-      width: 60px;
-      height: 60px;
+      width: 60px; height: 60px;
       background-color: rgba(255, 255, 255, 0.05);
       border-color: var(--accent-cyan);
     }
 
     /* Noise Texture */
     .noise-overlay {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+      position: fixed; inset: 0; width: 100%; height: 100%;
       background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 50;
-      opacity: 0.07;
+      pointer-events: none; z-index: 50; opacity: 0.07;
+    }
+
+    /* Hero Background Blob */
+    .hero-bg {
+      position: absolute; top: 0; right: 0; width: 80%; height: 100%;
+      background: radial-gradient(circle at 70% 20%, rgba(0, 229, 255, 0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 60%, rgba(255, 176, 32, 0.06) 0%, transparent 60%);
+      z-index: -1; filter: blur(80px);
     }
 
     /* Typography */
@@ -111,232 +98,105 @@ layout: null
       letter-spacing: -0.02em;
       margin: 0;
     }
-    
     a { text-decoration: none; color: inherit; }
 
-    /* Utility Layout */
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+    /* Layout */
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
     .flex { display: flex; }
-    .flex-col { flex-direction: column; }
+    .flex-wrap { flex-wrap: wrap; }
     .items-center { align-items: center; }
     .justify-between { justify-content: space-between; }
     .gap-4 { gap: 1rem; }
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
     .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
 
     /* Header */
     header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      height: var(--header-height);
-      background: rgba(5, 5, 5, 0.7);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      z-index: 100;
-      display: flex;
-      align-items: center;
+      position: fixed; top: 0; width: 100%; height: var(--header-height);
+      background: rgba(5, 5, 5, 0.7); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); z-index: 100;
+      display: flex; align-items: center;
     }
-    
-    .nav-link {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-muted);
-      padding: 8px 16px;
-      border-radius: 20px;
-      transition: all 0.3s ease;
-    }
-    .nav-link:hover, .nav-link.active {
-      color: var(--text-main);
-      background: var(--surface);
-    }
-    
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .logo-mark {
-      width: 32px;
-      height: 32px;
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-amber));
-      border-radius: 8px;
-    }
+    .nav-link { font-size: 14px; font-weight: 500; color: var(--text-muted); padding: 8px 16px; border-radius: 20px; transition: all 0.3s ease; }
+    .nav-link:hover { color: var(--text-main); background: var(--surface); }
 
     /* Buttons */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 14px;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 20px; border-radius: 12px;
+      font-weight: 600; font-size: 14px;
       transition: all 0.3s var(--ease);
-      border: 1px solid var(--border);
-      background: var(--surface);
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--text-main); gap: 8px;
     }
-    .btn:hover {
-      border-color: var(--text-muted);
-      transform: translateY(-2px);
-    }
-    .btn.primary {
-      background: var(--text-main);
-      color: #000;
-      border-color: var(--text-main);
-    }
-    .btn.primary:hover {
-      background: var(--accent-cyan);
-      border-color: var(--accent-cyan);
-      box-shadow: var(--accent-glow);
-    }
+    .btn:hover { border-color: var(--text-muted); transform: translateY(-2px); background: var(--surface-hover); }
+    .btn.primary { background: var(--text-main); color: #000; border-color: var(--text-main); }
+    .btn.primary:hover { background: var(--accent-cyan); border-color: var(--accent-cyan); box-shadow: var(--accent-glow); }
+    
+    /* Social Icons (Circle Buttons) */
+    .btn-icon { width: 44px; height: 44px; padding: 0; border-radius: 50%; }
 
     /* Sections */
-    section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+    section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.03); position: relative; }
 
     /* Hero */
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding-top: var(--header-height);
-    }
-    
-    .hero-bg {
-      position: absolute;
-      top: 0; right: 0;
-      width: 60%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 70% 30%, rgba(0, 229, 255, 0.1) 0%, transparent 60%),
-        radial-gradient(circle at 80% 80%, rgba(255, 176, 32, 0.08) 0%, transparent 60%);
-      z-index: -1;
-      filter: blur(60px);
-    }
-
+    .hero { min-height: 90vh; display: flex; align-items: center; padding-top: var(--header-height); }
     .kicker {
-      display: inline-block;
-      padding: 6px 12px;
-      border-radius: 100px;
-      background: rgba(0, 229, 255, 0.1);
-      color: var(--accent-cyan);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 24px;
+      display: inline-block; padding: 6px 12px; border-radius: 100px;
+      background: rgba(0, 229, 255, 0.1); color: var(--accent-cyan);
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; margin-bottom: 24px;
       border: 1px solid rgba(0, 229, 255, 0.2);
     }
-
     h1 {
-      font-size: clamp(48px, 6vw, 80px);
-      line-height: 1.1;
-      margin-bottom: 24px;
+      font-size: clamp(48px, 6vw, 80px); line-height: 1.1; margin-bottom: 24px;
       background: linear-gradient(to right, #fff, #94A3B8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    
-    .hero p {
-      font-size: 18px;
-      color: var(--text-muted);
-      max-width: 540px;
-      margin-bottom: 32px;
-    }
+    .hero p { font-size: 18px; color: var(--text-muted); max-width: 580px; margin-bottom: 32px; }
 
-    /* Cards & Tiles */
+    /* Cards */
     .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      transition: all 0.4s var(--ease);
-      position: relative;
-      overflow: hidden;
+      display: block;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px;
+      transition: all 0.4s var(--ease); position: relative; overflow: hidden;
     }
     .card:hover {
-      border-color: var(--accent-cyan);
-      transform: translateY(-5px);
-      background: var(--surface-hover);
+      border-color: var(--accent-cyan); transform: translateY(-5px);
+      background: var(--surface-hover); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
-    
     .tag {
-      font-size: 12px;
-      padding: 4px 8px;
-      border-radius: 4px;
-      background: rgba(255,255,255,0.05);
-      color: var(--text-muted);
+      font-size: 12px; padding: 4px 8px; border-radius: 4px;
+      background: rgba(255,255,255,0.05); color: var(--text-muted);
       border: 1px solid rgba(255,255,255,0.05);
     }
 
-    /* Reveal Animation Classes */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s var(--ease);
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* Skill Stack */
+    .skill-bar { display: flex; gap: 4px; margin-top: 12px; }
+    .skill-pip { height: 4px; flex: 1; border-radius: 2px; background: var(--border); }
+    .skill-pip.fill { background: var(--accent-cyan); }
+    .skill-pip.fill-amber { background: var(--accent-amber); }
 
-    /* Blog Specifics */
-    .blog-post {
-      display: block;
-      padding: 24px 0;
-      border-top: 1px solid var(--border);
-    }
-    .blog-post:hover .post-title { color: var(--accent-cyan); }
-    .post-meta { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; display: block;}
-    .post-title { font-size: 20px; margin-bottom: 8px; transition: color 0.2s; }
-    .post-excerpt { color: var(--text-muted); font-size: 15px; }
+    /* Reveal Animation */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s var(--ease); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
 
     /* Forms */
     input, textarea {
-      width: 100%;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 16px;
-      border-radius: 12px;
-      color: var(--text-main);
-      font-family: 'Inter', sans-serif;
-      margin-bottom: 16px;
-      transition: 0.3s;
+      width: 100%; background: var(--surface); border: 1px solid var(--border);
+      padding: 16px; border-radius: 12px; color: var(--text-main);
+      font-family: 'Inter', sans-serif; margin-bottom: 16px; transition: 0.3s;
     }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--accent-cyan);
-      background: rgba(0, 229, 255, 0.05);
-    }
+    input:focus, textarea:focus { outline: none; border-color: var(--accent-cyan); background: rgba(0, 229, 255, 0.05); }
 
-    /* Mobile Responsive */
+    /* Mobile */
     @media (max-width: 768px) {
-      .grid-2 { grid-template-columns: 1fr; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
       .nav-links-desktop { display: none; }
-      h1 { font-size: 42px; }
-      .cursor-dot, .cursor-outline { display: none; } /* No custom cursor on touch */
+      .cursor-dot, .cursor-outline { display: none; } /* Disable custom cursor on mobile */
       * { cursor: auto; }
     }
-
-    /* Skill Stack Bar */
-    .skill-bar {
-      display: flex;
-      gap: 4px;
-      margin-top: 12px;
-    }
-    .skill-pip {
-      height: 4px;
-      flex: 1;
-      border-radius: 2px;
-      background: var(--border);
-    }
-    .skill-pip.fill { background: var(--accent-cyan); }
-    .skill-pip.fill-amber { background: var(--accent-amber); }
   </style>
 </head>
 <body>
@@ -347,12 +207,9 @@ layout: null
 
   <header>
     <div class="container flex justify-between items-center" style="width: 100%;">
-      <a href="#" class="logo data-hover">
-        <div class="logo-mark"></div>
-        <div>
-          <div class="font-heading" style="font-weight: 700; line-height: 1;">Willy London</div>
-          <div style="font-size: 11px; color: var(--text-muted); letter-spacing: 0.05em;">THE CREATIVE TECHNICIAN</div>
-        </div>
+      <a href="#" class="font-heading data-hover" style="font-weight: 700; font-size: 20px; display:flex; gap:10px; align-items:center;">
+        <div style="width:24px; height:24px; background:linear-gradient(135deg, var(--accent-cyan), var(--accent-amber)); border-radius:6px;"></div>
+        Willy London
       </a>
       
       <nav class="nav-links-desktop flex gap-4">
@@ -362,7 +219,7 @@ layout: null
         <a href="#contact" class="nav-link data-hover">Contact</a>
       </nav>
 
-      <a href="#contact" class="btn primary data-hover">Let's Talk</a>
+      <a href="#contact" class="btn primary data-hover">Hire Me</a>
     </div>
   </header>
 
@@ -370,7 +227,7 @@ layout: null
     <section class="hero">
       <div class="hero-bg"></div>
       <div class="container">
-        <div class="kicker reveal">Systems • Automation • Content</div>
+        <div class="kicker reveal">Systems • Automation • AI • Content</div>
         <h1 class="reveal" style="transition-delay: 100ms;">
           IT Brain.<br>
           Creator Hands.<br>
@@ -380,12 +237,21 @@ layout: null
           I bridge the gap between technical complexity and creative storytelling. 
           Specializing in <strong>Google Workspace, n8n Automation</strong>, and <strong>AI Content workflows</strong>.
         </p>
-        <div class="flex gap-4 reveal" style="transition-delay: 300ms;">
+        
+        <div class="flex flex-wrap gap-4 reveal" style="transition-delay: 300ms; align-items: center;">
           <a href="#work" class="btn primary data-hover">View Selected Work</a>
-          <a href="https://www.tiktok.com/@willylondon" target="_blank" class="btn data-hover">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
-            @willylondon
-          </a>
+          
+          <div class="flex gap-2">
+            <a href="https://www.tiktok.com/@willylondon" target="_blank" class="btn btn-icon data-hover" title="TikTok: @willylondon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/willylondon/" target="_blank" class="btn btn-icon data-hover" title="IG: @willylondon">
+               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://x.com/willylondon" target="_blank" class="btn btn-icon data-hover" title="X: @willylondon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -398,64 +264,57 @@ layout: null
         </div>
 
         <div class="grid-2">
-          <article class="card reveal data-hover" style="transition-delay: 100ms;">
+          <a href="https://www.tiktok.com/@jamrockai" target="_blank" class="card reveal data-hover" style="transition-delay: 100ms;">
             <div class="flex justify-between items-center" style="margin-bottom: 16px;">
               <h3 class="font-heading" style="font-size: 24px;">JamrockAI</h3>
               <div class="tag">TikTok / AI</div>
             </div>
             <p style="color: var(--text-muted); margin-bottom: 24px;">
-              An automated content brand focusing on Jamaican culture. Leveraging AI for visuals and scripts, optimized for retention.
+              Automated content brand. Jamaican culture meets AI visuals and storytelling.
             </p>
             <div class="flex gap-4">
-              <span class="tag">Video Editing</span>
-              <span class="tag">AI Workflows</span>
-              <span class="tag">Growth Strategy</span>
+              <span class="tag" style="color:var(--accent-cyan)">Visit TikTok &rarr;</span>
             </div>
-          </article>
+          </a>
 
-          <article class="card reveal data-hover" style="transition-delay: 200ms;">
+          <a href="https://www.youtube.com/@JamrockAI" target="_blank" class="card reveal data-hover" style="transition-delay: 200ms;">
             <div class="flex justify-between items-center" style="margin-bottom: 16px;">
-              <h3 class="font-heading" style="font-size: 24px;">n8n Automation Suite</h3>
+              <h3 class="font-heading" style="font-size: 24px;">n8n Workflows</h3>
               <div class="tag">Systems</div>
             </div>
             <p style="color: var(--text-muted); margin-bottom: 24px;">
-              Custom workflows to automate YouTube uploads, Google Drive organization, and social media posting. Removing the busy work.
+              Custom pipelines: Google Drive → Title Generation → YouTube Upload.
             </p>
             <div class="flex gap-4">
-              <span class="tag">n8n</span>
-              <span class="tag">Webhooks</span>
-              <span class="tag">Google API</span>
+              <span class="tag" style="color:var(--accent-cyan)">See Result &rarr;</span>
             </div>
-          </article>
+          </a>
           
-           <article class="card reveal data-hover" style="transition-delay: 300ms;">
+          <a href="https://www.tiktok.com/@whenwihungry" target="_blank" class="card reveal data-hover" style="transition-delay: 300ms;">
             <div class="flex justify-between items-center" style="margin-bottom: 16px;">
-              <h3 class="font-heading" style="font-size: 24px;">Google Workspace Admin</h3>
-              <div class="tag">IT Support</div>
+              <h3 class="font-heading" style="font-size: 24px;">When Wi Hungry</h3>
+              <div class="tag">Reviews</div>
             </div>
             <p style="color: var(--text-muted); margin-bottom: 24px;">
-              Full-stack administration of Google Workspace environments. Security policies, device management (Meraki), and user lifecycle.
+              Food review storytelling. Clean editing, pacing, and honesty.
             </p>
             <div class="flex gap-4">
-              <span class="tag">Admin Console</span>
-              <span class="tag">Security</span>
-              <span class="tag">Support</span>
+               <span class="tag" style="color:var(--accent-cyan)">Watch Reviews &rarr;</span>
             </div>
-          </article>
+          </a>
 
-          <article class="card reveal data-hover" style="transition-delay: 400ms;">
+          <a href="https://www.instagram.com/jamaicabasketball/" target="_blank" class="card reveal data-hover" style="transition-delay: 400ms;">
             <div class="flex justify-between items-center" style="margin-bottom: 16px;">
               <h3 class="font-heading" style="font-size: 24px;">Jamaica Basketball</h3>
               <div class="tag">Community</div>
             </div>
             <p style="color: var(--text-muted); margin-bottom: 24px;">
-              Building the digital presence for local sports. Highlight reels, player stats, and community engagement strategies.
+              Sports media coverage. Highlights, player stats, and leadership.
             </p>
             <div class="flex gap-4">
-              <span class="tag">Sports Media</span>
-              <span class="tag">Coaching</span>
+              <span class="tag" style="color:var(--accent-cyan)">Visit Instagram &rarr;</span>
             </div>
-          </article>
+          </a>
         </div>
       </div>
     </section>
@@ -469,7 +328,7 @@ layout: null
             <h4 class="font-heading">Engineering & IT</h4>
             <div class="skill-bar"><div class="skill-pip fill"></div><div class="skill-pip fill"></div><div class="skill-pip fill"></div><div class="skill-pip fill"></div><div class="skill-pip fill"></div></div>
             <p style="font-size: 14px; color: var(--text-muted); margin-top: 12px;">
-              Google Workspace, Cisco Meraki, Network+, A+, Troubleshooting, System Deployment.
+              Google Workspace, Cisco Meraki, Network+, A+, Troubleshooting.
             </p>
           </div>
 
@@ -477,7 +336,7 @@ layout: null
             <h4 class="font-heading">Automation & Code</h4>
             <div class="skill-bar"><div class="skill-pip fill"></div><div class="skill-pip fill"></div><div class="skill-pip fill"></div><div class="skill-pip fill"></div><div class="skill-pip"></div></div>
             <p style="font-size: 14px; color: var(--text-muted); margin-top: 12px;">
-              n8n, Google Apps Script, JavaScript, HTML/CSS, API Integrations, Webhooks.
+              n8n, Google Apps Script, JavaScript, Webhooks, API Integrations.
             </p>
           </div>
 
@@ -501,15 +360,14 @@ layout: null
           {% assign total_posts = site.posts | size %}
           {% if total_posts == 0 %}
             <div class="card" style="text-align: center; padding: 40px;">
-              <p style="color: var(--text-muted);">No logs found in the system yet.</p>
+              <p style="color: var(--text-muted);">No logs found in the system yet. (Check _posts folder)</p>
             </div>
           {% endif %}
 
           {% for post in site.posts limit:5 %}
-            <a href="{{ post.url | relative_url }}" class="blog-post data-hover">
-              <span class="post-meta">{{ post.date | date: "%b %d, %Y" }}</span>
-              <h3 class="post-title font-heading">{{ post.title }}</h3>
-              <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</p>
+            <a href="{{ post.url | relative_url }}" class="card data-hover" style="margin-bottom:16px; display:block;">
+              <span style="font-size:12px; color:var(--text-muted);">{{ post.date | date: "%b %d, %Y" }}</span>
+              <h3 class="font-heading" style="font-size: 20px; margin-top:4px;">{{ post.title }}</h3>
             </a>
           {% endfor %}
           </div>
@@ -524,9 +382,23 @@ layout: null
             <p style="color: var(--text-muted); margin-bottom: 30px;">
               Available for automation consulting, system setups, and content strategy collaborations.
             </p>
-            <div class="card" style="display: inline-flex; flex-direction: column; gap: 12px; min-width: 300px;">
-               <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase;">Direct Line</div>
-               <a href="mailto:willardwells@gmail.com" class="font-heading data-hover" style="font-size: 20px; color: var(--accent-cyan);">willardwells@gmail.com</a>
+            
+            <div style="margin-bottom: 30px;">
+              <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; margin-bottom:8px;">Direct Line</div>
+              <a href="mailto:willardwells@gmail.com" class="font-heading data-hover" style="font-size: 20px; color: var(--accent-cyan);">willardwells@gmail.com</a>
+            </div>
+
+            <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; margin-bottom:12px;">Network</div>
+            <div class="flex flex-wrap gap-2">
+              <a href="https://www.tiktok.com/@willylondon" target="_blank" class="btn btn-icon data-hover" title="TikTok">
+                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/willylondon/" target="_blank" class="btn btn-icon data-hover" title="Instagram">
+                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+               <a href="https://x.com/willylondon" target="_blank" class="btn btn-icon data-hover" title="Twitter">
+                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
             </div>
           </div>
 
@@ -560,18 +432,16 @@ layout: null
         const posX = e.clientX;
         const posY = e.clientY;
 
-        // Dot follows instantly
         cursorDot.style.left = `${posX}px`;
         cursorDot.style.top = `${posY}px`;
 
-        // Outline follows with slight delay (animation in CSS)
         cursorOutline.animate({
           left: `${posX}px`,
           top: `${posY}px`
         }, { duration: 500, fill: "forwards" });
       });
 
-      // Hover effects
+      // Hover effects for links
       const hoverables = document.querySelectorAll('.data-hover');
       hoverables.forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
@@ -579,13 +449,13 @@ layout: null
       });
     }
 
-    // 2. Scroll Reveal Engine (IntersectionObserver)
+    // 2. Scroll Reveal Engine
     const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
-          observer.unobserve(entry.target); // Only animate once
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
@@ -595,7 +465,7 @@ layout: null
     // 3. Dynamic Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // 4. Form Handling (Mailto Fallback for Static Sites)
+    // 4. Form Handling
     const form = document.getElementById('contact-form');
     form.addEventListener('submit', (e) => {
       e.preventDefault();
