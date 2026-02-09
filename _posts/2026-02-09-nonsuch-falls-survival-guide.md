@@ -3,6 +3,7 @@ layout: post
 title: "Chasing Giants: My Survival Guide to Nonsuch Falls"
 date: 2026-02-09
 categories: [Hiking, Jamaica, Adventure]
+image: "/assets/nonsuch-falls.png"
 ---
 
 ## The Journey East
@@ -15,7 +16,7 @@ Upon entering the base camp, I found some of my hiking friends attempting to thr
 
 The view from the campsite was, hands down, one of the best I've ever seen. It was breathtaking—I’d live in that very spot if I could. While the others sipped coffee and tea, we signed waivers that basically asked: *"You could get injured or die; you still want to go?"* We flew the drone to get some aerial shots before heading to the start of the trail.
 
-![The breathtaking view of Nonsuch Falls]({{ site.baseurl }}/assets/images/nonsuch-falls.jpg)
+![The breathtaking view of Nonsuch Falls](/assets/nonsuch-falls.png)
 
 ## The Descent (and the Fall)
 The guides offered everyone hiking sticks. A few of us refused; I felt my ancestors would be ashamed if I used one. About 15 minutes into the trail, I deeply regretted that decision. 
