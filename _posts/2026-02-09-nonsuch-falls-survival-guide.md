@@ -3,7 +3,7 @@ layout: post
 title: "Chasing Giants: My Survival Guide to Nonsuch Falls"
 date: 2026-02-09
 categories: [Hiking, Jamaica, Adventure]
-image: "/assets/nonsuch-falls.png"
+image: "/creative-technician/assets/nonsuch-falls.png"
 ---
 
 ## The Journey East
