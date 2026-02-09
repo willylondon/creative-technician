@@ -14,7 +14,7 @@ The drive took about three hours. By the time we arrived at the landmark shop an
 ## Axes and Ancestors
 Upon entering the base camp, I found some of my hiking friends attempting to throw axes at a target. Not only were they missing, they had no idea what they were doing. Little did they know, I grew up in the hills of St. Thomas—hunting, fishing, and farming before I was five years old. I’m a pro at this.
 
-The view from the campsite was, hands down, one of the best I've ever seen. It was breathtaking—I’d live in that very spot if I could. While the others sipped coffee and tea, we signed waivers that basically asked: *"You could get injured or die; you still want to go?"* We flew the drone to get some aerial shots before heading to the start of the trail.
+The view from the campsite was, hands down, one of the best I've ever seen. It was breathtaking, I’d live in that very spot if I could. While the others sipped coffee and tea, we signed waivers that basically asked: *"You could get injured or die; you still want to go?"* We flew the drone to get some aerial shots before heading to the start of the trail.
 
 ![The breathtaking view of Nonsuch Falls](/assets/nonsuch-falls.png)
 
