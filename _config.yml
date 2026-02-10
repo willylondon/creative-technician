@@ -2,7 +2,11 @@ title: Willy London
 description: The Creative Technician
 markdown: kramdown
 theme: null
+
+baseurl: "/creative-technician"
+
 permalink: /blog/:title/
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
