@@ -14,11 +14,14 @@ The drive took about three hours. By the time we arrived at the landmark shop an
 ## Axes and Ancestors
 Upon entering the base camp, I found some of my hiking friends attempting to throw axes at a target. Not only were they missing, they had no idea what they were doing. Little did they know, I grew up in the hills of St. Thomas—hunting, fishing, and farming before I was five years old. I’m a pro at this.
 
+![View from the Nonsuch base camp](/assets/nonsuch-view.png)
+
 The view from the campsite was, hands down, one of the best I've ever seen. It was breathtaking, I’d live in that very spot if I could. While the others sipped coffee and tea, we signed waivers that basically asked: *"You could get injured or die; you still want to go?"* We flew the drone to get some aerial shots before heading to the start of the trail.
 
-![The breathtaking view of Nonsuch Falls](/assets/nonsuch-falls.png)
-
 ## The Descent (and the Fall)
+
+![Nonsuch Falls trail](/assets/nonsuch-trail.png)
+
 The guides offered everyone hiking sticks. A few of us refused; I felt my ancestors would be ashamed if I used one. About 15 minutes into the trail, I deeply regretted that decision. 
 
 The terrain was so steep I was on all fours just to keep from rolling down the hill. Eventually, I did fall. Instead of asking if I was okay, the guide muttered under his breath about how he'd told me to take a stick. I wanted to give him a piece of my mind, but I saved that energy for the hike.
@@ -26,6 +29,9 @@ The terrain was so steep I was on all fours just to keep from rolling down the h
 The trek to the falls is supposed to take about 45 minutes. However, between the muddy terrain and my choice of Hoka running shoes, it took us an hour and a half. We climbed over rocks, ducked under trees, and waded through the riverbed.
 
 ## The Reward
+
+![Nonsuch Falls waterfall](/assets/nonsuch-falls.png)
+
 When we finally arrived, it was incredible. You’re standing before a massive vertical drop—the water was "ice cold" and exactly what my aching muscles needed. 
 
 But while everyone was taking photos and swimming, I had one thing on my mind: **How am I getting back up?** The hill back to base camp felt steeper than Mountain Spring and was incredibly slippery and muddy.
