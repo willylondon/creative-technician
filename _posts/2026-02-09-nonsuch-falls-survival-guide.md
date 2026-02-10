@@ -3,7 +3,7 @@ layout: post
 title: "Chasing Giants: My Survival Guide to Nonsuch Falls"
 date: 2026-02-09
 categories: [Hiking, Jamaica, Adventure]
-image: "/creative-technician/assets/images/nonsuch-falls.png"
+image: "{{ site.baseurl }}/assets/images/nonsuch-falls.png"
 ---
 
 ## The Journey East
@@ -14,13 +14,13 @@ The drive took about three hours. By the time we arrived at the landmark shop an
 ## Axes and Ancestors
 Upon entering the base camp, I found some of my hiking friends attempting to throw axes at a target. Not only were they missing, they had no idea what they were doing. Little did they know, I grew up in the hills of St. Thomas—hunting, fishing, and farming before I was five years old. I’m a pro at this.
 
-![View from the Nonsuch base camp](/creative-technician/assets/images/nonsuch-view.png)
+![View from the Nonsuch base camp]({{ site.baseurl }}/assets/images/nonsuch-view.png)
 
 The view from the campsite was, hands down, one of the best I've ever seen. It was breathtaking, I’d live in that very spot if I could. While the others sipped coffee and tea, we signed waivers that basically asked: *"You could get injured or die; you still want to go?"* We flew the drone to get some aerial shots before heading to the start of the trail.
 
 ## The Descent (and the Fall)
 
-![Nonsuch Falls trail](/creative-technician/assets/images/nonsuch-trail.png)
+![Nonsuch Falls trail]({{ site.baseurl }}/assets/images/nonsuch-trail.png)
 
 The guides offered everyone hiking sticks. A few of us refused; I felt my ancestors would be ashamed if I used one. About 15 minutes into the trail, I deeply regretted that decision. 
 
@@ -30,9 +30,9 @@ The trek to the falls is supposed to take about 45 minutes. However, between the
 
 ## The Reward
 
-![Nonsuch Falls waterfall](/creative-technician/assets/images/nonsuch-falls.png)
+![Nonsuch Falls waterfall]({{ site.baseurl }}/assets/images/nonsuch-falls.png)
 
-When we finally arrived, it was incredible. You’re standing before a massive vertical drop—the water was "ice cold" and exactly what my aching muscles needed. 
+When we finally arrived, it was incredible. You’re standing before a massive vertical drop—the water was ice cold and exactly what my aching muscles needed.
 
 But while everyone was taking photos and swimming, I had one thing on my mind: **How am I getting back up?** The hill back to base camp felt steeper than Mountain Spring and was incredibly slippery and muddy.
 
@@ -43,10 +43,11 @@ After about 60 minutes of climbing, stopping, and resting, we finally made it ba
 ## 💡 Quick Facts: Nonsuch Falls
 If you’re planning to visit, here is the breakdown based on my experience and local data:
 
-* **Height:** At **291 feet (89 meters)**, it is the tallest waterfall in Jamaica—roughly 100 feet taller than Niagara Falls.
-* **Difficulty:** I’d rate it a **7.5/10**. It is extremely dangerous when wet.
-* **Pro Tip:** Don’t trust the limestone; it’s covered in moss and algae. Also, use **Waze** for navigation; Google Maps is often inaccurate in this area.
-* **Cost:** Approximately **$3,000 JMD** for the "Top and Bottom" tour for nationals.
-* **Gear:** Wear actual water shoes with traction. Sturdy sneakers are okay for the mud, but you'll want grip for the river rocks.
+* **Height:** **291 feet (89 meters)** — tallest waterfall in Jamaica.
+* **Difficulty:** **7.5/10**. Extremely dangerous when wet.
+* **Pro Tip:** Don’t trust the limestone; moss and algae make it slick. Use **Waze**; Google Maps is unreliable here.
+* **Cost:** ~**$3,000 JMD** for nationals (Top & Bottom tour).
+* **Gear:** Water shoes with traction. Mud-friendly sneakers minimum.
 
-**Would I go back?** Only to the base camp for the view. If you have good hiking shoes and a sense of adventure, go for it—everyone should see this giant at least once.
+**Would I go back?**  
+Only to the base camp for the view. If you have proper shoes and a sense of adventure, go once. Everyone should see this giant at least once.
