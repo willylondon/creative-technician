@@ -3,7 +3,7 @@ description: The Creative Technician
 markdown: kramdown
 theme: null
 
-baseurl: "/creative-technician"
+baseurl: "/creative-technician-main"
 
 permalink: /blog/:title/
 
