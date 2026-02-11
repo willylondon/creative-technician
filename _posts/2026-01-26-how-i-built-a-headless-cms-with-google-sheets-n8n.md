@@ -26,7 +26,7 @@ Automation is fragile. One wrong character can ruin the whole pipeline.
 
 1. The "Ghost" Newline My workflow kept creating folders instead of files. I’d ask for _posts/my-file.md, and GitHub would create a folder named my-file.md/. The culprit? A hidden \n (newline character) at the end of my file path formula. Automation takes you literally—if you tell it to put a newline at the end of a filename, it interprets that as a directory structure.
 
-2. The Double Equals Disaster I spent an hour fighting a bug where n8n was creating folders named ==_posts in my repository. It turned out I had a typo in my n8n Expression. I wrote =={{ $json.filePath }}. That extra equals sign was treated as text, so n8n literally sent a file path starting with equals signs to GitHub. Always check your raw expressions!
+2. The Double Equals Disaster I spent an hour fighting a bug where n8n was creating folders named ==_posts in my repository. It turned out I had a typo in my n8n Expression. I wrote {% raw %}=={{ $json.filePath }}{% endraw %}. That extra equals sign was treated as text, so n8n literally sent a file path starting with equals signs to GitHub. Always check your raw expressions!
 
 3. The "SHA" Error When testing, I kept getting a 422 Unprocessable Entity error saying "SHA wasn't supplied." Translation: "This file already exists." The GitHub API protects you from accidentally overwriting files. If you use the "Create" operation on a file that already exists, it blocks you. I learned to either delete the old file first or version my titles (e.g., "My Post V2") during testing.
 
@@ -47,4 +47,3 @@ Now, I can blog from my phone. I can blog from a tablet. I can draft 10 posts in
 This is what I mean by Systems & Soul. The system handles the heavy lifting (deployment, formatting, git commits) so I can focus on the soul (the writing).
 
 Built with n8n, Google Sheets, and a lot of patience.
-
