@@ -342,7 +342,7 @@ layout: null
       <div class="container about-grid">
         
         <div class="hero-image-wrap reveal">
-           <img src="./assets/profile.jpg" alt="Willy London" class="profile-img">
+           <img src="/assets/profile.jpg" alt="Willy London" class="profile-img">
         </div>
 
         <div class="bio-text reveal" style="transition-delay: 100ms;">
@@ -479,7 +479,7 @@ layout: null
             
             {% if post.image %}
             <div style="width: 100%; height: 200px; margin-bottom: 16px; border-radius: 8px; overflow: hidden; background: #111;">
-              <img src="{{ post.image }}" alt="{{ post.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+              <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             {% endif %}
             
