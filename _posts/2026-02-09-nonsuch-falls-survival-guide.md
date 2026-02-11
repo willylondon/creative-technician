@@ -6,6 +6,7 @@ categories: [Hiking, Jamaica, Adventure]
 image: /assets/images/nonsuch-falls.png
 image_width: 1024
 image_height: 1536
+featured: true
 ---
 
 ## The Journey East

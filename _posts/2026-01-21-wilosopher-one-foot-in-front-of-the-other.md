@@ -2,6 +2,7 @@
 layout: post
 title: "Wilosopher: One Foot in Front of the Other"
 date: 2026-01-20
+featured: true
 ---
 
 I didn’t wake up one day and decide I wanted a “brand.”

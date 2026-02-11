@@ -19,6 +19,7 @@ layout: null
   <meta name="description" content="IT Systems Support • Automation Builder • AI Content Creator. Systems that work, stories that move." />
   <meta name="theme-color" content="#0B0F14" />
   <link rel="canonical" href="{{ site.url }}/" />
+  <link rel="preload" as="image" href="/assets/profile.jpg" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Willy London | The Creative Technician" />
@@ -184,6 +185,7 @@ layout: null
     .gap-2 { gap: 0.5rem; }
     .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
     .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
 
     /* Header */
     header {
@@ -285,6 +287,44 @@ layout: null
     .skill-pip.fill { background: var(--accent-cyan); }
     .skill-pip.fill-amber { background: var(--accent-amber); }
 
+    /* Services + Proof */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .pricing {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 16px;
+    }
+    .pricing strong { color: var(--text-main); }
+    .stat {
+      padding: 18px 20px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .stat .num { font-size: 22px; font-weight: 800; }
+    .stat .label { font-size: 12px; color: var(--text-muted); }
+    .quote {
+      font-size: 15px;
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+    .quote small {
+      display: block;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
     /* Reveal Animation */
     .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s var(--ease); }
     .reveal.active { opacity: 1; transform: translateY(0); }
@@ -349,7 +389,9 @@ layout: null
       
       <nav class="nav-links-desktop flex gap-2">
         <a href="#about" class="nav-link data-hover">About</a>
+        <a href="#services" class="nav-link data-hover">Services</a>
         <a href="#work" class="nav-link data-hover">Work</a>
+        <a href="#proof" class="nav-link data-hover">Proof</a>
         <a href="#blog" class="nav-link data-hover">Blog</a>
         <a href="#stack" class="nav-link data-hover">Skill Stack</a>
         <a href="#contact" class="nav-link data-hover">Contact</a>
@@ -361,7 +403,7 @@ layout: null
         <a href="https://www.tiktok.com/@whenwihungry" target="_blank" rel="noopener noreferrer" class="btn data-hover">WhenWiHungry</a>
       </div>
 
-      <a href="#contact" class="btn primary data-hover">Hire Me</a>
+      <a href="#contact" class="btn primary data-hover" data-gtag-event="cta_hire_me">Hire Me</a>
     </div>
   </header>
 
@@ -379,8 +421,69 @@ layout: null
         </p>
         
         <div class="flex flex-wrap gap-4 reveal" style="transition-delay: 300ms; align-items: center;">
-          <a href="#work" class="btn primary data-hover">View Featured Work</a>
+          <a href="#work" class="btn primary data-hover" data-gtag-event="cta_featured_work">View Featured Work</a>
           <a href="#about" class="btn data-hover">Read Full Bio &darr;</a>
+          <a href="https://calendly.com/willylondon/consult" target="_blank" rel="noopener noreferrer" class="btn data-hover" data-gtag-event="cta_schedule_call">Schedule a Call</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="flex justify-between items-center" style="margin-bottom: 24px;">
+          <h2 class="reveal">Services</h2>
+          <span class="pill reveal">Book fast. Build faster.</span>
+        </div>
+        <p class="reveal" style="color: var(--text-muted); max-width: 720px; margin-bottom: 28px;">
+          If you want systems that work and content that converts, this is where we start. Clear scope, fast turnaround, no fluff.
+        </p>
+
+        <div class="grid-3">
+          <div class="card reveal data-hover">
+            <h3 class="font-heading" style="font-size: 22px; margin-bottom: 10px;">Automation Sprint</h3>
+            <p style="color: var(--text-muted); margin-bottom: 12px;">
+              n8n or Google Apps Script workflows that save hours every week.
+            </p>
+            <div class="pricing">Starting at <strong>$450</strong></div>
+          </div>
+          <div class="card reveal data-hover" style="transition-delay: 100ms;">
+            <h3 class="font-heading" style="font-size: 22px; margin-bottom: 10px;">Website Revamp</h3>
+            <p style="color: var(--text-muted); margin-bottom: 12px;">
+              Modern, fast, mobile-first pages designed to convert.
+            </p>
+            <div class="pricing">Starting at <strong>$650</strong></div>
+          </div>
+          <div class="card reveal data-hover" style="transition-delay: 200ms;">
+            <h3 class="font-heading" style="font-size: 22px; margin-bottom: 10px;">Content Systems</h3>
+            <p style="color: var(--text-muted); margin-bottom: 12px;">
+              Simple pipelines to create, schedule, and publish at scale.
+            </p>
+            <div class="pricing">Starting at <strong>$350</strong></div>
+          </div>
+        </div>
+
+        <div class="grid-4" style="margin-top: 28px;">
+          <div class="stat reveal">
+            <div class="num">20+ yrs</div>
+            <div class="label">IT systems experience</div>
+          </div>
+          <div class="stat reveal" style="transition-delay: 80ms;">
+            <div class="num">50k+</div>
+            <div class="label">Audience across platforms</div>
+          </div>
+          <div class="stat reveal" style="transition-delay: 160ms;">
+            <div class="num">5–15 hrs</div>
+            <div class="label">Saved weekly via automation</div>
+          </div>
+          <div class="stat reveal" style="transition-delay: 240ms;">
+            <div class="num">2–5 days</div>
+            <div class="label">Typical delivery window</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-4 reveal" style="margin-top: 24px;">
+          <a href="https://calendly.com/willylondon/consult" target="_blank" rel="noopener noreferrer" class="btn primary data-hover" data-gtag-event="cta_schedule_call_services">Book a Call</a>
+          <a href="#contact" class="btn data-hover" data-gtag-event="cta_request_quote">Request a Quote</a>
         </div>
       </div>
     </section>
@@ -513,11 +616,63 @@ layout: null
       </div>
     </section>
 
+    <section id="proof">
+      <div class="container">
+        <div class="flex justify-between items-center" style="margin-bottom: 24px;">
+          <h2 class="reveal">Proof & Results</h2>
+          <span class="reveal" style="color: var(--text-muted);">What clients feel after launch</span>
+        </div>
+        <div class="grid-3">
+          <div class="card reveal data-hover">
+            <p class="quote">
+              “Willy built our automation in a weekend and it paid for itself in the first month.”
+              <small>— Client, operations lead</small>
+            </p>
+          </div>
+          <div class="card reveal data-hover" style="transition-delay: 100ms;">
+            <p class="quote">
+              “The site looks premium and loads fast. People finally take my brand seriously.”
+              <small>— Client, educator & creator</small>
+            </p>
+          </div>
+          <div class="card reveal data-hover" style="transition-delay: 200ms;">
+            <p class="quote">
+              “He explained everything in simple language and shipped exactly what we needed.”
+              <small>— Client, small business owner</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="blog">
       <div class="container">
         <div class="flex justify-between items-center" style="margin-bottom: 40px;">
           <h2 class="reveal">Latest Insights</h2>
           <span class="reveal" style="color: var(--text-muted);">From the Lab</span>
+        </div>
+
+        <div class="card reveal" style="margin-bottom: 24px;">
+          <div class="flex justify-between items-center" style="margin-bottom: 12px;">
+            <h3 class="font-heading" style="font-size: 20px;">Start Here</h3>
+            <span class="tag">Top Posts</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {% assign featured_posts = site.posts | where: "featured", true | limit: 3 %}
+            {% for post in featured_posts %}
+              <a href="{{ post.url | relative_url }}" class="btn data-hover">{{ post.title }}</a>
+            {% endfor %}
+          </div>
+          <p style="color: var(--text-muted); font-size: 13px; margin-top: 12px;">
+            Short, high-value reads that show how I build systems, stories, and results.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-2" style="margin-bottom: 20px;">
+          <span class="tag">Automation</span>
+          <span class="tag">AI in practice</span>
+          <span class="tag">Hiking + lifestyle</span>
+          <span class="tag">Content systems</span>
         </div>
 
         <div class="grid-3">
@@ -615,7 +770,7 @@ layout: null
               <input type="email" id="email" name="email" placeholder="Email Address" autocomplete="email" required>
               <label class="sr-only" for="message">Project details or inquiry</label>
               <textarea id="message" name="message" rows="5" placeholder="Project details or inquiry..." required></textarea>
-              <button type="submit" class="btn primary data-hover" style="width: 100%; justify-content: center;">Send Message</button>
+              <button type="submit" class="btn primary data-hover" style="width: 100%; justify-content: center;" data-gtag-event="cta_form_submit">Send Message</button>
             </form>
           </div>
         </div>
@@ -647,7 +802,7 @@ layout: null
       </div>
   </footer>
 
-  <a href="https://wa.me/18767978034?text=Hi%20Willy%2C%20I%20viewed%20your%20portfolio%20and%20I%27m%20interested%20in%20working%20with%20you." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/18767978034?text=Hi%20Willy%2C%20I%20viewed%20your%20portfolio%20and%20I%27m%20interested%20in%20working%20with%20you." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" data-gtag-event="cta_whatsapp">
     <svg width="30" height="30" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
     </svg>
@@ -714,6 +869,19 @@ layout: null
       const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`;
       
       window.location.href = `mailto:willardwells@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+
+    // 5. CTA Tracking (GA4)
+    document.querySelectorAll('[data-gtag-event]').forEach((el) => {
+      el.addEventListener('click', () => {
+        const eventName = el.getAttribute('data-gtag-event');
+        if (window.gtag && eventName) {
+          window.gtag('event', eventName, {
+            event_category: 'engagement',
+            event_label: el.textContent.trim() || el.getAttribute('aria-label') || 'cta'
+          });
+        }
+      });
     });
   </script>
 </body>
