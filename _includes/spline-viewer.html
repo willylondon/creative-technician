@@ -1,6 +1,6 @@
 <section
   id="spline-section-{{ include.canvas_id | default: 'hero-3d-scene' }}"
-  style="position:fixed; inset:0; width:100%; height:100vh; z-index:0; pointer-events:none;"
+  style="position:fixed; inset:0; width:100%; height:100vh; z-index:0;"
 >
   <div
     id="spline-fallback-{{ include.canvas_id | default: 'hero-3d-scene' }}"
@@ -19,7 +19,7 @@
   ></canvas>
 
   {% if include.overlay_html %}
-    <div class="spline-overlay" style="position:absolute; inset:0; display:flex; align-items:center; z-index:1; pointer-events:auto;">
+    <div class="spline-overlay" style="position:absolute; inset:0; display:flex; align-items:center; z-index:1;">
       <div style="margin:0 auto; max-width:72rem; padding:0 24px;">
         {{ include.overlay_html }}
       </div>
