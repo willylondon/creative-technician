@@ -14,7 +14,7 @@
   <canvas
     id="{{ include.canvas_id | default: 'hero-3d-scene' }}"
     class="w-full h-screen"
-    style="position:fixed; inset:0; width:100%; height:100vh; z-index:0;"
+    style="position:fixed; inset:0; width:100%; height:100vh; z-index:0; pointer-events:none;"
     aria-label="3D Spline Scene"
   ></canvas>
 
@@ -32,6 +32,8 @@
     const canvas = document.getElementById(canvasId);
     const fallback = document.getElementById(`spline-fallback-${canvasId}`);
     const section = document.getElementById(`spline-section-${canvasId}`);
+    const interactionTargetId = {{ include.interaction_target_id | default: "" | jsonify }};
+    const interactionTarget = interactionTargetId ? document.getElementById(interactionTargetId) : null;
 
     if (!canvas || !sceneUrl || !section) {
       console.warn('[spline-viewer] Missing canvas, section, or scene_url');
@@ -77,6 +79,17 @@
       );
 
       observer.observe(section);
+
+      if (interactionTarget) {
+        const enablePointer = () => { canvas.style.pointerEvents = 'auto'; };
+        const disablePointer = () => { canvas.style.pointerEvents = 'none'; };
+        interactionTarget.addEventListener('mouseenter', enablePointer);
+        interactionTarget.addEventListener('mouseleave', disablePointer);
+        interactionTarget.addEventListener('focusin', enablePointer);
+        interactionTarget.addEventListener('focusout', disablePointer);
+        interactionTarget.addEventListener('touchstart', enablePointer, { passive: true });
+        interactionTarget.addEventListener('touchend', disablePointer, { passive: true });
+      }
     }
   </script>
 </section>
