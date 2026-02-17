@@ -7,9 +7,6 @@ image: /assets/images/nonsuch-falls.png
 image_width: 1024
 image_height: 1536
 featured: true
-
-spline_scene_url: "https://prod.spline.design/pL80f0f4d0SKvZnK/scene.splinecode"
-spline_canvas_id: "post-hero-3d-scene"
 ---
 
 ## The Journey East

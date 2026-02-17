@@ -3,9 +3,6 @@ layout: post
 title: "How I Built a Headless CMS with Google Sheets & n8n"
 date: 2026-01-26 10:44
 featured: true
-
-spline_scene_url: "https://prod.spline.design/pL80f0f4d0SKvZnK/scene.splinecode"
-spline_canvas_id: "post-hero-3d-scene"
 ---
 
 I love systems that work for me, not against me. As a content creator and IT professional, I didn't want to log into GitHub and write code every time I had a thought. I wanted to write in a simple Google Sheet and have it magically appear on my website.

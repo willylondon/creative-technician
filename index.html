@@ -183,6 +183,7 @@ layout: null
     .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
     .w-full { width: 100%; }
     .h-screen { height: 100vh; }
+    .page-layer { position: relative; z-index: 1; }
     .flex { display: flex; }
     .flex-wrap { flex-wrap: wrap; }
     .items-center { align-items: center; }
@@ -386,7 +387,7 @@ layout: null
     </div>
   </div>
 
-  <header>
+  <header class="page-layer">
     <div class="container flex justify-between items-center" style="width: 100%;">
       <a href="#" class="font-heading data-hover" style="font-weight: 700; font-size: 20px; display:flex; gap:10px; align-items:center; margin-right: 20px;">
         <div style="width:24px; height:24px; background:linear-gradient(135deg, var(--accent-cyan), var(--accent-amber)); border-radius:6px;"></div>
@@ -413,7 +414,7 @@ layout: null
     </div>
   </header>
 
-  <main>
+  <main class="page-layer">
     {% include spline-viewer.html scene_url="https://prod.spline.design/pL80f0f4d0SKvZnK/scene.splinecode" canvas_id="hero-3d-scene" %}
     <section class="hero">
       <div class="container">

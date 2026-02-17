@@ -6,9 +6,6 @@ categories: [Basketball, Jamaica, Community]
 image: /assets/images/jamaica-basketball-qatar-2027-1.png
 image_width: 1440
 image_height: 1440
-
-spline_scene_url: "https://prod.spline.design/pL80f0f4d0SKvZnK/scene.splinecode"
-spline_canvas_id: "post-hero-3d-scene"
 ---
 
 To the fans, the community, and every supporter of Jamaican excellence:

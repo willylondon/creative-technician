@@ -1,23 +1,26 @@
-<section id="spline-section-{{ include.canvas_id | default: 'hero-3d-scene' }}" class="relative">
+<section
+  id="spline-section-{{ include.canvas_id | default: 'hero-3d-scene' }}"
+  style="position:fixed; inset:0; width:100%; height:100vh; z-index:0; pointer-events:none;"
+>
   <div
     id="spline-fallback-{{ include.canvas_id | default: 'hero-3d-scene' }}"
     class="w-full h-screen"
     role="status"
     aria-live="polite"
-    style="position:absolute; inset:0; width:100%; height:100vh; display:flex; align-items:center; justify-content:center;"
+    style="position:absolute; inset:0; width:100%; height:100vh; display:flex; align-items:center; justify-content:center; z-index:0;"
   >
     Loading 3D Experience...
   </div>
   <canvas
     id="{{ include.canvas_id | default: 'hero-3d-scene' }}"
     class="w-full h-screen"
-    style="width:100%; height:100vh;"
+    style="position:fixed; inset:0; width:100%; height:100vh; z-index:0;"
     aria-label="3D Spline Scene"
   ></canvas>
 
   {% if include.overlay_html %}
-    <div class="spline-overlay absolute inset-0 flex items-center">
-      <div class="mx-auto max-w-5xl px-6">
+    <div class="spline-overlay" style="position:absolute; inset:0; display:flex; align-items:center; z-index:1; pointer-events:auto;">
+      <div style="margin:0 auto; max-width:72rem; padding:0 24px;">
         {{ include.overlay_html }}
       </div>
     </div>
