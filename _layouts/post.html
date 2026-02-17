@@ -119,6 +119,9 @@
 
 <body>
   <div class="wrap">
+    {% if page.spline_scene_url %}
+      {% include spline-viewer.html scene_url=page.spline_scene_url canvas_id=page.spline_canvas_id | default: 'post-hero-3d-scene' %}
+    {% endif %}
     <a class="back" href="{{ '/' | relative_url }}">← Back home</a>
     <h1>{{ page.title }}</h1>
     <p class="meta">{{ page.date | date: "%B %d, %Y" }}</p>

@@ -3,6 +3,9 @@ layout: post
 title: "Wilosopher: One Foot in Front of the Other"
 date: 2026-01-20
 featured: true
+
+spline_scene_url: "https://prod.spline.design/pL80f0f4d0SKvZnK/scene.splinecode"
+spline_canvas_id: "post-hero-3d-scene"
 ---
 
 I didn’t wake up one day and decide I wanted a “brand.”

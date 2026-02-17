@@ -181,6 +181,8 @@ layout: null
 
     /* Layout */
     .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+    .w-full { width: 100%; }
+    .h-screen { height: 100vh; }
     .flex { display: flex; }
     .flex-wrap { flex-wrap: wrap; }
     .items-center { align-items: center; }
@@ -412,6 +414,7 @@ layout: null
   </header>
 
   <main>
+    {% include spline-viewer.html scene_url="https://prod.spline.design/pL80f0f4d0SKvZnK/scene.splinecode" canvas_id="hero-3d-scene" %}
     <section class="hero">
       <div class="container">
         <div class="kicker reveal">Systems • Automation • AI • Content</div>
