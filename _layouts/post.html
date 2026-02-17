@@ -120,7 +120,8 @@
 <body>
   <div class="wrap">
     {% if page.spline_scene_url %}
-      {% include spline-viewer.html scene_url=page.spline_scene_url canvas_id=page.spline_canvas_id | default: 'post-hero-3d-scene' %}
+      {% assign spline_canvas_id = page.spline_canvas_id | default: 'post-hero-3d-scene' %}
+      {% include spline-viewer.html scene_url=page.spline_scene_url canvas_id=spline_canvas_id %}
     {% endif %}
     <a class="back" href="{{ '/' | relative_url }}">← Back home</a>
     <h1>{{ page.title }}</h1>
