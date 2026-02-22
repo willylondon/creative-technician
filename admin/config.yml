@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: willylondon/creative-technician
+  name: git-gateway
   branch: main
 
 # This enables saving as drafts
