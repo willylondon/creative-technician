@@ -13,7 +13,7 @@ The React files under `components/ui` are source assets for a React app and do n
 npx create-next-app@latest my-app --typescript --tailwind --app
 cd my-app
 npx shadcn@latest init
-npm install motion lucide-react @radix-ui/react-avatar
+npm install motion framer-motion lucide-react @radix-ui/react-avatar
 ```
 
 ## Default paths
@@ -47,6 +47,8 @@ keyframes: {
 - `components/ui/testimonials-with-marquee.tsx`
 - `components/ui/testimonial-card.tsx`
 - `components/ui/avatar.tsx`
+- `components/ui/animated-text-cycle.tsx`
+- `components/ui/animated-text-cycle-demo.tsx`
 - `components/blocks/testimonials-with-marquee.tsx`
 - `components/blocks/testimonials-with-marquee-demo.tsx`
 

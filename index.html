@@ -468,6 +468,52 @@ layout: null
       max-width: 600px;
     }
 
+    .text-cycle-wrap {
+      display: inline-block;
+      position: relative;
+      vertical-align: baseline;
+      white-space: nowrap;
+      transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .text-cycle-word {
+      display: inline-block;
+      color: var(--text-main);
+      font-weight: 700;
+      filter: blur(0);
+      transform: translateY(0);
+      opacity: 1;
+      transition:
+        transform 0.35s ease,
+        opacity 0.35s ease,
+        filter 0.35s ease;
+      will-change: transform, opacity, filter;
+    }
+
+    .text-cycle-word.is-exiting {
+      transform: translateY(14px);
+      opacity: 0;
+      filter: blur(6px);
+    }
+
+    .text-cycle-word.is-entering {
+      transform: translateY(-14px);
+      opacity: 0;
+      filter: blur(6px);
+    }
+
+    .text-cycle-measure {
+      position: absolute;
+      visibility: hidden;
+      pointer-events: none;
+      opacity: 0;
+      white-space: nowrap;
+      font-size: 20px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
     .glow-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1022,7 +1068,8 @@ layout: null
           Coach Discipline.
         </h1>
         <p class="hero-sub reveal" style="transition-delay: 200ms;">
-          I bridge the gap between technical complexity and creative storytelling.
+          Your <span id="hero-cycle-wrap" class="text-cycle-wrap"><span id="hero-cycle-word"
+              class="text-cycle-word">business</span></span> deserves better systems.
         </p>
 
         <div class="flex flex-wrap gap-4 reveal" style="transition-delay: 300ms; align-items: center;">
@@ -1654,7 +1701,52 @@ layout: null
     // 3. Dynamic Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // 4. Form Handling
+    // 4. Hero Text Cycle
+    const cycleWords = [
+      'business',
+      'team',
+      'workflow',
+      'productivity',
+      'projects',
+      'analytics',
+      'dashboard',
+      'platform'
+    ];
+    const cycleWordEl = document.getElementById('hero-cycle-word');
+    const cycleWrapEl = document.getElementById('hero-cycle-wrap');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (cycleWordEl && cycleWrapEl && cycleWords.length > 1) {
+      let cycleIndex = 0;
+      const measureEl = document.createElement('span');
+      measureEl.className = 'text-cycle-measure';
+      document.body.appendChild(measureEl);
+
+      const setWrapWidth = (word) => {
+        measureEl.textContent = word;
+        const width = Math.ceil(measureEl.getBoundingClientRect().width) + 8;
+        cycleWrapEl.style.width = `${width}px`;
+      };
+
+      cycleWordEl.textContent = cycleWords[cycleIndex];
+      setWrapWidth(cycleWords[cycleIndex]);
+
+      if (!reduceMotion) {
+        window.setInterval(() => {
+          cycleWordEl.classList.add('is-exiting');
+          window.setTimeout(() => {
+            cycleIndex = (cycleIndex + 1) % cycleWords.length;
+            cycleWordEl.textContent = cycleWords[cycleIndex];
+            setWrapWidth(cycleWords[cycleIndex]);
+            cycleWordEl.classList.remove('is-exiting');
+            cycleWordEl.classList.add('is-entering');
+            requestAnimationFrame(() => cycleWordEl.classList.remove('is-entering'));
+          }, 180);
+        }, 3000);
+      }
+    }
+
+    // 5. Form Handling
     const form = document.getElementById('contact-form');
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -1669,7 +1761,7 @@ layout: null
       window.location.href = `mailto:willardwells@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
 
-    // 5. CTA Tracking (GA4)
+    // 6. CTA Tracking (GA4)
     document.querySelectorAll('[data-gtag-event]').forEach((el) => {
       el.addEventListener('click', () => {
         const eventName = el.getAttribute('data-gtag-event');
