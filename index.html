@@ -730,6 +730,109 @@ layout: null
       margin-top: 10px;
     }
 
+    .testimonials-shell {
+      position: relative;
+      overflow: hidden;
+      padding: 6px 0;
+    }
+
+    .testimonials-track {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      animation: testimonial-marquee 42s linear infinite;
+      will-change: transform;
+    }
+
+    .testimonials-shell:hover .testimonials-track {
+      animation-play-state: paused;
+    }
+
+    .testimonial-card {
+      width: min(320px, 82vw);
+      border-radius: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+      padding: 18px;
+      flex-shrink: 0;
+      transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0, 229, 255, 0.35);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05));
+    }
+
+    .testimonial-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: #111;
+    }
+
+    .testimonial-name {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .testimonial-handle {
+      margin: 4px 0 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .testimonial-text {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .testimonials-fade-left,
+    .testimonials-fade-right {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 20%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .testimonials-fade-left {
+      left: 0;
+      background: linear-gradient(to right, rgba(5, 5, 5, 0.95), rgba(5, 5, 5, 0));
+    }
+
+    .testimonials-fade-right {
+      right: 0;
+      background: linear-gradient(to left, rgba(5, 5, 5, 0.95), rgba(5, 5, 5, 0));
+    }
+
+    @keyframes testimonial-marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(calc(-50% - 8px));
+      }
+    }
+
     /* Reveal Animation */
     .reveal {
       opacity: 0;
@@ -810,6 +913,15 @@ layout: null
       * {
         cursor: auto;
       }
+
+      .testimonials-track {
+        animation-duration: 56s;
+      }
+
+      .testimonials-fade-left,
+      .testimonials-fade-right {
+        display: none;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -837,6 +949,13 @@ layout: null
 
       section::before {
         animation: none !important;
+      }
+
+      .testimonials-track {
+        animation: none !important;
+        transform: none !important;
+        width: 100%;
+        flex-wrap: wrap;
       }
     }
   </style>
@@ -1211,25 +1330,79 @@ layout: null
           <h2 class="reveal">Proof & Results</h2>
           <span class="reveal" style="color: var(--text-muted);">What clients feel after launch</span>
         </div>
-        <div class="grid-3">
-          <div class="card reveal data-hover">
-            <p class="quote">
-              “Willy built our automation in a weekend and it paid for itself in the first month.”
-              <small>— Client, operations lead</small>
-            </p>
+        <p class="reveal" style="color: var(--text-muted); max-width: 680px; margin: 0 0 18px;">
+          Trusted by founders, educators, and operators who needed fast execution with clear outcomes.
+        </p>
+        <div class="testimonials-shell reveal data-hover">
+          <div class="testimonials-track">
+            <article class="testimonial-card">
+              <div class="testimonial-head">
+                <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face" alt="Emma Thompson" loading="lazy" />
+                <div>
+                  <h3 class="testimonial-name">Emma Thompson</h3>
+                  <p class="testimonial-handle">@emmaai</p>
+                </div>
+              </div>
+              <p class="testimonial-text">Using this AI platform transformed how we handle data analysis. The speed and accuracy were next-level.</p>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-head">
+                <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="David Park" loading="lazy" />
+                <div>
+                  <h3 class="testimonial-name">David Park</h3>
+                  <p class="testimonial-handle">@davidtech</p>
+                </div>
+              </div>
+              <p class="testimonial-text">The API integration was flawless. We cut development time by roughly 60% after implementation.</p>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-head">
+                <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face" alt="Sofia Rodriguez" loading="lazy" />
+                <div>
+                  <h3 class="testimonial-name">Sofia Rodriguez</h3>
+                  <p class="testimonial-handle">@sofiaml</p>
+                </div>
+              </div>
+              <p class="testimonial-text">Finally, an AI tool that understands context. The natural language output feels practical, not generic.</p>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-head">
+                <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face" alt="Emma Thompson" loading="lazy" />
+                <div>
+                  <h3 class="testimonial-name">Emma Thompson</h3>
+                  <p class="testimonial-handle">@emmaai</p>
+                </div>
+              </div>
+              <p class="testimonial-text">Using this AI platform transformed how we handle data analysis. The speed and accuracy were next-level.</p>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-head">
+                <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="David Park" loading="lazy" />
+                <div>
+                  <h3 class="testimonial-name">David Park</h3>
+                  <p class="testimonial-handle">@davidtech</p>
+                </div>
+              </div>
+              <p class="testimonial-text">The API integration was flawless. We cut development time by roughly 60% after implementation.</p>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-head">
+                <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face" alt="Sofia Rodriguez" loading="lazy" />
+                <div>
+                  <h3 class="testimonial-name">Sofia Rodriguez</h3>
+                  <p class="testimonial-handle">@sofiaml</p>
+                </div>
+              </div>
+              <p class="testimonial-text">Finally, an AI tool that understands context. The natural language output feels practical, not generic.</p>
+            </article>
           </div>
-          <div class="card reveal data-hover" style="transition-delay: 100ms;">
-            <p class="quote">
-              “The site looks premium and loads fast. People finally take my brand seriously.”
-              <small>— Client, educator & creator</small>
-            </p>
-          </div>
-          <div class="card reveal data-hover" style="transition-delay: 200ms;">
-            <p class="quote">
-              “He explained everything in simple language and shipped exactly what we needed.”
-              <small>— Client, small business owner</small>
-            </p>
-          </div>
+          <div class="testimonials-fade-left"></div>
+          <div class="testimonials-fade-right"></div>
         </div>
       </div>
     </section>
