@@ -413,6 +413,114 @@ layout: null
       max-width: 600px;
     }
 
+    .glow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .glow-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      padding: 1px;
+      min-height: 240px;
+      background: linear-gradient(120deg,
+          rgba(221, 123, 187, 0.8),
+          rgba(215, 159, 30, 0.8),
+          rgba(90, 146, 44, 0.8),
+          rgba(76, 120, 148, 0.8));
+      background-size: 200% 200%;
+      animation: glow-shift 8s linear infinite;
+    }
+
+    .glow-card::before {
+      content: "";
+      position: absolute;
+      inset: -120% -20% auto;
+      height: 180%;
+      transform: rotate(16deg);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      animation: glow-sheen 5.5s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .glow-card-inner {
+      position: relative;
+      z-index: 1;
+      background: rgba(8, 11, 18, 0.94);
+      border-radius: 19px;
+      min-height: 238px;
+      height: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .glow-card-media {
+      width: 100%;
+      height: 118px;
+      object-fit: cover;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      filter: saturate(1.1) contrast(1.04);
+    }
+
+    .glow-card-content {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .glow-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .glow-card h3 {
+      font-size: 18px;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .glow-card p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    @keyframes glow-shift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes glow-sheen {
+      0%,
+      100% {
+        transform: translateX(-45%) rotate(16deg);
+      }
+
+      50% {
+        transform: translateX(45%) rotate(16deg);
+      }
+    }
+
     /* ABOUT / BIO SECTION */
     .about-grid {
       display: grid;
@@ -727,8 +835,6 @@ layout: null
   </header>
 
   <main class="page-layer">
-    {% include spline-viewer.html scene_url="https://prod.spline.design/ZaY5tYp0bPxPteDn/scene.splinecode"
-    canvas_id="hero-3d-scene" interaction_target_id="hero-section" %}
     <section class="hero" id="hero-section">
       <div class="container">
         <div class="kicker reveal">Systems • Automation • AI • Content</div>
@@ -746,6 +852,71 @@ layout: null
           <a href="#about" class="btn data-hover">Read Full Bio &darr;</a>
           <a href="https://calendly.com/willardwells" target="_blank" rel="noopener noreferrer" class="btn data-hover"
             data-gtag-event="cta_schedule_call">Book a Consult</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured-capabilities">
+      <div class="container">
+        <div class="flex justify-between items-center" style="margin-bottom: 24px;">
+          <h2 class="reveal">Featured Capabilities</h2>
+          <span class="pill reveal">Robot removed. Glow cards active.</span>
+        </div>
+        <div class="glow-grid">
+          <article class="glow-card reveal data-hover">
+            <div class="glow-card-inner">
+              <img class="glow-card-media" src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1200&q=80" alt="Circuit board close-up" loading="lazy" />
+              <div class="glow-card-content">
+                <span class="glow-icon">▣</span>
+                <h3>Do things the right way</h3>
+                <p>Workflow architecture and delivery discipline that scales cleanly.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="glow-card reveal data-hover" style="transition-delay: 80ms;">
+            <div class="glow-card-inner">
+              <img class="glow-card-media" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Computer hardware on desk" loading="lazy" />
+              <div class="glow-card-content">
+                <span class="glow-icon">⚙</span>
+                <h3>The best AI code editor ever.</h3>
+                <p>Tooling, prompts, and automation patterns tuned for execution speed.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="glow-card reveal data-hover" style="transition-delay: 160ms;">
+            <div class="glow-card-inner">
+              <img class="glow-card-media" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80" alt="Cybersecurity lock concept" loading="lazy" />
+              <div class="glow-card-content">
+                <span class="glow-icon">🔒</span>
+                <h3>Secure by default</h3>
+                <p>Clean implementation standards, access controls, and resilient systems.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="glow-card reveal data-hover" style="transition-delay: 240ms;">
+            <div class="glow-card-inner">
+              <img class="glow-card-media" src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1200&q=80" alt="Neon code visualization" loading="lazy" />
+              <div class="glow-card-content">
+                <span class="glow-icon">✦</span>
+                <h3>Built with modern AI workflows</h3>
+                <p>End-to-end systems that move from idea to live result quickly.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="glow-card reveal data-hover" style="transition-delay: 320ms;">
+            <div class="glow-card-inner">
+              <img class="glow-card-media" src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" alt="Person researching at laptop" loading="lazy" />
+              <div class="glow-card-content">
+                <span class="glow-icon">⌕</span>
+                <h3>Coming soon on Creative Technician</h3>
+                <p>More templates, playbooks, and live demos for service delivery.</p>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
