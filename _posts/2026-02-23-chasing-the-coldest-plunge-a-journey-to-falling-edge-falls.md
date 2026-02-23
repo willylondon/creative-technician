@@ -15,7 +15,7 @@ Our recent trek to Falling Edge Falls was a perfect reminder of why we do what w
 
 ### The Journey: More Than Just a Hike
 
-We started our morning while most of the city was still sleeping. Following our tradition, we began with a group prayer, a moment of gratitude and focus led by our member, Farika, before we stepped off into the dark.
+We started our morning while most of the city was still sleeping. Following our tradition, we began with a group prayer, a moment of gratitude and focus led by our newest member before we stepped off into the dark. Even though the trail was a challenge, We pushed through, showing the true spirit of the group.
 
 While most people take the standard route through Stoney Castle and Bowden Hill, we opted for the Sea View Road route. It’s the more scenic choice, offering a stunning "blue hour" view of Kingston’s twinkling lights before leading us directly to a piece of Jamaican history, The Hermitage Dam.
 
