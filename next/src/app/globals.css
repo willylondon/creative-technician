@@ -189,13 +189,14 @@
   .neo-card {
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.03);
-    transition: all 0.3s ease;
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .neo-card:hover {
     border-color: rgba(0, 229, 255, 0.34);
     background: rgba(255, 255, 255, 0.06);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.42);
   }
 
   .hero-heading {
@@ -214,6 +215,86 @@
     padding: 6px 12px;
     font-size: 11px;
     color: var(--muted-foreground);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+      transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .data-hover {
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      background-color 0.25s ease;
+  }
+
+  .data-hover:hover {
+    transform: translateY(-2px);
+  }
+
+  .cursor-dot,
+  .cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: 110;
+  }
+
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: #00e5ff;
+  }
+
+  .cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    transition:
+      width 0.2s ease,
+      height 0.2s ease,
+      border-color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  body.hovering .cursor-outline {
+    width: 58px;
+    height: 58px;
+    border-color: rgba(0, 229, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cursor-dot,
+  .cursor-outline {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
 

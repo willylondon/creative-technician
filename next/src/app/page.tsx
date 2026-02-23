@@ -11,6 +11,7 @@ import {
 import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 import { GlowingEffectDemo } from "@/components/ui/demo";
 import { TestimonialsSection } from "@/components/ui/testimonials-with-marquee";
+import SiteEffects from "@/components/site-effects";
 
 const testimonials = [
   {
@@ -103,24 +104,25 @@ const posts = [
 export default function Home() {
   return (
     <main className="site-shell min-h-screen bg-background text-foreground">
+      <SiteEffects />
       <header className="sticky top-0 z-50 border-b border-white/10 bg-black/60 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-          <div className="flex items-center gap-2 text-sm font-semibold tracking-wide sm:text-base">
+          <div className="flex items-center gap-2 text-sm font-semibold tracking-wide sm:text-base reveal">
             <span className="h-5 w-5 rounded-md bg-gradient-to-br from-cyan-300 to-amber-300" />
             Willy London
           </div>
           <nav className="hidden gap-5 text-sm text-slate-300 md:flex">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#work">Work</a>
-            <a href="#proof">Proof</a>
-            <a href="#blog">Blog</a>
-            <a href="#stack">Stack</a>
-            <a href="#contact">Contact</a>
+            <a className="data-hover" href="#about">About</a>
+            <a className="data-hover" href="#services">Services</a>
+            <a className="data-hover" href="#work">Work</a>
+            <a className="data-hover" href="#proof">Proof</a>
+            <a className="data-hover" href="#blog">Blog</a>
+            <a className="data-hover" href="#stack">Stack</a>
+            <a className="data-hover" href="#contact">Contact</a>
           </nav>
           <a
             href="#contact"
-            className="rounded-full bg-white px-4 py-2 text-xs font-semibold text-black transition hover:bg-cyan-300 sm:text-sm"
+            className="data-hover rounded-full bg-white px-4 py-2 text-xs font-semibold text-black transition hover:bg-cyan-300 sm:text-sm"
           >
             Hire Me
           </a>
@@ -129,10 +131,10 @@ export default function Home() {
 
       <section id="hero" className="section-glow px-4 py-20 sm:px-6 sm:py-28">
         <div className="section-inner mx-auto max-w-6xl">
-          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-cyan-300">
+          <p className="reveal mb-4 text-xs uppercase tracking-[0.25em] text-cyan-300">
             Systems • Automation • AI • Content
           </p>
-          <h1 className="hero-heading text-4xl leading-tight font-semibold tracking-tight sm:text-6xl">
+          <h1 className="hero-heading reveal text-4xl leading-tight font-semibold tracking-tight sm:text-6xl">
             Your{" "}
             <AnimatedTextCycle
               words={[
@@ -150,26 +152,26 @@ export default function Home() {
             />{" "}
             deserves better tools
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-slate-300">
+          <p className="reveal mt-5 max-w-2xl text-lg text-slate-300">
             IT Brain. Creator Hands. Coach Discipline. I bridge the gap between
             technical complexity and creative storytelling.
           </p>
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="reveal mt-7 flex flex-wrap gap-3">
             <a
               href="#work"
-              className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-cyan-300"
+              className="data-hover rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-cyan-300"
             >
               View Featured Work
             </a>
             <a
               href="#about"
-              className="rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-medium hover:bg-white/10"
+              className="data-hover rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-medium hover:bg-white/10"
             >
               Read Full Bio
             </a>
             <Link
               href="https://calendly.com/willardwells"
-              className="rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-medium hover:bg-white/10"
+              className="data-hover rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-medium hover:bg-white/10"
               target="_blank"
             >
               Book a Consult
@@ -181,10 +183,10 @@ export default function Home() {
       <section id="featured-capabilities" className="section-glow px-4 py-10 sm:px-6">
         <div className="section-inner mx-auto max-w-6xl">
           <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-2xl font-semibold sm:text-3xl">
+            <h2 className="reveal text-2xl font-semibold sm:text-3xl">
               Featured Capabilities
             </h2>
-            <span className="pill-lite">
+            <span className="pill-lite reveal">
               Featured highlights
             </span>
           </div>
@@ -195,12 +197,12 @@ export default function Home() {
       <section id="services" className="section-glow px-4 py-14 sm:px-6 sm:py-20">
         <div className="section-inner mx-auto max-w-6xl">
           <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-2xl font-semibold sm:text-3xl">Services</h2>
-            <span className="pill-lite">
+            <h2 className="reveal text-2xl font-semibold sm:text-3xl">Services</h2>
+            <span className="pill-lite reveal">
               Book fast. Build faster.
             </span>
           </div>
-          <p className="mb-8 max-w-3xl text-slate-300">
+          <p className="reveal mb-8 max-w-3xl text-slate-300">
             If you want systems that work and content that converts, this is
             where we start. Clear scope, fast turnaround, no fluff.
           </p>
@@ -208,7 +210,7 @@ export default function Home() {
             {services.map((service) => (
               <article
                 key={service.title}
-                className="neo-card rounded-2xl p-6 shadow-sm"
+                className="neo-card data-hover reveal rounded-2xl p-6 shadow-sm"
               >
                 <h3 className="text-xl font-semibold">{service.title}</h3>
                 <p className="mt-3 text-sm text-slate-300">
@@ -223,7 +225,7 @@ export default function Home() {
 
       <section id="about" className="section-glow px-4 py-14 sm:px-6 sm:py-20">
         <div className="section-inner mx-auto grid max-w-6xl gap-8 lg:grid-cols-[340px_1fr]">
-          <div className="overflow-hidden rounded-3xl border border-white/15">
+          <div className="reveal overflow-hidden rounded-3xl border border-white/15">
             <Image
               src="/profile.jpg"
               alt="Willy London"
@@ -232,7 +234,7 @@ export default function Home() {
               className="h-full w-full object-cover"
             />
           </div>
-          <div>
+          <div className="reveal">
             <h2 className="mb-4 text-2xl font-semibold sm:text-3xl">About Me</h2>
             <p className="mb-4 text-slate-300">
               Willard “Willy London” Wells is a Jamaica-based IT professional
@@ -252,14 +254,14 @@ export default function Home() {
               <Link
                 href="https://www.instagram.com/willylondon/"
                 target="_blank"
-                className="rounded-full border border-white/15 bg-white/5 p-2"
+                className="data-hover rounded-full border border-white/15 bg-white/5 p-2"
               >
                 <Instagram className="h-4 w-4" />
               </Link>
               <Link
                 href="https://x.com/willylondon"
                 target="_blank"
-                className="rounded-full border border-white/15 bg-white/5 p-2"
+                className="data-hover rounded-full border border-white/15 bg-white/5 p-2"
               >
                 <X className="h-4 w-4" />
               </Link>
@@ -271,10 +273,10 @@ export default function Home() {
       <section id="work" className="section-glow px-4 py-14 sm:px-6 sm:py-20">
         <div className="section-inner mx-auto max-w-6xl">
           <div className="mb-8 flex items-center justify-between">
-            <h2 className="text-2xl font-semibold sm:text-3xl">
+            <h2 className="reveal text-2xl font-semibold sm:text-3xl">
               Featured Projects
             </h2>
-            <span className="text-sm text-slate-300">Proof of Work</span>
+            <span className="reveal text-sm text-slate-300">Proof of Work</span>
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {work.map((item) => (
@@ -282,7 +284,7 @@ export default function Home() {
                 key={item.title}
                 href={item.href}
                 target="_blank"
-                className="neo-card rounded-2xl p-6"
+                className="neo-card data-hover reveal rounded-2xl p-6"
               >
                 <div className="mb-4 flex items-center justify-between gap-2">
                   <h3 className="text-lg font-semibold">{item.title}</h3>
@@ -310,12 +312,12 @@ export default function Home() {
       <section id="blog" className="section-glow px-4 py-14 sm:px-6 sm:py-20">
         <div className="section-inner mx-auto max-w-6xl">
           <div className="mb-8 flex items-center justify-between">
-            <h2 className="text-2xl font-semibold sm:text-3xl">Latest Insights</h2>
-            <span className="text-sm text-slate-300">From the Lab</span>
+            <h2 className="reveal text-2xl font-semibold sm:text-3xl">Latest Insights</h2>
+            <span className="reveal text-sm text-slate-300">From the Lab</span>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             {posts.map((post, index) => (
-              <article key={post.title} className="neo-card overflow-hidden rounded-2xl">
+              <article key={post.title} className="neo-card data-hover reveal overflow-hidden rounded-2xl">
                 <Image
                   src={post.href}
                   alt={post.title}
@@ -341,9 +343,9 @@ export default function Home() {
 
       <section id="stack" className="section-glow px-4 py-14 sm:px-6 sm:py-20">
         <div className="section-inner mx-auto max-w-6xl">
-          <h2 className="mb-6 text-2xl font-semibold sm:text-3xl">Skill Stack</h2>
+          <h2 className="reveal mb-6 text-2xl font-semibold sm:text-3xl">Skill Stack</h2>
           <div className="grid gap-4 md:grid-cols-3">
-            <article className="neo-card rounded-2xl p-5">
+            <article className="neo-card data-hover reveal rounded-2xl p-5">
               <div className="mb-3 flex items-center gap-2">
                 <Wrench className="h-4 w-4" />
                 <h3 className="font-semibold">Technical Core</h3>
@@ -353,7 +355,7 @@ export default function Home() {
                 support operations.
               </p>
             </article>
-            <article className="neo-card rounded-2xl p-5">
+            <article className="neo-card data-hover reveal rounded-2xl p-5">
               <div className="mb-3 flex items-center gap-2">
                 <Sparkles className="h-4 w-4" />
                 <h3 className="font-semibold">Automation + AI</h3>
@@ -363,7 +365,7 @@ export default function Home() {
                 content pipelines.
               </p>
             </article>
-            <article className="neo-card rounded-2xl p-5">
+            <article className="neo-card data-hover reveal rounded-2xl p-5">
               <div className="mb-3 flex items-center gap-2">
                 <MessageCircle className="h-4 w-4" />
                 <h3 className="font-semibold">Content Systems</h3>
@@ -379,7 +381,7 @@ export default function Home() {
 
       <section id="contact" className="section-glow px-4 py-14 sm:px-6 sm:py-20">
         <div className="section-inner mx-auto grid max-w-6xl gap-8 md:grid-cols-2">
-          <div>
+          <div className="reveal">
             <h2 className="mb-4 text-2xl font-semibold sm:text-3xl">
               Initialize Connection
             </h2>
@@ -389,7 +391,7 @@ export default function Home() {
             </p>
             <Link
               href="mailto:willardwells@gmail.com"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium"
+              className="data-hover inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium"
             >
               <Mail className="h-4 w-4" />
               willardwells@gmail.com
@@ -399,7 +401,7 @@ export default function Home() {
             action="mailto:willardwells@gmail.com"
             method="post"
             encType="text/plain"
-            className="neo-card space-y-3 rounded-2xl p-6"
+            className="neo-card reveal space-y-3 rounded-2xl p-6"
           >
             <input
               type="text"
