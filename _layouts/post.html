@@ -133,9 +133,13 @@
   </div>
 
   <script>
-    document.querySelectorAll('.card img').forEach((img) => {
+    const postImages = Array.from(document.querySelectorAll('.card img'));
+    postImages.forEach((img, index) => {
       if (!img.hasAttribute('loading')) {
-        img.setAttribute('loading', 'lazy');
+        img.setAttribute('loading', index === 0 ? 'eager' : 'lazy');
+      }
+      if (index === 0 && !img.hasAttribute('fetchpriority')) {
+        img.setAttribute('fetchpriority', 'high');
       }
       if (!img.hasAttribute('decoding')) {
         img.setAttribute('decoding', 'async');
