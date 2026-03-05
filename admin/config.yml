@@ -2,6 +2,7 @@ backend:
   name: github
   repo: willylondon/creative-technician
   branch: main
+  base_url: https://sveltia-cms-auth.vercel.app
 
 # This enables saving as drafts
 publish_mode: editorial_workflow
