@@ -1,0 +1,11 @@
+title: Willy London
+description: The Creative Technician
+url: https://www.thecreativetechnician.online
+markdown: kramdown
+theme: null
+
+permalink: /blog/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap

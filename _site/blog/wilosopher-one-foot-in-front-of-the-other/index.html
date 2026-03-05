@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R13SZWDJ3S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-R13SZWDJ3S');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wilosopher: One Foot in Front of the Other | Willy London</title>
+  <meta name="description" content="I didn’t wake up one day and decide I wanted a “brand.”">
+  <meta name="theme-color" content="#050505" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Wilosopher: One Foot in Front of the Other">
+  <meta property="og:description" content="I didn’t wake up one day and decide I wanted a “brand.”">
+  <meta property="og:url" content="http://localhost:4001/blog/wilosopher-one-foot-in-front-of-the-other/">
+  
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Wilosopher: One Foot in Front of the Other">
+  <meta name="twitter:description" content="I didn’t wake up one day and decide I wanted a “brand.”">
+  
+
+  <!-- JSON-LD BlogPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Wilosopher: One Foot in Front of the Other",
+    "datePublished": "2026-01-20T00:00:00-05:00",
+    "author": {
+      "@type": "Person",
+      "name": "Willy London",
+      "url": "https://www.thecreativetechnician.online"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      /* Unified with index.html */
+      --bg: #050505;
+      --panel: rgba(15, 23, 32, .62);
+      --text: #F4F6F8;
+      --muted: rgba(244, 246, 248, .72);
+      --line: rgba(244, 246, 248, .14);
+      --radius: 22px;
+      --accent-cyan: #00E5FF;
+      --accent-amber: #FFB020;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(900px 550px at 15% -5%, rgba(0, 229, 255, .12), transparent 55%),
+        radial-gradient(800px 500px at 88% 10%, rgba(255, 176, 32, .08), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.8;
+    }
+
+    a {
+      color: var(--accent-cyan);
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    /* Sticky mini-header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5, 5, 5, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .site-header .logo:hover {
+      text-decoration: none;
+    }
+
+    .site-header .logo-mark {
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-amber));
+      border-radius: 5px;
+    }
+
+    .site-header nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-left: 16px;
+      text-decoration: none;
+    }
+
+    .site-header nav a:hover {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .wrap {
+      max-width: 78ch;
+      margin: 0 auto;
+      padding: 42px 18px 64px;
+    }
+
+    .back {
+      display: inline-block;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(244, 246, 248, .05);
+      color: rgba(244, 246, 248, .88);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .back:hover {
+      text-decoration: none;
+    }
+
+    h1 {
+      margin: 18px 0 8px;
+      font-family: "Space Grotesk", Inter, sans-serif;
+      letter-spacing: -.4px;
+      line-height: 1.12;
+      font-size: clamp(28px, 4vw, 44px);
+    }
+
+    .meta {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, .46);
+    }
+
+    .card h2,
+    .card h3 {
+      font-family: "Space Grotesk", Inter, sans-serif;
+      letter-spacing: -.2px;
+      line-height: 1.25;
+    }
+
+    .card p {
+      margin: 0 0 14px
+    }
+
+    .card ul {
+      margin: 0 0 14px;
+      padding-left: 18px
+    }
+
+    .card li {
+      margin: 6px 0
+    }
+
+    .card img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 18px auto;
+      border-radius: 14px;
+    }
+
+    .footer {
+      margin-top: 18px;
+      color: rgba(244, 246, 248, .58);
+      font-size: 13px;
+    }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .site-header nav {
+        display: none;
+      }
+
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .whatsapp-float svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sticky header with nav -->
+  <div class="site-header">
+    <a class="logo" href="/">
+      <div class="logo-mark"></div>
+      Willy London
+    </a>
+    <nav>
+      <a href="/#services">Services</a>
+      <a href="/#work">Work</a>
+      <a href="/#blog">Blog</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+
+  <div class="wrap">
+    <a class="back" href="/">← Back home</a>
+    <h1>Wilosopher: One Foot in Front of the Other</h1>
+    <p class="meta">January 20, 2026</p>
+
+    <div class="card">
+      <p>I didn’t wake up one day and decide I wanted a “brand.”</p>
+
+<p>I woke up realizing I wanted more.</p>
+
+<p>More growth. More discipline. More meaning. More legacy. More impact. And honestly — more life. The kind of life that feels earned.</p>
+
+<p>So this is my first real step into building something I can own. I just created my first live landing page on GitHub, and this blog is the start of me documenting the journey.</p>
+
+<p>Not perfectly. Just honestly.</p>
+
+<hr />
+
+<h2 id="who-i-am">Who I am</h2>
+
+<p>My name is <strong>Willard Wells</strong>, but most people know me as <strong>Willy</strong>.</p>
+
+<p>I’m Jamaican. I’m an <strong>IT Support Technician at Hillel Academy</strong>, a K1–12 international school.</p>
+
+<p>That means my world is troubleshooting, systems, structure, problem-solving, and helping people solve tech issues <strong>quickly and properly</strong>.</p>
+
+<p>Most days I live inside a Google-based environment — supporting staff and students, and keeping things running smoothly.</p>
+
+<hr />
+
+<h2 id="what-im-building">What I’m building</h2>
+
+<p>Over time I realized something:</p>
+
+<p>I don’t just want to consume knowledge. I want to <strong>produce value</strong>.</p>
+
+<p>So I started building multiple projects at once, and each one says something about who I am.</p>
+
+<hr />
+
+<h2 id="content-creation">Content creation</h2>
+
+<p>I’m a creator. I’ve grown multiple accounts past <strong>50,000 followers combined</strong>, and I’m still sharpening that skill.</p>
+
+<p>My content style is different.</p>
+
+<p>I prefer to be <strong>heard more than seen</strong>.</p>
+
+<p>I like subtle, layered meaning. Humor. Honesty. Clever writing.<br />
+I don’t want noise. I want impact.</p>
+
+<p>My pages include:</p>
+
+<ul>
+  <li><strong>Wilosopher</strong> — my voice and reflections</li>
+  <li><strong>JamrockAI</strong> — Jamaican culture + storytelling (short-form focus)</li>
+</ul>
+
+<hr />
+
+<h2 id="when-wi-hungry">When Wi Hungry</h2>
+
+<p>Food is serious business.</p>
+
+<p>I created a food review account called <strong>When Wi Hungry</strong> because Jamaican food deserves storytelling, not just ratings.</p>
+
+<p>Not everyone needs to see my face chewing.</p>
+
+<p>What I want is wit, originality, smart comedy, honest reviews — and a voice people recognize anywhere.</p>
+
+<hr />
+
+<h2 id="lifestyle-hikers-jamaica-through-sweat-and-scenery">Lifestyle Hikers: Jamaica through sweat and scenery</h2>
+
+<p>I’m part of <strong>Lifestyle Hikers</strong>, a group that started in 2019 with only 5 members and grew to <strong>50+</strong>.</p>
+
+<p>We hike across Jamaica for free — <strong>three Saturdays each month</strong>. It’s fitness, yes, but it’s also community, mental strength, and freedom.</p>
+
+<p>I’ve been to places like:</p>
+
+<ul>
+  <li><strong>Reggae Falls</strong> (St. Thomas)</li>
+  <li><strong>Blue Mountain Chincona</strong></li>
+  <li><strong>Catherine’s Peak</strong></li>
+  <li><strong>Spanish Bridge</strong></li>
+</ul>
+
+<p>Hiking taught me something simple:</p>
+
+<p>Progress isn’t dramatic. It’s repeated.</p>
+
+<p><strong>One foot in front of the other.</strong></p>
+
+<hr />
+
+<h2 id="ai-and-automation">AI and automation</h2>
+
+<p>I’m big on AI — not as hype, but as leverage.</p>
+
+<p>I build real systems.</p>
+
+<p>I’ve already built working automation workflows that can:</p>
+
+<ul>
+  <li>pull video files from Google Drive</li>
+  <li>generate titles and descriptions using AI</li>
+  <li>upload to YouTube</li>
+</ul>
+
+<p>And that system can expand into other platforms.</p>
+
+<p>My approach is simple:</p>
+
+<p><strong>AI is not replacement. It’s augmentation.</strong></p>
+
+<hr />
+
+<h2 id="why-this-blog-exists">Why this blog exists</h2>
+
+<p>This blog isn’t here to impress anyone.</p>
+
+<p>It’s here to document the truth.</p>
+
+<p>I’m building myself into the version of me that can’t be ignored — not because I’m loud, but because I’m consistent.</p>
+
+<p>I’ve said before:</p>
+
+<p><strong>Nothing’s hard if you have discipline and determination and dedication.</strong></p>
+
+<p>And I meant it.</p>
+
+<p>I’m done being comfortable. I want wealth, wisdom, peace, and health. And I’m willing to put in the work for it.</p>
+
+<p>This blog is part of that work.</p>
+
+<hr />
+
+<h2 id="the-personal-parts-the-fuel">The personal parts: the fuel</h2>
+
+<p>Life has tested me.</p>
+
+<p>I lost my sister, <strong>Esther Roselyn Wells</strong> (Mary).<br />
+Then I lost my mother, <strong>Avril May Harvey</strong>.</p>
+
+<p>That kind of pain changes you.</p>
+
+<p>What I miss most is my mother’s laughter, her humor, her moral strength, her kindness, her sorrel at Christmas, and her Sunday rice and peas and fish.</p>
+
+<p>I don’t share this for sympathy.</p>
+
+<p>I share it because it’s part of why I push.</p>
+
+<p>I’m chasing legacy now.</p>
+
+<p>Not vibes.</p>
+
+<p><strong>Legacy.</strong></p>
+
+<hr />
+
+<h2 id="what-you-can-expect-here">What you can expect here</h2>
+
+<p>This blog will mix:</p>
+
+<ul>
+  <li>Jamaican storytelling</li>
+  <li>lessons from hiking and life</li>
+  <li>tech growth + automation progress</li>
+  <li>AI tools and real use cases</li>
+  <li>content creation strategy</li>
+  <li>philosophy without the fake deep</li>
+  <li>truth when needed</li>
+</ul>
+
+<p>Sometimes poetic.<br />
+Sometimes funny.<br />
+Sometimes serious.</p>
+
+<p>But always real.</p>
+
+<hr />
+
+<h2 id="final-thought">Final thought</h2>
+
+<p>I once coined a phrase that still feels like a compass:</p>
+
+<p><strong>It’s always the right time somewhere else.</strong></p>
+
+<p>Meaning: stop waiting for the perfect moment.</p>
+
+<p>The perfect moment is already happening — just not in your comfort zone.</p>
+
+<p>So this is me stepping out.</p>
+
+<p>GitHub landing page live.<br />
+Blog started.<br />
+Momentum activated.</p>
+
+<p><strong>One foot in front of the other.</strong></p>
+
+    </div>
+
+    <div class="footer">
+      © 2026 Willy London — The Creative Technician
+    </div>
+  </div>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/18767978034?text=Hi%20Willy%2C%20I%20viewed%20your%20portfolio%20and%20I%27m%20interested%20in%20working%20with%20you."
+    class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+  </a>
+
+  <script>
+    const postImages = Array.from(document.querySelectorAll('.card img'));
+    postImages.forEach((img, index) => {
+      if (!img.hasAttribute('loading')) {
+        img.setAttribute('loading', index === 0 ? 'eager' : 'lazy');
+      }
+      if (index === 0 && !img.hasAttribute('fetchpriority')) {
+        img.setAttribute('fetchpriority', 'high');
+      }
+      if (!img.hasAttribute('decoding')) {
+        img.setAttribute('decoding', 'async');
+      }
+    });
+  </script>
+</body>
+
+</html>

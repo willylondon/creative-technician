@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4001/blog/wilosopher-one-foot-in-front-of-the-other/</loc>
+<lastmod>2026-01-20T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4001/blog/how-i-built-a-headless-cms-with-google-sheets-n8n/</loc>
+<lastmod>2026-01-26T10:44:00-05:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4001/blog/nonsuch-falls-survival-guide/</loc>
+<lastmod>2026-02-09T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4001/blog/jamaica-basketball-road-to-qatar-2027/</loc>
+<lastmod>2026-02-11T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4001/blog/chasing-the-coldest-plunge-a-journey-to-falling-edge-falls/</loc>
+<lastmod>2026-02-23T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4001/</loc>
+</url>
+<url>
+<loc>http://localhost:4001/admin/</loc>
+<lastmod>2026-03-05T09:26:31-05:00</lastmod>
+</url>
+</urlset>
