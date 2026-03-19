@@ -1,0 +1,44 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#060A06"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="180" cy="120" r="180" fill="#00C853" fill-opacity="0.18"/>
+  <circle cx="1040" cy="110" r="220" fill="#FFD447" fill-opacity="0.16"/>
+  <circle cx="930" cy="560" r="260" fill="#00E5FF" fill-opacity="0.14"/>
+  <path d="M0 500H1200" stroke="#FFFFFF" stroke-opacity="0.08"/>
+  <path d="M0 410H1200" stroke="#FFFFFF" stroke-opacity="0.06"/>
+  <path d="M0 320H1200" stroke="#FFFFFF" stroke-opacity="0.05"/>
+  <path d="M190 0V630" stroke="#FFFFFF" stroke-opacity="0.05"/>
+  <path d="M380 0V630" stroke="#FFFFFF" stroke-opacity="0.04"/>
+  <path d="M570 0V630" stroke="#FFFFFF" stroke-opacity="0.05"/>
+  <path d="M760 0V630" stroke="#FFFFFF" stroke-opacity="0.04"/>
+  <path d="M950 0V630" stroke="#FFFFFF" stroke-opacity="0.05"/>
+  <rect x="72" y="74" width="286" height="38" rx="19" fill="#0E1710" stroke="#1F8F4D"/>
+  <text x="102" y="99" fill="#9DF1B5" font-family="Arial, sans-serif" font-size="18" font-weight="700">THE CREATIVE TECHNICIAN</text>
+  <text x="72" y="212" fill="#F7F9F7" font-family="Arial, sans-serif" font-size="62" font-weight="700">AI TOOLS IN JAMAICA</text>
+  <text x="72" y="282" fill="#F7F9F7" font-family="Arial, sans-serif" font-size="48" font-weight="700">2026 GUIDE</text>
+  <text x="72" y="356" fill="#D6E3DA" font-family="Arial, sans-serif" font-size="28">ChatGPT, Gemini, Canva AI, and</text>
+  <text x="72" y="394" fill="#D6E3DA" font-family="Arial, sans-serif" font-size="28">automation workflows for students, creators,</text>
+  <text x="72" y="432" fill="#D6E3DA" font-family="Arial, sans-serif" font-size="28">entrepreneurs, and side hustlers.</text>
+  <rect x="72" y="490" width="232" height="46" rx="23" fill="#FFD447"/>
+  <text x="112" y="520" fill="#091009" font-family="Arial, sans-serif" font-size="22" font-weight="700">LOCAL + PRACTICAL</text>
+  <rect x="780" y="118" width="320" height="380" rx="30" fill="#0B120D" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <rect x="818" y="158" width="244" height="52" rx="16" fill="#101A12"/>
+  <circle cx="850" cy="184" r="10" fill="#00E5FF"/>
+  <rect x="874" y="176" width="146" height="16" rx="8" fill="#DCEEE3" fill-opacity="0.92"/>
+  <rect x="818" y="238" width="112" height="112" rx="24" fill="#00C853" fill-opacity="0.18" stroke="#00C853"/>
+  <path d="M868 272H880L892 306L904 272H916" stroke="#9DF1B5" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="950" y="238" width="112" height="112" rx="24" fill="#FFD447" fill-opacity="0.18" stroke="#FFD447"/>
+  <path d="M986 310C986 286 1004 268 1028 268C1037 268 1046 271 1053 277" stroke="#FFE38A" stroke-width="10" stroke-linecap="round"/>
+  <path d="M1000 322H1056" stroke="#FFE38A" stroke-width="10" stroke-linecap="round"/>
+  <rect x="818" y="372" width="244" height="88" rx="22" fill="#111B14"/>
+  <path d="M846 416H1034" stroke="#00E5FF" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 20"/>
+  <circle cx="846" cy="416" r="12" fill="#00E5FF"/>
+  <circle cx="940" cy="416" r="12" fill="#00C853"/>
+  <circle cx="1034" cy="416" r="12" fill="#FFD447"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#050805"/>
+      <stop offset="1" stop-color="#111B14"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,30 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" fill="#08110D"/>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <circle cx="180" cy="120" r="170" fill="#00E5FF" fill-opacity="0.16"/>
+  <circle cx="1030" cy="140" r="220" fill="#00C853" fill-opacity="0.12"/>
+  <path d="M88 150H1112" stroke="#FFFFFF" stroke-opacity="0.07"/>
+  <path d="M88 380H1112" stroke="#FFFFFF" stroke-opacity="0.05"/>
+  <rect x="96" y="94" width="310" height="42" rx="21" fill="#0F1A14" stroke="#2E8F57"/>
+  <text x="126" y="121" fill="#B1F3C6" font-family="Arial, sans-serif" font-size="18" font-weight="700">WORKFLOW ARCHITECTURE</text>
+  <rect x="124" y="208" width="220" height="112" rx="26" fill="#111C15" stroke="#00E5FF"/>
+  <text x="168" y="256" fill="#F2F8F4" font-family="Arial, sans-serif" font-size="26" font-weight="700">INTAKE</text>
+  <text x="152" y="292" fill="#C7D9CF" font-family="Arial, sans-serif" font-size="20">Scope and structure</text>
+  <rect x="490" y="208" width="220" height="112" rx="26" fill="#111C15" stroke="#FFD447"/>
+  <text x="532" y="256" fill="#F2F8F4" font-family="Arial, sans-serif" font-size="26" font-weight="700">BUILD</text>
+  <text x="528" y="292" fill="#C7D9CF" font-family="Arial, sans-serif" font-size="20">Systems that scale</text>
+  <rect x="856" y="208" width="220" height="112" rx="26" fill="#111C15" stroke="#00C853"/>
+  <text x="900" y="256" fill="#F2F8F4" font-family="Arial, sans-serif" font-size="26" font-weight="700">LAUNCH</text>
+  <text x="900" y="292" fill="#C7D9CF" font-family="Arial, sans-serif" font-size="20">Clear delivery flow</text>
+  <path d="M344 264H490" stroke="#00E5FF" stroke-width="10" stroke-linecap="round" stroke-dasharray="2 20"/>
+  <path d="M710 264H856" stroke="#FFD447" stroke-width="10" stroke-linecap="round" stroke-dasharray="2 20"/>
+  <rect x="124" y="434" width="952" height="168" rx="34" fill="#0F1712" stroke="#FFFFFF" stroke-opacity="0.08"/>
+  <text x="172" y="506" fill="#F2F8F4" font-family="Arial, sans-serif" font-size="44" font-weight="700">SYSTEMS BUILT THE RIGHT WAY</text>
+  <text x="172" y="554" fill="#C7D9CF" font-family="Arial, sans-serif" font-size="26">Clean planning, clean execution, and clean handoff.</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07100C"/>
+      <stop offset="1" stop-color="#16221A"/>
+    </linearGradient>
+  </defs>
+</svg>

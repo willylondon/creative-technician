@@ -1,0 +1,28 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" fill="#0A0C12"/>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <circle cx="176" cy="122" r="170" fill="#FFB020" fill-opacity="0.16"/>
+  <circle cx="1022" cy="152" r="220" fill="#00E5FF" fill-opacity="0.12"/>
+  <rect x="96" y="96" width="320" height="42" rx="21" fill="#12161E" stroke="#A16A11"/>
+  <text x="126" y="123" fill="#FFE7AF" font-family="Arial, sans-serif" font-size="18" font-weight="700">MODERN AI WORKFLOWS</text>
+  <rect x="146" y="232" width="292" height="136" rx="30" fill="#141922" stroke="#FFB020"/>
+  <text x="196" y="292" fill="#F7F4EE" font-family="Arial, sans-serif" font-size="32" font-weight="700">IDEA</text>
+  <text x="196" y="334" fill="#D9D2C5" font-family="Arial, sans-serif" font-size="22">Start with clear intent</text>
+  <rect x="454" y="232" width="292" height="136" rx="30" fill="#141922" stroke="#00E5FF"/>
+  <text x="504" y="292" fill="#F7F4EE" font-family="Arial, sans-serif" font-size="32" font-weight="700">SYSTEM</text>
+  <text x="504" y="334" fill="#D9D2C5" font-family="Arial, sans-serif" font-size="22">Connect tools and logic</text>
+  <rect x="762" y="232" width="292" height="136" rx="30" fill="#141922" stroke="#00C853"/>
+  <text x="812" y="292" fill="#F7F4EE" font-family="Arial, sans-serif" font-size="32" font-weight="700">RESULT</text>
+  <text x="812" y="334" fill="#D9D2C5" font-family="Arial, sans-serif" font-size="22">Ship faster with polish</text>
+  <path d="M438 300H454" stroke="#FFB020" stroke-width="12" stroke-linecap="round"/>
+  <path d="M746 300H762" stroke="#00E5FF" stroke-width="12" stroke-linecap="round"/>
+  <rect x="146" y="446" width="908" height="164" rx="34" fill="#12171D" stroke="#FFFFFF" stroke-opacity="0.08"/>
+  <text x="192" y="516" fill="#F7F4EE" font-family="Arial, sans-serif" font-size="44" font-weight="700">IDEA TO LIVE RESULT</text>
+  <text x="192" y="566" fill="#D3D6DA" font-family="Arial, sans-serif" font-size="26">Modern workflows that turn momentum into shipped work.</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A0C12"/>
+      <stop offset="1" stop-color="#1A2029"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,39 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#050805"/>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="168" cy="126" r="170" fill="#00E5FF" fill-opacity="0.14"/>
+  <circle cx="1028" cy="138" r="210" fill="#FFB020" fill-opacity="0.16"/>
+  <circle cx="948" cy="554" r="240" fill="#00C853" fill-opacity="0.14"/>
+  <path d="M0 458H1200" stroke="#FFFFFF" stroke-opacity="0.06"/>
+  <path d="M0 362H1200" stroke="#FFFFFF" stroke-opacity="0.05"/>
+  <path d="M188 0V630" stroke="#FFFFFF" stroke-opacity="0.05"/>
+  <path d="M396 0V630" stroke="#FFFFFF" stroke-opacity="0.04"/>
+  <path d="M604 0V630" stroke="#FFFFFF" stroke-opacity="0.05"/>
+  <path d="M812 0V630" stroke="#FFFFFF" stroke-opacity="0.04"/>
+  <rect x="76" y="74" width="294" height="42" rx="21" fill="#0E1410" stroke="#2B8E55"/>
+  <text x="106" y="101" fill="#AAF2C0" font-family="Arial, sans-serif" font-size="18" font-weight="700">THE CREATIVE TECHNICIAN</text>
+  <text x="76" y="214" fill="#F4F8F5" font-family="Arial, sans-serif" font-size="64" font-weight="700">NEW BLOG POST</text>
+  <text x="76" y="292" fill="#D2DED6" font-family="Arial, sans-serif" font-size="30">Automation, AI, systems, and stories built for</text>
+  <text x="76" y="332" fill="#D2DED6" font-family="Arial, sans-serif" font-size="30">execution, creativity, and practical results.</text>
+  <rect x="76" y="470" width="238" height="48" rx="24" fill="#00E5FF"/>
+  <text x="118" y="501" fill="#041214" font-family="Arial, sans-serif" font-size="22" font-weight="700">SYSTEMS AND SOUL</text>
+  <rect x="790" y="126" width="304" height="360" rx="28" fill="#0B120D" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <rect x="826" y="164" width="232" height="44" rx="14" fill="#111A14"/>
+  <circle cx="854" cy="186" r="9" fill="#00E5FF"/>
+  <rect x="876" y="178" width="146" height="16" rx="8" fill="#E4F2E8" fill-opacity="0.92"/>
+  <rect x="826" y="238" width="232" height="100" rx="22" fill="#111A14"/>
+  <path d="M852 288H1032" stroke="#00E5FF" stroke-width="8" stroke-linecap="round"/>
+  <path d="M852 314H978" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="8" stroke-linecap="round"/>
+  <path d="M852 340H1008" stroke="#FFD447" stroke-width="8" stroke-linecap="round"/>
+  <rect x="826" y="364" width="108" height="88" rx="20" fill="#00C853" fill-opacity="0.18" stroke="#00C853"/>
+  <path d="M860 410H900" stroke="#9FF1B8" stroke-width="10" stroke-linecap="round"/>
+  <path d="M880 390V430" stroke="#9FF1B8" stroke-width="10" stroke-linecap="round"/>
+  <rect x="950" y="364" width="108" height="88" rx="20" fill="#FFB020" fill-opacity="0.18" stroke="#FFB020"/>
+  <path d="M980 430L1002 390L1024 430" stroke="#FFE3A0" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#050805"/>
+      <stop offset="1" stop-color="#131D16"/>
+    </linearGradient>
+  </defs>
+</svg>

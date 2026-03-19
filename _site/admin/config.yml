@@ -1,6 +1,8 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: willylondon/creative-technician
   branch: main
+  app_id: Iv1.b81c2fe99d3dc7f7
 
 # This enables saving as drafts
 publish_mode: editorial_workflow

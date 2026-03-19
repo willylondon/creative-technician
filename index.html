@@ -179,7 +179,7 @@ layout: null
           <article class="glow-card reveal data-hover">
             <div class="glow-card-inner">
               <img class="glow-card-media"
-                src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1200&q=80"
+                src="/assets/images/capability-workflow-architecture.svg"
                 alt="Workflow architecture and delivery discipline" loading="lazy" />
               <div class="glow-card-content">
                 <span class="glow-icon">▣</span>
@@ -192,7 +192,7 @@ layout: null
           <article class="glow-card reveal data-hover" style="transition-delay: 80ms;">
             <div class="glow-card-inner">
               <img class="glow-card-media"
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+                src="/assets/images/capability-ai-automation.svg"
                 alt="AI-powered automation tooling and workflows" loading="lazy" />
               <div class="glow-card-content">
                 <span class="glow-icon">⚙</span>
@@ -205,7 +205,7 @@ layout: null
           <article class="glow-card reveal data-hover" style="transition-delay: 160ms;">
             <div class="glow-card-inner">
               <img class="glow-card-media"
-                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80"
+                src="/assets/images/capability-secure-systems.svg"
                 alt="Secure implementation standards and access controls" loading="lazy" />
               <div class="glow-card-content">
                 <span class="glow-icon">🔒</span>
@@ -218,7 +218,7 @@ layout: null
           <article class="glow-card reveal data-hover" style="transition-delay: 240ms;">
             <div class="glow-card-inner">
               <img class="glow-card-media"
-                src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1200&q=80"
+                src="/assets/images/capability-modern-workflows.svg"
                 alt="End-to-end AI workflow from idea to deployment" loading="lazy" />
               <div class="glow-card-content">
                 <span class="glow-icon">✦</span>
@@ -470,7 +470,7 @@ layout: null
           <div class="flex flex-wrap gap-2">
             {% assign featured_posts = site.posts | where: "featured", true | limit: 3 %}
             {% for post in featured_posts %}
-            <a href="{{ post.url | relative_url }}" class="btn data-hover">{{ post.title }}</a>
+            <a href="{{ post.url | relative_url }}" class="btn data-hover">{{ post.short_title | default: post.title }}</a>
             {% endfor %}
           </div>
           <p style="color: var(--text-muted); font-size: 13px; margin-top: 12px;">
@@ -487,16 +487,17 @@ layout: null
 
         <div class="grid-3">
           {% for post in site.posts limit:3 %}
+          {% assign card_image = post.image | default: site.default_post_image %}
+          {% assign card_image_width = post.image_width | default: site.default_post_image_width %}
+          {% assign card_image_height = post.image_height | default: site.default_post_image_height %}
           <a href="{{ post.url | relative_url }}" class="card reveal data-hover">
 
-            {% if post.image %}
             <div
               style="width: 100%; height: 200px; margin-bottom: 16px; border-radius: 8px; overflow: hidden; background: #111;">
-              <img src="{{ post.image | relative_url }}" alt="{{ post.title }}"
-                width="{{ post.image_width | default: 1200 }}" height="{{ post.image_height | default: 630 }}"
+              <img src="{{ card_image | relative_url }}" alt="{{ post.title }}"
+                width="{{ card_image_width }}" height="{{ card_image_height }}"
                 loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            {% endif %}
 
             <div class="flex justify-between items-center" style="margin-bottom: 16px;">
               <h3 class="font-heading" style="font-size: 20px; line-height: 1.4;">{{ post.title }}</h3>
