@@ -5,6 +5,9 @@ date: 2026-03-26 16:30
 featured: false
 categories: [Automation, n8n, Email]
 description: "How I built a one-click community outreach system for Lifestyle Hikers using n8n, Google Sheets, Gmail API, and a responsive HTML email template."
+image: /assets/images/hike-automation-thumbnail.jpg
+image_width: 640
+image_height: 640
 ---
 
 As a **Creative Technician**, I spend a lot of time solving the "last mile" problems that sit between a good idea and a system people can actually use. Recently, I partnered with **Lifestyle Hikers** to solve one of those problems: manual community outreach.
