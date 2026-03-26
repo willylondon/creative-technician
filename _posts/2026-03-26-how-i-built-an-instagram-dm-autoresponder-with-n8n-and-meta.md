@@ -61,11 +61,13 @@ This build used:
 - **n8n** running on a **DigitalOcean droplet**
 - **Meta Graph API** endpoint: `https://graph.facebook.com/v21.0/me/messages`
 
-The production webhook ended up living here:
+The production webhook ended up looking like this:
 
 ```txt
-https://n8n.n8nwillylondon.work/webhook/instagram-dm-autoresponder
+https://your-n8n-domain.com/webhook/instagram-dm-autoresponder
 ```
+
+I am using a placeholder there on purpose. Publish the workflow pattern, not your live production callback URL.
 
 ## Step 1: Make Sure Instagram and Facebook Are Actually Connected
 
@@ -78,7 +80,8 @@ You need:
 - your Facebook user with full control of the Page
 - the app and the Page living in the same Meta business setup
 
-Here is what the Instagram/Page connection looked like on my end:
+Here is what the Instagram/Page connection looked like on my end.
+I redacted the personal and business-specific bits, because a tutorial should teach the setup without turning into a data leak:
 
 ![Connected Instagram account inside Meta settings](/assets/images/instagram-dm-autoresponder-connected-instagram.png){: width="3018" height="1798" loading="lazy" decoding="async" }
 
@@ -116,16 +119,17 @@ The fix was not "generate another random token and pray." The fix was using the 
    - `pages_manage_metadata`
 3. Use that user token to fetch the **Page access token**
 
-The Graph API Explorer setup looked like this:
+The Graph API Explorer setup looked like this.
+Again, I redacted the actual token and account-specific details:
 
 ![Meta Graph API Explorer permissions for Instagram messaging](/assets/images/instagram-dm-autoresponder-graph-api-explorer.png){: width="2984" height="1628" loading="lazy" decoding="async" }
 
-Then I ran:
+Then I queried the accounts endpoint for the Page token:
 
-```bash
-curl -G 'https://graph.facebook.com/v25.0/me/accounts' \
-  --data-urlencode 'fields=id,name,access_token,instagram_business_account' \
-  --data-urlencode 'access_token=USER_TOKEN'
+```txt
+GET https://graph.facebook.com/v25.0/me/accounts
+fields: id, name, access_token, instagram_business_account
+access_token: USER_TOKEN
 ```
 
 That response finally gave me the **Page access token** I actually needed for sending messages.
@@ -280,19 +284,22 @@ That is a much better problem than "your token is nonsense."
 
 I set the bot to answer with this message when someone asks to join:
 
-```txt
-Welcome to the Fam! 👋 We are happy to have you join us. No big requirements here, just bring good energy and the ability to manage the hike and you are good to go!
-How to stay in the loop:
-📸 Follow us on IG: @lifestylehikers
-🌐 Check the website: lifestylehikers.com
-How it works:
-When the next hike drops, you will see the date and meeting spot posted on our socials and the website. Just show up and you are in! It is as simple as that.
-Important:
-Please head over to the website and fill out the Join the Community form. This is the best way to stay updated and officially get plugged into the group.
-About the WhatsApp group:
-Our WhatsApp group is for active members only. You will get your invite after completing 3 hikes with us - that is how we keep the energy right and the group tight. Show up, hike, and your spot is waiting! 🏔️🌿
-See you on the trail! 🇯🇲
-```
+> Welcome to the Fam! 👋 We are happy to have you join us. No big requirements here, just bring good energy and the ability to manage the hike and you are good to go!
+>
+> **How to stay in the loop**
+> 📸 Follow us on IG: `@lifestylehikers`
+> 🌐 Check the website: `lifestylehikers.com`
+>
+> **How it works**
+> When the next hike drops, you will see the date and meeting spot posted on our socials and the website. Just show up and you are in. It is as simple as that.
+>
+> **Important**
+> Please head over to the website and fill out the Join the Community form. This is the best way to stay updated and officially get plugged into the group.
+>
+> **About the WhatsApp group**
+> Our WhatsApp group is for active members only. You will get your invite after completing 3 hikes with us. That is how we keep the energy right and the group tight. Show up, hike, and your spot is waiting! 🏔️🌿
+>
+> See you on the trail! 🇯🇲
 
 That way the bot is useful, on-brand, and not pretending to be a full customer support department.
 
