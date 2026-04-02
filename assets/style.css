@@ -103,9 +103,103 @@ h1, h2, h3, h4 {
   padding: 0 40px;
 }
 
-section {
-  padding: 120px 0;
+/* === HERO REDESIGN === */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0;
 }
+
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-img-fill {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%) contrast(1.1) brightness(0.7);
+  opacity: 0.35;
+}
+
+.hero-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.4) 100%);
+}
+
+.hero .container {
+  position: relative;
+}
+
+/* === CARD MICRO-INTERACTIONS === */
+.card, .glow-card {
+  transition: all 0.4s var(--ease);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  position: relative;
+}
+
+.card:hover, .glow-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--accent-amber);
+  background: var(--surface-hover);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(245, 184, 0, 0.1);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  box-shadow: inset 0 0 15px rgba(245, 184, 0, 0.2);
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+/* === MARQUEE LOGOS === */
+.marquee-container {
+  padding: 60px 0;
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-item {
+  display: inline-block;
+  margin: 0 60px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.relative { position: relative; }
+.z-20 { z-index: 20; }
 
 /* Custom Cursor */
 .cursor-dot,
