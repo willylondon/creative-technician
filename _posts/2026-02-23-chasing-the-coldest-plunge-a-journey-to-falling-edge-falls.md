@@ -2,8 +2,8 @@
 layout: post
 title: "Chasing the Coldest Plunge: A Journey to Falling Edge Falls"
 date: 2026-02-23
-categories:
-  - Blog
+categories: [Hiking, Jamaica, Adventure]
+description: "The Lifestyle Hikers trek to Falling Edge Falls — where Kingston city lights give way to mountain mist, cold water, and pure reward. Everything you need to know before you go."
 image: /assets/images/screenshot_20260223-153131.png
 image_width: 1200
 image_height: 630

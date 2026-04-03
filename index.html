@@ -16,52 +16,72 @@ layout: null
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Willy London | The Creative Technician</title>
-  <meta name="description"
-    content="IT Systems Support • Automation Builder • AI Content Creator. Systems that work, stories that move." />
-  <meta name="theme-color" content="#050505" />
-  <link rel="canonical" href="{{ site.url }}/" />
+  <title>IT Automation &amp; Web Systems Consultant in Jamaica | Willy London</title>
+  <meta name="description" content="Jamaica-based IT automation consultant and content creator. I build high-performance systems — automation workflows, websites, and content pipelines. 20+ years IT experience." />
+  <meta name="theme-color" content="#080808" />
+  <link rel="canonical" href="https://thecreativetechnician.online/" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <link rel="apple-touch-icon" href="/assets/favicon.svg" />
 
+  <!-- PWA manifest -->
+  <link rel="manifest" href="/manifest.json" />
+
   <!-- Preloads -->
-  <link rel="preload" as="image" href="/assets/profile.jpg" />
+  <link rel="preload" as="image" href="/assets/images/photo-from-willy-london.jpg" />
   <link rel="preload" as="style" href="/assets/style.css" />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+  <link rel="preconnect" href="https://calendly.com" />
+  <link rel="dns-prefetch" href="https://calendly.com" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Willy London | The Creative Technician" />
-  <meta property="og:description"
-    content="IT Systems Support • Automation Builder • AI Content Creator. Systems that work, stories that move." />
-  <meta property="og:url" content="{{ site.url }}/" />
-  <meta property="og:image" content="{{ site.url }}/assets/profile.jpg" />
+  <meta property="og:site_name" content="The Creative Technician" />
+  <meta property="og:title" content="IT Automation &amp; Web Systems Consultant in Jamaica | Willy London" />
+  <meta property="og:description" content="Jamaica-based IT automation consultant and content creator. I build high-performance systems — automation workflows, websites, and content pipelines. 20+ years IT experience." />
+  <meta property="og:url" content="https://thecreativetechnician.online/" />
+  <meta property="og:image" content="https://thecreativetechnician.online/assets/images/photo-from-willy-london.jpg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Willy London | The Creative Technician" />
-  <meta name="twitter:description"
-    content="IT Systems Support • Automation Builder • AI Content Creator. Systems that work, stories that move." />
-  <meta name="twitter:image" content="{{ site.url }}/assets/profile.jpg" />
+  <meta name="twitter:site" content="@willylondon" />
+  <meta name="twitter:title" content="IT Automation &amp; Web Systems Consultant in Jamaica | Willy London" />
+  <meta name="twitter:description" content="Jamaica-based IT automation consultant and content creator. I build high-performance systems — automation workflows, websites, and content pipelines. 20+ years IT experience." />
+  <meta name="twitter:image" content="https://thecreativetechnician.online/assets/images/photo-from-willy-london.jpg" />
 
   <!-- JSON-LD Structured Data -->
+  {% raw %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
+    "@type": ["Person", "ProfessionalService"],
     "name": "Willard Wells",
     "alternateName": "Willy London",
-    "url": "https://www.thecreativetechnician.online",
-    "image": "https://www.thecreativetechnician.online/assets/profile.jpg",
-    "jobTitle": "IT Systems Support & Automation Builder",
-    "worksFor": { "@type": "Organization", "name": "Hillel Academy" },
-    "description": "Jamaica-based IT professional with 20+ years experience. Automation builder, AI content creator, and digital growth coach.",
-    "knowsAbout": ["IT Systems", "Automation", "AI Content Creation", "n8n", "Google Apps Script", "Web Development"],
+    "jobTitle": "IT Automation Consultant & Creative Technician",
+    "url": "https://thecreativetechnician.online",
+    "image": "https://thecreativetechnician.online/assets/images/photo-from-willy-london.jpg",
+    "description": "Jamaica-based IT professional with 20+ years experience. Automation consultant, content creator, and digital growth coach.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kingston",
+      "addressCountry": "JM"
+    },
     "sameAs": [
-      "https://www.tiktok.com/@willylondon",
-      "https://www.instagram.com/willylondon/",
+      "https://tiktok.com/@willylondon",
+      "https://instagram.com/willylondon",
       "https://x.com/willylondon"
+    ],
+    "knowsAbout": [
+      "IT Infrastructure", "n8n Automation", "Content Creation",
+      "AI Tools", "Google Workspace", "Jekyll", "JavaScript"
+    ],
+    "offers": [
+      { "@type": "Offer", "name": "Automation Sprint", "price": "450", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Website Revamp", "price": "650", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Content Systems", "price": "350", "priceCurrency": "USD" }
     ]
   }
   </script>
@@ -70,17 +90,14 @@ layout: null
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "The Creative Technician",
-    "url": "https://www.thecreativetechnician.online",
-    "description": "Portfolio and blog of Willy London — IT Systems Support, Automation Builder, and AI Content Creator."
+    "url": "https://thecreativetechnician.online",
+    "description": "Portfolio and blog of Willy London — IT automation consultant, content creator, and digital growth coach based in Jamaica."
   }
   </script>
+  {% endraw %}
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet">
+  <!-- Fonts (Bunny Fonts — GDPR-compliant, consistent with post pages) -->
+  <link href="https://fonts.bunny.net/css?family=space-grotesk:500,600,700|epilogue:400,500,600|jetbrains-mono:400,500" rel="stylesheet" />
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="/assets/style.css" />
@@ -119,7 +136,7 @@ layout: null
         <a href="#services" class="nav-link data-hover">Services</a>
         <a href="#work" class="nav-link data-hover">Work</a>
 
-        <a href="#blog" class="nav-link data-hover">Blog</a>
+        <a href="/blog/" class="nav-link data-hover">Blog</a>
         <a href="#contact" class="nav-link data-hover">Contact</a>
       </nav>
 
@@ -141,8 +158,7 @@ layout: null
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#work">Work</a>
-
-    <a href="#blog">Blog</a>
+    <a href="/blog/">Blog</a>
     <a href="#contact">Contact</a>
     <a href="#contact">Hire Me</a>
   </nav>
@@ -173,8 +189,8 @@ layout: null
     </section>
 
     <!-- Social Proof Marquee -->
-    <div class="marquee-container">
-      <div class="marquee-content">
+    <div class="marquee-container" style="position: relative;">
+      <div class="marquee-content" id="marquee-track">
         <span class="marquee-item">JAMAICA BASKETBALL</span>
         <span class="marquee-item">JPS WORKSHOPS</span>
         <span class="marquee-item">THE SOURCE ARENA</span>
@@ -184,6 +200,14 @@ layout: null
         <span class="marquee-item">THE SOURCE ARENA</span>
         <span class="marquee-item">LIFESTYLE HIKERS</span>
       </div>
+      <button class="marquee-toggle" id="marquee-pause" aria-label="Pause scrolling text" aria-pressed="false">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" id="marquee-icon-pause">
+          <rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>
+        </svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" id="marquee-icon-play" style="display:none;">
+          <polygon points="5,3 19,12 5,21"/>
+        </svg>
+      </button>
     </div>
 
     <section id="featured-capabilities">
@@ -262,42 +286,55 @@ layout: null
         <div class="grid-3">
           <div class="card reveal data-hover">
             <h3 class="font-heading" style="font-size: 22px; margin-bottom: 10px;">Automation Sprint</h3>
-            <p style="color: var(--text-muted); margin-bottom: 12px;">
+            <p style="color: var(--text-muted); margin-bottom: 12px; flex-grow: 1;">
               n8n or Google Apps Script workflows that save hours every week.
             </p>
-            <div class="pricing">Starting at <strong>$450</strong></div>
+            <div class="pricing" style="margin-bottom: 16px;">Starting at <strong>$450</strong></div>
+            <a href="https://calendly.com/willardwells?utm_source=website&utm_medium=service_card&utm_campaign=automation_sprint"
+              target="_blank" rel="noopener noreferrer" class="btn primary data-hover"
+              style="width: 100%; justify-content: center;"
+              data-gtag-event="cta_automation_sprint">Book This Sprint &rarr;</a>
           </div>
-          <div class="card reveal data-hover" style="transition-delay: 100ms;">
+          <div class="card reveal data-hover" style="transition-delay: 100ms; border-color: var(--accent-cyan);">
+            <div style="position: absolute; top: 0; right: 0; background: var(--accent-cyan); color: #000; font-size: 10px; font-weight: 800; padding: 5px 12px; border-bottom-left-radius: 10px; font-family: monospace; letter-spacing: 0.08em;">[ POPULAR ]</div>
             <h3 class="font-heading" style="font-size: 22px; margin-bottom: 10px;">Website Revamp</h3>
-            <p style="color: var(--text-muted); margin-bottom: 12px;">
+            <p style="color: var(--text-muted); margin-bottom: 12px; flex-grow: 1;">
               Modern, fast, mobile-first pages designed to convert.
             </p>
-            <div class="pricing">Starting at <strong>$650</strong></div>
+            <div class="pricing" style="margin-bottom: 16px;">Starting at <strong>$650</strong></div>
+            <a href="https://calendly.com/willardwells?utm_source=website&utm_medium=service_card&utm_campaign=website_revamp"
+              target="_blank" rel="noopener noreferrer" class="btn primary data-hover"
+              style="width: 100%; justify-content: center;"
+              data-gtag-event="cta_website_revamp">Start Your Revamp &rarr;</a>
           </div>
           <div class="card reveal data-hover" style="transition-delay: 200ms;">
             <h3 class="font-heading" style="font-size: 22px; margin-bottom: 10px;">Content Systems</h3>
-            <p style="color: var(--text-muted); margin-bottom: 12px;">
+            <p style="color: var(--text-muted); margin-bottom: 12px; flex-grow: 1;">
               Simple pipelines to create, schedule, and publish at scale.
             </p>
-            <div class="pricing">Starting at <strong>$350</strong></div>
+            <div class="pricing" style="margin-bottom: 16px;">Starting at <strong>$350</strong></div>
+            <a href="https://calendly.com/willardwells?utm_source=website&utm_medium=service_card&utm_campaign=content_systems"
+              target="_blank" rel="noopener noreferrer" class="btn primary data-hover"
+              style="width: 100%; justify-content: center;"
+              data-gtag-event="cta_content_systems">Build My System &rarr;</a>
           </div>
         </div>
 
-        <div class="grid-4" style="margin-top: 28px;">
+        <div class="grid-4" style="margin-top: 28px;" id="stats-section">
           <div class="stat reveal">
-            <div class="num">20+ yrs</div>
+            <div class="num" data-count="20" data-suffix="+ yrs">20+ yrs</div>
             <div class="label">IT systems experience</div>
           </div>
           <div class="stat reveal" style="transition-delay: 80ms;">
-            <div class="num">50k+</div>
+            <div class="num" data-count="50" data-suffix="k+">50k+</div>
             <div class="label">Audience across platforms</div>
           </div>
           <div class="stat reveal" style="transition-delay: 160ms;">
-            <div class="num">5–15 hrs</div>
+            <div class="num" data-static="true">5–15 hrs</div>
             <div class="label">Saved weekly via automation</div>
           </div>
           <div class="stat reveal" style="transition-delay: 240ms;">
-            <div class="num">2–5 days</div>
+            <div class="num" data-static="true">2–5 days</div>
             <div class="label">Typical delivery window</div>
           </div>
         </div>
@@ -367,6 +404,49 @@ layout: null
       </div>
     </section>
 
+    <!-- ── Testimonials ── -->
+    <section id="testimonials">
+      <div class="container">
+        <div class="flex justify-between items-center" style="margin-bottom: 32px;">
+          <h2 class="reveal">What Clients Say</h2>
+          <span class="reveal" style="color: var(--text-muted); font-family: monospace; font-size: 12px; letter-spacing: 0.1em;">[ WHAT CLIENTS SAY ]</span>
+        </div>
+
+        <div class="grid-2">
+
+          <!-- TESTIMONIAL NEEDED: Request written quote from Farika Atkins at farikaatkins.online
+               Describe: what was built, the outcome, and the working experience.
+               Replace [QUOTE TEXT] and [CLIENT NAME] below when received. -->
+          <div class="testimonial-card reveal">
+            <div class="testimonial-quote-mark">&ldquo;</div>
+            <p class="testimonial-text">
+              [QUOTE TEXT — contact Farika Atkins at farikaatkins.online to request a written testimonial about the portfolio site build.]
+            </p>
+            <div class="testimonial-author">
+              <strong>Farika Atkins</strong>
+              <span>Department Head &amp; Creative Strategist</span>
+            </div>
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+
+          <!-- TESTIMONIAL NEEDED: Request written quote from Master Bryan Kukibo at masterbryankukibo.online
+               Describe: the digital dojo project, what it changed, and working experience. -->
+          <div class="testimonial-card reveal" style="transition-delay: 100ms;">
+            <div class="testimonial-quote-mark">&ldquo;</div>
+            <p class="testimonial-text">
+              [QUOTE TEXT — contact Master Bryan Kukibo at masterbryankukibo.online to request a written testimonial about the martial arts website.]
+            </p>
+            <div class="testimonial-author">
+              <strong>Master Bryan Kukibo</strong>
+              <span>Grandmaster, Martial Arts Instructor</span>
+            </div>
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <section id="work">
       <div class="container">
         <div class="flex justify-between items-center" style="margin-bottom: 40px;">
@@ -374,53 +454,59 @@ layout: null
           <span class="reveal" style="color: var(--text-muted); font-family: monospace; font-size: 12px; letter-spacing: 0.1em;">[ PROOF OF WORK ]</span>
         </div>
 
-        <div class="grid-2">
+        <!-- [ CLIENT BUILDS ] -->
+        <div style="margin-bottom: 12px;">
+          <span class="section-tag reveal">[ CLIENT BUILDS ]</span>
+        </div>
+        <div class="grid-2" style="margin-bottom: 48px;">
 
           <a href="https://www.farikaatkins.online" target="_blank" rel="noopener noreferrer"
-            class="card reveal data-hover">
-            <div
-              style="position: absolute; top: 0; right: 0; background: var(--accent-amber); color: #000; font-size: 10px; font-weight: 800; padding: 6px 12px; border-bottom-left-radius: 12px; z-index: 10;">
-              ★ CLIENT BUILD</div>
-
+            class="card reveal data-hover" style="border-top: 3px solid var(--accent-amber);">
             <div class="flex justify-between items-center" style="margin-bottom: 16px;">
               <h3 class="font-heading" style="font-size: 24px;">Farika Atkins</h3>
               <div class="tag">Education / Portfolio</div>
             </div>
-            <p style="color: var(--text-muted); margin-bottom: 24px; flex-grow: 1;">
-              Professional academic portfolio. "Royal Educator" branding for a Department Head & Creative Strategist.
+            <p style="color: var(--text-muted); margin-bottom: 16px; flex-grow: 1;">
+              Professional academic portfolio. "Royal Educator" branding for a Department Head &amp; Creative Strategist.
+            </p>
+            <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">
+              Outcome: A polished, SEO-optimised site that communicates authority and expertise to hiring panels and partners.
             </p>
             <div class="flex gap-4">
-              <span class="tag" style="color:var(--accent-amber); border-color:var(--accent-amber)">Visit Site
-                &rarr;</span>
+              <span class="tag" style="color:var(--accent-amber); border-color:var(--accent-amber)">Visit Site &rarr;</span>
             </div>
           </a>
 
           <a href="https://masterbryankukibo.online" target="_blank" rel="noopener noreferrer"
-            class="card reveal data-hover">
-            <div
-              style="position: absolute; top: 0; right: 0; background: var(--accent-amber); color: #000; font-size: 10px; font-weight: 800; padding: 6px 12px; border-bottom-left-radius: 12px; z-index: 10;">
-              ★ CLIENT BUILD</div>
-
+            class="card reveal data-hover" style="border-top: 3px solid var(--accent-amber);">
             <div class="flex justify-between items-center" style="margin-bottom: 16px;">
               <h3 class="font-heading" style="font-size: 24px;">Master Bryan Kukibo</h3>
               <div class="tag">Martial Arts / Web</div>
             </div>
-            <p style="color: var(--text-muted); margin-bottom: 24px; flex-grow: 1;">
-              Digital dojo for Grandmaster Bryan Campbell. Modernizing martial arts heritage with a clean web presence.
+            <p style="color: var(--text-muted); margin-bottom: 16px; flex-grow: 1;">
+              Digital dojo for Grandmaster Bryan Campbell. Modernising martial arts heritage with a clean web presence.
+            </p>
+            <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">
+              Outcome: A branded online home that legitimises decades of experience and drives class enquiries.
             </p>
             <div class="flex gap-4">
-              <span class="tag" style="color:var(--accent-amber); border-color:var(--accent-amber)">Visit Site
-                &rarr;</span>
+              <span class="tag" style="color:var(--accent-amber); border-color:var(--accent-amber)">Visit Site &rarr;</span>
             </div>
           </a>
+        </div>
 
+        <!-- [ PERSONAL PROJECTS ] -->
+        <div style="margin-bottom: 12px;">
+          <span class="section-tag reveal">[ PERSONAL PROJECTS ]</span>
+        </div>
+        <div class="grid-3">
           <a href="https://www.tiktok.com/@jamrockai" target="_blank" rel="noopener noreferrer"
-            class="card reveal data-hover" style="transition-delay: 100ms;">
+            class="card reveal data-hover">
             <div class="flex justify-between items-center" style="margin-bottom: 16px;">
-              <h3 class="font-heading" style="font-size: 24px;">JamrockAI</h3>
+              <h3 class="font-heading" style="font-size: 20px;">JamrockAI</h3>
               <div class="tag">TikTok / AI</div>
             </div>
-            <p style="color: var(--text-muted); margin-bottom: 24px; flex-grow: 1;">
+            <p style="color: var(--text-muted); margin-bottom: 20px; flex-grow: 1;">
               Automated content brand. Jamaican culture meets AI visuals and storytelling.
             </p>
             <div class="flex gap-4">
@@ -429,13 +515,13 @@ layout: null
           </a>
 
           <a href="https://www.youtube.com/@JamrockAI" target="_blank" rel="noopener noreferrer"
-            class="card reveal data-hover" style="transition-delay: 200ms;">
+            class="card reveal data-hover" style="transition-delay: 80ms;">
             <div class="flex justify-between items-center" style="margin-bottom: 16px;">
-              <h3 class="font-heading" style="font-size: 24px;">n8n Workflows</h3>
+              <h3 class="font-heading" style="font-size: 20px;">n8n Workflows</h3>
               <div class="tag">Systems</div>
             </div>
-            <p style="color: var(--text-muted); margin-bottom: 24px; flex-grow: 1;">
-              Custom pipelines: Google Drive → Title Generation → YouTube Upload.
+            <p style="color: var(--text-muted); margin-bottom: 20px; flex-grow: 1;">
+              Custom pipelines: Google Drive → Title Generation → YouTube Upload. Fully automated.
             </p>
             <div class="flex gap-4">
               <span class="tag" style="color:var(--accent-cyan)">See Result &rarr;</span>
@@ -443,12 +529,12 @@ layout: null
           </a>
 
           <a href="https://www.tiktok.com/@whenwihungry" target="_blank" rel="noopener noreferrer"
-            class="card reveal data-hover" style="transition-delay: 300ms;">
+            class="card reveal data-hover" style="transition-delay: 160ms;">
             <div class="flex justify-between items-center" style="margin-bottom: 16px;">
-              <h3 class="font-heading" style="font-size: 24px;">When Wi Hungry</h3>
+              <h3 class="font-heading" style="font-size: 20px;">When Wi Hungry</h3>
               <div class="tag">Reviews</div>
             </div>
-            <p style="color: var(--text-muted); margin-bottom: 24px; flex-grow: 1;">
+            <p style="color: var(--text-muted); margin-bottom: 20px; flex-grow: 1;">
               Food review storytelling. Clean editing, pacing, and honesty.
             </p>
             <div class="flex gap-4">
@@ -457,12 +543,13 @@ layout: null
           </a>
 
           <a href="https://www.instagram.com/jamaicabasketball/" target="_blank" rel="noopener noreferrer"
-            class="card reveal data-hover" style="transition-delay: 400ms;">
+            class="card reveal data-hover" style="transition-delay: 240ms;"
+            aria-label="Jamaica Basketball on Instagram">
             <div class="flex justify-between items-center" style="margin-bottom: 16px;">
-              <h3 class="font-heading" style="font-size: 24px;">Jamaica Basketball</h3>
+              <h3 class="font-heading" style="font-size: 20px;">Jamaica Basketball</h3>
               <div class="tag">Community</div>
             </div>
-            <p style="color: var(--text-muted); margin-bottom: 24px; flex-grow: 1;">
+            <p style="color: var(--text-muted); margin-bottom: 20px; flex-grow: 1;">
               Sports media coverage. Highlights, player stats, and leadership.
             </p>
             <div class="flex gap-4">
@@ -611,31 +698,53 @@ layout: null
               Network</div>
             <div class="flex flex-wrap gap-2">
               <a href="https://www.tiktok.com/@willylondon" target="_blank" rel="noopener noreferrer"
-                class="btn data-hover">TikTok: @willylondon</a>
+                class="btn data-hover" aria-label="Willy London on TikTok (@willylondon)">TikTok: @willylondon</a>
               <a href="https://www.instagram.com/willylondon/" target="_blank" rel="noopener noreferrer"
-                class="btn data-hover">IG: @willylondon</a>
-              <a href="https://x.com/willylondon" target="_blank" rel="noopener noreferrer" class="btn data-hover">X:
-                @willylondon</a>
-
+                class="btn data-hover" aria-label="Willy London on Instagram (@willylondon)">IG: @willylondon</a>
+              <a href="https://x.com/willylondon" target="_blank" rel="noopener noreferrer" class="btn data-hover"
+                aria-label="Willy London on X / Twitter (@willylondon)">X: @willylondon</a>
               <a href="https://www.tiktok.com/@jamrockai" target="_blank" rel="noopener noreferrer"
-                class="btn data-hover" style="border-color:var(--accent-cyan)">@JamrockAI</a>
+                class="btn data-hover" style="border-color:var(--accent-cyan)"
+                aria-label="JamrockAI on TikTok (@jamrockai)">@JamrockAI</a>
               <a href="https://www.tiktok.com/@whenwihungry" target="_blank" rel="noopener noreferrer"
-                class="btn data-hover" style="border-color:var(--accent-amber)">@WhenWiHungry</a>
+                class="btn data-hover" style="border-color:var(--accent-amber)"
+                aria-label="When Wi Hungry on TikTok (@whenwihungry)">@WhenWiHungry</a>
               <a href="https://www.instagram.com/jamaicabasketball/" target="_blank" rel="noopener noreferrer"
-                class="btn data-hover">@JamaicaBasketball</a>
+                class="btn data-hover" aria-label="Jamaica Basketball on Instagram (@jamaicabasketball)">@JamaicaBasketball</a>
             </div>
           </div>
 
           <div class="reveal" style="transition-delay: 200ms;">
-            <form id="contact-form">
-              <label class="sr-only" for="name">Name / Organization</label>
-              <input type="text" id="name" name="name" placeholder="Name / Organization" autocomplete="name" required>
-              <label class="sr-only" for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="Email Address" autocomplete="email" required>
-              <label class="sr-only" for="message">Project details or inquiry</label>
-              <textarea id="message" name="message" rows="5" placeholder="Project details or inquiry..."
-                required></textarea>
-              <button type="submit" class="btn primary data-hover" style="width: 100%; justify-content: center;"
+            <!-- TODO: Register at formspree.io, get form ID, replace xyzabcde below -->
+            <!-- Step 1: go to formspree.io → New Form → copy the form ID -->
+            <!-- Step 2: set _next to https://thecreativetechnician.online/thanks/ in Formspree dashboard or hidden field -->
+            <form id="contact-form"
+              action="https://formspree.io/f/xyzabcde"
+              method="POST"
+              novalidate>
+              <input type="hidden" name="_subject" value="New inquiry — The Creative Technician">
+              <input type="hidden" name="_next" value="https://thecreativetechnician.online/thanks/">
+
+              <div class="form-field">
+                <label for="name" class="form-label">Name / Organization</label>
+                <input type="text" id="name" name="name" placeholder="e.g. Farika Atkins / Hillel Academy" autocomplete="name" required>
+                <p class="field-error" id="name-error" role="alert" aria-live="polite"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required>
+                <p class="field-error" id="email-error" role="alert" aria-live="polite"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="message" class="form-label">Project details or inquiry</label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell me about what you need…" required></textarea>
+                <p class="field-error" id="message-error" role="alert" aria-live="polite"></p>
+              </div>
+
+              <button type="submit" id="form-submit" class="btn primary data-hover"
+                style="width: 100%; justify-content: center;"
                 data-gtag-event="cta_form_submit">Send Message</button>
               <p id="form-status" class="form-status" aria-live="polite"></p>
             </form>
@@ -652,11 +761,14 @@ layout: null
 
       <div class="flex flex-wrap gap-2" style="justify-content: center; margin-top: 16px;">
         <a href="https://www.instagram.com/jamaicabasketball/" target="_blank" rel="noopener noreferrer"
-          class="btn data-hover" style="font-size: 12px; padding: 6px 12px;">JamaicaBasketball</a>
+          class="btn data-hover" style="font-size: 12px; padding: 6px 12px;"
+          aria-label="Jamaica Basketball on Instagram (@jamaicabasketball)">JamaicaBasketball</a>
         <a href="https://www.tiktok.com/@jamrockai" target="_blank" rel="noopener noreferrer" class="btn data-hover"
-          style="font-size: 12px; padding: 6px 12px;">JamrockAI</a>
+          style="font-size: 12px; padding: 6px 12px;"
+          aria-label="JamrockAI on TikTok (@jamrockai)">JamrockAI</a>
         <a href="https://www.tiktok.com/@whenwihungry" target="_blank" rel="noopener noreferrer" class="btn data-hover"
-          style="font-size: 12px; padding: 6px 12px;">WhenWiHungry</a>
+          style="font-size: 12px; padding: 6px 12px;"
+          aria-label="When Wi Hungry on TikTok (@whenwihungry)">WhenWiHungry</a>
       </div>
     </div>
   </footer>

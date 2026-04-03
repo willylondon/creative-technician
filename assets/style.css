@@ -1408,6 +1408,113 @@ textarea:focus {
   margin: 0;
 }
 
+/* === TESTIMONIAL CARDS (static, non-marquee) === */
+
+.testimonial-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.testimonial-quote-mark {
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--accent-amber);
+  font-family: 'Space Grotesk', sans-serif;
+  margin-bottom: -8px;
+}
+
+.testimonial-text {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  flex-grow: 1;
+  margin: 0;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.testimonial-author strong {
+  font-size: 14px;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.testimonial-author span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.testimonial-stars {
+  font-size: 14px;
+  color: var(--accent-amber);
+  letter-spacing: 2px;
+}
+
+/* === FORM LABELS & VALIDATION === */
+
+.form-field {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.form-field input,
+.form-field textarea {
+  margin-bottom: 0;
+}
+
+.field-error {
+  font-size: 12px;
+  color: #ff4d4d;
+  margin-top: 4px;
+  min-height: 1em;
+}
+
+/* === MARQUEE PAUSE BUTTON (WCAG 2.2.2) === */
+
+.marquee-toggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(10, 10, 10, 0.8);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.marquee-toggle:hover {
+  border-color: var(--text-muted);
+  color: var(--text-main);
+}
+
 /* === BLOG INDEX === */
 
 .nav-link--active {

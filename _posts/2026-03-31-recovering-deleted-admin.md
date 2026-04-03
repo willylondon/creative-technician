@@ -2,11 +2,8 @@
 layout: post
 title: "The Ultimate 'Oops': How I Recovered a Deleted Admin Account on a Locked-Down PC"
 date: 2026-03-31
-categories:
-  - Blog
-  - IT Support
-  - Troubleshooting
-  - Command Prompt
+categories: [IT Support, Troubleshooting]
+description: "The admin account was deleted. The PC was locked. The password was gone. Here's the exact step-by-step process I used to recover full access — using only what Windows gives you."
 image: /assets/images/blog_header.png
 image_width: 1920
 image_height: 1080

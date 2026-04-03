@@ -3,6 +3,7 @@ layout: post
 title: "Chasing Giants: My Survival Guide to Nonsuch Falls"
 date: 2026-02-09
 categories: [Hiking, Jamaica, Adventure]
+description: "Woke up at 4am, drove 3 hours to Portland, and hiked through jungle to reach one of Jamaica's most powerful waterfalls. Here's your survival guide."
 image: /assets/images/nonsuch-falls.png
 image_width: 1024
 image_height: 1536

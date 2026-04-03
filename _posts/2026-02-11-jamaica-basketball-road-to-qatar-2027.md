@@ -3,6 +3,7 @@ layout: post
 title: "Jamaica Basketball: The Road to Qatar 2027"
 date: 2026-02-11
 categories: [Basketball, Jamaica, Community]
+description: "The JamRockers have reached the FIBA World Cup qualifiers for the first time in history. Here's why this moment matters for Jamaica and what it will take to make it to Qatar 2027."
 image: /assets/images/jamaica-basketball-qatar-2027-1.png
 image_width: 1440
 image_height: 1440

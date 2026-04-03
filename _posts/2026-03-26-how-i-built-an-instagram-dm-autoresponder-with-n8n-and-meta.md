@@ -2,11 +2,8 @@
 layout: post
 title: "How I Built an Instagram DM Autoresponder with n8n & Meta"
 date: 2026-03-26
-categories:
-  - Blog
-  - Automation
-  - n8n
-  - Instagram
+categories: [Automation, n8n, Instagram]
+description: "A step-by-step breakdown of how I used n8n and the Meta Graph API to build an automated Instagram DM responder — without any third-party tools."
 image: /assets/images/instagram-dm-autoresponder-graph-api-explorer.png
 image_width: 2984
 image_height: 1628

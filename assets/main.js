@@ -38,6 +38,7 @@ if (menuToggle && mobileNav) {
   const setMobileNav = (isOpen) => {
     mobileNav.classList.toggle('open', isOpen);
     menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
   };
 
   menuToggle.addEventListener('click', () => {
@@ -55,30 +56,26 @@ if (menuToggle && mobileNav) {
   });
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      setMobileNav(false);
-    }
+    if (event.key === 'Escape') setMobileNav(false);
   });
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 1024) {
-      setMobileNav(false);
-    }
+    if (window.innerWidth > 1024) setMobileNav(false);
   });
 }
 
 // === 3. Scroll Reveal Engine ===
 const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-const observer = new IntersectionObserver((entries) => {
+const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('active');
-      observer.unobserve(entry.target);
+      revealObserver.unobserve(entry.target);
     }
   });
 }, observerOptions);
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 // === 4. Dynamic Year ===
 const yearEl = document.getElementById('year');
@@ -86,14 +83,8 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // === 5. Hero Text Cycle ===
 const cycleWords = [
-  'business',
-  'team',
-  'workflow',
-  'productivity',
-  'projects',
-  'analytics',
-  'dashboard',
-  'platform'
+  'business', 'team', 'workflow', 'productivity',
+  'projects', 'analytics', 'dashboard', 'platform'
 ];
 const cycleWordEl = document.getElementById('hero-cycle-word');
 const cycleWrapEl = document.getElementById('hero-cycle-wrap');
@@ -129,27 +120,137 @@ if (cycleWordEl && cycleWrapEl && cycleWords.length > 1) {
   }
 }
 
-// === 6. Contact Form Handling (mailto fallback for GitHub Pages) ===
+// === 6. Contact Form — Formspree + client-side validation ===
 const form = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
+const formSubmit = document.getElementById('form-submit');
+
+function showFieldError(fieldId, message) {
+  const errEl = document.getElementById(fieldId + '-error');
+  const input = document.getElementById(fieldId);
+  if (errEl) errEl.textContent = message;
+  if (input) input.setAttribute('aria-invalid', message ? 'true' : 'false');
+  if (input) input.style.borderColor = message ? '#ff4d4d' : '';
+}
+
+function clearErrors() {
+  ['name', 'email', 'message'].forEach(id => showFieldError(id, ''));
+}
+
+function validateForm(name, email, message) {
+  let valid = true;
+  if (!name.trim()) { showFieldError('name', 'Please enter your name or organization.'); valid = false; }
+  if (!email.trim()) { showFieldError('email', 'Please enter your email address.'); valid = false; }
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showFieldError('email', 'Please enter a valid email address.'); valid = false; }
+  if (!message.trim()) { showFieldError('message', 'Please describe your project or inquiry.'); valid = false; }
+  return valid;
+}
+
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    clearErrors();
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const msg = document.getElementById('message').value;
 
-    const subject = `Inquiry from ${name}`;
-    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`;
-    window.location.href = `mailto:willardwells@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (!validateForm(name, email, msg)) return;
 
-    if (formStatus) {
-      formStatus.textContent = 'Your email app should open. Please hit send to complete your message.';
+    // Show loading state
+    if (formSubmit) { formSubmit.textContent = 'Sending…'; formSubmit.disabled = true; }
+    if (formStatus) { formStatus.textContent = ''; formStatus.className = 'form-status'; }
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        if (formStatus) {
+          formStatus.textContent = 'Message sent. I\'ll respond within 24 hours.';
+          formStatus.style.color = 'var(--accent-cyan)';
+        }
+        form.reset();
+        if (window.gtag) window.gtag('event', 'form_submit_success', { event_category: 'engagement' });
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      if (formStatus) {
+        formStatus.innerHTML = 'Something went wrong. Email me directly at <a href="mailto:willardwells@gmail.com" style="color:var(--accent-cyan)">willardwells@gmail.com</a>';
+      }
+    } finally {
+      if (formSubmit) { formSubmit.textContent = 'Send Message'; formSubmit.disabled = false; }
     }
   });
 }
 
-// === 7. CTA Tracking (GA4) ===
+// === 7. Marquee Pause/Play (WCAG 2.2.2) ===
+const marqueeTrack = document.getElementById('marquee-track');
+const marqueePauseBtn = document.getElementById('marquee-pause');
+const marqueePauseIcon = document.getElementById('marquee-icon-pause');
+const marqueePlayIcon = document.getElementById('marquee-icon-play');
+
+if (marqueePauseBtn && marqueeTrack) {
+  marqueePauseBtn.addEventListener('click', () => {
+    const isPaused = marqueePauseBtn.getAttribute('aria-pressed') === 'true';
+    const next = !isPaused;
+    marqueePauseBtn.setAttribute('aria-pressed', String(next));
+    marqueePauseBtn.setAttribute('aria-label', next ? 'Play scrolling text' : 'Pause scrolling text');
+    marqueeTrack.style.animationPlayState = next ? 'paused' : 'running';
+    if (marqueePauseIcon) marqueePauseIcon.style.display = next ? 'none' : '';
+    if (marqueePlayIcon) marqueePlayIcon.style.display = next ? '' : 'none';
+  });
+}
+
+// === 8. Stats Counter Animation (Fix #23) ===
+const statsSection = document.getElementById('stats-section');
+
+function easeOutQuart(t) {
+  return 1 - Math.pow(1 - t, 4);
+}
+
+function animateCount(el, target, suffix, duration) {
+  const start = performance.now();
+  function step(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = easeOutQuart(progress);
+    el.textContent = Math.round(eased * target) + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+if (statsSection && !reduceMotion) {
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        statsSection.querySelectorAll('[data-count]').forEach(el => {
+          const target = parseInt(el.dataset.count, 10);
+          const suffix = el.dataset.suffix || '';
+          animateCount(el, target, suffix, 1200);
+        });
+        // Static range values: fade-in with scale
+        statsSection.querySelectorAll('[data-static]').forEach(el => {
+          el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          el.style.opacity = '0';
+          el.style.transform = 'scale(0.9)';
+          requestAnimationFrame(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'scale(1)';
+          });
+        });
+        statsObserver.unobserve(statsSection);
+      }
+    });
+  }, { threshold: 0.3 });
+  statsObserver.observe(statsSection);
+}
+
+// === 9. CTA Tracking (GA4) ===
 document.querySelectorAll('[data-gtag-event]').forEach((el) => {
   el.addEventListener('click', () => {
     const eventName = el.getAttribute('data-gtag-event');
