@@ -45,6 +45,11 @@ if (menuToggle && mobileNav) {
     setMobileNav(!isOpen);
   });
 
+  const mobileNavClose = document.getElementById('mobile-nav-close');
+  if (mobileNavClose) {
+    mobileNavClose.addEventListener('click', () => setMobileNav(false));
+  }
+
   mobileNavLinks.forEach((link) => {
     link.addEventListener('click', () => setMobileNav(false));
   });
@@ -76,7 +81,8 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // === 4. Dynamic Year ===
-document.getElementById('year').textContent = new Date().getFullYear();
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // === 5. Hero Text Cycle ===
 const cycleWords = [

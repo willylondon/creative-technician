@@ -1,361 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  {% if page.meta_title %}
-  {% assign page_title = page.meta_title %}
-  {% else %}
-  {% assign page_title = page.title | append: " | Willy London" %}
-  {% endif %}
+  {% if page.meta_title %}{% assign page_title = page.meta_title %}{% else %}{% assign page_title = page.title | append: " | Willy London" %}{% endif %}
   {% assign page_description = page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 %}
   {% assign page_url = site.url | append: page.url %}
   {% assign page_image = page.image | default: site.default_post_image %}
   {% assign page_image_width = page.image_width | default: site.default_post_image_width %}
   {% assign page_image_height = page.image_height | default: site.default_post_image_height %}
   {% assign page_image_alt = page.image_alt | default: page.title %}
+  {% assign words = content | number_of_words %}
+  {% assign reading_time = words | divided_by: 200 | plus: 1 %}
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-R13SZWDJ3S"></script>
-  <script src="https://analytics.ahrefs.com/analytics.js" data-key="zCLC+rjJQ9XshNm2L5qAkQ" async></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-R13SZWDJ3S');
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-R13SZWDJ3S');</script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ page_title }}</title>
-  <meta name="description" content="{{ page_description }}">
+  <meta name="description" content="{{ page_description }}" />
   <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#050505" />
+  <meta name="theme-color" content="#080808" />
   <link rel="canonical" href="{{ page_url }}" />
-
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="{{ page_title }}">
-  <meta property="og:description" content="{{ page_description }}">
-  <meta property="og:url" content="{{ page_url }}">
-  <meta property="og:image" content="{{ site.url }}{{ page_image }}">
-  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
-  <meta property="article:author" content="Willy London">
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="The Creative Technician" />
+  <meta property="og:title" content="{{ page_title }}" />
+  <meta property="og:description" content="{{ page_description }}" />
+  <meta property="og:url" content="{{ page_url }}" />
+  <meta property="og:image" content="{{ site.url }}{{ page_image }}" />
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+  <meta property="article:author" content="Willy London" />
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ page_title }}">
-  <meta name="twitter:description" content="{{ page_description }}">
-  <meta name="twitter:image" content="{{ site.url }}{{ page_image }}">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@willylondon" />
+  <meta name="twitter:title" content="{{ page_title }}" />
+  <meta name="twitter:description" content="{{ page_description }}" />
+  <meta name="twitter:image" content="{{ site.url }}{{ page_image }}" />
 
-  <!-- JSON-LD BlogPosting -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "{{ page.title | escape }}",
     "description": "{{ page_description | escape }}",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "{{ page_url }}"
-    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ page_url }}" },
     "url": "{{ page_url }}",
     "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "author": {
-      "@type": "Person",
-      "name": "Willy London",
-      "url": "https://www.thecreativetechnician.online"
-    },
-    "publisher": {
-      "@type": "Person",
-      "name": "Willy London",
-      "url": "https://www.thecreativetechnician.online"
-    },
+    "author": { "@type": "Person", "name": "Willy London", "url": "https://www.thecreativetechnician.online" },
+    "publisher": { "@type": "Person", "name": "Willy London", "url": "https://www.thecreativetechnician.online" },
     "image": "{{ site.url }}{{ page_image }}"
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
-    rel="stylesheet">
-
-  <style>
-    :root {
-      /* Unified with index.html */
-      --bg: #050505;
-      --panel: rgba(15, 23, 32, .62);
-      --text: #F4F6F8;
-      --muted: rgba(244, 246, 248, .72);
-      --line: rgba(244, 246, 248, .14);
-      --radius: 22px;
-      --accent-cyan: #00E5FF;
-      --accent-amber: #FFB020;
-    }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(900px 550px at 15% -5%, rgba(0, 229, 255, .12), transparent 55%),
-        radial-gradient(800px 500px at 88% 10%, rgba(255, 176, 32, .08), transparent 55%),
-        var(--bg);
-      color: var(--text);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height: 1.8;
-    }
-
-    a {
-      color: var(--accent-cyan);
-      text-decoration: none
-    }
-
-    a:hover {
-      text-decoration: underline
-    }
-
-    /* Sticky mini-header */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(5, 5, 5, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .site-header .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: "Space Grotesk", Inter, sans-serif;
-      font-weight: 700;
-      font-size: 16px;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .site-header .logo:hover {
-      text-decoration: none;
-    }
-
-    .site-header .logo-mark {
-      width: 20px;
-      height: 20px;
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-amber));
-      border-radius: 5px;
-    }
-
-    .site-header nav a {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--muted);
-      margin-left: 16px;
-      text-decoration: none;
-    }
-
-    .site-header nav a:hover {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .wrap {
-      max-width: 78ch;
-      margin: 0 auto;
-      padding: 42px 18px 64px;
-    }
-
-    .back {
-      display: inline-block;
-      padding: 10px 14px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(244, 246, 248, .05);
-      color: rgba(244, 246, 248, .88);
-      font-weight: 700;
-      font-size: 13px;
-    }
-
-    .back:hover {
-      text-decoration: none;
-    }
-
-    h1 {
-      margin: 18px 0 8px;
-      font-family: "Space Grotesk", Inter, sans-serif;
-      letter-spacing: -.4px;
-      line-height: 1.12;
-      font-size: clamp(28px, 4vw, 44px);
-    }
-
-    .meta {
-      margin: 0 0 20px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .hero-media {
-      width: 100%;
-      margin: 0 0 24px;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .hero-media img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      background: var(--panel);
-      border-radius: var(--radius);
-      padding: 22px 20px;
-      box-shadow: 0 18px 50px rgba(0, 0, 0, .46);
-    }
-
-    .card h2,
-    .card h3 {
-      font-family: "Space Grotesk", Inter, sans-serif;
-      letter-spacing: -.2px;
-      line-height: 1.25;
-    }
-
-    .card p {
-      margin: 0 0 14px
-    }
-
-    .card ul {
-      margin: 0 0 14px;
-      padding-left: 18px
-    }
-
-    .card li {
-      margin: 6px 0
-    }
-
-    .card img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 18px auto;
-      border-radius: 14px;
-    }
-
-    .footer {
-      margin-top: 18px;
-      color: rgba(244, 246, 248, .58);
-      font-size: 13px;
-    }
-
-    /* WhatsApp Float */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 60px;
-      height: 60px;
-      background-color: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-      z-index: 1000;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .whatsapp-float:hover {
-      transform: translateY(-5px) scale(1.1);
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6);
-      text-decoration: none;
-    }
-
-    @media (max-width: 768px) {
-      .site-header nav {
-        display: none;
-      }
-
-      .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
-      }
-
-      .whatsapp-float svg {
-        width: 24px;
-        height: 24px;
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+  <link href="https://fonts.bunny.net/css?family=space-grotesk:500,600,700|epilogue:400,500,600|jetbrains-mono:400,500" rel="stylesheet" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/assets/style.css" />
 </head>
 
 <body>
-  <!-- Sticky header with nav -->
-  <div class="site-header">
-    <a class="logo" href="{{ '/' | relative_url }}">
-      <div class="logo-mark"></div>
-      Willy London
-    </a>
-    <nav>
-      <a href="{{ '/' | relative_url }}#services">Services</a>
-      <a href="{{ '/' | relative_url }}#work">Work</a>
-      <a href="{{ '/' | relative_url }}#blog">Blog</a>
-      <a href="{{ '/' | relative_url }}#contact">Contact</a>
-    </nav>
-  </div>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-outline" aria-hidden="true"></div>
 
-  <div class="wrap">
-    <a class="back" href="{{ '/' | relative_url }}">← Back home</a>
-    <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.date | date: "%B %d, %Y" }}</p>
-
-    <div class="hero-media">
-      <img src="{{ page_image | relative_url }}" alt="{{ page_image_alt }}"
-        width="{{ page_image_width }}" height="{{ page_image_height }}"
-        loading="eager" fetchpriority="high" decoding="async">
+  <header class="page-layer" id="site-header">
+    <div class="container header-inner">
+      <a href="/" class="site-logo data-hover" aria-label="Willy London — Home">
+        <div class="logo-mark" aria-hidden="true"></div>
+        <span class="logo-name">Willy London</span>
+        <span class="logo-sub">/ Creative Technician</span>
+      </a>
+      <nav class="nav-links-desktop" aria-label="Primary navigation">
+        <a href="/#about" class="nav-link data-hover">About</a>
+        <a href="/#services" class="nav-link data-hover">Services</a>
+        <a href="/#work" class="nav-link data-hover">Work</a>
+        <a href="/blog/" class="nav-link data-hover">Blog</a>
+        <a href="/#contact" class="nav-link data-hover">Contact</a>
+      </nav>
+      <button id="menu-toggle" class="menu-toggle data-hover" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="22" height="22">
+          <line x1="4" y1="7" x2="20" y2="7"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="17" x2="20" y2="17"></line>
+        </svg>
+      </button>
+      <a href="/#contact" class="btn btn-primary header-cta data-hover">Hire Me</a>
     </div>
+  </header>
 
-    <div class="card">
-      {{ content }}
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Close navigation menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <a href="/#about">About</a>
+    <a href="/#services">Services</a>
+    <a href="/#work">Work</a>
+    <a href="/blog/">Blog</a>
+    <a href="/#contact">Contact</a>
+    <a href="/#contact" class="btn btn-primary" style="margin-top:1rem;">Hire Me</a>
+  </nav>
+
+  <main id="main-content" class="page-layer">
+    <div class="post-wrap">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="/blog/">Blog</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">{{ page.title | truncatewords: 6 }}</span>
+        </nav>
+
+        <a class="back-link data-hover" href="/blog/">&larr; Back to Blog</a>
+      </div>
+
+      <article class="post-article">
+        <div class="container post-header">
+          <div class="post-meta-top">
+            {% if page.categories.size > 0 %}
+            <div class="post-cats">
+              {% for cat in page.categories limit:3 %}
+              <span class="tag tag-sm">{{ cat }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+            <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+            <span class="post-reading-time">{{ reading_time }} min read</span>
+          </div>
+          <h1 class="post-title">{{ page.title }}</h1>
+        </div>
+
+        <div class="container">
+          <div class="post-hero-media">
+            <img src="{{ page_image | relative_url }}" alt="{{ page_image_alt }}"
+              width="{{ page_image_width }}" height="{{ page_image_height }}"
+              loading="eager" fetchpriority="high" decoding="async">
+          </div>
+        </div>
+
+        <div class="container post-body-wrap">
+          <div class="post-body">
+            {{ content }}
+          </div>
+        </div>
+      </article>
+
+      <!-- Prev / Next navigation -->
+      <div class="container post-nav-section">
+        <div class="post-nav">
+          {% if page.previous.url %}
+          <a href="{{ page.previous.url | relative_url }}" class="post-nav-link post-nav-prev data-hover">
+            <span class="post-nav-label">&larr; Previous</span>
+            <span class="post-nav-title">{{ page.previous.title | truncatewords: 8 }}</span>
+          </a>
+          {% else %}<div></div>{% endif %}
+          {% if page.next.url %}
+          <a href="{{ page.next.url | relative_url }}" class="post-nav-link post-nav-next data-hover">
+            <span class="post-nav-label">Next &rarr;</span>
+            <span class="post-nav-title">{{ page.next.title | truncatewords: 8 }}</span>
+          </a>
+          {% else %}<div></div>{% endif %}
+        </div>
+      </div>
+
+      <!-- Related posts -->
+      {% assign related = site.posts | where_exp: "p", "p.url != page.url" | limit: 3 %}
+      {% if related.size > 0 %}
+      <div class="container related-posts-section">
+        <div class="section-tag">[ RELATED READS ]</div>
+        <h2 class="related-posts-heading">More from the Lab</h2>
+        <div class="related-posts-grid">
+          {% for rp in related %}
+          {% assign rp_image = rp.image | default: site.default_post_image %}
+          <a href="{{ rp.url | relative_url }}" class="blog-card blog-card--sm data-hover reveal">
+            <div class="blog-card-media">
+              <img src="{{ rp_image | relative_url }}" alt="{{ rp.title }}" loading="lazy" decoding="async" width="600" height="400">
+            </div>
+            <div class="blog-card-body">
+              <h3 class="blog-card-title">{{ rp.title }}</h3>
+              <div class="blog-card-footer">
+                <time datetime="{{ rp.date | date_to_xmlschema }}">{{ rp.date | date: "%b %d, %Y" }}</time>
+                <span class="blog-card-read">Read &rarr;</span>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
     </div>
+  </main>
 
-    <div class="footer">
-      © {{ site.time | date: "%Y" }} Willy London — The Creative Technician
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo-mark" aria-hidden="true"></div>
+          <span class="logo-name">Willy London</span>
+        </div>
+        <p class="footer-tag">Built with Systems &amp; Soul.</p>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="/#about">About</a>
+          <a href="/#services">Services</a>
+          <a href="/blog/">Blog</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; {{ site.time | date: "%Y" }} Willy London. All rights reserved. Made in Jamaica &#127471;&#127474;</p>
+      </div>
     </div>
-  </div>
+  </footer>
 
-  <!-- WhatsApp Float -->
   <a href="https://wa.me/18767978034?text=Hi%20Willy%2C%20I%20viewed%20your%20portfolio%20and%20I%27m%20interested%20in%20working%20with%20you."
-    class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with Willy London on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
     </svg>
   </a>
 
-  <script>
-    const postImages = Array.from(document.querySelectorAll('.card img'));
-    postImages.forEach((img, index) => {
-      if (!img.hasAttribute('loading')) {
-        img.setAttribute('loading', index === 0 ? 'eager' : 'lazy');
-      }
-      if (index === 0 && !img.hasAttribute('fetchpriority')) {
-        img.setAttribute('fetchpriority', 'high');
-      }
-      if (!img.hasAttribute('decoding')) {
-        img.setAttribute('decoding', 'async');
-      }
-    });
-  </script>
+  <script src="/assets/main.js" defer></script>
 </body>
-
 </html>
