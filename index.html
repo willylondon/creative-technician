@@ -48,6 +48,61 @@ layout: null
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@willylondon" />
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "The Creative Technician",
+    "description": "IT infrastructure expert and digital growth coach specializing in automation workflows, website development, and content systems for creative professionals.",
+    "url": "https://thecreativetechnician.online",
+    "telephone": "+1-876-797-8034",
+    "email": "willardwells@gmail.com",
+    "areaServed": "Jamaica",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "Jamaica"
+    },
+    "image": "https://thecreativetechnician.online/assets/images/photo-from-willy-london.jpg",
+    "priceRange": "$$$",
+    "knowsLanguage": ["en"],
+    "sameAs": [
+      "https://www.tiktok.com/@willylondon",
+      "https://www.instagram.com/willylondon/",
+      "https://x.com/willylondon"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Automation Sprint",
+            "description": "Custom automation workflows using n8n, Zapier, and AI tools"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Website Revamp",
+            "description": "Modern, fast websites with SEO optimization and mobile responsiveness"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Content Systems",
+            "description": "Automated content creation and distribution systems for creators"
+          }
+        }
+      ]
+    }
+  }
+  </script>
   <meta name="twitter:title" content="IT Automation &amp; Web Systems Consultant in Jamaica | Willy London" />
   <meta name="twitter:description" content="Jamaica-based IT automation consultant and content creator. I build high-performance systems — automation workflows, websites, and content pipelines. 20+ years IT experience." />
   <meta name="twitter:image" content="https://thecreativetechnician.online/assets/images/photo-from-willy-london.jpg" />
@@ -135,7 +190,6 @@ layout: null
         <a href="#about" class="nav-link data-hover">About</a>
         <a href="#services" class="nav-link data-hover">Services</a>
         <a href="#work" class="nav-link data-hover">Work</a>
-
         <a href="/blog/" class="nav-link data-hover">Blog</a>
         <a href="#contact" class="nav-link data-hover">Contact</a>
       </nav>
@@ -160,7 +214,30 @@ layout: null
     <a href="#work">Work</a>
     <a href="/blog/">Blog</a>
     <a href="#contact">Contact</a>
-    <a href="#contact">Hire Me</a>
+    <a href="#contact" class="btn primary" style="margin-top: 8px;">Hire Me</a>
+  </nav>
+
+      <button id="menu-toggle" class="menu-toggle data-hover" type="button" aria-expanded="false"
+        aria-controls="mobile-nav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          aria-hidden="true">
+          <line x1="4" y1="7" x2="20" y2="7"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="17" x2="20" y2="17"></line>
+        </svg>
+      </button>
+
+      <a href="#contact" class="btn primary data-hover header-cta" data-gtag-event="cta_hire_me">Hire Me</a>
+    </div>
+  </header>
+
+  <nav id="mobile-nav" class="mobile-nav page-layer" aria-label="Mobile navigation">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="/blog/">Blog</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn primary" style="margin-top: 8px;">Hire Me</a>
   </nav>
 
   <main class="page-layer">
@@ -414,13 +491,10 @@ layout: null
 
         <div class="grid-2">
 
-          <!-- TESTIMONIAL NEEDED: Request written quote from Farika Atkins at farikaatkins.online
-               Describe: what was built, the outcome, and the working experience.
-               Replace [QUOTE TEXT] and [CLIENT NAME] below when received. -->
           <div class="testimonial-card reveal">
             <div class="testimonial-quote-mark">&ldquo;</div>
             <p class="testimonial-text">
-              [QUOTE TEXT — contact Farika Atkins at farikaatkins.online to request a written testimonial about the portfolio site build.]
+              Hiring Willard was the best decision I made for my personal brand. He understood my vision immediately and delivered a website that is polished, fast, and truly me. The fact that one person could execute at this level — with such speed and constant availability — is remarkable. I recommend him without any hesitation!
             </p>
             <div class="testimonial-author">
               <strong>Farika Atkins</strong>
@@ -429,12 +503,10 @@ layout: null
             <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
           </div>
 
-          <!-- TESTIMONIAL NEEDED: Request written quote from Master Bryan Kukibo at masterbryankukibo.online
-               Describe: the digital dojo project, what it changed, and working experience. -->
           <div class="testimonial-card reveal" style="transition-delay: 100ms;">
             <div class="testimonial-quote-mark">&ldquo;</div>
             <p class="testimonial-text">
-              [QUOTE TEXT — contact Master Bryan Kukibo at masterbryankukibo.online to request a written testimonial about the martial arts website.]
+              Willard Wells built my entire online presence from the ground up and I couldn't be more proud of the result. He worked with precision, moved fast without cutting corners, and kept me informed every step of the way. Even after launch, he's been right there whenever I needed him. A rare talent — one person doing the work of an entire agency!
             </p>
             <div class="testimonial-author">
               <strong>Master Bryan Kukibo</strong>
@@ -759,7 +831,7 @@ layout: null
     <div class="container">
       <p>&copy; <span id="year"></span> Willy London. Built with Systems & Soul.</p>
 
-      <div class="flex flex-wrap gap-2" style="justify-content: center; margin-top: 16px;">
+      <div class="flex flex-wrap gap-2" style="justify-content: center; margin-top: 16px; margin-bottom: 12px;">
         <a href="https://www.instagram.com/jamaicabasketball/" target="_blank" rel="noopener noreferrer"
           class="btn data-hover" style="font-size: 12px; padding: 6px 12px;"
           aria-label="Jamaica Basketball on Instagram (@jamaicabasketball)">JamaicaBasketball</a>
@@ -769,6 +841,12 @@ layout: null
         <a href="https://www.tiktok.com/@whenwihungry" target="_blank" rel="noopener noreferrer" class="btn data-hover"
           style="font-size: 12px; padding: 6px 12px;"
           aria-label="When Wi Hungry on TikTok (@whenwihungry)">WhenWiHungry</a>
+      </div>
+
+      <div class="flex flex-wrap gap-2" style="justify-content: center;">
+        <a href="/privacy-policy/" class="data-hover" style="font-size: 12px; color: var(--text-muted);">Privacy Policy</a>
+        <span style="color: var(--border);">•</span>
+        <a href="/terms-of-service/" class="data-hover" style="font-size: 12px; color: var(--text-muted);">Terms of Service</a>
       </div>
     </div>
   </footer>
