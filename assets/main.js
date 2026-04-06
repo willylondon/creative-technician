@@ -4,22 +4,19 @@ const cursorOutline = document.querySelector('.cursor-outline');
 
 if (window.matchMedia("(pointer: fine)").matches && cursorDot && cursorOutline) {
   document.body.classList.add('cursor-enabled');
+  let rafPending = false;
   window.addEventListener('mousemove', (e) => {
-    const posX = e.clientX;
-    const posY = e.clientY;
-
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
-
-    if (cursorOutline.animate) {
-      cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-      }, { duration: 500, fill: "forwards" });
-    } else {
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(() => {
+      const posX = e.clientX;
+      const posY = e.clientY;
+      cursorDot.style.left = `${posX}px`;
+      cursorDot.style.top = `${posY}px`;
       cursorOutline.style.left = `${posX}px`;
       cursorOutline.style.top = `${posY}px`;
-    }
+      rafPending = false;
+    });
   });
 
   const hoverables = document.querySelectorAll('.data-hover');
