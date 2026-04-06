@@ -13,34 +13,41 @@ import { GlowingEffectDemo } from "@/components/ui/demo";
 import { TestimonialsSection } from "@/components/ui/testimonials-with-marquee";
 import SiteEffects from "@/components/site-effects";
 import { NewsletterDialog } from "@/components/newsletter-dialog";
+import { LogoMarquee } from "@/components/logo-marquee";
+import { StatsSection } from "@/components/stats-section";
 
 const testimonials = [
   {
     author: {
-      name: "Operations Lead",
-      handle: "@opslead",
-      avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
+      name: "The Source Arena JA",
+      handle: "@sourcearenaja",
+      avatar: "", // Will use fallback initial 'S'
     },
-    text: "Willy built our automation in a weekend and it paid for itself in the first month.",
+    text: "Willard Wells is truly one of a kind. He built our entire website single-handedly and delivered something we couldn't have imagined. His professionalism and lightning-fast turnaround had us speechless.",
   },
   {
     author: {
-      name: "Educator & Creator",
-      handle: "@creatorcoach",
-      avatar:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      name: "Lifestyle Hikers",
+      handle: "@lifestylehikers",
+      avatar: "", // Will use fallback initial 'L'
     },
-    text: "The site looks premium and loads fast. People finally take my brand seriously.",
+    text: "We handed Willard our vision and he ran with it. The website came to life beautifully — responsive, clean, and ready on time. He wasn't just a developer, he was a true creative partner.",
   },
   {
     author: {
-      name: "Small Business Owner",
-      handle: "@smallbizjam",
-      avatar:
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
+      name: "Farika Atkins",
+      handle: "@farikaatkins",
+      avatar: "", // Will use fallback initial 'F'
     },
-    text: "He explained everything in simple language and shipped exactly what we needed.",
+    text: "Hiring Willard was the best decision for my personal brand. He understood my vision immediately and delivered a website that is polished, fast, and truly me.",
+  },
+  {
+    author: {
+      name: "Master Bryan Kukibo",
+      handle: "@masterbryan",
+      avatar: "", // Will use fallback initial 'B'
+    },
+    text: "Willard built my entire online presence from the ground up with precision. He moved fast without cutting corners. A rare talent — one person doing the work of an entire agency!",
   },
 ];
 
@@ -70,6 +77,18 @@ const work = [
     description:
       'Professional academic portfolio with "Royal Educator" branding.',
     href: "https://www.farikaatkins.online",
+  },
+  {
+    title: "The Source Arena",
+    tag: "Sports / Fitness",
+    description: "Community platform for sports and fitness enthusiasts in Jamaica.",
+    href: "https://thesourcearenaja.com",
+  },
+  {
+    title: "Lifestyle Hikers",
+    tag: "Outdoor / Lifestyle",
+    description: "Vibrant platform for hikers and outdoor lifestyle adventurers.",
+    href: "https://lifestylehikers.com",
   },
   {
     title: "Master Bryan Kukibo",
@@ -139,26 +158,12 @@ export default function Home() {
             Systems • Automation • AI • Content
           </p>
           <h1 className="hero-heading reveal text-4xl leading-tight font-semibold tracking-tight sm:text-6xl">
-            Your{" "}
-            <AnimatedTextCycle
-              words={[
-                "business",
-                "team",
-                "workflow",
-                "productivity",
-                "projects",
-                "analytics",
-                "dashboard",
-                "platform",
-              ]}
-              interval={3000}
-              className="text-white"
-            />{" "}
-            deserves better tools
+            IT Brain.<br />
+            Creator Hands.<br />
+            Coach Discipline.
           </h1>
           <p className="reveal mt-5 max-w-2xl text-lg text-slate-300">
-            IT Brain. Creator Hands. Coach Discipline. I bridge the gap between
-            technical complexity and creative storytelling.
+            I build high-performance systems for the digital-first era. From 20+ years of IT infrastructure to automated growth systems that scale.
           </p>
           <div className="reveal mt-7 flex flex-wrap gap-3">
             <a
@@ -183,6 +188,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <LogoMarquee />
 
       <section id="featured-capabilities" className="section-glow px-4 py-10 sm:px-6">
         <div className="section-inner mx-auto max-w-6xl">
@@ -226,6 +233,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <StatsSection />
 
       <section id="about" className="section-glow px-4 py-14 sm:px-6 sm:py-20">
         <div className="section-inner mx-auto grid max-w-6xl gap-8 lg:grid-cols-[340px_1fr]">
