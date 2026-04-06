@@ -20,7 +20,7 @@ export default function RootLayout({
           async
         />
       </head>
-      <body className="antialiased">
+      <body className="antialiased" suppressHydrationWarning>
         {children}
       </body>
     </html>

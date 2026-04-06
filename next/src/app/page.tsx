@@ -12,6 +12,7 @@ import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 import { GlowingEffectDemo } from "@/components/ui/demo";
 import { TestimonialsSection } from "@/components/ui/testimonials-with-marquee";
 import SiteEffects from "@/components/site-effects";
+import { NewsletterDialog } from "@/components/newsletter-dialog";
 
 const testimonials = [
   {
@@ -120,12 +121,15 @@ export default function Home() {
             <a className="data-hover" href="#stack">Stack</a>
             <a className="data-hover" href="#contact">Contact</a>
           </nav>
-          <a
-            href="#contact"
-            className="data-hover rounded-full bg-white px-4 py-2 text-xs font-semibold text-black transition hover:bg-cyan-300 sm:text-sm"
-          >
-            Hire Me
-          </a>
+          <div className="flex items-center gap-2">
+            <NewsletterDialog />
+            <a
+              href="#contact"
+              className="data-hover rounded-full bg-white px-4 py-2 text-xs font-semibold text-black transition hover:bg-cyan-300 sm:text-sm"
+            >
+              Hire Me
+            </a>
+          </div>
         </div>
       </header>
 
