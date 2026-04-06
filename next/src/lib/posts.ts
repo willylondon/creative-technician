@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 
-// Path to the original Jekyll _posts directory
-const POSTS_PATH = path.join(process.cwd(), "..", "_posts");
+// Path to the blog posts within the Next.js project
+const POSTS_PATH = path.join(process.cwd(), "src", "content", "_posts");
 
 export interface Post {
   slug: string;
