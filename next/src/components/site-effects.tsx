@@ -64,8 +64,45 @@ export default function SiteEffects() {
 
   return (
     <>
+      <div className="noise-overlay" aria-hidden="true" />
+      <CourtLines />
       <div className="cursor-dot" aria-hidden="true" />
       <div className="cursor-outline" aria-hidden="true" />
     </>
+  );
+}
+
+function CourtLines() {
+  return (
+    <div className="court-lines pointer-events-none absolute inset-[-10%] z-0 opacity-[0.15] [mask-image:radial-gradient(circle_at_50%_50%,black,transparent_70%)]">
+      <svg width="100%" height="100%" viewBox="0 0 1200 800" fill="none">
+        <rect
+          x="120"
+          y="90"
+          width="960"
+          height="620"
+          rx="40"
+          stroke="rgba(255,255,255,0.1)"
+          strokeWidth="2"
+        />
+        <circle
+          cx="600"
+          cy="400"
+          r="80"
+          stroke="rgba(255,255,255,0.1)"
+          strokeWidth="2"
+        />
+        <path
+          d="M290 310c60 0 110 40 110 90s-50 90-110 90"
+          stroke="rgba(255,255,255,0.1)"
+          strokeWidth="2"
+        />
+        <path
+          d="M910 310c-60 0-110 40-110 90s50 90 110 90"
+          stroke="rgba(255,255,255,0.1)"
+          strokeWidth="2"
+        />
+      </svg>
+    </div>
   );
 }
