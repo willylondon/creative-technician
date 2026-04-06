@@ -4,28 +4,46 @@ const cursorOutline = document.querySelector('.cursor-outline');
 
 if (window.matchMedia("(pointer: fine)").matches && cursorDot && cursorOutline) {
   document.body.classList.add('cursor-enabled');
-  window.addEventListener('mousemove', (e) => {
-    const posX = e.clientX;
-    const posY = e.clientY;
 
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
+  let mouseX = 0, mouseY = 0;
+  let outlineX = 0, outlineY = 0;
+  let cursorX = 0, cursorY = 0;
+  let animating = false;
 
-    if (cursorOutline.animate) {
-      cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-      }, { duration: 500, fill: "forwards" });
+  const updateCursor = () => {
+    cursorX = mouseX;
+    cursorY = mouseY;
+    outlineX += (mouseX - outlineX) * 0.18;
+    outlineY += (mouseY - outlineY) * 0.18;
+
+    const dotTransform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+    const outlineTransform = `translate3d(${outlineX}px, ${outlineY}px, 0) translate(-50%, -50%)`;
+
+    cursorDot.style.transform = dotTransform;
+    cursorOutline.style.transform = outlineTransform;
+
+    const dx = Math.abs(mouseX - outlineX);
+    const dy = Math.abs(mouseY - outlineY);
+    if (dx > 0.1 || dy > 0.1) {
+      requestAnimationFrame(updateCursor);
     } else {
-      cursorOutline.style.left = `${posX}px`;
-      cursorOutline.style.top = `${posY}px`;
+      animating = false;
     }
-  });
+  };
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!animating) {
+      animating = true;
+      requestAnimationFrame(updateCursor);
+    }
+  }, { passive: true });
 
   const hoverables = document.querySelectorAll('.data-hover');
   hoverables.forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+    el.addEventListener('mouseenter', () => document.body.classList.add('hovering'), { passive: true });
+    el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'), { passive: true });
   });
 }
 
@@ -92,26 +110,28 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 
 if (cycleWordEl && cycleWrapEl && cycleWords.length > 1) {
   let cycleIndex = 0;
+
+  // Pre-measure all words once at startup — avoids getBoundingClientRect in setInterval
   const measureEl = document.createElement('span');
   measureEl.className = 'text-cycle-measure';
+  measureEl.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;white-space:nowrap;';
   document.body.appendChild(measureEl);
+  const wordWidths = cycleWords.map(w => {
+    measureEl.textContent = w;
+    return Math.ceil(measureEl.getBoundingClientRect().width) + 8;
+  });
+  document.body.removeChild(measureEl);
 
-  const setWrapWidth = (word) => {
-    measureEl.textContent = word;
-    const width = Math.ceil(measureEl.getBoundingClientRect().width) + 8;
-    cycleWrapEl.style.width = `${width}px`;
-  };
-
-  cycleWordEl.textContent = cycleWords[cycleIndex];
-  setWrapWidth(cycleWords[cycleIndex]);
+  cycleWordEl.textContent = cycleWords[0];
+  cycleWrapEl.style.width = `${wordWidths[0]}px`;
 
   if (!reduceMotion) {
-    window.setInterval(() => {
+    setInterval(() => {
       cycleWordEl.classList.add('is-exiting');
-      window.setTimeout(() => {
+      setTimeout(() => {
         cycleIndex = (cycleIndex + 1) % cycleWords.length;
         cycleWordEl.textContent = cycleWords[cycleIndex];
-        setWrapWidth(cycleWords[cycleIndex]);
+        cycleWrapEl.style.width = `${wordWidths[cycleIndex]}px`;
         cycleWordEl.classList.remove('is-exiting');
         cycleWordEl.classList.add('is-entering');
         requestAnimationFrame(() => cycleWordEl.classList.remove('is-entering'));
