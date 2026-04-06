@@ -1480,6 +1480,122 @@ h1 {
   to { transform: translateX(calc(-50% - 8px)); }
 }
 
+/* === SLIDING TESTIMONIALS (FUI Style) === */
+.sliding-testimonials {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to left, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.sliding-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: x-slider 40s linear infinite;
+  will-change: transform;
+}
+
+.sliding-testimonials:hover .sliding-track {
+  animation-play-state: paused;
+}
+
+@keyframes x-slider {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(calc(-50% - 10px)); }
+}
+
+.slide-card {
+  width: 560px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.slide-card:hover {
+  border-color: rgba(0, 229, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.slide-card-quote {
+  padding: 28px 28px 24px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-main);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  flex-grow: 1;
+}
+
+.slide-card-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slide-card-author {
+  width: 75%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+}
+
+.slide-card-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-amber));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  flex-shrink: 0;
+}
+
+.slide-card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-card-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.slide-card-role {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.slide-card-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+}
+
+.slide-card-stars {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--accent-amber);
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
 /* === REVEAL ANIMATION === */
 .reveal {
   opacity: 0;
