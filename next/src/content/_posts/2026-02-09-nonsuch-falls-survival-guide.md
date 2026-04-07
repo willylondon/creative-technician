@@ -55,3 +55,4 @@ If you’re planning to visit, here is the breakdown based on my experience and 
 
 **Would I go back?**  
 Only to the base camp for the view. If you have proper shoes and a sense of adventure, go once. Everyone should see this giant at least once.
+

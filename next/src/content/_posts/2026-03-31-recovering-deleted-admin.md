@@ -68,3 +68,4 @@ I closed the box, and there it was: the Admin account was fully restored.
 
 ### Final Thoughts
 This journey was a masterclass in understanding how Windows environments truly work. If you ever find yourself locked out, remember: never trust the `X:` drive, always verify your drive letters, and when in doubt, the `utilman.exe` trick remains one of the greatest, most reliable backdoors in local IT support.
+

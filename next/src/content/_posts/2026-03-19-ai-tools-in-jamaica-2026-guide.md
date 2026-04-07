@@ -210,3 +210,4 @@ Students can study smarter. Teachers can prepare faster. Entrepreneurs can marke
 The people who move first will not be the ones who talk about AI the most. They will be the ones who learn how to apply it in a Jamaican context, with real systems, real offers, and real consistency.
 
 If you want help building that kind of system for your brand or business, [reach out here](/#contact).
+

@@ -196,3 +196,4 @@ Blog started.
 Momentum activated.
 
 **One foot in front of the other.**
+

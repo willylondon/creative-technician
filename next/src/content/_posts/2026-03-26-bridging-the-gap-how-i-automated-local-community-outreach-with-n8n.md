@@ -97,3 +97,4 @@ This project was a reminder that automation is rarely about replacing people. It
 For Lifestyle Hikers, that meant less time formatting emails and more time building energy around the next trail.
 
 For me, it was another example of what being a **Creative Technician** really means: bridging the gap between a team’s intent and a system that can carry it forward.
+

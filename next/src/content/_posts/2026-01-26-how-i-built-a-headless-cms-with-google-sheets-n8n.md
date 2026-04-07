@@ -71,3 +71,4 @@ Now, I can blog from my phone. I can blog from a tablet. I can draft 10 posts in
 This is what I mean by Systems & Soul. The system handles the heavy lifting (deployment, formatting, git commits) so I can focus on the soul (the writing).
 
 Built with n8n, Google Sheets, and a lot of patience.
+

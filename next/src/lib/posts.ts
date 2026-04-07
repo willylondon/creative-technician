@@ -38,18 +38,27 @@ export function getAllPosts(): Post[] {
         }
       });
 
-      // Extract slug from filename (YYYY-MM-DD-slug.md)
-      const slug = file.replace(/\.md$/, "");
+      // Extract slug and date from filename (YYYY-MM-DD-slug.md)
+      const fileNameMatch = file.match(/^(\d{4}-\d{2}-\d{2})-(.*)\.md$/);
+      let slug = file.replace(/\.md$/, "");
+      let date = metadata.date || "";
+
+      if (fileNameMatch) {
+        date = date || fileNameMatch[1];
+        slug = fileNameMatch[2];
+      } else {
+        date = date || new Date().toISOString().split("T")[0];
+      }
 
       return {
         slug,
         title: metadata.title || "Untitled",
-        date: metadata.date || file.substring(0, 10),
+        date,
         content,
         coverImage: metadata.image,
       };
     })
-    .sort((a, b) => (a.date > b.date ? -1 : 1));
+    .sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
 
   return posts;
 }
@@ -57,4 +66,9 @@ export function getAllPosts(): Post[] {
 export function getPostBySlug(slug: string): Post | null {
   const posts = getAllPosts();
   return posts.find((p) => p.slug === slug) || null;
+}
+
+export function getAllPostSlugs(): string[] {
+  const posts = getAllPosts();
+  return posts.map((post) => post.slug);
 }

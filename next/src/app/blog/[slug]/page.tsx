@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getPostBySlug } from "@/lib/posts";
+import { getPostBySlug, getAllPostSlugs } from "@/lib/posts";
 import SiteEffects from "@/components/site-effects";
+
+export async function generateStaticParams() {
+  const slugs = getAllPostSlugs();
+  return slugs.map((slug) => ({
+    slug: slug,
+  }));
+}
 
 interface PostPageProps {
   params: Promise<{ slug: string }>;

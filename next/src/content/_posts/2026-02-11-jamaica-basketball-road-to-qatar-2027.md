@@ -44,3 +44,4 @@ It is disappointing that a single mistake has drawn focus away from the main mes
 Let's look past the noise, ignore the negativity, and get behind the JamRockers as they bring it home to Kingston.
 
 ![Jamaica Basketball celebration](/assets/images/jamaica-basketball-qatar-2027-3.png){: width="804" height="787" loading="lazy" decoding="async" }
+
