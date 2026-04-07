@@ -7,6 +7,7 @@ import { LogoMarquee } from "@/components/logo-marquee";
 import { StatsSection } from "@/components/stats-section";
 import { TestimonialsSection } from "@/components/ui/testimonials-with-marquee";
 import { GlowingEffectDemo } from "@/components/ui/demo";
+import ContactForm from "@/components/contact-form";
 
 const testimonials = [
   {
@@ -623,55 +624,7 @@ export default async function Home() {
             </div>
           </div>
 
-          <form
-            action="https://formspree.io/f/xyzabcde"
-            method="POST"
-            className="neo-card reveal space-y-4 rounded-2xl p-6"
-            style={{ transitionDelay: "150ms" }}
-          >
-            <input type="hidden" name="_subject" value="New inquiry — The Creative Technician" />
-            <div>
-              <label htmlFor="contact-name" className="block text-xs text-slate-400 mb-1.5">Name / Organization</label>
-              <input
-                id="contact-name"
-                type="text"
-                name="name"
-                placeholder="e.g. Farika Atkins / Hillel Academy"
-                autoComplete="name"
-                required
-                className="w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-sm focus:outline-none focus:border-cyan-400/50 transition"
-              />
-            </div>
-            <div>
-              <label htmlFor="contact-email" className="block text-xs text-slate-400 mb-1.5">Email Address</label>
-              <input
-                id="contact-email"
-                type="email"
-                name="email"
-                placeholder="your@email.com"
-                autoComplete="email"
-                required
-                className="w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-sm focus:outline-none focus:border-cyan-400/50 transition"
-              />
-            </div>
-            <div>
-              <label htmlFor="contact-message" className="block text-xs text-slate-400 mb-1.5">Project details or inquiry</label>
-              <textarea
-                id="contact-message"
-                name="message"
-                rows={5}
-                placeholder="Tell me about what you need…"
-                required
-                className="w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-sm focus:outline-none focus:border-cyan-400/50 transition"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full rounded-xl bg-white px-4 py-3 text-sm font-semibold text-black transition hover:bg-cyan-300"
-            >
-              Send Message
-            </button>
-          </form>
+          <ContactForm />
         </div>
       </section>
 
