@@ -1,0 +1,22 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" fill="#090C10"/>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <circle cx="170" cy="120" r="165" fill="#00C853" fill-opacity="0.16"/>
+  <circle cx="1040" cy="140" r="230" fill="#00E5FF" fill-opacity="0.12"/>
+  <rect x="100" y="96" width="250" height="42" rx="21" fill="#10151A" stroke="#287F56"/>
+  <text x="130" y="123" fill="#B8F3C9" font-family="Arial, sans-serif" font-size="18" font-weight="700">SECURE SYSTEMS</text>
+  <rect x="386" y="174" width="428" height="428" rx="42" fill="#0F1518" stroke="#FFFFFF" stroke-opacity="0.1"/>
+  <path d="M498 324C498 240 566 172 650 172C734 172 802 240 802 324V370H498V324Z" stroke="#00E5FF" stroke-width="18"/>
+  <rect x="446" y="352" width="408" height="198" rx="34" fill="#11191D" stroke="#00C853"/>
+  <circle cx="650" cy="442" r="34" fill="#00C853" fill-opacity="0.18" stroke="#00C853"/>
+  <path d="M650 470V510" stroke="#A8F2BC" stroke-width="14" stroke-linecap="round"/>
+  <path d="M242 570H958" stroke="#FFFFFF" stroke-opacity="0.06"/>
+  <text x="158" y="656" fill="#F3F6F7" font-family="Arial, sans-serif" font-size="44" font-weight="700">SECURE BY DEFAULT</text>
+  <text x="158" y="704" fill="#C5D1D5" font-family="Arial, sans-serif" font-size="26">Access, resilience, and cleaner implementation standards.</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#090C10"/>
+      <stop offset="1" stop-color="#1A2024"/>
+    </linearGradient>
+  </defs>
+</svg>
