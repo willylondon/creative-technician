@@ -34,10 +34,9 @@ export default function SiteEffects() {
 
     const move = (e: MouseEvent) => {
       const { clientX, clientY } = e;
-      dot.style.left = `${clientX}px`;
-      dot.style.top = `${clientY}px`;
+      dot.style.transform = `translate3d(calc(${clientX}px - 50%), calc(${clientY}px - 50%), 0)`;
       outline.animate(
-        { left: `${clientX}px`, top: `${clientY}px` },
+        { transform: `translate3d(calc(${clientX}px - 50%), calc(${clientY}px - 50%), 0)` },
         { duration: 420, fill: "forwards" }
       );
     };
