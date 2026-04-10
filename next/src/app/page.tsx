@@ -487,12 +487,10 @@ export default async function Home() {
                 >
                   {post.coverImage ? (
                     <div className="h-44 w-full overflow-hidden bg-black/30">
-                      <Image
+                      <img
                         src={post.coverImage}
                         alt={post.title}
-                        width={800}
-                        height={520}
-                        className="h-44 w-full object-cover"
+                        className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
                   ) : (
