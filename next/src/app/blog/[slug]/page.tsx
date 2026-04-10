@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getAllPostSlugs } from "@/lib/posts";
 import SiteEffects from "@/components/site-effects";
+import { marked } from "marked";
 
 export async function generateStaticParams() {
   const slugs = getAllPostSlugs();
@@ -21,6 +22,9 @@ export default async function PostPage({ params }: PostPageProps) {
   if (!post) {
     notFound();
   }
+
+  // Convert markdown raw content to HTML
+  const contentHtml = await marked.parse(post.content);
 
   return (
     <main className="min-h-screen bg-background border-x border-white/5 p-4 pt-24 text-foreground sm:p-6 sm:pt-32">
@@ -45,10 +49,11 @@ export default async function PostPage({ params }: PostPageProps) {
           </h1>
         </header>
 
-        <div className="prose prose-invert max-w-none">
-          <div className="whitespace-pre-wrap leading-relaxed text-slate-300 antialiased text-lg">
-            {post.content}
-          </div>
+        <div className="prose prose-invert prose-lg max-w-none hover:prose-a:text-cyan-400">
+          <div 
+            className="leading-relaxed text-slate-300 antialiased"
+            dangerouslySetInnerHTML={{ __html: contentHtml }}
+          />
         </div>
 
         <footer className="mt-20 border-t border-white/10 pt-12">
