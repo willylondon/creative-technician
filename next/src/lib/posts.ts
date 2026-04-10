@@ -50,12 +50,26 @@ export function getAllPosts(): Post[] {
         date = date || new Date().toISOString().split("T")[0];
       }
 
+      // Extract first image to act as coverImage if none is specified
+      let coverImage = metadata.image;
+      let cleanedContent = content;
+      
+      if (!coverImage) {
+        const firstImgRegex = /!\[(.*?)\]\((https?:\/\/[^)]+)\)/;
+        const imgMatch = content.match(firstImgRegex);
+        if (imgMatch) {
+          coverImage = imgMatch[2];
+          // Remove the first image from content to avoid rendering it twice
+          cleanedContent = content.replace(firstImgRegex, '').trim();
+        }
+      }
+
       return {
         slug,
         title: metadata.title || "Untitled",
         date,
-        content,
-        coverImage: metadata.image,
+        content: cleanedContent,
+        coverImage,
       };
     })
     .sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));

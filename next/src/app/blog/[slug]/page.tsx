@@ -44,6 +44,16 @@ export default async function PostPage({ params }: PostPageProps) {
           <h1 className="text-4xl font-bold tracking-tight sm:text-6xl font-heading leading-tight mb-8">
             {post.title}
           </h1>
+          
+          {post.coverImage && (
+            <div className="relative mt-8 mb-12 overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+              <img 
+                src={post.coverImage} 
+                alt={post.title}
+                className="w-full object-cover object-center max-h-[500px]"
+              />
+            </div>
+          )}
         </header>
 
         <div className="prose prose-invert prose-lg max-w-none text-slate-300">
