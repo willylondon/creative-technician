@@ -1,5 +1,4 @@
 ---
-image: /assets/images/ct-jamaica-thumb.jpg
 title: "A Letter to Her"
 date: 2025-07-01
 slug: a-letter-to-her

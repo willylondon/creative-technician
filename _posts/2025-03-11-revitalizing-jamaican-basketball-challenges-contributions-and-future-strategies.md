@@ -1,5 +1,4 @@
 ---
-image: /assets/images/ct-jamaica-thumb.jpg
 title: "Revitalizing Jamaican Basketball: Challenges, Contributions, and Future Strategies"
 date: 2025-03-11
 slug: revitalizing-jamaican-basketball-challenges-contributions-and-future-strategies

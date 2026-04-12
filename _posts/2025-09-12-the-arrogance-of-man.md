@@ -1,5 +1,4 @@
 ---
-image: /assets/images/ct-jamaica-thumb.jpg
 title: "The Arrogance of Man"
 date: 2025-09-12
 slug: the-arrogance-of-man
