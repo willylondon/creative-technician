@@ -39,7 +39,7 @@ People want to know:
 - How can AI help with school, work, content, or income?
 - How do you use AI without sounding fake or lazy?
 
-Those are not "nice to know" questions. They are opportunity questions.
+Those are not "nice to know" questions. They are opportunity questions. For AI books and hardware, [shop on Amazon](https://www.amazon.com/s?k=ai+books&tag=lifestylehike-20).
 
 ## The core AI tools Jamaicans should understand in 2026
 
@@ -158,7 +158,7 @@ Realistic income paths include:
 
 - offering caption writing and social media support for local businesses
 - creating blog content and SEO drafts for brands
-- building simple automation systems for bookings, leads, or follow-up
+- building simple automation systems for bookings, leads, or follow-up (tools like n8n, Zapier; [shop automation books on Amazon](https://www.amazon.com/s?k=automation+books&tag=lifestylehike-20))
 - improving resumes, cover letters, and LinkedIn profiles
 - selling better research, scripting, or admin support as a freelancer
 
