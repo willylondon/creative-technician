@@ -1,4 +1,5 @@
 ---
+image: /assets/images/ct-jamaica-thumb.jpg
 title: "The Real Aliens Might Be Underwater: A Theory Worth Exploring"
 date: 2025-06-14
 slug: the-real-aliens-might-be-underwater-a-theory-worth-exploring

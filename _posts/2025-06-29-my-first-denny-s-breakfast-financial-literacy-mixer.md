@@ -1,4 +1,5 @@
 ---
+image: /assets/images/ct-jamaica-thumb.jpg
 title: "My First Denny’s Breakfast & Financial Literacy Mixer 🍳"
 date: 2025-06-29
 slug: my-first-denny-s-breakfast-financial-literacy-mixer
