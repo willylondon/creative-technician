@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Exploring Practical n8n Workflow Examples for Beginners"
-date: 2026-04-10
+date: 2026-04-13
 categories: [Automation, Workflow, Small Business]
 excerpt: "Discover beginner-friendly n8n workflow examples, from basic to advanced, and empower your small business with automation."
 author: "Your Name"
