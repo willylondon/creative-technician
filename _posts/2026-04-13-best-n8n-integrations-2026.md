@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Optimizing Your E-Commerce Website for Voice Search in 2026"
-date: 2026-04-10
+date: 2026-04-13
 categories: [SEO, E-Commerce, Voice Search]
 excerpt: "Discover advanced strategies to enhance your e-commerce site for voice search, boosting visibility and sales in 2026."
 author: "John Doe"
