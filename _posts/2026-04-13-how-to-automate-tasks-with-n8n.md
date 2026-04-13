@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Automate Tasks with n8n: A Jamaican Small Business Guide"
-date: 2026-04-10
+date: 2026-04-13
 categories: [SEO, Automation, Small Business]
 excerpt: "Learn how to streamline operations and boost productivity in your Jamaican small business with n8n automation. Follow our step-by-step guide today!"
 author: "John Doe"
