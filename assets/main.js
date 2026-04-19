@@ -173,6 +173,10 @@ if (form) {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const msg = document.getElementById('message').value;
+    const deliveryMode = form.dataset.delivery || '';
+    const recipient = form.dataset.recipient || 'willardwells@gmail.com';
+    const subjectField = form.querySelector('input[name="_subject"]');
+    const subject = subjectField ? subjectField.value : 'New inquiry from The Creative Technician';
 
     if (!validateForm(name, email, msg)) return;
 
@@ -181,6 +185,23 @@ if (form) {
     if (formStatus) { formStatus.textContent = ''; formStatus.className = 'form-status'; }
 
     try {
+      if (deliveryMode === 'mailto') {
+        const body = [
+          `Name / Organization: ${name}`,
+          `Email Address: ${email}`,
+          '',
+          'Project details or inquiry:',
+          msg
+        ].join('\n');
+        window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        if (formStatus) {
+          formStatus.innerHTML = 'Your email app should open now. If it does not, email me directly at <a href="mailto:willardwells@gmail.com" style="color:var(--accent-cyan)">willardwells@gmail.com</a>.';
+          formStatus.style.color = 'var(--accent-cyan)';
+        }
+        if (window.gtag) window.gtag('event', 'form_submit_mailto', { event_category: 'engagement' });
+        return;
+      }
+
       const response = await fetch(form.action, {
         method: 'POST',
         body: new FormData(form),

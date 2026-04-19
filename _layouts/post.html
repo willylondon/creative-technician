@@ -10,6 +10,10 @@
   {% assign page_image_alt = page.image_alt | default: page.title %}
   {% assign words = content | number_of_words %}
   {% assign reading_time = words | divided_by: 200 | plus: 1 %}
+  {% assign imported_medium = false %}
+  {% if content contains 'Canonical link' and content contains 'Exported from' and content contains 'medium.com' %}
+    {% assign imported_medium = true %}
+  {% endif %}
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-R13SZWDJ3S"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-R13SZWDJ3S');</script>
@@ -18,7 +22,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ page_title }}</title>
   <meta name="description" content="{{ page_description }}" />
-  <meta name="robots" content="index,follow" />
+  <meta name="robots" content="{% if imported_medium %}noindex,follow{% else %}index,follow{% endif %}" />
   <meta name="theme-color" content="#080808" />
   <link rel="canonical" href="{{ page_url }}" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />

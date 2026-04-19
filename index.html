@@ -1016,11 +1016,12 @@ layout: null
             <!-- Step 1: go to formspree.io → New Form → copy the form ID -->
             <!-- Step 2: set _next to https://thecreativetechnician.online/thanks/ in Formspree dashboard or hidden field -->
             <form id="contact-form"
-              action="https://formspree.io/f/xyzabcde"
+              action="mailto:willardwells@gmail.com"
               method="POST"
+              data-delivery="mailto"
+              data-recipient="willardwells@gmail.com"
               novalidate>
               <input type="hidden" name="_subject" value="New inquiry — The Creative Technician">
-              <input type="hidden" name="_next" value="https://thecreativetechnician.online/thanks/">
 
               <div class="form-field">
                 <label for="name" class="form-label">Name / Organization</label>
