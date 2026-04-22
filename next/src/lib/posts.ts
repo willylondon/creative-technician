@@ -3,7 +3,6 @@ import path from "path";
 
 // Path to the blog posts at the root of the repository
 const POSTS_PATH = path.join(process.cwd(), "..", "_posts");
-const DEFAULT_COVER_IMAGE = "/assets/images/default-post-cover.svg";
 
 export interface Post {
   slug: string;
@@ -63,10 +62,6 @@ export function getAllPosts(): Post[] {
           // Remove the first image from content to avoid rendering it twice
           cleanedContent = content.replace(firstImgRegex, '').trim();
         }
-      }
-
-      if (!coverImage) {
-        coverImage = DEFAULT_COVER_IMAGE;
       }
 
       return {
