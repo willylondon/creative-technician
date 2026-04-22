@@ -5,9 +5,9 @@ date: 2026-04-21
 categories: [Automation, n8n, LinkedIn]
 excerpt: "A practical breakdown of how I audited and stabilized my n8n LinkedIn posting system, from Google Sheets state bugs to reply-based approvals and a new Telegram bot."
 author: "Willy London"
-image: /assets/images/default-post-cover.svg
-image_width: 1200
-image_height: 630
+image: /assets/images/linkedin-social-unsplash.jpg
+image_width: 3000
+image_height: 2000
 ---
 
 I spent today tightening a LinkedIn posting workflow that looked finished on the surface, but still had a few state-management traps underneath.

@@ -5,9 +5,9 @@ date: 2026-04-21
 categories: [Personal Brand, Creator Journey, Automation]
 excerpt: "A personal introduction to the builder behind The Creative Technician, from imperfect systems and creative experiments to the quieter reasons for showing up online."
 author: "Willy London"
-image: /assets/images/default-post-cover.svg
-image_width: 1200
-image_height: 630
+image: /assets/images/person-at-desk-unsplash.jpg
+image_width: 3000
+image_height: 2250
 ---
 
 Behind every project, workflow, and post on The Creative Technician, there is a real person trying to figure things out in public.

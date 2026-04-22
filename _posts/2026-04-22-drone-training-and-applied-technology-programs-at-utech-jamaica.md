@@ -4,9 +4,9 @@ title: "Mastering Drone Technology: UTECH Jamaica Programs for The Creative Tech
 date: 2026-04-22
 categories: [Technology, Education]
 excerpt: Explore UTECH Jamaica's drone training and applied technology programs, designed for The Creative Technician audience in Jamaica and the Caribbean.
-image: /assets/images/default-post-cover.svg
-image_width: 1200
-image_height: 630
+image: /assets/images/drone-technology-unsplash.jpg
+image_width: 3000
+image_height: 2000
 ---
 
 # Mastering Drone Technology: UTECH Jamaica Programs for The Creative Technician

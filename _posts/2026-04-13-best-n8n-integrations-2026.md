@@ -5,9 +5,9 @@ date: 2026-04-13
 categories: [SEO, E-Commerce, Voice Search]
 excerpt: "Discover advanced strategies to enhance your e-commerce site for voice search, boosting visibility and sales in 2026."
 author: "John Doe"
-image: /assets/images/default-post-cover.svg
-image_width: 1200
-image_height: 630
+image: /assets/images/modern-workspace-unsplash.jpg
+image_width: 3000
+image_height: 2000
 ---
 
 # Optimizing Your E-Commerce Website for Voice Search in 2026
