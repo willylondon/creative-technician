@@ -5,6 +5,9 @@ date: 2026-04-13
 categories: [Automation, Workflow, Small Business]
 excerpt: "Discover beginner-friendly n8n workflow examples, from basic to advanced, and empower your small business with automation."
 author: "Your Name"
+image: /assets/images/default-post-cover.svg
+image_width: 1200
+image_height: 630
 ---
 
 In the realm of automation tools, n8n stands out as a versatile platform that empowers small businesses to streamline their processes efficiently. In this comprehensive guide, we will delve into practical n8n workflow examples curated specifically for beginners. By understanding these examples, you can harness the power of automation to boost productivity and efficiency within your organization.

@@ -5,6 +5,9 @@ date: 2026-04-13
 categories: [SEO, Automation, Small Business]
 excerpt: "Learn how to streamline operations and boost productivity in your Jamaican small business with n8n automation. Follow our step-by-step guide today!"
 author: "John Doe"
+image: /assets/images/default-post-cover.svg
+image_width: 1200
+image_height: 630
 ---
 
 # How to Automate Tasks with n8n: A Step-by-Step Guide for Jamaican Small Businesses

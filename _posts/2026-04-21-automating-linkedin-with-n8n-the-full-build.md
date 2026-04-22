@@ -5,6 +5,9 @@ date: 2026-04-21 14:00:00 -0500
 categories: [automation, n8n, linkedin]
 tags: [n8n, linkedin, oauth2, telegram, github, ai, openrouter]
 description: "A full walkthrough of building an end-to-end LinkedIn post automation using n8n — connecting LinkedIn OAuth2, debugging scope errors, and wiring up a GitHub-to-LinkedIn pipeline with AI rewriting and Telegram approval."
+image: /assets/images/default-post-cover.svg
+image_width: 1200
+image_height: 630
 ---
 
 I spent this morning building something I've wanted for a while — a fully automated LinkedIn posting pipeline that pulls from my Jekyll blog, rewrites it with AI, sends it to Telegram for my approval, and posts it with one message.

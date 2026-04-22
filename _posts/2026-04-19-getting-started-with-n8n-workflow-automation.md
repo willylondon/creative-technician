@@ -4,6 +4,9 @@ title: "Getting Started with n8n Workflow Automation: A Practical Guide"
 date: 2026-04-19
 categories: [Automation, Workflow, n8n]
 excerpt: "Unlock the power of automation with n8n. This comprehensive guide will help you navigate workflow automation, making your tasks easier and more efficient."
+image: /assets/images/default-post-cover.svg
+image_width: 1200
+image_height: 630
 ---
 
 # Getting Started with n8n Workflow Automation: A Practical Guide

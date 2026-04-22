@@ -4,6 +4,9 @@ date: 2026-04-10
 slug: automated-seo-blog-engine-n8n-what-broke
 layout: post
 migrated_from: medium
+image: /assets/images/default-post-cover.svg
+image_width: 1200
+image_height: 630
 ---
 
 # I Built an Automated SEO Blog Engine for 5 Sites — Here's What Actually Broke

@@ -4,6 +4,9 @@ title: "Getting Started with n8n Workflow Automation: A Comprehensive Guide"
 date: 2026-04-14
 categories: [Automation, Technology, Guides]
 excerpt: "Unlock the potential of n8n for workflow automation with this comprehensive guide tailored for Caribbean audiences."
+image: /assets/images/default-post-cover.svg
+image_width: 1200
+image_height: 630
 ---
 
 # Getting Started with n8n Workflow Automation: A Comprehensive Guide

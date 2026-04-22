@@ -3,6 +3,9 @@ title: "What We Actually Fixed in Our Blog Automation Stack Today"
 date: 2026-04-22
 slug: what-we-actually-fixed-in-our-blog-automation-stack-today
 layout: post
+image: /assets/images/creative-technician-workflow-hardening-unsplash.jpg
+image_width: 3000
+image_height: 2000
 ---
 
 # What We Actually Fixed in Our Blog Automation Stack Today
