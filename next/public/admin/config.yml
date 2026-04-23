@@ -6,7 +6,7 @@ backend:
 
 publish_mode: editorial_workflow
 
-media_folder: "assets/images"
+media_folder: "next/public/assets/images"
 public_folder: "/assets/images"
 
 collections:
