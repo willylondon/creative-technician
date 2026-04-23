@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getPostBySlug, getAllPostSlugs } from "@/lib/posts";
 import SiteEffects from "@/components/site-effects";
 import ReactMarkdown from "react-markdown";
+import AuthorCard from "@/components/author-card";
 
 export async function generateStaticParams() {
   const slugs = getAllPostSlugs();
@@ -74,15 +75,7 @@ export default async function PostPage({ params }: PostPageProps) {
         </div>
 
         <footer className="mt-20 border-t border-white/10 pt-12">
-          <div className="flex items-center gap-4 p-8 rounded-2xl bg-white/5 border border-white/5">
-            <div className="h-16 w-16 rounded-full bg-gradient-to-br from-cyan-300 to-amber-300" />
-            <div>
-              <h3 className="text-lg font-bold">Willy London</h3>
-              <p className="text-sm text-slate-400">
-                IT Consultant & Systems Architect with 20+ years of expertise.
-              </p>
-            </div>
-          </div>
+          <AuthorCard />
         </footer>
       </article>
     </main>
