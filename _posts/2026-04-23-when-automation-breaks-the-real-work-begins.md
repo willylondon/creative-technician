@@ -7,8 +7,8 @@ categories:
   - Troubleshooting
   - Creative Process
 image: /assets/images/mohamed-nohassi-2iUrK025cec-unsplash.jpg
-image_width: null
-image_height: null
+image_width: 6309
+image_height: 3888
 featured: false
 description: A short reflection on what a failed workflow taught me about debugging, persistence, and building with a positive mindset.
 ---
