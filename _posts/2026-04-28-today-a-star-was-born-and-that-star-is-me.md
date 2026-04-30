@@ -27,3 +27,5 @@ I love you, even if I don't always say it. Whether I’m arguing, getting loud, 
 My birthday wish is simply one of gratitude. I want to say thank you and let you know you've made an impact while I have the chance to say it. I want to celebrate my friends and my family.
 
 Happy birthday to me, but big ups to each and every one of you I call a friend. I pray that the best of your todays will be the worst of your tomorrows.
+
+If you still want to get me a gift take a look at my [wishlist ](https://www.amazon.com/registries/gl/guest-view/16D1YQ8HJXTI6?ref_=cm_sw_r_cp_ud_ggr-subnav-share_7S6Q78NX5CZFJGV1N3KG)
