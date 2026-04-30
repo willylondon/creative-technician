@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Today, a star was born, and that star is me.
+title: Today, a star was born, and that star is me
 date: 2026-04-28
 categories:
   - Blog
