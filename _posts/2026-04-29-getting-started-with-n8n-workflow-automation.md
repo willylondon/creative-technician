@@ -1,8 +1,13 @@
 ---
 layout: post
-title: "Getting Started with n8n Workflow Automation: A Practical Guide for The Creative Technician"
+title: 'Getting Started with n8n Workflow Automation: A Practical Guide for The Creative Technician'
 date: 2026-04-29
-categories: [Tech, The Creative Technician]
+categories:
+  - Tech
+  - The Creative Technician
+image: /assets/images/Screenshot 2026-04-30 at 11.40.41 AM.png
+image_width: null
+image_height: null
 excerpt: Learn how n8n workflow automation can streamline your tasks and boost productivity for your creative projects.
 ---
 
@@ -54,9 +59,10 @@ Ready to supercharge your workflow with n8n automation? Dive into the world of s
 
 Remember, automation is not a one-size-fits-all solution. Experiment, iterate, and discover how n8n can transform the way you work. Happy automating!
 
-*Automate your workflow with n8n and elevate your creative projects to new heights!*
+_Automate your workflow with n8n and elevate your creative projects to new heights!_
 
 Looking for the right gear? Check out [AI and automation books](https://www.amazon.com/s?k=ai+automation+books+developers&tag=lifestylehike-20).
 
----
-*Disclosure: This post contains affiliate links. As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.*
+***
+
+_Disclosure: This post contains affiliate links. As an Amazon Associate, we earn from qualifying purchases at no extra cost to you._
