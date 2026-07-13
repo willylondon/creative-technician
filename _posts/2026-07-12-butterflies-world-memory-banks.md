@@ -1,18 +1,16 @@
 ---
+layout: post
 title: "What If Butterflies Are the World's Memory Banks?"
+short_title: "Butterflies as Memory Banks"
 meta_title: "Butterflies as Memory Banks: The Science and Speculation of Memory Through Metamorphosis"
 description: "What if butterflies carry memory through metamorphosis — and distribute it through the air? A journey through real science and philosophical imagination."
 date: 2026-07-12
-slug: butterflies-world-memory-banks
-layout: post
+categories: [science, philosophy, nature]
+featured: true
 image: /assets/images/butterfly-memory/butterfly-flight.jpg
 image_alt: "A butterfly in mid-flight against a blurred natural background"
 image_width: 1200
 image_height: 800
-categories:
-  - science
-  - philosophy
-  - nature
 ---
 
 A butterfly passed in front of her at the exact moment she understood something she had not been thinking about.
