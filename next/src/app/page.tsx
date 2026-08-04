@@ -63,6 +63,13 @@ const clientBuilds = [
     href: "https://masterbryankukibo.online",
     tags: "MARTIAL ARTS · BRAND STORY · WEB",
   },
+  {
+    title: "The Source Arena JA",
+    description:
+      "A storefront for a Half Way Tree phone and accessories retailer, built around live WhatsApp stock checks and same-day pickup.",
+    href: "https://thesourcearenaja.com",
+    tags: "RETAIL · STOREFRONT · LOCAL SEO",
+  },
 ];
 
 const projects = [
