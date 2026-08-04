@@ -13,6 +13,30 @@ export interface Post {
   coverImage?: string;
 }
 
+const EXCERPT_LENGTH = 155;
+
+/** Strips the common Markdown syntax so content can be used as a meta description. */
+function buildExcerpt(content: string): string {
+  const plain = content
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/^\s{0,3}#{1,6}\s+/gm, "")
+    .replace(/^\s{0,3}>\s?/gm, "")
+    .replace(/[*_`~]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  if (plain.length <= EXCERPT_LENGTH) {
+    return plain;
+  }
+
+  const truncated = plain.slice(0, EXCERPT_LENGTH);
+  const lastSpace = truncated.lastIndexOf(" ");
+
+  return `${(lastSpace > 0 ? truncated.slice(0, lastSpace) : truncated).trimEnd()}…`;
+}
+
 export function getAllPosts(): Post[] {
   if (!fs.existsSync(POSTS_PATH)) {
     return [];
@@ -69,12 +93,24 @@ export function getAllPosts(): Post[] {
         title: metadata.title || "Untitled",
         date,
         content: cleanedContent,
+        excerpt: metadata.description || buildExcerpt(cleanedContent),
         coverImage,
       };
     })
     .sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
 
-  return posts;
+  // The auto-blog job has republished some topics under an identical slug. Only
+  // one file can own a URL, so keep the most recent and drop the older copies —
+  // otherwise they surface as duplicate cards and duplicate sitemap entries.
+  const seen = new Set<string>();
+
+  return posts.filter((post) => {
+    if (seen.has(post.slug)) {
+      return false;
+    }
+    seen.add(post.slug);
+    return true;
+  });
 }
 
 export function getPostBySlug(slug: string): Post | null {

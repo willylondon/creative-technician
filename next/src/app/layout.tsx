@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Willard Wells | IT Support, AI Automation & Web Solutions",
   description:
     "Portfolio of Willard Wells, a Kingston-based IT support specialist and digital solutions builder with 20+ years of experience across systems, automation and web delivery.",
-  metadataBase: new URL("https://thecreativetechnician.online"),
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
-    siteName: "The Creative Technician",
+    siteName: SITE_NAME,
     title: "Willard Wells | IT Support, AI Automation & Web Solutions",
     description:
       "20+ years of IT support experience, practical AI automation and modern web delivery—from Kingston, Jamaica.",
-    url: "https://thecreativetechnician.online/",
+    url: "/",
     images: [
       {
-        url: "https://thecreativetechnician.online/assets/images/willy-london-avatar.jpg",
+        url: "/assets/images/willy-london-avatar.jpg",
         width: 637,
         height: 637,
         alt: "Willard Wells — IT support, AI automation and web solutions",
@@ -32,9 +33,7 @@ export const metadata: Metadata = {
     title: "Willard Wells | IT Support, AI Automation & Web Solutions",
     description:
       "20+ years of IT support experience, practical AI automation and modern web delivery—from Kingston, Jamaica.",
-    images: [
-      "https://thecreativetechnician.online/assets/images/willy-london-avatar.jpg",
-    ],
+    images: ["/assets/images/willy-london-avatar.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
@@ -66,10 +65,10 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "The Creative Technician",
+              name: SITE_NAME,
               description:
                 "IT infrastructure expert and digital growth coach specialising in automation workflows, website development, and content systems for creative professionals.",
-              url: "https://thecreativetechnician.online",
+              url: SITE_URL,
               telephone: "+1-876-861-7153",
               email: "willardwells@gmail.com",
               areaServed: "Jamaica",
@@ -79,7 +78,7 @@ export default function RootLayout({
                 addressCountry: "JM",
               },
               image:
-                "https://thecreativetechnician.online/assets/images/photo-from-willy-london.webp",
+                `${SITE_URL}/assets/images/photo-from-willy-london.webp`,
               priceRange: "$$$",
               knowsLanguage: ["en"],
               sameAs: [
@@ -100,9 +99,9 @@ export default function RootLayout({
               name: "Willard Wells",
               alternateName: "Willy London",
               jobTitle: "IT Automation Consultant & Creative Technician",
-              url: "https://thecreativetechnician.online",
+              url: SITE_URL,
               image:
-                "https://thecreativetechnician.online/assets/images/photo-from-willy-london.webp",
+                `${SITE_URL}/assets/images/photo-from-willy-london.webp`,
               description:
                 "Kingston-based IT support specialist and digital solutions builder with 20+ years of experience in systems, networking, AI automation and web delivery.",
               address: {
