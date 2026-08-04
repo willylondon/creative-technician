@@ -5,7 +5,7 @@ date: 2026-01-20
 featured: true
 categories: [Lifestyle, Jamaica, Personal]
 description: "The founding post. Why I started building. Automation, content, hiking, legacy — and why discipline beats motivation every time."
-image: /assets/images/photo-from-willy-london.jpg
+image: /assets/images/photo-from-willy-london.webp
 image_width: 800
 image_height: 900
 image_alt: "Willy London — IT professional, automation builder, and content creator based in Jamaica"

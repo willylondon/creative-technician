@@ -79,7 +79,7 @@ export default function RootLayout({
                 addressCountry: "JM",
               },
               image:
-                "https://thecreativetechnician.online/assets/images/photo-from-willy-london.jpg",
+                "https://thecreativetechnician.online/assets/images/photo-from-willy-london.webp",
               priceRange: "$$$",
               knowsLanguage: ["en"],
               sameAs: [
@@ -102,7 +102,7 @@ export default function RootLayout({
               jobTitle: "IT Automation Consultant & Creative Technician",
               url: "https://thecreativetechnician.online",
               image:
-                "https://thecreativetechnician.online/assets/images/photo-from-willy-london.jpg",
+                "https://thecreativetechnician.online/assets/images/photo-from-willy-london.webp",
               description:
                 "Kingston-based IT support specialist and digital solutions builder with 20+ years of experience in systems, networking, AI automation and web delivery.",
               address: {

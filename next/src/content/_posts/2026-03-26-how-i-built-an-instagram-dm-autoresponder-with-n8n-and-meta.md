@@ -4,7 +4,7 @@ title: "How I Built an Instagram DM Autoresponder with n8n & Meta"
 date: 2026-03-26
 categories: [Automation, n8n, Instagram]
 description: "A step-by-step breakdown of how I used n8n and the Meta Graph API to build an automated Instagram DM responder — without any third-party tools."
-image: /assets/images/instagram-dm-autoresponder-graph-api-explorer.png
+image: /assets/images/instagram-dm-autoresponder-graph-api-explorer.webp
 image_width: 2984
 image_height: 1628
 featured: false
@@ -119,7 +119,7 @@ The fix was not "generate another random token and pray." The fix was using the 
 The Graph API Explorer setup looked like this.
 Again, I redacted the actual token and account-specific details:
 
-![Meta Graph API Explorer permissions for Instagram messaging](/assets/images/instagram-dm-autoresponder-graph-api-explorer.png){: width="2984" height="1628" loading="lazy" decoding="async" }
+![Meta Graph API Explorer permissions for Instagram messaging](/assets/images/instagram-dm-autoresponder-graph-api-explorer.webp){: width="2984" height="1628" loading="lazy" decoding="async" }
 
 Then I queried the accounts endpoint for the Page token:
 

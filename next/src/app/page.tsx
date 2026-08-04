@@ -65,7 +65,7 @@ const projects = [
     type: "Automation architecture / AI operations",
     description:
       "A multi-route n8n system that validates media, extracts or transcribes content, shapes AI output, then delivers the finished report to email, Telegram and Drive.",
-    image: "/assets/images/Screenshot 2026-04-30 at 11.40.41 AM.png",
+    image: "/assets/images/Screenshot 2026-04-30 at 11.40.41 AM.webp",
     imageAlt: "Multi-stage n8n reporting workflow built by Willard Wells",
     href: "https://www.youtube.com/@JamrockAI",
     cta: "See the build channel",

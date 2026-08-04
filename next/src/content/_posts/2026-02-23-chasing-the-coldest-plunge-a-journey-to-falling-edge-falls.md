@@ -25,7 +25,7 @@ While most people take the standard route through Stoney Castle and Bowden Hill,
 
 Standing tall since 1924, the Hermitage Dam is a massive gravity structure that feels like a gateway to another world. Reaching it at dawn is a total vibe, the fog sits heavy over the water, and the air turns crisp. It took us about an hour and a half to reach this point, but with the views we had, nobody was complaining.
 
-![](/assets/images/photo-from-willy-london.jpg)
+![](/assets/images/photo-from-willy-london.webp)
 
 ### Into the "Amazon"
 

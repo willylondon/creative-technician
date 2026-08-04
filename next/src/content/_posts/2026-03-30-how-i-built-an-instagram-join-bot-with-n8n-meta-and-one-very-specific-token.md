@@ -4,7 +4,7 @@ title: "How I Built an Instagram Join Bot with n8n, Meta, and One Very Specific 
 date: 2026-03-30
 categories: [Automation, n8n, Instagram]
 description: "The token drama no one warned me about. How I built an Instagram join-link bot with n8n and Meta's Graph API — and the exact permission scope that unlocks it all."
-image: /assets/images/instagram-dm-autoresponder-graph-api-explorer.png
+image: /assets/images/instagram-dm-autoresponder-graph-api-explorer.webp
 image_width: 2984
 image_height: 1628
 featured: false

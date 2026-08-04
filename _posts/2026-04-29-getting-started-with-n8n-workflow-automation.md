@@ -5,7 +5,7 @@ date: 2026-04-29
 categories:
   - Tech
   - The Creative Technician
-image: /assets/images/Screenshot 2026-04-30 at 11.40.41 AM.png
+image: /assets/images/Screenshot 2026-04-30 at 11.40.41 AM.webp
 image_width: null
 image_height: null
 excerpt: Learn how n8n workflow automation can streamline your tasks and boost productivity for your creative projects.
