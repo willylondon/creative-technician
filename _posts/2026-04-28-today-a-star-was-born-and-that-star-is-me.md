@@ -4,7 +4,7 @@ title: Today, a star was born, and that star is me
 date: 2026-04-28
 categories:
   - Blog
-image: /assets/images/ChatGPT Image Apr 28, 2026, 02_18_46 PM (2).png
+image: /assets/images/today-a-star-was-born.png
 image_width: 1200
 image_height: 630
 featured: false

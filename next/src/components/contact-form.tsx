@@ -31,11 +31,10 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="neo-card reveal space-y-4 rounded-2xl p-6"
-      style={{ transitionDelay: "150ms" }}
+      className="contact-form"
     >
-      <div>
-        <label htmlFor="contact-name" className="block text-xs text-slate-400 mb-1.5">
+      <div className="form-field">
+        <label htmlFor="contact-name">
           Name / Organization
         </label>
         <input
@@ -47,12 +46,11 @@ export default function ContactForm() {
           autoComplete="name"
           required
           disabled={status === "loading" || status === "success"}
-          className="w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-sm focus:outline-none focus:border-cyan-400/50 transition disabled:opacity-50"
         />
       </div>
 
-      <div>
-        <label htmlFor="contact-email" className="block text-xs text-slate-400 mb-1.5">
+      <div className="form-field">
+        <label htmlFor="contact-email">
           Email Address
         </label>
         <input
@@ -64,12 +62,11 @@ export default function ContactForm() {
           autoComplete="email"
           required
           disabled={status === "loading" || status === "success"}
-          className="w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-sm focus:outline-none focus:border-cyan-400/50 transition disabled:opacity-50"
         />
       </div>
 
-      <div>
-        <label htmlFor="contact-message" className="block text-xs text-slate-400 mb-1.5">
+      <div className="form-field">
+        <label htmlFor="contact-message">
           Project details or inquiry
         </label>
         <textarea
@@ -80,23 +77,17 @@ export default function ContactForm() {
           placeholder="Tell me about what you need…"
           required
           disabled={status === "loading" || status === "success"}
-          className="w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-sm focus:outline-none focus:border-cyan-400/50 transition disabled:opacity-50"
         />
       </div>
 
-      {/* Feedback message */}
       {feedback && (
         <div
-          className={`flex items-start gap-2 rounded-xl px-4 py-3 text-sm ${
-            status === "success"
-              ? "bg-green-500/10 border border-green-500/20 text-green-400"
-              : "bg-red-500/10 border border-red-500/20 text-red-400"
-          }`}
+          className={`form-feedback ${status === "success" ? "success" : "error"}`}
         >
           {status === "success" ? (
-            <CheckCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />
+            <CheckCircle aria-hidden="true" />
           ) : (
-            <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />
+            <AlertCircle aria-hidden="true" />
           )}
           {feedback}
         </div>
@@ -105,9 +96,9 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading" || status === "success"}
-        className="flex w-full items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-black transition hover:bg-cyan-300 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="form-submit"
       >
-        {status === "loading" && <Loader2 className="h-4 w-4 animate-spin" />}
+        {status === "loading" && <Loader2 className="animate-spin" aria-hidden="true" />}
         {status === "loading"
           ? "Sending…"
           : status === "success"

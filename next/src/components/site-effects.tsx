@@ -1,107 +1,120 @@
 "use client";
 
 import { useEffect } from "react";
+import gsap from "gsap";
 
 export default function SiteEffects() {
   useEffect(() => {
-    const revealNodes = Array.from(
-      document.querySelectorAll<HTMLElement>(".reveal")
-    );
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -48px 0px" }
-    );
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const finePointer = window.matchMedia("(pointer: fine)").matches;
+    const cleanup: Array<() => void> = [];
 
-    revealNodes.forEach((node) => observer.observe(node));
+    if (!reduceMotion) {
+      const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
+      intro
+        .fromTo(
+          '[data-motion="hero-copy"] > *',
+          { y: 26 },
+          { y: 0, duration: 0.82, stagger: 0.09, clearProps: "transform" },
+        )
+        .fromTo(
+          '[data-motion="hero-visual"]',
+          { x: 24 },
+          { x: 0, duration: 0.9, clearProps: "transform" },
+          0.12,
+        );
 
-    if (!window.matchMedia("(pointer: fine)").matches) {
-      return () => observer.disconnect();
-    }
-
-    const dot = document.querySelector<HTMLElement>(".cursor-dot");
-    const outline = document.querySelector<HTMLElement>(".cursor-outline");
-
-    if (!dot || !outline) {
-      return () => observer.disconnect();
-    }
-
-    const move = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      dot.style.transform = `translate3d(calc(${clientX}px - 50%), calc(${clientY}px - 50%), 0)`;
-      outline.animate(
-        { transform: `translate3d(calc(${clientX}px - 50%), calc(${clientY}px - 50%), 0)` },
-        { duration: 420, fill: "forwards" }
-      );
-    };
-
-    const hoverables = document.querySelectorAll<HTMLElement>(".data-hover");
-    const onEnter = () => document.body.classList.add("hovering");
-    const onLeave = () => document.body.classList.remove("hovering");
-
-    window.addEventListener("mousemove", move);
-    hoverables.forEach((el) => {
-      el.addEventListener("mouseenter", onEnter);
-      el.addEventListener("mouseleave", onLeave);
-    });
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("mousemove", move);
-      hoverables.forEach((el) => {
-        el.removeEventListener("mouseenter", onEnter);
-        el.removeEventListener("mouseleave", onLeave);
+      const tape = gsap.to(".signal-tape-track", {
+        xPercent: -50,
+        duration: 24,
+        ease: "none",
+        repeat: -1,
       });
-    };
+
+      const scan = gsap.to(".portrait-panel", {
+        "--scan-y": "78%",
+        duration: 3.1,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+      });
+
+      const revealNodes = Array.from(document.querySelectorAll<HTMLElement>('[data-motion="section"], [data-motion="project"]'));
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            gsap.fromTo(
+              entry.target,
+              { y: 30 },
+              { y: 0, duration: 0.72, ease: "power2.out", clearProps: "transform" },
+            );
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+      );
+      revealNodes.forEach((node) => observer.observe(node));
+
+      cleanup.push(() => {
+        intro.kill();
+        tape.kill();
+        scan.kill();
+        observer.disconnect();
+      });
+    }
+
+    if (finePointer) {
+      const dot = document.querySelector<HTMLElement>(".cursor-dot");
+      const outline = document.querySelector<HTMLElement>(".cursor-outline");
+      const hero = document.querySelector<HTMLElement>(".hero-section");
+
+      if (dot && outline) {
+        const dotX = gsap.quickTo(dot, "x", { duration: 0.08, ease: "none" });
+        const dotY = gsap.quickTo(dot, "y", { duration: 0.08, ease: "none" });
+        const ringX = gsap.quickTo(outline, "x", { duration: 0.34, ease: "power3.out" });
+        const ringY = gsap.quickTo(outline, "y", { duration: 0.34, ease: "power3.out" });
+
+        const move = (event: MouseEvent) => {
+          dotX(event.clientX - 3);
+          dotY(event.clientY - 3);
+          ringX(event.clientX - 17);
+          ringY(event.clientY - 17);
+
+          if (hero) {
+            const bounds = hero.getBoundingClientRect();
+            const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+            const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+            hero.style.setProperty("--spot-x", `${Math.max(0, Math.min(100, x))}%`);
+            hero.style.setProperty("--spot-y", `${Math.max(0, Math.min(100, y))}%`);
+          }
+        };
+
+        window.addEventListener("mousemove", move, { passive: true });
+        cleanup.push(() => window.removeEventListener("mousemove", move));
+      }
+
+      const hoverables = Array.from(document.querySelectorAll<HTMLElement>(".data-hover"));
+      const onEnter = () => document.body.classList.add("hovering");
+      const onLeave = () => document.body.classList.remove("hovering");
+      hoverables.forEach((element) => {
+        element.addEventListener("mouseenter", onEnter);
+        element.addEventListener("mouseleave", onLeave);
+      });
+      cleanup.push(() => hoverables.forEach((element) => {
+        element.removeEventListener("mouseenter", onEnter);
+        element.removeEventListener("mouseleave", onLeave);
+      }));
+    }
+
+    return () => cleanup.forEach((dispose) => dispose());
   }, []);
 
   return (
     <>
       <div className="noise-overlay" aria-hidden="true" />
-      <CourtLines />
       <div className="cursor-dot" aria-hidden="true" />
       <div className="cursor-outline" aria-hidden="true" />
     </>
-  );
-}
-
-function CourtLines() {
-  return (
-    <div className="court-lines pointer-events-none absolute inset-[-10%] z-0 opacity-[0.15] [mask-image:radial-gradient(circle_at_50%_50%,black,transparent_70%)]">
-      <svg width="100%" height="100%" viewBox="0 0 1200 800" fill="none">
-        <rect
-          x="120"
-          y="90"
-          width="960"
-          height="620"
-          rx="40"
-          stroke="rgba(255,255,255,0.1)"
-          strokeWidth="2"
-        />
-        <circle
-          cx="600"
-          cy="400"
-          r="80"
-          stroke="rgba(255,255,255,0.1)"
-          strokeWidth="2"
-        />
-        <path
-          d="M290 310c60 0 110 40 110 90s-50 90-110 90"
-          stroke="rgba(255,255,255,0.1)"
-          strokeWidth="2"
-        />
-        <path
-          d="M910 310c-60 0-110 40-110 90s50 90 110 90"
-          stroke="rgba(255,255,255,0.1)"
-          strokeWidth="2"
-        />
-      </svg>
-    </div>
   );
 }

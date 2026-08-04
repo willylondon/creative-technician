@@ -3,9 +3,9 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "IT Automation & Web Systems Consultant in Jamaica | Willy London",
+  title: "Willard Wells | IT Support, AI Automation & Web Solutions",
   description:
-    "Jamaica-based IT automation consultant and content creator. I build high-performance systems — automation workflows, websites, and content pipelines. 20+ years IT experience.",
+    "Portfolio of Willard Wells, a Kingston-based IT support specialist and digital solutions builder with 20+ years of experience across systems, automation and web delivery.",
   metadataBase: new URL("https://thecreativetechnician.online"),
   alternates: {
     canonical: "/",
@@ -13,27 +13,27 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "The Creative Technician",
-    title: "IT Automation & Web Systems Consultant in Jamaica | Willy London",
+    title: "Willard Wells | IT Support, AI Automation & Web Solutions",
     description:
-      "Jamaica-based IT automation consultant and content creator. I build high-performance systems — automation workflows, websites, and content pipelines. 20+ years IT experience.",
+      "20+ years of IT support experience, practical AI automation and modern web delivery—from Kingston, Jamaica.",
     url: "https://thecreativetechnician.online/",
     images: [
       {
-        url: "https://thecreativetechnician.online/assets/images/photo-from-willy-london.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Willy London — IT Automation Consultant",
+        url: "https://thecreativetechnician.online/assets/images/willy-london-avatar.jpg",
+        width: 637,
+        height: 637,
+        alt: "Willard Wells — IT support, AI automation and web solutions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     site: "@willylondon",
-    title: "IT Automation & Web Systems Consultant in Jamaica | Willy London",
+    title: "Willard Wells | IT Support, AI Automation & Web Solutions",
     description:
-      "Jamaica-based IT automation consultant and content creator. I build high-performance systems — automation workflows, websites, and content pipelines. 20+ years IT experience.",
+      "20+ years of IT support experience, practical AI automation and modern web delivery—from Kingston, Jamaica.",
     images: [
-      "https://thecreativetechnician.online/assets/images/photo-from-willy-london.jpg",
+      "https://thecreativetechnician.online/assets/images/willy-london-avatar.jpg",
     ],
   },
   icons: {
@@ -70,7 +70,7 @@ export default function RootLayout({
               description:
                 "IT infrastructure expert and digital growth coach specialising in automation workflows, website development, and content systems for creative professionals.",
               url: "https://thecreativetechnician.online",
-              telephone: "+1-876-797-8034",
+              telephone: "+1-876-861-7153",
               email: "willardwells@gmail.com",
               areaServed: "Jamaica",
               address: {
@@ -104,7 +104,7 @@ export default function RootLayout({
               image:
                 "https://thecreativetechnician.online/assets/images/photo-from-willy-london.jpg",
               description:
-                "Jamaica-based IT professional with 20+ years experience. Automation consultant, content creator, and digital growth coach.",
+                "Kingston-based IT support specialist and digital solutions builder with 20+ years of experience in systems, networking, AI automation and web delivery.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Kingston",
@@ -124,26 +124,7 @@ export default function RootLayout({
                 "Jekyll",
                 "JavaScript",
               ],
-              offers: [
-                {
-                  "@type": "Offer",
-                  name: "Automation Sprint",
-                  price: "450",
-                  priceCurrency: "USD",
-                },
-                {
-                  "@type": "Offer",
-                  name: "Website Revamp",
-                  price: "650",
-                  priceCurrency: "USD",
-                },
-                {
-                  "@type": "Offer",
-                  name: "Content Systems",
-                  price: "350",
-                  priceCurrency: "USD",
-                },
-              ],
+              alumniOf: ["Vantage Point"],
             }),
           }}
         />
