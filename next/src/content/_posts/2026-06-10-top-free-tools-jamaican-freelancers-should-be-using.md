@@ -4,7 +4,7 @@ title: Top Free Tools Jamaican Freelancers Should Be Using
 date: 2026-06-10
 categories: [The Creative Technician]
 excerpt: Discover the essential free tools that Jamaican freelancers need to excel in their work and elevate their creative projects.
-image: "/assets/images/unsplash-imports/photo-1587081424325-a6f2d7dddd8d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzI1NDd8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODExMTgwMTJ8&ixlib=rb-4.1.0&q=80&w=1080.webp"
+image: "/assets/images/unsplash-imports/photo-1587081424325-a6f2d7dddd8d.webp"
 image_alt: "man in black t-shirt sitting on concrete bench during daytime"
 ---
 

@@ -20,9 +20,13 @@ const EXCERPT_LENGTH = 155;
 function buildExcerpt(content: string): string {
   const plain = content
     .replace(/```[\s\S]*?```/g, " ")
+    // Drop rules and heading lines outright — headings usually restate the
+    // title, which makes for a redundant description.
+    .replace(/^\s{0,3}(?:-{3,}|\*{3,}|_{3,})\s*$/gm, " ")
+    .replace(/^\s{0,3}#{1,6}\s+.*$/gm, " ")
     .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
     .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
-    .replace(/^\s{0,3}#{1,6}\s+/gm, "")
+    .replace(/<[^>]+>/g, " ")
     .replace(/^\s{0,3}>\s?/gm, "")
     .replace(/[*_`~]/g, "")
     .replace(/\s+/g, " ")
@@ -80,7 +84,9 @@ export function getAllPosts(): Post[] {
       let cleanedContent = content;
       
       if (!coverImage) {
-        const firstImgRegex = /!\[(.*?)\]\((https?:\/\/[^)]+)\)/;
+        // Matches remote and root-relative images. Local paths matter now that
+        // the previously remote images are served from public/.
+        const firstImgRegex = /!\[(.*?)\]\(((?:https?:\/\/|\/)[^)\s]+)\)/;
         const imgMatch = content.match(firstImgRegex);
         if (imgMatch) {
           coverImage = imgMatch[2];

@@ -4,7 +4,7 @@ title: How to Build a Personal Website with No Code in 2026
 date: 2026-05-20
 categories: [The Creative Technician]
 excerpt: A comprehensive guide on creating your own personal website without any coding knowledge in 2026 for Jamaican and Caribbean readers interested in The Creative Technician topics.
-image: "/assets/images/unsplash-imports/photo-1762330472502-83efbe1d4478?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzI1NDd8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzkzMDM2MTR8&ixlib=rb-4.1.0&q=80&w=1080.webp"
+image: "/assets/images/unsplash-imports/photo-1762330472502-83efbe1d4478.webp"
 image_alt: "Facebook login screen with username and password fields."
 ---
 
