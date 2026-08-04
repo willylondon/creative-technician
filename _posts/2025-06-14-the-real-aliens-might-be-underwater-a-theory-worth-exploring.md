@@ -15,7 +15,7 @@ We’ve been looking to the stars for answers — but what if the real mystery l
 ### The Real Aliens Might Be Underwater: A Theory Worth Exploring
 We’ve been looking to the stars for answers — but what if the real mystery lies beneath our oceans?
 
-![](https://cdn-images-1.medium.com/max/800/1*HbmbhcB4RTwfTTRQfL3XYQ.png)
+![](/assets/images/medium-imports/medium-1*HbmbhcB4RTwfTTRQfL3XYQ.webp)
 
 ### For as long as humanity has looked to the stars, we’ve asked: Are we alone?
 The search for extraterrestrial intelligence has taken our gaze upward, toward distant galaxies and planets light-years away. But what if the answer to that age-old question has been below us all along?

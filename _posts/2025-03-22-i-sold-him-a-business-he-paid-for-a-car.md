@@ -15,7 +15,7 @@ How Chinese EVs are rewiring Jamaica’s auto economy — and why your next 
 ### **I Sold Him a Business, He Paid for a Car**
 How Chinese EVs are rewiring Jamaica’s auto economy — and why your next business move might involve a steering wheel
 
-![](https://cdn-images-1.medium.com/max/800/1*KxsNfgjU2iJTD3DGtjLJzA.jpeg)
+![](/assets/images/medium-imports/medium-1*KxsNfgjU2iJTD3DGtjLJzA.webp)
 
 ### TL;DR:
 
@@ -38,7 +38,7 @@ A tale about how Jamaicans — always early to trends like **dancehall** and
 ### THE FIVE HORSEPOWER RIDERS OF BEIJING
 *Top 5 Chinese Car Brands at Home and Abroad (2025)*
 
-![](https://cdn-images-1.medium.com/max/800/1*zFruKUn1y4dNvOTMj7TuwA.png)
+![](/assets/images/medium-imports/medium-1*zFruKUn1y4dNvOTMj7TuwA.webp)
 
 
 - **BYD** — The king of electric. Models like the **Yuan Plus (Atto 3)** and **Seal** are tech-packed and deliver up to **500km per charge**.
@@ -122,7 +122,7 @@ Rental companies are watching. Someone needs to supply them.
 - Have I applied for **NEPA** and a waste management plan?
 *[Optional CTA: Offer a downloadable PDF version of this checklist for email signups]*
 
-![](https://cdn-images-1.medium.com/max/800/1*YSp6P0tOtTKD7hkKrMd7FQ.jpeg)
+![](/assets/images/medium-imports/medium-1*YSp6P0tOtTKD7hkKrMd7FQ.webp)
 
 ### FINAL PARABLE:
 

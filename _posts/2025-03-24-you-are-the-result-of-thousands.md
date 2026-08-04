@@ -15,7 +15,7 @@ Your ancestors are cheering for you
 ### You Are the Result of Thousands
 Your ancestors are cheering for you
 
-![](https://cdn-images-1.medium.com/max/800/1*u1zvjK3jKx0-oRvIRU5gOA.jpeg)
+![](/assets/images/medium-imports/medium-1*u1zvjK3jKx0-oRvIRU5gOA.webp)
 **In order for you to be born, you needed:**
  • 2 parents
  • 4 grandparents

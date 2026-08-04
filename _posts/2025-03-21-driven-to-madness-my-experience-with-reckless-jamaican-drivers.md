@@ -15,7 +15,7 @@ From taxi men to Fit-driving maams, Jamaican roads are a daily gamble — an
 ### Driven to Madness: My Experience with Reckless Jamaican Drivers
 From taxi men to Fit-driving maams, Jamaican roads are a daily gamble — and I’ve nearly lost three times this week
 
-![](https://cdn-images-1.medium.com/max/800/1*MEvbaygPWrsAybI2GajR6A.jpeg)
+![](/assets/images/medium-imports/medium-1*MEvbaygPWrsAybI2GajR6A.webp)
 
 ### Where Do I Even Begin?
 I don’t know how else to say it, but **Jamaican drivers are the worst**.
@@ -32,7 +32,7 @@ You know the type:
 - The Fit-driving **maams** with zero patience and enough horn to start a soca rhythm section.
 And heaven forbid you try correct any of them — you’ll get a full cuss-out, complete with ancestry insults and a death stare that could dent your fender.
 
-![](https://cdn-images-1.medium.com/max/800/1*rTxG86xelFjboSVJN5d6aA.png)
+![](/assets/images/medium-imports/medium-1*rTxG86xelFjboSVJN5d6aA.webp)
 
 ### 🚨 Recklessness as a Way of Life
 There’s a culture on our roads that’s not just reckless — it’s **dangerous** and **deeply embedded**.
@@ -43,7 +43,7 @@ There’s a culture on our roads that’s not just reckless — it’s **dan
 - We **speed through red lights**, and somehow manage to **drive slow in the fast lane** and **fast in the slow lane** — like it’s performance art.
 
 ### 📉 The Statistics Say It’s Getting Better… But Is It?
-![](https://cdn-images-1.medium.com/max/800/1*yFjgswt3iS4wHI3rMqiIgg.png)
+![](/assets/images/medium-imports/medium-1*yFjgswt3iS4wHI3rMqiIgg.webp)
 Ironically, road fatalities in Jamaica have **gone down** recently.
  In 2024, there were **365 deaths**, down from **425** in 2023 — a 14% drop.
 
@@ -78,7 +78,7 @@ Until we shake off this shotta driver madness…
 
 
 ### 💬 Final Thoughts: I Love Jamaica, But I Hate This Part
-![](https://cdn-images-1.medium.com/max/800/1*CHaJLRf4ZN8AArkve8SJkQ.jpeg)
+![](/assets/images/medium-imports/medium-1*CHaJLRf4ZN8AArkve8SJkQ.webp)
 I love this island with everything in me.
  But every time I get behind the wheel, I feel like I’m gambling with my life.
 

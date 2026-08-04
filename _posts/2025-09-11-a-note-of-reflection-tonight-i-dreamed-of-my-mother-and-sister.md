@@ -11,7 +11,7 @@ migrated_from: medium
 Tonight I dreamed of my mother and sister.
 
 
-![](https://cdn-images-1.medium.com/max/800/1*WbcFK5_9PeAr8aTctUj9gQ.png)A Note of Reflection
+![](/assets/images/medium-imports/medium-1*WbcFK5_9PeAr8aTctUj9gQ.webp)A Note of Reflection
 Tonight I dreamed of my mother and sister.
 My mother was releasing a bird from the house —
 a sign of freedom, of peace, of letting go.

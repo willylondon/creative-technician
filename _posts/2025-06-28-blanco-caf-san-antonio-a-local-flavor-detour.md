@@ -15,12 +15,12 @@ When breakfast becomes a mini adventure in the Texas heat.
 ### Blanco Café San Antonio – A Local Flavor Detour
 When breakfast becomes a mini adventure in the Texas heat.
 
-![](https://cdn-images-1.medium.com/max/800/1*YUotfiXDSaL9p1u9_31sTQ.jpeg)
+![](/assets/images/medium-imports/medium-1*YUotfiXDSaL9p1u9_31sTQ.webp)
 Waze told me it was a five-minute walk.
 
 That turned out to be a hopeful prediction. What was meant to be a short stroll turned into a sweaty 20-minute trek under the unforgiving San Antonio sun. By the time I found the original Blanco Café, I was already halfway through a workout and more than ready for breakfast.
 
-![](https://cdn-images-1.medium.com/max/800/1*kFEt5eC8at79FcJqKmDl0g.jpeg)
+![](/assets/images/medium-imports/medium-1*kFEt5eC8at79FcJqKmDl0g.webp)
 
 ### A Morning Mission for Breakfast
 Blanco Café wasn't on my radar until that morning. I was hunting for a solid, no-frills breakfast close to my hotel, and Blanco's reputation for Tex-Mex comfort food caught my eye. Google Maps told me it was close. Waze told me it was even closer. But San Antonio sidewalks and sun had other plans.
@@ -31,8 +31,8 @@ Despite the unexpected cardio, I arrived in good spirits—a few blocks later an
 ### First Impressions of Blanco Café
 The café has the feel of a well-loved neighborhood institution. Simple booths, the quiet hum of early patrons, and a waitstaff that knows their regulars. Even though it was already around 9:20 AM, the service was impressively quick. Menus were on the table within moments, and coffee followed just as fast.
 
-![](https://cdn-images-1.medium.com/max/800/1*hHFkjLg6a6A8c_20n_PGhQ.jpeg)
-![](https://cdn-images-1.medium.com/max/800/1*DTz93gBzQw4aVRWH8P4l9w.jpeg)
+![](/assets/images/medium-imports/medium-1*hHFkjLg6a6A8c_20n_PGhQ.webp)
+![](/assets/images/medium-imports/medium-1*DTz93gBzQw4aVRWH8P4l9w.webp)
 
 ### The Chilaquiles Experience
 We went with the Chilaquiles Plate—a solid choice if you're trying to taste the heart of any Tex-Mex kitchen. The plate arrived steaming hot, eggs just the way I ordered them, chilaquiles topped to preference, and a hearty side of refried beans.
@@ -41,8 +41,8 @@ I opted to skip the salsa because it had pork in it—my friend, on the other ha
 
 Flavor-wise? It hit the spot. The textures were on point—crispy in some bites, soft in others, just how chilaquiles should be. It was good, satisfying food.
 
-![](https://cdn-images-1.medium.com/max/800/1*34MYdjam58_IQeoCuex-Vw.jpeg)
-![](https://cdn-images-1.medium.com/max/800/1*28xLYtcs7RUMK6LeojRQqw.jpeg)
+![](/assets/images/medium-imports/medium-1*34MYdjam58_IQeoCuex-Vw.webp)
+![](/assets/images/medium-imports/medium-1*28xLYtcs7RUMK6LeojRQqw.webp)
 Would I call it unforgettable? Not quite. I gave it a 7 out of 10. Solid execution, no bells and whistles, but definitely worth the calories.
 
 The Chilaquiles Plate is one of those dishes that tastes better when you’ve earned it—like after a surprise morning hike in 90-degree weather.

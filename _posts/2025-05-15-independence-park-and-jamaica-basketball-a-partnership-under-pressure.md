@@ -15,7 +15,7 @@ Once a symbol of promise for Jamaican basketball, Independence Park now stands a
 ### Independence Park and Jamaica Basketball: A Partnership Under Pressure
 *Once a symbol of promise for Jamaican basketball, Independence Park now stands at the center of a growing controversy.*
 
-![](https://cdn-images-1.medium.com/max/800/1*MN0tMus-2jPloyPvQmG8QQ.png)
+![](/assets/images/medium-imports/medium-1*MN0tMus-2jPloyPvQmG8QQ.webp)
 **Jamaica’s athletic legacy is legendary — but basketball is still fighting for space, rain or shine.**
 
 

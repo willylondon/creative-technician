@@ -15,7 +15,7 @@ When the system meant to heal becomes the source of heartbreak, it’s time to a
 ### Jamaica’s Healthcare Crisis: A Call for Urgent Reform
 *When the system meant to heal becomes the source of heartbreak, it’s time to act.*
 
-![](https://cdn-images-1.medium.com/max/800/1*0XJsEYb94ZteYmbBmGGBRQ.png)
+![](/assets/images/medium-imports/medium-1*0XJsEYb94ZteYmbBmGGBRQ.webp)
 **The whispers about Jamaica’s ailing healthcare system have long circulated, but nothing prepares you for the harsh reality until you experience it firsthand.**
 
 Recently, I watched helplessly as my mother fell victim to a system meant to heal and protect.

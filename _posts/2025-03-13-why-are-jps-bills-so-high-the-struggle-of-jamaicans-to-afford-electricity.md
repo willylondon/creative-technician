@@ -13,7 +13,7 @@ Jamaica Public Service (JPS) and the Burden of High Electricity Costs: A Cry for
 
 
 ### Why Are JPS Bills So High? The Struggle of Jamaicans to Afford Electricity
-![](https://cdn-images-1.medium.com/max/800/1*DYefiy6DXqpMd0vt7mab_g.jpeg)
+![](/assets/images/medium-imports/medium-1*DYefiy6DXqpMd0vt7mab_g.webp)
 **Jamaica Public Service (JPS) and the Burden of High Electricity Costs: A Cry for Justice**
 
 There is a small house nestled in the quiet community of Bamboo Walk in Retreat, St. Mary. An elderly man lives there alone, accompanied only by the hum of his refrigerator, the occasional churn of his washing machine, and a small pump he turns on when the water pressure drops. Some days, there is no water in the pipes at all — sometimes for weeks — but that is another story.
@@ -42,7 +42,7 @@ The company justifies its high electricity rates by citing fuel costs, infrastru
 
 
 ### Solutions: What Needs to Change?
-![](https://cdn-images-1.medium.com/max/800/1*yObpfbo1QcDQ-peyOhZgGQ.jpeg)
+![](/assets/images/medium-imports/medium-1*yObpfbo1QcDQ-peyOhZgGQ.webp)
 
 
 - **Independent Meter Audits** — Customers should have the right to challenge high bills and request independent inspections of their smart meters without the burden of excessive fees.
@@ -53,7 +53,7 @@ The company justifies its high electricity rates by citing fuel costs, infrastru
 - **Legalization of Microgrids** — The government should explore allowing communities to develop independent solar-powered microgrids, reducing reliance on JPS.
 
 ### The Pain of Paying JPS
-![](https://cdn-images-1.medium.com/max/800/1*lsF4wxM0lYc7eOf7-s3eTQ.jpeg)
+![](/assets/images/medium-imports/medium-1*lsF4wxM0lYc7eOf7-s3eTQ.webp)
 Jamaicans are tired. Tired of calling customer service only to be met with indifference. Tired of watching their bills climb while their usage remains steady. Tired of hearing JPS executives defend their profits while ordinary people are left in darkness.
 
 An elderly man in Bamboo Walk should not have to choose between food and electricity. A struggling single mother should not have to resort to illegal connections just to keep the lights on for her children. JPS was meant to be a provider of energy, yet for many, it has become a source of stress, anxiety, and financial strain.

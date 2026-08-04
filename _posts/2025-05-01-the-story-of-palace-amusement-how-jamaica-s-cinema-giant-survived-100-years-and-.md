@@ -15,7 +15,7 @@ Palace Amusement isn’t just a movie company — it’s a piece of Jamaican
 ### **The Story of Palace Amusement: How Jamaica’s Cinema Giant Survived 100 Years and Why the Next Move Matters Most**
 Palace Amusement isn’t just a movie company — it’s a piece of Jamaican cultural fabric, woven into first dates, school trips, family weekends, and moments that shaped lives. For over a century, it has survived fire, foreign ownership, fierce competition, and most recently, a pandemic that emptied every auditorium.
 
-![](https://cdn-images-1.medium.com/max/800/1*5b_JQt4B5VokxeiTneCXDA.jpeg)
+![](/assets/images/medium-imports/medium-1*5b_JQt4B5VokxeiTneCXDA.webp)
 
 ### A Brief History — From ‘Palace’ to Powerhouse
 Founded in 1921 by Jamaican entrepreneur Audley Morais, Palace Amusement started out during the silent film era and quickly became a key player in Jamaica’s movie scene. By the late 1930s, it was facing off with the newly built Carib Theatre, which boasted the largest screen and seating in the Caribbean. Over time, Palace Amusement would not only acquire Carib but also become the island’s dominant exhibitor and film distributor.
@@ -30,7 +30,7 @@ Palace Amusement is publicly traded on the Jamaica Stock Exchange but remains ti
 ### Innovation and Improvements
 Through every era, the Palace has maintained one foot in tradition and one in the future. From introducing Dolby Surround in the ’80s, to switching fully to digital projection by 2009, to offering 3D and HD broadcasts of international opera, the company has always aimed to elevate the experience.
 
-![](https://cdn-images-1.medium.com/max/800/1*X5QeQoaZa24fKVL1FKxaBg.jpeg)
+![](/assets/images/medium-imports/medium-1*X5QeQoaZa24fKVL1FKxaBg.webp)
 The jewel in its crown is the introduction of 4DX at Carib 5 — a multi-sensory theatre with motion seats, scent, wind, and water effects. It’s the first and only of its kind in the English-speaking Caribbean. Sunshine Palace in Portmore brought in luxury recliner seating and a VIP section, showing Palace’s willingness to test premium features.
 
 
@@ -61,7 +61,7 @@ Surviving is one thing. Thriving is another. Here’s what Palace can do to make
 
 **2. Go VIP, seriously.** Upgrade one auditorium per location into full VIP lounges with plush recliners, table service, and gourmet menus. It’s working overseas, and Jamaicans will pay for comfort.
 
-![](https://cdn-images-1.medium.com/max/800/1*o1Xcd5UEgSoNxNIAYzcjqA.png)
+![](/assets/images/medium-imports/medium-1*o1Xcd5UEgSoNxNIAYzcjqA.webp)
 **3. Reward the loyal ones.** A Palace Premiere Club could allow patrons to earn points, get free tickets, and access members-only screenings. This keeps people coming back.
 
 **4. Bundle the vibes.** Offer “Dinner + Movie” packages with nearby restaurants, or host themed nights like retro screenings with Jamaican cuisine or live music before the show.

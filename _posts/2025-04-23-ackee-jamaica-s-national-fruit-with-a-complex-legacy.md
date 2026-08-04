@@ -11,14 +11,14 @@ migrated_from: medium
 
 🌿 Ackee: Jamaica’s National Fruit with a Complex Legacy
 
-![](https://cdn-images-1.medium.com/max/800/1*-WDyuJpyPT1Vs_cuEsxfMg.png)
+![](/assets/images/medium-imports/medium-1*-WDyuJpyPT1Vs_cuEsxfMg.webp)
 **The ackee (Blighia sapida)** is more than just a fruit in Jamaica—it's a symbol of national pride, a culinary staple, and a testament to the island's complex history. While it holds a cherished place in Jamaican culture, ackee's journey from West Africa and its unique characteristics make it a subject worth exploring.
 
 
 ### 🌍 Origins: From West Africa to the Caribbean
 Native to tropical West Africa, particularly Ghana, ackee was introduced to Jamaica in the 18th century, likely transported aboard slave ships during the transatlantic slave trade. By 1778, it had taken root in Jamaican soil. In 1793, Captain William Bligh brought ackee from Jamaica to England, leading to its scientific classification and broader recognition.
 
-![](https://cdn-images-1.medium.com/max/800/1*tah522cSM3dY13-5ZLMT1A.png)
+![](/assets/images/medium-imports/medium-1*tah522cSM3dY13-5ZLMT1A.webp)
 Today, ackee thrives across Jamaica, especially in regions like Clarendon and St. Elizabeth, and has been embraced as the national fruit, integral to the country's identity.
 
 ---
@@ -27,7 +27,7 @@ Today, ackee thrives across Jamaica, especially in regions like Clarendon and St
 ### ⚠️ Understanding Ackee's Toxicity
 Ackee contains hypoglycin A and B, toxins that can cause severe hypoglycemia and even death if consumed improperly. These toxins are present in high concentrations in unripe fruit, seeds, and the red inner membranes. However, as the fruit ripens and naturally opens—a process known as "smiling" or "yawning"—the levels of hypoglycin A in the edible arils decrease significantly, making them safe to eat when properly prepared.
 
-![](https://cdn-images-1.medium.com/max/800/1*QAckd7iZxHK5-3wBm6GtAg.png)
+![](/assets/images/medium-imports/medium-1*QAckd7iZxHK5-3wBm6GtAg.webp)
 Consuming unripe ackee can lead to "Jamaican vomiting sickness," characterized by vomiting, hypoglycemia, and in severe cases, coma or death. Therefore, it's crucial to ensure that ackee is fully ripe and properly prepared before consumption.
 
 ---
@@ -44,7 +44,7 @@ Selecting and Preparing Ackee:
 
 Culinary Applications:
 
-![](https://cdn-images-1.medium.com/max/800/1*9WyV4uszYEqURC6Tj6h6mQ.jpeg)
+![](/assets/images/medium-imports/medium-1*9WyV4uszYEqURC6Tj6h6mQ.webp)
 The most renowned dish is ackee and saltfish, where boiled ackee is sautéed with salted codfish, onions, tomatoes, Scotch bonnet peppers, and spices. This dish is traditionally served with accompaniments like fried dumplings, boiled green bananas, or breadfruit.
 
 ---
@@ -65,7 +65,7 @@ Toxicity Risk: Consuming **unripe** ackee or improperly prepared arils can lead 
 
 Preparation Caution: Proper identification of ripeness and thorough preparation are crucial to ensure safety.
 
-![](https://cdn-images-1.medium.com/max/800/1*cSoaVnSZtnBqPA1yG1B5rA.png)
+![](/assets/images/medium-imports/medium-1*cSoaVnSZtnBqPA1yG1B5rA.webp)
 
 ### 🌱 Cultivation and Availability
 Ackee trees thrive in Jamaica's tropical climate, particularly in regions like Clarendon and St. Elizabeth. The evergreen trees can grow up to 10 meters tall and produce fruit year-round, with peak seasons typically from January to March and October to November.

@@ -15,7 +15,7 @@ Jamaica’s biggest car event roared back to life with luxury, electric dreams, 
 ### Jamaica Auto Show 2025: Power, Prestige, and Progress at the National Arena
 *Jamaica’s biggest car event roared back to life with luxury, electric dreams, and a whole lot of island flair.*
 
-![](https://cdn-images-1.medium.com/max/800/1*KK2AldmdJ04svWlLRWk7Jg.png)
+![](/assets/images/medium-imports/medium-1*KK2AldmdJ04svWlLRWk7Jg.webp)
 **The Jamaica Auto Show 2025 lit up Kingston’s National Arena this May, offering a dazzling weekend of chrome, culture, and cutting-edge technology.**
 
 
@@ -48,7 +48,7 @@ EVs dominated the spotlight. BYD rolled out its newest models with flair, and Te
 ### Classic Beauties and Custom Builds
 Not to be outshone, local enthusiasts and collectors brought out vintage Land Cruisers, souped-up Civics, and meticulously restored muscle cars. A custom-built Datsun with a candy-apple finish had attendees snapping pics all day long.
 
-![](https://cdn-images-1.medium.com/max/800/1*BzZsibkwNVrpnERWO6MIrQ.jpeg)
+![](/assets/images/medium-imports/medium-1*BzZsibkwNVrpnERWO6MIrQ.webp)
 
 ### More Than Just Cars
 
@@ -62,13 +62,13 @@ Of course, it wouldn’t be a Jamaican event without vibes. With DJs spinning da
 
 ### A Glimpse Into Jamaica’s Automotive Future
 
-![](https://cdn-images-1.medium.com/max/400/1*MrtKcIhZR66fcsQ0c69C5Q.jpeg)
-![](https://cdn-images-1.medium.com/max/400/1*XBElfe65giRDRV02nmPEpg.jpeg)
-![](https://cdn-images-1.medium.com/max/400/1*y0mqLD9qSoeqvT5uCZ62fA.jpeg)
+![](/assets/images/medium-imports/medium-1*MrtKcIhZR66fcsQ0c69C5Q.webp)
+![](/assets/images/medium-imports/medium-1*XBElfe65giRDRV02nmPEpg.webp)
+![](/assets/images/medium-imports/medium-1*y0mqLD9qSoeqvT5uCZ62fA.webp)
 
-![](https://cdn-images-1.medium.com/max/400/1*uPD9q1_DIJNZqcBYSE670g.jpeg)
-![](https://cdn-images-1.medium.com/max/400/1*qtIbh_Amc4BljmGvWqXzWQ.jpeg)
-![](https://cdn-images-1.medium.com/max/400/1*6qPSyGPp0wXdHCLRNIVJoQ.jpeg)
+![](/assets/images/medium-imports/medium-1*uPD9q1_DIJNZqcBYSE670g.webp)
+![](/assets/images/medium-imports/medium-1*qtIbh_Amc4BljmGvWqXzWQ.webp)
+![](/assets/images/medium-imports/medium-1*6qPSyGPp0wXdHCLRNIVJoQ.webp)
 
 
 ### JPS Charge ‘n Go and the EV Push

@@ -15,7 +15,7 @@ From Trench Town to the top of U.S. hoops, AJ returns home to uplift a new gener
 ### AJ Dybantsa’s Jamaican Roots Inspire a Game-Changing Basketball Initiative
 *From Trench Town to the top of U.S. hoops, AJ returns home to uplift a new generation.*
 
-![](https://cdn-images-1.medium.com/max/800/1*NYVzY7SdrBIFyGlOq9gWnQ.jpeg)
+![](/assets/images/medium-imports/medium-1*NYVzY7SdrBIFyGlOq9gWnQ.webp)
 AJ Dybantsa at a youth basketball event in Kingston, Jamaica, with local children and officials, vibrant tropical backdrop
 
 **At just 17, AJ Dybantsa is already one of the most electrifying talents in U.S. high school basketball — but it’s his heart, not just his handles, that’s making headlines in Jamaica.**
@@ -28,13 +28,13 @@ AJ Dybantsa isn’t just another top basketball recruit. Hailing from Massachuse
 
 
 ### Launching a Legacy: Kingston Initiative
-![](https://cdn-images-1.medium.com/max/800/1*hPoXoLwp6Q7hmbW_SKJHGQ.jpeg)
+![](/assets/images/medium-imports/medium-1*hPoXoLwp6Q7hmbW_SKJHGQ.webp)
 In early May, AJ stood beside Cedella Marley, officials from the Bob Marley Foundation, and leaders of the Jamaica Basketball Association (JBA) at AC Hotel Kingston. The purpose? Launching a youth upliftment initiative aimed at transforming inner-city lives through basketball.
 
 
-![](https://cdn-images-1.medium.com/max/400/1*gOLWa6vz9ZQvkhF6r0N8rA.jpeg)
-![](https://cdn-images-1.medium.com/max/400/1*_FdaHS68MsiWFjTDmgK3eg.jpeg)
-![](https://cdn-images-1.medium.com/max/400/1*Ag2RT6Wku7nr-GIk6J0T8Q.jpeg)
+![](/assets/images/medium-imports/medium-1*gOLWa6vz9ZQvkhF6r0N8rA.webp)
+![](/assets/images/medium-imports/medium-1*_FdaHS68MsiWFjTDmgK3eg.webp)
+![](/assets/images/medium-imports/medium-1*Ag2RT6Wku7nr-GIk6J0T8Q.webp)
 
 
 > *“We’re investing in more than just players — we’re building future leaders,” said JBA President Paulton Gordon.*
@@ -50,7 +50,7 @@ Jamaican-born NBA hopeful Kofi Cockburn
 
 
 ### From Trench Town to Global Courts
-![](https://cdn-images-1.medium.com/max/800/1*1NVa52XoO5MQBjuUB2rmmw.jpeg)
+![](/assets/images/medium-imports/medium-1*1NVa52XoO5MQBjuUB2rmmw.webp)
 Before the launch, AJ visited Trench Town — one of Kingston’s most storied and challenging neighborhoods. For him, it was more than a photo op.
 
 

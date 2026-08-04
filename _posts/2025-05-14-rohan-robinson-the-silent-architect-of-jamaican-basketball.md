@@ -15,7 +15,7 @@ From hardwood warrior to masterful mentor, Robinson’s journey defines grassroo
 ### Rohan Robinson: The Silent Architect of Jamaican Basketball
 *From hardwood warrior to masterful mentor, Robinson’s journey defines grassroots greatness.*
 
-![](https://cdn-images-1.medium.com/max/800/1*heWaxSvhnzes8VsASj9PTw.jpeg)
+![](/assets/images/medium-imports/medium-1*heWaxSvhnzes8VsASj9PTw.webp)
 
 > *Coach Rohan Robinson courtside in a Jamaican basketball gym, intense and focused, team huddled around him*
 
@@ -41,9 +41,9 @@ His grassroots programs not only honed skills but also gave kids purpose and dir
 
 ### Leading the Pros: NBL, Howard McCatty League & Business House Basketball
 
-![](https://cdn-images-1.medium.com/max/600/1*fPGYywlDHQ0uV7RHNKZtGw.jpeg)
-![](https://cdn-images-1.medium.com/max/600/1*rl_Lt2hCWop4PMxG0shw4A.jpeg)
-![](https://cdn-images-1.medium.com/max/400/1*DcwcdK0RLWdfko7bCstWjA.jpeg)
+![](/assets/images/medium-imports/medium-1*fPGYywlDHQ0uV7RHNKZtGw.webp)
+![](/assets/images/medium-imports/medium-1*rl_Lt2hCWop4PMxG0shw4A.webp)
+![](/assets/images/medium-imports/medium-1*DcwcdK0RLWdfko7bCstWjA.webp)
 
 Robinson’s coaching brilliance wasn’t confined to youth leagues. In the **National Basketball League (NBL)**, he led the **St. George’s Slayers** with intensity and precision. Later, he steered the **EXED Heats** to a championship in the gritty **Howard McCatty League** — one of Jamaica’s toughest battlegrounds.
 

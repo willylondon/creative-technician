@@ -13,7 +13,7 @@ Introduction: The Rise and Fall of Basketball in Jamaica
 
 
 ### Revitalizing Jamaican Basketball: Challenges, Contributions, and Future Strategies
-![](https://cdn-images-1.medium.com/max/800/1*VfFjoip3DwILLSQ7IBX2vA.jpeg)
+![](/assets/images/medium-imports/medium-1*VfFjoip3DwILLSQ7IBX2vA.webp)
 
 ### Introduction: The Rise and Fall of Basketball in Jamaica
 Basketball was once one of the fastest-growing sports in Jamaica. During the 1990s and early 2000s, courts were packed with young athletes, high school competitions thrived, and scholarships were being awarded to many of the country’s top players. At one point, basketball provided more scholarships than any other sport in Jamaica, giving talented youth a chance to study and compete internationally.

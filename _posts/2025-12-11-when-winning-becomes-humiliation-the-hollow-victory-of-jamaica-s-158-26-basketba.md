@@ -23,7 +23,7 @@ But what happens when there was no competition? When one team didn’t just win,
 
 What does that handshake mean then?
 
-![](https://cdn-images-1.medium.com/max/800/1*ceKMwPS3mJ8VISvwkc8QeQ.jpeg)
+![](/assets/images/medium-imports/medium-1*ceKMwPS3mJ8VISvwkc8QeQ.webp)
 
 ### The Scoreboard Doesn’t Lie, But It Doesn’t Tell the Truth Either
 The recent ISSA basketball games, Ardenne’s 158–26 dismantling of Bridgeport, Campion’s 118–29 routing of Yallahs, have sparked a conversation that goes far deeper than the box score. On the surface, these are impressive numbers. Record-breaking, even. The kind of stats that get circulated on social media, that make highlight reels, that get people talking.

@@ -15,7 +15,7 @@ A Beginner’s Guide to Audiobooks with ElevenLabs
 ### How I Turned My Words into a Voice Actor
 
 #### A Beginner’s Guide to Audiobooks with ElevenLabs
-![](https://cdn-images-1.medium.com/max/800/1*p-9j4BHOTSgK_HCmJ0jWLQ.png)
+![](/assets/images/medium-imports/medium-1*p-9j4BHOTSgK_HCmJ0jWLQ.webp)
 ***Turning your book into an audiobook used to mean studio time, voice talent, and money you didn’t budget for.***
  Now? All you need is WiFi and ElevenLabs.
 

@@ -13,7 +13,7 @@ Father’s Day in Jamaica – A Celebration or a Punchline?
 
 Father’s Day in Jamaica tells a different story—one written in jokes, jabs, and quiet grief.
 
-![](https://cdn-images-1.medium.com/max/800/1*jjX5eH_fMltqYdWUo88GBw.png)
+![](/assets/images/medium-imports/medium-1*jjX5eH_fMltqYdWUo88GBw.webp)
 Happy Father’s Day—I almost forgot. That line—casual, offhand, tossing “Happy Father’s Day” like an afterthought—says it all. In Jamaica, Father’s Day slips under the radar. It never stood toe to toe with Mother’s Day, and I used to wonder… why?
 
 

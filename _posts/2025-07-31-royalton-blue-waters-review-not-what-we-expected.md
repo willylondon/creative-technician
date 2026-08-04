@@ -15,7 +15,7 @@ I arrived yesterday with high hopes, but ever since landing, my enthusiasm has t
 ### Royalton Blue Waters Review: Not What We Expected
 I arrived yesterday with high hopes, but ever since landing, my enthusiasm has taken a nosedive.
 
-![](https://cdn-images-1.medium.com/max/800/1*Xu4Y5d5A8s5mYl20wQHPeg.jpeg)
+![](/assets/images/medium-imports/medium-1*Xu4Y5d5A8s5mYl20wQHPeg.webp)
 
 ### Bold energy on arrival slowly faded.
 Our summer escape quickly turned into a disappointment at Royalton Blue Waters. The check-in felt mechanical and impersonal—the assistant’s answers were robotic, as if reading from a script without warmth or efficiency.

@@ -53,7 +53,7 @@ const projects = [
     type: "Production platform / Community operations",
     description:
       "A live platform for Jamaican trails, events, galleries and stories, supported by Git-based publishing, GitHub Actions and n8n/Telegram automation.",
-    image: "/assets/images/hero_image.png",
+    image: "/assets/images/hero_image.webp",
     imageAlt: "Lifestyle Hikers at a waterfall in Jamaica",
     href: "https://lifestylehikers.com",
     cta: "Visit the live site",
@@ -77,7 +77,7 @@ const projects = [
     type: "Meta API / Community automation",
     description:
       "A one-message onboarding route connecting Instagram, Meta permissions and automated replies to remove repetitive admin from a growing outdoor community.",
-    image: "/assets/images/instagram-dm-autoresponder-connected-instagram.png",
+    image: "/assets/images/instagram-dm-autoresponder-connected-instagram.webp",
     imageAlt: "Instagram account connected to an automated onboarding workflow",
     href: "/blog/how-i-built-an-instagram-join-bot-with-n8n-meta-and-one-very-specific-token",
     cta: "Read the build story",
@@ -192,7 +192,7 @@ export default async function Home() {
               <div className="visual-index" aria-hidden="true">PORTFOLIO / 26</div>
               <div className="portrait-panel">
                 <Image
-                  src="/assets/images/willard-wells-hero.png"
+                  src="/assets/images/willard-wells-hero.webp"
                   alt="Willard Wells thoughtfully reviewing several laptops"
                   fill
                   priority

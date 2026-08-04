@@ -15,7 +15,7 @@ For the one whose soul feels familiar.
 ### A Letter to Her
 For the one whose soul feels familiar.
 
-![](https://cdn-images-1.medium.com/max/800/1*Po5KTCAdGee8wFYOTeo29g.png)
+![](/assets/images/medium-imports/medium-1*Po5KTCAdGee8wFYOTeo29g.webp)
 I met you for the first time eight years ago.
 You were walking with your friend. I passed by, barely making eye contact. You both laughed, and that was it. A few more encounters like that passing glances, nothing more until finally, we said hi.
 

@@ -13,7 +13,7 @@ Jamaica’s Aged Vehicle Import Policy: A Comprehensive Analysis
 
 
 ### Jamaica’s New Aged Vehicle Policy: A Step Backward or Smart Move?
-![](https://cdn-images-1.medium.com/max/800/1*NL0C28LFFE1dM8ha7stTQw.jpeg)
+![](/assets/images/medium-imports/medium-1*NL0C28LFFE1dM8ha7stTQw.webp)
 
 ### Jamaica’s Aged Vehicle Import Policy: A Comprehensive Analysis
 
@@ -70,7 +70,7 @@ Older vehicles generally have outdated safety features and higher failure rates.
 
 
 ### 4. The Case for Electric Vehicles (EVs)
-![](https://cdn-images-1.medium.com/max/800/1*JCHrTm-tk1OkH4_GOWgB-g.jpeg)
+![](/assets/images/medium-imports/medium-1*JCHrTm-tk1OkH4_GOWgB-g.webp)
 One positive move by the government is **reducing import duties on electric vehicles (EVs) to just 10%**, significantly lower than the standard duties on gas-powered vehicles. This is a **step in the right direction** and encourages cleaner, more sustainable transportation. EVs produce **zero tailpipe emissions**, reducing Jamaica’s air pollution and dependence on fossil fuels.
 
 If the government is willing to incentivize EVs, why not take this approach with newer fuel-efficient vehicles as well? Instead of allowing much older vehicles, reducing duties on cars that are **five years old or newer** could **balance affordability with sustainability** and keep emissions in check.

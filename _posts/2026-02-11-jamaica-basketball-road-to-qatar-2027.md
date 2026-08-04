@@ -4,7 +4,7 @@ title: "Jamaica Basketball: The Road to Qatar 2027"
 date: 2026-02-11
 categories: [Basketball, Jamaica, Community]
 description: "The JamRockers have reached the FIBA World Cup qualifiers for the first time in history. Here's why this moment matters for Jamaica and what it will take to make it to Qatar 2027."
-image: /assets/images/jamaica-basketball-qatar-2027-1.png
+image: /assets/images/jamaica-basketball-qatar-2027-1.webp
 image_width: 1440
 image_height: 1440
 ---
@@ -15,7 +15,7 @@ We are standing at a historic crossroads in our nation's athletic journey. After
 
 Basketball is one of the fastest-growing sports globally, and here in Jamaica, its potential is limitless. From providing life-changing scholarships to creating new job opportunities for our youth, this sport can do so much for our country if it is promoted and supported properly.
 
-![Jamaica Basketball team huddle and squad](/assets/images/jamaica-basketball-qatar-2027-1.png){: width="1440" height="1440" loading="lazy" decoding="async" }
+![Jamaica Basketball team huddle and squad](/assets/images/jamaica-basketball-qatar-2027-1.webp){: width="1440" height="1440" loading="lazy" decoding="async" }
 
 ## Upcoming Home Games at the National Indoor Sports Centre
 - February 26, 2026: vs. Bahamas (6:10 PM)
@@ -34,7 +34,7 @@ They lead a talented roster of warriors ready to represent the black, green, and
 
 **The Global Impact:** We are also proud of our high-profile players and those working through eligibility, including Norman Powell, Nick Richards, Josh Minott, Devin Vassell, Amen Thompson, Ausar Thompson, and Isaiah Stewart.
 
-![Jamaica Basketball players on court](/assets/images/jamaica-basketball-qatar-2027-2.png){: width="1170" height="1435" loading="lazy" decoding="async" }
+![Jamaica Basketball players on court](/assets/images/jamaica-basketball-qatar-2027-2.webp){: width="1170" height="1435" loading="lazy" decoding="async" }
 
 ## A Message on Unity and Purpose
 As many of you know, I recently shared a video intended to celebrate this journey. I made an error in judgment regarding a specific clip, which led to an interpretation different from what I intended. I have since removed and corrected that content, and I have personally apologized to those I may have inadvertently disrespected.
@@ -43,5 +43,5 @@ It is disappointing that a single mistake has drawn focus away from the main mes
 
 Let's look past the noise, ignore the negativity, and get behind the JamRockers as they bring it home to Kingston.
 
-![Jamaica Basketball celebration](/assets/images/jamaica-basketball-qatar-2027-3.png){: width="804" height="787" loading="lazy" decoding="async" }
+![Jamaica Basketball celebration](/assets/images/jamaica-basketball-qatar-2027-3.webp){: width="804" height="787" loading="lazy" decoding="async" }
 

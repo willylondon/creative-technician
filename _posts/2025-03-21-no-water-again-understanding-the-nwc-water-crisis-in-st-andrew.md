@@ -13,7 +13,7 @@ migrated_from: medium
 
 
 ### 💧“No Water Again?” — Understanding the NWC Water Crisis in St. Andrew
-![](https://cdn-images-1.medium.com/max/800/1*tznin8AetGFDpamnOjfvPg.jpeg)
+![](/assets/images/medium-imports/medium-1*tznin8AetGFDpamnOjfvPg.webp)
 
 ### 🚿 Introduction: A Crisis Hiding in Plain Sight
 *“No water again and of course no update from NWC 🙄”

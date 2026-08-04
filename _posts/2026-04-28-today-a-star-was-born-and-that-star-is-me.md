@@ -4,7 +4,7 @@ title: Today, a star was born, and that star is me
 date: 2026-04-28
 categories:
   - Blog
-image: /assets/images/today-a-star-was-born.png
+image: /assets/images/today-a-star-was-born.webp
 image_width: 1200
 image_height: 630
 featured: false

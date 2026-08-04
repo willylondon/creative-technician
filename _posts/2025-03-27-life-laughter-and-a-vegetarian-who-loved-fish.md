@@ -15,7 +15,7 @@ Why My Mom’s Fish Exception Makes Perfect Sense
 ### Life, Laughter, and a Vegetarian Who Loved Fish
 **Why My Mom’s Fish Exception Makes Perfect Sense**
 
-![](https://cdn-images-1.medium.com/max/800/1*OIOCTCYqta697hlqyEcEfA.jpeg)
+![](/assets/images/medium-imports/medium-1*OIOCTCYqta697hlqyEcEfA.webp)
 **Life is like my mother’s vegetarianism — full of well-intentioned contradictions. Avril Harvey, affectionately called Sister Joan, was born on March 17, 1958, in Kingston. She grew up on Hibiscus Avenue in Tower Hill, a bustling Kingston community where vibrant laughter harmonized with clanging zinc fences, crowded houses, and beds shared by many children. Sundays smelled of Grandma Sister Tiny’s puddings, drawing neighbors like moths to a flame, while Uncle Steve’s melodious songs seasoned the simmering pots with pure joy.**
 
 **At just three years old, Avril’s beloved pet goat met a tragic fate at her father’s hand, prompting her lifelong vow against meat. Yet she made a curious exception for fish, which I always found hilarious. Perhaps fish didn’t have pet-like charisma, or maybe it was her way of keeping life flavorful amidst her self-imposed rules.**

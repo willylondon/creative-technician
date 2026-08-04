@@ -15,7 +15,7 @@ From legacy to innovation — a deep dive into the rise, rivalry, and reinve
 ### The Big 3: How Tastee, Juici, and Mother’s Shape Jamaica’s Patty Empire
 
 #### From legacy to innovation — a deep dive into the rise, rivalry, and reinvention of Jamaica’s top patty companies
-![](https://cdn-images-1.medium.com/max/800/1*zO2I1-chWbhrWqBuLitfog.png)
+![](/assets/images/medium-imports/medium-1*zO2I1-chWbhrWqBuLitfog.webp)
 **The Big 3: Jamaica’s Patty Powerhouses — A Blogger’s Deep Dive**
 
 As a blogger and storyteller who travels far and wide across Jamaica (and occasionally abroad), one thing that never fails to stir passion among locals is *patties*. They’re not just food — they’re cultural icons. And when it comes to patties in Jamaica, three names dominate the conversation: **Tastee Patties, Juici Patties, and Mother’s Food Group**. These aren’t just patty shops anymore — they’re full-fledged fast food empires. But like any empire, not all are rising. Some are falling behind.

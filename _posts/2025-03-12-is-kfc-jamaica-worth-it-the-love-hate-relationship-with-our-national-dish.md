@@ -13,7 +13,7 @@ KFC Jamaica: The Unofficial National Dish
 
 
 ### Is KFC Jamaica Worth It? The Love-Hate Relationship With Our ‘National Dish
-![](https://cdn-images-1.medium.com/max/800/1*Qn6UqgCa4aId7XAH1HqDBg.jpeg)
+![](/assets/images/medium-imports/medium-1*Qn6UqgCa4aId7XAH1HqDBg.webp)
 KFC Jamaica: The Unofficial National Dish
 
 Growing up in Jamaica, every child learns about the country’s national symbols. The Doctor Bird, the Lignum Vitae tree, and the beloved yet controversial national dish — Ackee and Saltfish. But as time has passed, an undeniable truth has emerged: the true national dish of Jamaica is not Ackee and Saltfish — it’s KFC.

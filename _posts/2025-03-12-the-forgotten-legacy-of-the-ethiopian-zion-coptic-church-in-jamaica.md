@@ -13,7 +13,7 @@ The Forgotten Legacy of the Ethiopian Zion Coptic Church in Jamaica
 
 
 ### **The Forgotten Legacy of the Ethiopian Zion Coptic Church in Jamaica**
-![](https://cdn-images-1.medium.com/max/800/1*wyRzTA8e21lWIbPXyp3mFw.jpeg)
+![](/assets/images/medium-imports/medium-1*wyRzTA8e21lWIbPXyp3mFw.webp)
 **The Forgotten Legacy of the Ethiopian Zion Coptic Church in Jamaica**
 
 
@@ -46,7 +46,7 @@ In Jamaica, the government of Edward Seaga, under pressure from U.S. authorities
 
 
 ### Forgotten Legacy and Modern Reflections
-![](https://cdn-images-1.medium.com/max/800/1*-wwQWaA3t9YsXSExxJrUSg.jpeg)
+![](/assets/images/medium-imports/medium-1*-wwQWaA3t9YsXSExxJrUSg.webp)
 Today, the Ethiopian Zion Coptic Church is largely absent from mainstream discussions of Jamaican history. Often dismissed as mere smugglers, the Coptics’ contributions to the island’s religious, economic, and cultural landscape have been overlooked. Yet, their impact was profound. They demonstrated that marginalized communities could achieve economic self-sufficiency, provided thousands of jobs, and challenged global drug policies by advocating for cannabis as a sacrament.
 
 Their stance on ganja predated modern legalization movements, and their arguments for religious freedom in cannabis use have influenced contemporary discussions on decriminalization. The Coptics’ story is a testament to the power of faith, self-reliance, and resilience in the face of persecution. Their vision of a self-sustaining spiritual community remains an important, albeit forgotten, chapter in Jamaican history.

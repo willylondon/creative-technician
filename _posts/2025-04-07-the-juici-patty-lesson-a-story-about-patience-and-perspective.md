@@ -10,10 +10,10 @@ migrated_from: medium
 
 
 ### The Juici Patty Lesson: A Story About Patience and Perspective
-![](https://cdn-images-1.medium.com/max/800/1*LNHkgUSKMUoMF8FQvNoTMA.jpeg)
+![](/assets/images/medium-imports/medium-1*LNHkgUSKMUoMF8FQvNoTMA.webp)
 This morning, I walked into Juici Patty with a simple task: grab a coco bread for a friend. I expected to be in and out quickly, but the universe had other plans. The line was long—at least 15 people ahead of me. Still,
 
-![](https://cdn-images-1.medium.com/max/800/1*oNgnYTVLGybUq-NnaO4SOA.png)
+![](/assets/images/medium-imports/medium-1*oNgnYTVLGybUq-NnaO4SOA.webp)
 I decided to wait, watching as the three cashiers tried their best to manage the crowd. One was handling phone orders, while the other two assisted in-store customers.
 
 As time passed, I noticed a couple at the first cashier taking quite a while. After about seven minutes of waiting behind them, my patience began to wear thin. Frustrated, I spoke up—not quietly either. I said something along the lines of: "I hate when people stand in line for so long and still don’t know what they want when it’s finally their turn." A few others nodded in agreement. I felt justified in my annoyance.
@@ -24,7 +24,7 @@ And I saw the reason for the delay.
 
 One of the individuals in the couple was blind. The other was gently guiding and assisting her with the order.
 
-![](https://cdn-images-1.medium.com/max/800/1*d8JgdYhiulfxvPo7-E10ig.png)
+![](/assets/images/medium-imports/medium-1*d8JgdYhiulfxvPo7-E10ig.webp)
 They weren’t being difficult or indecisive—they were navigating a world that wasn’t built with them in mind. Suddenly, my frustration turned to guilt.
 
 That moment hit me hard.

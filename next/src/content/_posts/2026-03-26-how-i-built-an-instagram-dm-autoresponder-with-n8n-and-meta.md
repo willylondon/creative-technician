@@ -80,11 +80,11 @@ You need:
 Here is what the Instagram/Page connection looked like on my end.
 I redacted the personal and business-specific bits, because a tutorial should teach the setup without turning into a data leak:
 
-![Connected Instagram account inside Meta settings](/assets/images/instagram-dm-autoresponder-connected-instagram.png){: width="3018" height="1798" loading="lazy" decoding="async" }
+![Connected Instagram account inside Meta settings](/assets/images/instagram-dm-autoresponder-connected-instagram.webp){: width="3018" height="1798" loading="lazy" decoding="async" }
 
 Then I checked Page access and confirmed the correct Facebook user had **Full control**:
 
-![Facebook Page access showing full control](/assets/images/instagram-dm-autoresponder-page-access.png){: width="3022" height="1786" loading="lazy" decoding="async" }
+![Facebook Page access showing full control](/assets/images/instagram-dm-autoresponder-page-access.webp){: width="3022" height="1786" loading="lazy" decoding="async" }
 
 If you skip this part, you will spend hours blaming tokens for a problem that is actually permissions.
 

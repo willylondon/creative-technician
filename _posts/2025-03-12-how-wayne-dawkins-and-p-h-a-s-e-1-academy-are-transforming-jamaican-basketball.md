@@ -13,7 +13,7 @@ Wayne Dawkins and P.H.A.S.E. 1 Academy: A Game-Changer for Jamaican Basketball
 
 
 ### How Wayne Dawkins and P.H.A.S.E. 1 Academy Are Transforming Jamaican Basketball
-![](https://cdn-images-1.medium.com/max/800/1*XnPHBkbRPmwfnZ3PYzFUtg.jpeg)
+![](/assets/images/medium-imports/medium-1*XnPHBkbRPmwfnZ3PYzFUtg.webp)
 **Wayne Dawkins and P.H.A.S.E. 1 Academy: A Game-Changer for Jamaican Basketball**
 
 Basketball in Jamaica has had its fair share of struggles — lack of infrastructure, inconsistent development programs, and a governing body that has often fallen short of its potential. Yet, despite these frustrations, there are individuals and organizations working to elevate the game and provide real opportunities for young athletes. One such figure is **Wayne Dawkins**, the founder of **P.H.A.S.E. 1 Academy**, who, alongside his dedicated team, has been instrumental in reshaping the landscape of Jamaican basketball.

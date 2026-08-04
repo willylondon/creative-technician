@@ -4,7 +4,7 @@ title: "Chasing the Coldest Plunge: A Journey to Falling Edge Falls"
 date: 2026-02-23
 categories: [Hiking, Jamaica, Adventure]
 description: "The Lifestyle Hikers trek to Falling Edge Falls — where Kingston city lights give way to mountain mist, cold water, and pure reward. Everything you need to know before you go."
-image: /assets/images/screenshot_20260223-153131.png
+image: /assets/images/screenshot_20260223-153131.webp
 image_width: 1200
 image_height: 630
 featured: false
@@ -21,7 +21,7 @@ While most people take the standard route through Stoney Castle and Bowden Hill,
 
 ### A Walk Through History
 
-![](/assets/images/screenshot_20260223-153001.png "Hermitage damn")
+![](/assets/images/screenshot_20260223-153001.webp "Hermitage damn")
 
 Standing tall since 1924, the Hermitage Dam is a massive gravity structure that feels like a gateway to another world. Reaching it at dawn is a total vibe, the fog sits heavy over the water, and the air turns crisp. It took us about an hour and a half to reach this point, but with the views we had, nobody was complaining.
 
@@ -39,7 +39,7 @@ After a final 20 minute scramble through the bamboo forest, we reached the main 
 
 After a 90 minute trek, that freezing water is exactly what the body needs. It’s a literal reset button. We spent our time jumping in, cooling off, and soaking in the natural beauty of the falls before heading back to reality.
 
-![](/assets/images/screenshot_20260223-153131.png)
+![](/assets/images/screenshot_20260223-153131.webp)
 
 ### Know Before You Go
 

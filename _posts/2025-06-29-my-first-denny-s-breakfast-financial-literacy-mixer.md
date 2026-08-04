@@ -10,17 +10,17 @@ migrated_from: medium
 
 
 ### My First Denny’s Breakfast & Financial Literacy Mixer 🍳
-![](https://cdn-images-1.medium.com/max/800/1*ZacpSgRS33rW7T4iBLCDtA.jpeg)
+![](/assets/images/medium-imports/medium-1*ZacpSgRS33rW7T4iBLCDtA.webp)
 I never imagined my first trip to Denny’s would come with a side of scrambled eggs—and fiscal clarity.
 
 Stepping into Denny’s early on a sunday morning, I wasn’t sure what to expect. I arrived for a breakfast mixer hosted by SimpleFinancial.org, an event aiming to weave financial literacy into our schools. Think YouTube demos, PowerPoint handouts (digital copies promised later), and earnest discussion about empowering teachers and students with money know-how.
 
-![](https://cdn-images-1.medium.com/max/800/1*N0vgEX62EJPYiLwtbJqoCg.jpeg)
+![](/assets/images/medium-imports/medium-1*N0vgEX62EJPYiLwtbJqoCg.webp)
 
 ### ☕ Starting with a Splash of Flavor
 I started with something bright—a raspberry‑infused iced tea. It was sweet, tangy, and refreshing—a great way to wake up before diving into finance talk.
 
-![](https://cdn-images-1.medium.com/max/800/1*8aCj7uAUJ48cbrPVE7MmvA.jpeg)
+![](/assets/images/medium-imports/medium-1*8aCj7uAUJ48cbrPVE7MmvA.webp)
 🍳 A Breakfast Spread (and Honest Review)
 
 Here’s what was on my plate:
@@ -33,8 +33,8 @@ Turkey bacon
 
 Let me be real: the serving was smaller than I expected, maybe a 7/10 on the satisfaction scale. The eggs were fluffy, and the French toast hit the right spot, but overall it felt like more of a snack than a full breakfast—and yes, the wait felt longer than ideal. Still, it’s all forgivable when someone else is picking up the tab.
 
-![](https://cdn-images-1.medium.com/max/800/1*8iqvvPBE-ztUKnTtcJ1i3A.jpeg)
-![](https://cdn-images-1.medium.com/max/800/1*VNkC9IYcjIBhmXZxYAPOYA.jpeg)
+![](/assets/images/medium-imports/medium-1*8iqvvPBE-ztUKnTtcJ1i3A.webp)
+![](/assets/images/medium-imports/medium-1*VNkC9IYcjIBhmXZxYAPOYA.webp)
 💡 Mixing Ideas with a Side of Breakfast
 
 Beyond the food, the mixer was the real highlight. We watched a YouTube demonstration on financial literacy programs, followed by a solid PowerPoint presentation. The discussion that followed was rich— we explored how financial education could fit into students’ daily learning.
