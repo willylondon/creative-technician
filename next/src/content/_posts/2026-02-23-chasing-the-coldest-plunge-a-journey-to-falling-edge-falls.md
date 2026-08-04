@@ -21,11 +21,11 @@ While most people take the standard route through Stoney Castle and Bowden Hill,
 
 ### A Walk Through History
 
-![](/assets/images/screenshot_20260223-153001.webp "Hermitage damn")
+![The Hermitage Dam at dawn — a 1924 gravity dam in the Blue Mountains above Kingston](/assets/images/screenshot_20260223-153001.webp)
 
 Standing tall since 1924, the Hermitage Dam is a massive gravity structure that feels like a gateway to another world. Reaching it at dawn is a total vibe, the fog sits heavy over the water, and the air turns crisp. It took us about an hour and a half to reach this point, but with the views we had, nobody was complaining.
 
-![](/assets/images/photo-from-willy-london.webp)
+![Lifestyle Hikers group at the Hermitage Dam, Blue Mountains, Kingston Jamaica](/assets/images/photo-from-willy-london.webp)
 
 ### Into the "Amazon"
 
@@ -39,7 +39,7 @@ After a final 20 minute scramble through the bamboo forest, we reached the main 
 
 After a 90 minute trek, that freezing water is exactly what the body needs. It’s a literal reset button. We spent our time jumping in, cooling off, and soaking in the natural beauty of the falls before heading back to reality.
 
-![](/assets/images/screenshot_20260223-153131.webp)
+![Falling Edge Falls — a 40-foot waterfall in the Blue Mountains above Kingston, Jamaica](/assets/images/screenshot_20260223-153131.webp)
 
 ### Know Before You Go
 

@@ -1,10 +1,16 @@
 ---
 layout: post
-title: "When Automation Breaks, the Real Work Begins"
+title: When Automation Breaks, the Real Work Begins
 date: 2026-04-23
-categories: [Automation, Troubleshooting, Creative Process]
-description: "A short reflection on what a failed workflow taught me about debugging, persistence, and building with a positive mindset."
+categories:
+  - Automation
+  - Troubleshooting
+  - Creative Process
+image: /assets/images/mohamed-nohassi-2iUrK025cec-unsplash.jpg
+image_width: 6309
+image_height: 3888
 featured: false
+description: A short reflection on what a failed workflow taught me about debugging, persistence, and building with a positive mindset.
 ---
 
 As I sat in my office, listening to the steady rain on the roof, I felt that familiar excitement building. I was about to run an automation I had created, one that checks the internet for trending keywords, logs them to a spreadsheet, and publishes a blog post to a different website each day.
