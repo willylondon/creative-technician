@@ -1,16 +1,18 @@
 ---
-layout: post
 title: "What We Actually Fixed in Our Blog Automation Stack Today"
 date: 2026-04-22
-categories: [Automation, n8n, Publishing]
-description: "A real look at the engineering work behind hardening our SEO Content Factory and Daily Blog Publisher so they publish more reliably and stop stepping on each other."
+slug: what-we-actually-fixed-in-our-blog-automation-stack-today
+layout: post
 image: /assets/images/creative-technician-workflow-hardening-unsplash.jpg
 image_width: 3000
 image_height: 2000
-featured: false
-short_title: "What We Fixed in the Stack"
-meta_title: "What We Fixed in Our n8n Blog Automation Stack Today"
 ---
+
+# What We Actually Fixed in Our Blog Automation Stack Today
+
+> A real look at the engineering work behind hardening our SEO Content Factory and Daily Blog Publisher so they publish more reliably and stop stepping on each other.
+
+![Laptop displaying code on a desk](/assets/images/creative-technician-workflow-hardening-unsplash.jpg)
 
 There is a version of automation work that looks glamorous from the outside.
 
@@ -25,6 +27,8 @@ The real version is where one workflow quietly dies because a file already exist
 
 Today was not about building a shiny new automation. It was about turning a fragile publishing machine into something much closer to a real content system.
 
+---
+
 ## The two workflows at the center of it
 
 The stack we worked on has two different jobs.
@@ -35,11 +39,11 @@ The second is the **Daily Blog Publisher**, which rotates through the weekday pu
 
 On paper, that sounds simple:
 
-- choose a topic
-- generate the post
-- commit it to GitHub
-- tweet it
-- send a Telegram notification
+1. choose a topic  
+2. generate the post  
+3. commit it to GitHub  
+4. tweet it  
+5. send a Telegram notification  
 
 In practice, those five bullets hide the messy part: retries, duplicate protection, brand boundaries, stale inputs, branch wiring, credentials, and notification logic.
 
@@ -162,7 +166,7 @@ Good automation is not just "did it run?" Good automation is "can I prove what i
 
 The newest quality-of-life improvement was image handling for Creative Technician posts.
 
-Instead of leaving imagery as an afterthought, the system now supports an Unsplash-powered featured image step. For this post, I used a real Unsplash image and stored it locally in the site assets so the frontmatter stays clean and consistent with the newer Next-based content setup.
+Instead of leaving imagery as an afterthought, the system now supports an Unsplash-powered featured image step. For this post, I used a real Unsplash image and stored it locally in the site assets so the post can render cleanly on the live site and in the newer Next-based content setup.
 
 Just as important, the Unsplash access key was moved out of the workflow JSON and into a proper n8n credential instead of being left inline where it did not belong.
 
@@ -184,9 +188,9 @@ I would say we did the less flashy and more valuable work:
 
 That is what real automation work often looks like after the demo phase.
 
-Not magic.
-Maintenance.
-Not hype.
+Not magic.  
+Maintenance.  
+Not hype.  
 Hardening.
 
 And if you care about systems that keep working after the first exciting run, that is the work that matters most.

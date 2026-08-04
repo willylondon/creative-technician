@@ -1,8 +1,9 @@
 import fs from "fs";
 import path from "path";
 
-// Path to the blog posts at the root of the repository
-const POSTS_PATH = path.join(process.cwd(), "..", "_posts");
+// Blog post sources, kept inside the app so the build never reaches outside
+// its own project root.
+const POSTS_PATH = path.join(process.cwd(), "src", "content", "_posts");
 
 export interface Post {
   slug: string;
