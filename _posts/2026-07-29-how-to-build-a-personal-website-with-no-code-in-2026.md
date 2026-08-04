@@ -48,7 +48,7 @@ Remember, your personal website is a representation of who you are and what you 
 
 **Ready to showcase your creativity online? Start building your personal website today with The Creative Technician!**
 
-image: "https://images.unsplash.com/photo-1774901128187-22df3f261ad8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzI1NDd8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUzNTE2MTN8&ixlib=rb-4.1.0&q=80&w=1080"
+image: "/assets/images/unsplash-imports/photo-1774901128187-22df3f261ad8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzI1NDd8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUzNTE2MTN8&ixlib=rb-4.1.0&q=80&w=1080.webp"
 image_alt: "Computer screen displaying lines of code"
 ---
 

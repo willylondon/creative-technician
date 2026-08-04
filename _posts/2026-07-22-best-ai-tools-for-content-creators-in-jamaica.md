@@ -4,7 +4,7 @@ title: "Best AI Tools for Content Creators in Jamaica"
 date: 2026-07-22
 categories: [The Creative Technician, AI Tools, Content Creation]
 excerpt: Discover the top AI tools that Jamaican content creators can leverage to enhance their productivity and creativity.
-image: "https://images.unsplash.com/photo-1664199749338-ba056c0e11fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzI1NDd8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODQ3NDY4MDh8&ixlib=rb-4.1.0&q=80&w=1080"
+image: "/assets/images/unsplash-imports/photo-1664199749338-ba056c0e11fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzI1NDd8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODQ3NDY4MDh8&ixlib=rb-4.1.0&q=80&w=1080.webp"
 image_alt: "a couple of men"
 ---
 
