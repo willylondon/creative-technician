@@ -1,13 +1,34 @@
 "use server";
 
+import { checkRateLimit, getClientIp, isValidEmail } from "@/lib/security";
+
 interface SubscribeResult {
   success: boolean;
   message: string;
 }
 
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const DEFAULT_LIST_ID = 1;
+
+function resolveListId(): number {
+  const parsed = Number.parseInt(process.env.BREVO_LIST_ID ?? "", 10);
+  return Number.isNaN(parsed) ? DEFAULT_LIST_ID : parsed;
+}
+
 export async function subscribeToNewsletter(email: string): Promise<SubscribeResult> {
-  if (!email || !email.includes("@")) {
+  const trimmedEmail = email?.trim() ?? "";
+
+  if (!isValidEmail(trimmedEmail)) {
     return { success: false, message: "Please enter a valid email address." };
+  }
+
+  const ip = await getClientIp();
+  if (!checkRateLimit(`newsletter:${ip}`, RATE_LIMIT, RATE_WINDOW_MS)) {
+    return {
+      success: false,
+      message: "Too many attempts. Please try again later.",
+    };
   }
 
   const apiKey = process.env.BREVO_API_KEY;
@@ -25,8 +46,8 @@ export async function subscribeToNewsletter(email: string): Promise<SubscribeRes
         "api-key": apiKey,
       },
       body: JSON.stringify({
-        email: email,
-        listIds: [parseInt(process.env.BREVO_LIST_ID || "1")],
+        email: trimmedEmail,
+        listIds: [resolveListId()],
         updateEnabled: true,
       }),
     });
@@ -35,15 +56,17 @@ export async function subscribeToNewsletter(email: string): Promise<SubscribeRes
       return { success: true, message: "Thanks for subscribing! Check your inbox." };
     }
 
-    const error = await response.json();
-    
-    // Handle duplicate email gracefully
-    if (error.code === "duplicate_parameter") {
+    const error = await response.json().catch(() => null);
+
+    // Brevo reports an existing contact as a duplicate; treat that as success.
+    if (error?.code === "duplicate_parameter") {
       return { success: true, message: "You're already subscribed!" };
     }
 
-    return { success: false, message: error.message || "Something went wrong. Please try again." };
+    console.error("Brevo contact creation failed", response.status, error?.code);
+    return { success: false, message: "Something went wrong. Please try again." };
   } catch (error) {
+    console.error("Brevo contact creation threw", error);
     return { success: false, message: "Network error. Please try again later." };
   }
 }

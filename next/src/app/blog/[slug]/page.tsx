@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getAllPostSlugs } from "@/lib/posts";
+import { SITE_NAME } from "@/lib/site";
 import SiteEffects from "@/components/site-effects";
 import ReactMarkdown from "react-markdown";
 import AuthorCard from "@/components/author-card";
@@ -14,6 +16,41 @@ export async function generateStaticParams() {
 
 interface PostPageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: PostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+
+  if (!post) {
+    return { title: `Post not found | ${SITE_NAME}` };
+  }
+
+  const canonical = `/blog/${post.slug}`;
+  const images = post.coverImage ? [post.coverImage] : undefined;
+
+  return {
+    title: `${post.title} | ${SITE_NAME}`,
+    description: post.excerpt,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      siteName: SITE_NAME,
+      title: post.title,
+      description: post.excerpt,
+      url: canonical,
+      publishedTime: post.date,
+      images,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images,
+    },
+  };
 }
 
 export default async function PostPage({ params }: PostPageProps) {
