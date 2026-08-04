@@ -46,6 +46,25 @@ const disciplines = [
   },
 ];
 
+// Smaller client sites, shown after the detailed projects above. Lifestyle
+// Hikers is deliberately absent: it is project 01 and was listed twice.
+const clientBuilds = [
+  {
+    title: "Farika Atkins",
+    description:
+      "A polished academic portfolio and “Royal Educator” identity for a department head and creative strategist.",
+    href: "https://www.farikaatkins.online",
+    tags: "EDUCATION · PERSONAL BRAND · PORTFOLIO",
+  },
+  {
+    title: "Master Bryan Kukibo",
+    description:
+      "A modern digital dojo that gives decades of martial-arts experience a credible online home.",
+    href: "https://masterbryankukibo.online",
+    tags: "MARTIAL ARTS · BRAND STORY · WEB",
+  },
+];
+
 const projects = [
   {
     index: "01",
@@ -189,7 +208,9 @@ export default async function Home() {
             </div>
 
             <div className="hero-visual" data-motion="hero-visual">
-              <div className="visual-index" aria-hidden="true">PORTFOLIO / 26</div>
+              <div className="visual-index" aria-hidden="true">
+                PORTFOLIO / {String(projects.length + clientBuilds.length).padStart(2, "0")}
+              </div>
               <div className="portrait-panel">
                 <Image
                   src="/assets/images/willard-wells-hero.webp"
@@ -282,15 +303,16 @@ export default async function Home() {
             <div className="more-builds">
               <p className="mono-label">More client builds</p>
               <div>
-                <a href="https://lifestylehikers.com" target="_blank" rel="noopener noreferrer" className="data-hover">
-                  <article><span>04</span><h3>Lifestyle Hikers</h3><p>A vibrant platform for Jamaican trails, outdoor events, galleries and community stories.</p><small>COMMUNITY PLATFORM · AUTOMATED PUBLISHING ↗</small></article>
-                </a>
-                <a href="https://www.farikaatkins.online" target="_blank" rel="noopener noreferrer" className="data-hover">
-                  <article><span>05</span><h3>Farika Atkins</h3><p>A polished academic portfolio and “Royal Educator” identity for a department head and creative strategist.</p><small>EDUCATION · PERSONAL BRAND · PORTFOLIO ↗</small></article>
-                </a>
-                <a href="https://masterbryankukibo.online" target="_blank" rel="noopener noreferrer" className="data-hover">
-                  <article><span>06</span><h3>Master Bryan Kukibo</h3><p>A modern digital dojo that gives decades of martial-arts experience a credible online home.</p><small>MARTIAL ARTS · BRAND STORY · WEB ↗</small></article>
-                </a>
+                {clientBuilds.map((build, i) => (
+                  <a key={build.title} href={build.href} target="_blank" rel="noopener noreferrer" className="data-hover">
+                    <article>
+                      <span>{String(projects.length + i + 1).padStart(2, "0")}</span>
+                      <h3>{build.title}</h3>
+                      <p>{build.description}</p>
+                      <small>{build.tags} ↗</small>
+                    </article>
+                  </a>
+                ))}
               </div>
             </div>
           </div>

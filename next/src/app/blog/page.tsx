@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 import { SITE_NAME } from "@/lib/site";
@@ -46,11 +47,13 @@ export default function BlogPage() {
           {posts.map((post) => (
             <article key={post.slug} className="group relative flex flex-col items-start bg-white/5 border border-white/5 rounded-3xl p-6 transition-all hover:bg-white/10 hover:border-white/10">
               {post.coverImage && (
-                <div className="w-full aspect-[16/9] mb-6 overflow-hidden rounded-2xl bg-black shadow-lg">
-                  <img 
-                    src={post.coverImage} 
+                <div className="relative w-full aspect-[16/9] mb-6 overflow-hidden rounded-2xl bg-black shadow-lg">
+                  <Image
+                    src={post.coverImage}
                     alt={post.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               )}
@@ -69,7 +72,7 @@ export default function BlogPage() {
                 </Link>
               </h2>
               <p className="relative z-10 text-sm text-muted-foreground leading-relaxed flex-grow">
-                {post.content.split("\n")[0].substring(0, 160)}...
+                {post.excerpt}
               </p>
               <div className="relative z-10 mt-4 flex items-center text-sm font-medium text-cyan-400 group-hover:text-cyan-300">
                 Read article

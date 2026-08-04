@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getAllPostSlugs } from "@/lib/posts";
@@ -84,11 +85,14 @@ export default async function PostPage({ params }: PostPageProps) {
           </h1>
           
           {post.coverImage && (
-            <div className="relative mt-8 mb-12 overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
-              <img 
-                src={post.coverImage} 
+            <div className="relative mt-8 mb-12 aspect-[16/9] max-h-[500px] overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+              <Image
+                src={post.coverImage}
                 alt={post.title}
-                className="w-full object-cover object-center max-h-[500px]"
+                fill
+                priority
+                sizes="(min-width: 896px) 896px, 100vw"
+                className="object-cover object-center"
               />
             </div>
           )}

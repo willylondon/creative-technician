@@ -52,7 +52,7 @@ In conclusion, mastering workflow automation with n8n can be a game-changer for 
 
 Get started with n8n today and witness the transformative power of workflow automation in your creative endeavors!
 
-image: "/assets/images/unsplash-imports/photo-1667372393086-9d4001d51cf1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzI1NDd8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODM1MzcyMTJ8&ixlib=rb-4.1.0&q=80&w=1080.webp"
+image: "/assets/images/unsplash-imports/photo-1667372393086-9d4001d51cf1.webp"
 image_alt: "graphical user interface"
 ---
 
