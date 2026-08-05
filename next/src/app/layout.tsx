@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/assets/images/willy-london-avatar.jpg",
+        url: "/assets/images/willy-london-avatar.webp",
         width: 637,
         height: 637,
         alt: "Willard Wells — IT support, AI automation and web solutions",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "Willard Wells | IT Support, AI Automation & Web Solutions",
     description:
       "20+ years of IT support experience, practical AI automation and modern web delivery—from Kingston, Jamaica.",
-    images: ["/assets/images/willy-london-avatar.jpg"],
+    images: ["/assets/images/willy-london-avatar.webp"],
   },
   icons: {
     icon: "/favicon.ico",
