@@ -103,9 +103,11 @@ export async function sendContactMessage(
     }
 
     console.error("Brevo transactional email failed", response.status);
+    const brevoError = await response.json().catch(() => ({}));
+    console.error("Brevo error detail", JSON.stringify(brevoError));
     return {
       success: false,
-      message: "Something went wrong. Please try again.",
+      message: `Something went wrong. Please try again. (${brevoError?.message || response.status})`,
     };
   } catch (error) {
     console.error("Brevo transactional email threw", error);
