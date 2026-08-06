@@ -5,7 +5,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   Check,
-  Download,
   Github,
   Mail,
   MapPin,
@@ -168,19 +167,21 @@ export default async function Home() {
             <a href="#profile">Profile</a>
             <a href="#work">Work</a>
             <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
             <Link href="/blog">Field notes</Link>
           </nav>
 
-          <a className="header-resume data-hover" href="/Willard-Wells-CV.pdf" download>
-            Get résumé <Download aria-hidden="true" />
+          <a className="header-resume data-hover" href="#contact">
+            Start a project <Mail aria-hidden="true" />
           </a>
 
           <details className="mobile-menu">
-            <summary aria-label="Open navigation"><Menu aria-hidden="true" /></summary>
+            <summary aria-label="Open navigation" aria-expanded="false"><Menu aria-hidden="true" /></summary>
             <nav aria-label="Mobile navigation">
               <a href="#profile">Profile</a>
               <a href="#work">Work</a>
               <a href="#experience">Experience</a>
+              <a href="#contact">Contact</a>
               <Link href="/blog">Field notes</Link>
               <a href="/Willard-Wells-CV.pdf" download>Download résumé</a>
             </nav>
@@ -208,8 +209,8 @@ export default async function Home() {
                 <a className="button button-signal data-hover" href="#work">
                   Explore the work <ArrowDownRight aria-hidden="true" />
                 </a>
-                <a className="button button-wire data-hover" href="/Willard-Wells-CV.pdf" download>
-                  Download CV <Download aria-hidden="true" />
+                <a className="button button-wire data-hover" href="#contact">
+                  Start a project <Mail aria-hidden="true" />
                 </a>
               </div>
             </div>
@@ -361,6 +362,22 @@ export default async function Home() {
           </div>
         </section>
 
+        <section className="contact-section" id="contact">
+          <div className="site-container contact-layout" data-motion="section">
+            <div className="contact-copy">
+              <p className="mono-label">Open channel / Kingston, Jamaica</p>
+              <h2>Let’s make<br /><span>something work.</span></h2>
+              <p>Need someone who can support what exists, improve what is struggling and build what comes next? I’d like to hear about it.</p>
+              <div className="contact-links">
+                <a href="mailto:willardwells@gmail.com"><Mail aria-hidden="true" />willardwells@gmail.com</a>
+                <a href="https://github.com/willylondon" target="_blank" rel="noopener noreferrer"><Github aria-hidden="true" />github.com/willylondon</a>
+                <span><MapPin aria-hidden="true" />Kingston, Jamaica</span>
+              </div>
+            </div>
+            <ContactForm />
+          </div>
+        </section>
+
         {selectedPosts.length > 0 && (
           <section className="notes-section" data-motion="section">
             <div className="site-container">
@@ -378,22 +395,6 @@ export default async function Home() {
             </div>
           </section>
         )}
-
-        <section className="contact-section" id="contact">
-          <div className="site-container contact-layout" data-motion="section">
-            <div className="contact-copy">
-              <p className="mono-label">Open channel / Kingston, Jamaica</p>
-              <h2>Let’s make<br /><span>something work.</span></h2>
-              <p>Need someone who can support what exists, improve what is struggling and build what comes next? I’d like to hear about it.</p>
-              <div className="contact-links">
-                <a href="mailto:willardwells@gmail.com"><Mail aria-hidden="true" />willardwells@gmail.com</a>
-                <a href="https://github.com/willylondon" target="_blank" rel="noopener noreferrer"><Github aria-hidden="true" />github.com/willylondon</a>
-                <span><MapPin aria-hidden="true" />Kingston, Jamaica</span>
-              </div>
-            </div>
-            <ContactForm />
-          </div>
-        </section>
       </div>
 
       <footer className="site-footer">

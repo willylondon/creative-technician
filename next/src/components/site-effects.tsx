@@ -107,6 +107,62 @@ export default function SiteEffects() {
       }));
     }
 
+    const mobileMenu = document.querySelector<HTMLDetailsElement>(".mobile-menu");
+    const mobileMenuSummary = mobileMenu?.querySelector<HTMLElement>("summary");
+
+    if (mobileMenu && mobileMenuSummary) {
+      const syncMenuState = () => {
+        const label = mobileMenu.open ? "Close navigation" : "Open navigation";
+        mobileMenuSummary.setAttribute("aria-label", label);
+        mobileMenuSummary.setAttribute("aria-expanded", String(mobileMenu.open));
+      };
+      const closeMenu = () => {
+        mobileMenu.open = false;
+        syncMenuState();
+      };
+      const menuLinks = Array.from(mobileMenu.querySelectorAll<HTMLAnchorElement>("nav a"));
+
+      syncMenuState();
+      mobileMenu.addEventListener("toggle", syncMenuState);
+      menuLinks.forEach((link) => link.addEventListener("click", closeMenu));
+
+      cleanup.push(() => {
+        mobileMenu.removeEventListener("toggle", syncMenuState);
+        menuLinks.forEach((link) => link.removeEventListener("click", closeMenu));
+      });
+    }
+
+    const sectionLinks = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>('.desktop-nav a[href^="#"], .mobile-menu nav a[href^="#"]'),
+    );
+    const sectionIds = Array.from(new Set(sectionLinks.map((link) => link.hash.slice(1))));
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => Boolean(section));
+
+    if (sections.length > 0) {
+      const activateSection = (id: string) => {
+        sectionLinks.forEach((link) => {
+          const isActive = link.hash === `#${id}`;
+          link.classList.toggle("is-active", isActive);
+          if (isActive) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        });
+      };
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+          if (visible[0]) activateSection(visible[0].target.id);
+        },
+        { rootMargin: "-22% 0px -62% 0px", threshold: [0, 0.2, 0.6] },
+      );
+
+      sections.forEach((section) => sectionObserver.observe(section));
+      cleanup.push(() => sectionObserver.disconnect());
+    }
+
     return () => cleanup.forEach((dispose) => dispose());
   }, []);
 
