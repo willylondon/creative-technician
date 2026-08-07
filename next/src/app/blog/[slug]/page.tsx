@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { getPostBySlug, getAllPostSlugs } from "@/lib/posts";
 import { SITE_NAME } from "@/lib/site";
 import SiteEffects from "@/components/site-effects";
+import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
 import ReactMarkdown from "react-markdown";
 import AuthorCard from "@/components/author-card";
 
@@ -63,9 +65,11 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-background border-x border-white/5 p-4 pt-24 text-foreground sm:p-6 sm:pt-32">
+    <>
       <SiteEffects />
-      <article className="mx-auto max-w-4xl">
+      <SiteHeader />
+      <main id="main-content" className="min-h-screen bg-background p-4 py-16 text-foreground sm:p-6 sm:py-20">
+        <article className="mx-auto max-w-4xl">
         <header className="mb-12">
           <Link
             href="/blog"
@@ -98,27 +102,32 @@ export default async function PostPage({ params }: PostPageProps) {
           )}
         </header>
 
-        <div className="prose prose-invert prose-lg max-w-none text-slate-300">
+        {/* @tailwindcss/typography's `prose` styles every markdown element
+            (lists, blockquotes, code, tables) consistently — no per-tag
+            overrides needed. */}
+        <div className="prose prose-invert prose-lg max-w-none prose-headings:font-heading prose-a:text-cyan-400 hover:prose-a:text-cyan-300 prose-img:rounded-xl prose-img:border prose-img:border-white/10">
           <ReactMarkdown
             components={{
-              h1: ({node, ...props}) => <h1 className="text-3xl font-bold mt-8 mb-4 text-white" {...props} />,
-              h2: ({node, ...props}) => <h2 className="text-2xl font-bold mt-8 mb-4 text-white" {...props} />,
-              h3: ({node, ...props}) => <h3 className="text-xl font-bold mt-6 mb-3 text-cyan-50" {...props} />,
-              p: ({node, ...props}) => <p className="mb-6 leading-relaxed" {...props} />,
-              ul: ({node, ...props}) => <ul className="list-disc pl-6 mb-6 space-y-2" {...props} />,
-              li: ({node, ...props}) => <li className="" {...props} />,
-              img: ({node, ...props}) => <img className="rounded-xl mt-6 mb-8 w-full block shadow-lg border border-white/10" {...props} />,
-              a: ({node, ...props}) => <a className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4" {...props} />
+              img: (props) => {
+                const { node, alt, ...rest } = props;
+                void node;
+                return (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img {...rest} alt={alt ?? ""} loading="lazy" decoding="async" />
+                );
+              },
             }}
           >
             {post.content}
           </ReactMarkdown>
         </div>
 
-        <footer className="mt-20 border-t border-white/10 pt-12">
-          <AuthorCard />
-        </footer>
-      </article>
-    </main>
+          <footer className="mt-20 border-t border-white/10 pt-12">
+            <AuthorCard />
+          </footer>
+        </article>
+      </main>
+      <SiteFooter />
+    </>
   );
 }

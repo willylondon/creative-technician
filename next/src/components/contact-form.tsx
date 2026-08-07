@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { sendContactMessage } from "@/app/actions/contact";
 import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 
@@ -10,6 +10,7 @@ export default function ContactForm() {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [feedback, setFeedback] = useState("");
+  const feedbackRef = useRef<HTMLDivElement>(null);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -25,8 +26,19 @@ export default function ContactForm() {
       setName("");
       setEmail("");
       setMessage("");
+    } else {
+      // Move focus to the announcement so keyboard/screen-reader users land on the error.
+      requestAnimationFrame(() => feedbackRef.current?.focus());
     }
   }
+
+  function resetForm() {
+    setStatus("idle");
+    setFeedback("");
+  }
+
+  const busy = status === "loading";
+  const sent = status === "success";
 
   return (
     <form
@@ -45,7 +57,7 @@ export default function ContactForm() {
           placeholder="e.g. Farika Atkins / Hillel Academy"
           autoComplete="name"
           required
-          disabled={status === "loading" || status === "success"}
+          disabled={busy || sent}
         />
       </div>
 
@@ -60,8 +72,9 @@ export default function ContactForm() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="your@email.com"
           autoComplete="email"
+          spellCheck={false}
           required
-          disabled={status === "loading" || status === "success"}
+          disabled={busy || sent}
         />
       </div>
 
@@ -76,35 +89,37 @@ export default function ContactForm() {
           rows={5}
           placeholder="Tell me about what you need…"
           required
-          disabled={status === "loading" || status === "success"}
+          disabled={busy || sent}
         />
       </div>
 
-      {feedback && (
-        <div
-          className={`form-feedback ${status === "success" ? "success" : "error"}`}
-        >
-          {status === "success" ? (
-            <CheckCircle aria-hidden="true" />
-          ) : (
-            <AlertCircle aria-hidden="true" />
-          )}
-          {feedback}
-        </div>
-      )}
+      <div aria-live="polite" role="status">
+        {feedback && (
+          <div
+            ref={feedbackRef}
+            tabIndex={-1}
+            className={`form-feedback ${status === "success" ? "success" : "error"}`}
+          >
+            {status === "success" ? (
+              <CheckCircle aria-hidden="true" />
+            ) : (
+              <AlertCircle aria-hidden="true" />
+            )}
+            {feedback}
+          </div>
+        )}
+      </div>
 
-      <button
-        type="submit"
-        disabled={status === "loading" || status === "success"}
-        className="form-submit"
-      >
-        {status === "loading" && <Loader2 className="animate-spin" aria-hidden="true" />}
-        {status === "loading"
-          ? "Sending…"
-          : status === "success"
-          ? "Message Sent ✓"
-          : "Send Message"}
-      </button>
+      {sent ? (
+        <button type="button" onClick={resetForm} className="form-submit">
+          Send Another Message
+        </button>
+      ) : (
+        <button type="submit" disabled={busy} className="form-submit">
+          {busy && <Loader2 className="animate-spin" aria-hidden="true" />}
+          {busy ? "Sending…" : "Send Message"}
+        </button>
+      )}
     </form>
   );
 }

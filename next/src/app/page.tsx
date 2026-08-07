@@ -8,11 +8,12 @@ import {
   Github,
   Mail,
   MapPin,
-  Menu,
   Sparkles,
 } from "lucide-react";
 import { getAllPosts } from "@/lib/posts";
 import SiteEffects from "@/components/site-effects";
+import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
 import ContactForm from "@/components/contact-form";
 
 const selectedPostSlugs = [
@@ -151,43 +152,7 @@ export default async function Home() {
     <main className="portfolio-shell">
       <SiteEffects />
 
-      <a className="skip-link" href="#main-content">Skip to portfolio</a>
-
-      <header className="site-header">
-        <div className="site-container header-inner">
-          <a href="#top" className="brand data-hover" aria-label="The Creative Technician, home">
-            <span className="brand-symbol" aria-hidden="true"><i />CT</span>
-            <span className="brand-copy">
-              <strong>The Creative Technician</strong>
-              <small>Willard Wells · Kingston, Jamaica</small>
-            </span>
-          </a>
-
-          <nav className="desktop-nav" aria-label="Primary navigation">
-            <a href="#profile">Profile</a>
-            <a href="#work">Work</a>
-            <a href="#experience">Experience</a>
-            <a href="#contact">Contact</a>
-            <Link href="/blog">Field notes</Link>
-          </nav>
-
-          <a className="header-resume data-hover" href="#contact">
-            Start a project <Mail aria-hidden="true" />
-          </a>
-
-          <details className="mobile-menu">
-            <summary aria-label="Open navigation" aria-expanded="false"><Menu aria-hidden="true" /></summary>
-            <nav aria-label="Mobile navigation">
-              <a href="#profile">Profile</a>
-              <a href="#work">Work</a>
-              <a href="#experience">Experience</a>
-              <a href="#contact">Contact</a>
-              <Link href="/blog">Field notes</Link>
-              <a href="/Willard-Wells-CV.pdf" download>Download résumé</a>
-            </nav>
-          </details>
-        </div>
-      </header>
+      <SiteHeader />
 
       <div id="main-content">
         <section className="hero-section" id="top">
@@ -293,7 +258,6 @@ export default async function Home() {
                       src={project.image}
                       alt={project.imageAlt}
                       fill
-                      loading="eager"
                       sizes="(max-width: 760px) 100vw, 50vw"
                     />
                     <span>{project.cta}<ArrowUpRight aria-hidden="true" /></span>
@@ -397,14 +361,7 @@ export default async function Home() {
         )}
       </div>
 
-      <footer className="site-footer">
-        <div className="site-container footer-inner">
-          <a href="#top" className="footer-brand"><span>CT</span><strong>The Creative Technician</strong></a>
-          <p>IT brain. Creator hands. Coach discipline.</p>
-          <div><a href="/Willard-Wells-CV.pdf" download>Résumé</a><Link href="/blog">Field notes</Link><a href="mailto:willardwells@gmail.com">Email</a></div>
-          <small>© {new Date().getFullYear()} Willard Wells</small>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

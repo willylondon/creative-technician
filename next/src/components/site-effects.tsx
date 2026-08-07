@@ -75,23 +75,34 @@ export default function SiteEffects() {
         const ringX = gsap.quickTo(outline, "x", { duration: 0.34, ease: "power3.out" });
         const ringY = gsap.quickTo(outline, "y", { duration: 0.34, ease: "power3.out" });
 
+        // Cache the hero bounds so mousemove never forces a layout read.
+        let heroBounds = hero?.getBoundingClientRect() ?? null;
+        const refreshBounds = () => {
+          heroBounds = hero?.getBoundingClientRect() ?? null;
+        };
+
         const move = (event: MouseEvent) => {
           dotX(event.clientX - 3);
           dotY(event.clientY - 3);
           ringX(event.clientX - 17);
           ringY(event.clientY - 17);
 
-          if (hero) {
-            const bounds = hero.getBoundingClientRect();
-            const x = ((event.clientX - bounds.left) / bounds.width) * 100;
-            const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+          if (hero && heroBounds && heroBounds.width > 0) {
+            const x = ((event.clientX - heroBounds.left) / heroBounds.width) * 100;
+            const y = ((event.clientY - heroBounds.top) / heroBounds.height) * 100;
             hero.style.setProperty("--spot-x", `${Math.max(0, Math.min(100, x))}%`);
             hero.style.setProperty("--spot-y", `${Math.max(0, Math.min(100, y))}%`);
           }
         };
 
         window.addEventListener("mousemove", move, { passive: true });
-        cleanup.push(() => window.removeEventListener("mousemove", move));
+        window.addEventListener("scroll", refreshBounds, { passive: true });
+        window.addEventListener("resize", refreshBounds);
+        cleanup.push(() => {
+          window.removeEventListener("mousemove", move);
+          window.removeEventListener("scroll", refreshBounds);
+          window.removeEventListener("resize", refreshBounds);
+        });
       }
 
       const hoverables = Array.from(document.querySelectorAll<HTMLElement>(".data-hover"));
@@ -122,18 +133,36 @@ export default function SiteEffects() {
       };
       const menuLinks = Array.from(mobileMenu.querySelectorAll<HTMLAnchorElement>("nav a"));
 
+      const onDocumentKeydown = (event: KeyboardEvent) => {
+        if (event.key === "Escape" && mobileMenu.open) {
+          closeMenu();
+          mobileMenuSummary.focus();
+        }
+      };
+      const onDocumentClick = (event: MouseEvent) => {
+        if (mobileMenu.open && !mobileMenu.contains(event.target as Node)) {
+          closeMenu();
+        }
+      };
+
       syncMenuState();
       mobileMenu.addEventListener("toggle", syncMenuState);
       menuLinks.forEach((link) => link.addEventListener("click", closeMenu));
+      document.addEventListener("keydown", onDocumentKeydown);
+      document.addEventListener("click", onDocumentClick);
 
       cleanup.push(() => {
         mobileMenu.removeEventListener("toggle", syncMenuState);
         menuLinks.forEach((link) => link.removeEventListener("click", closeMenu));
+        document.removeEventListener("keydown", onDocumentKeydown);
+        document.removeEventListener("click", onDocumentClick);
       });
     }
 
     const sectionLinks = Array.from(
-      document.querySelectorAll<HTMLAnchorElement>('.desktop-nav a[href^="#"], .mobile-menu nav a[href^="#"]'),
+      document.querySelectorAll<HTMLAnchorElement>(
+        '.desktop-nav a[href^="#"], .desktop-nav a[href^="/#"], .mobile-menu nav a[href^="#"], .mobile-menu nav a[href^="/#"]',
+      ),
     );
     const sectionIds = Array.from(new Set(sectionLinks.map((link) => link.hash.slice(1))));
     const sections = sectionIds

@@ -1,7 +1,31 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Bricolage_Grotesque, Manrope, IBM_Plex_Mono } from "next/font/google";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
+
+const displayFont = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const bodyFont = Manrope({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const monoFont = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
+export const viewport: Viewport = {
+  themeColor: "#050807",
+};
 
 export const metadata: Metadata = {
   title: "Willard Wells | IT Support, AI Automation & Web Solutions",
@@ -39,9 +63,6 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     apple: "/favicon.ico",
   },
-  other: {
-    "theme-color": "#080808",
-  },
 };
 
 export default function RootLayout({
@@ -50,7 +71,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}
+    >
       <head>
         {/* Ahrefs analytics */}
         <script
