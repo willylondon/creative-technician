@@ -168,7 +168,7 @@ body.hovering .cursor-outline { border-color: var(--cyan); }
 .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 5px rgba(60,223,143,.12), 0 0 22px rgba(60,223,143,.45); }
 .hero-copy h1 { margin: 0; font-family: var(--display); font-size: clamp(3.7rem, 6vw, 6.4rem); font-weight: 700; line-height: .84; letter-spacing: -.075em; text-transform: uppercase; }
 .hero-copy h1 span { display: block; }
-.hero-copy h1 .outline-type { color: #17383a; -webkit-text-stroke: 1.4px var(--cyan); text-stroke: 1.4px var(--cyan); }
+.hero-copy h1 .outline-type { color: #1d4a4d; -webkit-text-stroke: 1.4px var(--cyan); text-stroke: 1.4px var(--cyan); }
 .hero-lede { max-width: 710px; margin: 34px 0 0; padding-left: 24px; border-left: 2px solid var(--signal); color: #9ba9a1; font-size: 16px; line-height: 1.75; }
 .hero-lede strong { color: var(--paper); font-weight: 700; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
@@ -205,13 +205,13 @@ body.hovering .cursor-outline { border-color: var(--cyan); }
 .section-marker p { grid-row: 1; grid-column: 2; margin: 0; color: #8c9892; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }
 .section-marker::after { grid-row: 1; grid-column: 2; margin-left: 150px; }
 .section-marker-dark span { color: #0a5b5e; }
-.section-marker-dark p { color: #65736c; }
+.section-marker-dark p { color: #56645c; }
 .section-marker-dark::after { background: rgba(5,8,7,.14); }
 .mono-label { margin: 0; font-family: var(--mono); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .13em; }
 
 .profile-section { padding: 108px 0 112px; background: var(--night-2); }
 .profile-head { display: grid; grid-template-columns: 1.15fr .85fr; gap: 80px; align-items: end; }
-.profile-head h2, .work-head h2, .experience-intro h2, .notes-head h2, .contact-copy h2 { margin: 0; font-family: var(--display); font-size: clamp(3.2rem, 6vw, 6.5rem); font-weight: 650; line-height: .89; letter-spacing: -.065em; text-transform: uppercase; }
+.profile-head h2, .work-head h2, .experience-intro h2, .notes-head h2, .contact-copy h2 { margin: 0; font-family: var(--display); font-size: clamp(2.6rem, 4.5vw, 4.8rem); font-weight: 650; line-height: .92; letter-spacing: -.065em; text-transform: uppercase; }
 .profile-head > p, .work-head > p { max-width: 520px; margin: 0; color: #8d9a93; font-size: 15px; line-height: 1.75; }
 .discipline-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 72px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .discipline-card { min-height: 480px; display: flex; flex-direction: column; padding: 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.015), transparent); transition: background .28s ease, transform .28s ease; }
@@ -226,9 +226,9 @@ body.hovering .cursor-outline { border-color: var(--cyan); }
 
 .work-section { padding: 108px 0 120px; color: var(--night); background: #e7ede8; }
 .work-head { display: grid; grid-template-columns: 1.15fr .85fr; gap: 80px; align-items: end; }
-.work-head h2 span { color: #c1d8d0; -webkit-text-stroke: 1.4px #0c5557; }
+.work-head h2 span { color: #16302e; -webkit-text-stroke: 1.4px #0c5557; }
 .work-head > p { color: #56645c; }
-.project-overline { display: flex; align-items: center; gap: 10px; margin: 0; color: #65736c; font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+.project-overline { display: flex; align-items: center; gap: 10px; margin: 0; color: #56645c; font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
 .project-overline span { color: var(--cyan); }
 .tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin: 28px 0 0; padding: 0; list-style: none; }
 .tag-list li { padding: 7px 9px; border: 1px solid currentColor; color: #66736c; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
