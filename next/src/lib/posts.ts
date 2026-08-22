@@ -12,6 +12,7 @@ export interface Post {
   content: string;
   excerpt?: string;
   coverImage?: string;
+  categories?: string[];
 }
 
 const EXCERPT_LENGTH = 155;
@@ -95,6 +96,17 @@ export function getAllPosts(): Post[] {
         }
       }
 
+      // Extract categories from frontmatter ("categories: [A, B]" or "categories: A, B")
+      let categories: string[] = [];
+      const catMatch = frontMatter.match(/^categories:\s*(.+)$/m);
+      if (catMatch) {
+        categories = catMatch[1]
+          .replace(/^\[|\]$/g, "")
+          .split(",")
+          .map((c: string) => c.trim())
+          .filter(Boolean);
+      }
+
       return {
         slug,
         title: metadata.title || "Untitled",
@@ -102,6 +114,7 @@ export function getAllPosts(): Post[] {
         content: cleanedContent,
         excerpt: metadata.description || buildExcerpt(cleanedContent),
         coverImage,
+        categories,
       };
     })
     .sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
@@ -123,6 +136,42 @@ export function getAllPosts(): Post[] {
 export function getPostBySlug(slug: string): Post | null {
   const posts = getAllPosts();
   return posts.find((p) => p.slug === slug) || null;
+}
+
+/**
+ * Rough reading time at ~220 wpm (adult average for web content), with a
+ * one-minute floor so nothing renders as "0 min read".
+ */
+export function getReadingTime(content: string): number {
+  const words = content.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 220));
+}
+
+/** Posts sharing the most categories with the given post, newest first. */
+export function getRelatedPosts(slug: string, limit = 3): Post[] {
+  const posts = getAllPosts();
+  const current = posts.find((p) => p.slug === slug);
+  if (!current?.categories?.length) {
+    return posts.filter((p) => p.slug !== slug).slice(0, limit);
+  }
+  const currentCategories = new Set(
+    current.categories.map((c) => c.toLowerCase())
+  );
+  return posts
+    .filter((p) => p.slug !== slug)
+    .map((p) => ({
+      post: p,
+      overlap: (p.categories ?? []).filter((c) =>
+        currentCategories.has(c.toLowerCase())
+      ).length,
+    }))
+    .sort(
+      (a, b) =>
+        b.overlap - a.overlap ||
+        new Date(b.post.date).getTime() - new Date(a.post.date).getTime()
+    )
+    .slice(0, limit)
+    .map(({ post }) => post);
 }
 
 export function getAllPostSlugs(): string[] {
