@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getPostBySlug, getAllPostSlugs } from "@/lib/posts";
-import { SITE_NAME } from "@/lib/site";
+import { getPostBySlug, getAllPostSlugs, getReadingTime, getRelatedPosts } from "@/lib/posts";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 import SiteEffects from "@/components/site-effects";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
@@ -64,6 +64,26 @@ export default async function PostPage({ params }: PostPageProps) {
     notFound();
   }
 
+  const related = getRelatedPosts(post.slug);
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    image: post.coverImage ? `${SITE_URL}${post.coverImage}` : undefined,
+    author: {
+      "@type": "Person",
+      name: "Willard Wells",
+      url: SITE_URL,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${post.slug}`,
+    },
+  };
+
   return (
     <>
       <SiteEffects />
@@ -84,6 +104,9 @@ export default async function PostPage({ params }: PostPageProps) {
               day: "numeric",
             })}
           </time>
+          <p className="mb-3 text-sm text-muted-foreground">
+            {getReadingTime(post.content)} min read
+          </p>
           <h1 className="text-4xl font-bold tracking-tight sm:text-6xl font-heading leading-tight mb-8">
             {post.title}
           </h1>
@@ -124,10 +147,43 @@ export default async function PostPage({ params }: PostPageProps) {
 
           <footer className="mt-20 border-t border-white/10 pt-12">
             <AuthorCard />
+
+            {related.length > 0 && (
+              <section className="mt-16" aria-label="Related posts">
+                <h2 className="mb-6 font-heading text-xl font-bold tracking-widest uppercase text-muted-foreground">
+                  Keep reading
+                </h2>
+                <ul className="grid gap-4 sm:grid-cols-3">
+                  {related.map((relatedPost) => (
+                    <li key={relatedPost.slug}>
+                      <Link
+                        href={`/blog/${relatedPost.slug}`}
+                        className="group block h-full rounded-xl border border-white/10 p-4 transition-colors hover:border-cyan-400/40"
+                      >
+                        <time className="mb-1 block text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                          {new Date(relatedPost.date).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                          })}
+                        </time>
+                        <span className="text-sm font-medium leading-snug group-hover:text-cyan-300">
+                          {relatedPost.title}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
           </footer>
         </article>
       </main>
       <SiteFooter />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
     </>
   );
 }
