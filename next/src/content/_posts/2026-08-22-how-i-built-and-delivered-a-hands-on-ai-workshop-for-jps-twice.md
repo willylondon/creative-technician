@@ -7,10 +7,10 @@ description: "Behind the scenes of designing and delivering hands-on AI content-
 date: 2026-08-22
 categories: [ai, workshops, teaching]
 featured: true
-image: /assets/images/jps-workshop-2026-1.webp
-image_alt: "Willard Wells facilitating a hands-on AI workshop for Jamaica Public Service staff"
-image_width: 1400
-image_height: 654
+image: /assets/images/jps-workshop-2026/hero.jpg
+image_alt: "JPS staff working on AI-assisted content creation — laptops open, phones out, hands-on learning in a collaborative workshop setting"
+image_width: 1280
+image_height: 852
 ---
 
 In August 2025, Jamaica Public Service invited me to run an AI content-creation session for their team. In August 2026, they invited me back.
