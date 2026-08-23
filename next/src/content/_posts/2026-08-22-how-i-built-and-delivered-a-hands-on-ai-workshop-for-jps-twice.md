@@ -56,7 +56,7 @@ Some participants arrive already using ChatGPT daily and need pushing on depth. 
 
 I keep three things running throughout:
 
-- **A visible timer per phase** — time pressure is a feature, not a stressor. It forces "good enough to move on" decisions.
+- **Learning by doing over perfect pacing** — I built a per-phase timer for the session and barely touched it. When people are actually making things, the work sets the pace. If someone messes up, we fix it right there — and that fix is often the most valuable lesson of the day.
 - **An interactive app instead of slide decks** — participants follow along in a browser-based guide with checklists, examples and fallback summaries, so nobody has to squint at a projector or fall behind on step four while we're on step seven.
 - **Specific, individual feedback** — when reviewing someone's video draft or LinkedIn profile, "nice job" is useless. "Your hook is eight seconds too long and your proof beat buries the number" changes their work immediately.
 
