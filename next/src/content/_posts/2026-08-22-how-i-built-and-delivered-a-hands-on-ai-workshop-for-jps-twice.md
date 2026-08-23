@@ -46,6 +46,8 @@ I structured the day as a six-phase journey rather than a lecture:
 
 The phase structure matters more than it looks. It converts a vague topic ("AI") into a sequence of small, finishable wins. By lunch, everyone has shot footage. By mid-afternoon, everyone has an edited video. By close, several have published.
 
+Underneath the phases, AI runs through the whole day in three roles: **research** (auditing your digital presence and studying what works in your field before you create anything), **planning** (using AI to shape your core message, script outline and posting plan), and **execution** (AI-assisted scripting, captioning and editing to get from idea to published video faster).
+
 ## What actually happens in the room
 
 Here's the part no curriculum document captures: the room does not move at one speed.
