@@ -23,15 +23,15 @@ Most workplace AI sessions fail the same way: a presenter talks at a room about 
 
 My rule for these sessions is simple: **every participant builds something real before they leave.** No demos of my screen for an hour. Not slides about prompts. Actual hands, actual tools, actual work products.
 
-## The 3E framework
+## The 3E framework for content creation
 
-Every session I run is built on three E's — **Entertain, Engage, Educate** — in that order, and deliberately so.
+When participants make their videos, I teach one framework: **Entertain, Engage, Educate** — in that order.
 
-- **Entertain.** If the room is bored in the first ten minutes, nothing after it lands. I open with energy: a story with stakes, a live moment that gets a laugh or a "wait, what?" Attention is the entry fee.
-- **Engage.** Entertainment earns attention; engagement converts it into participation. Phones out, laptops open, everyone doing the activity within the first hour — not after lunch, not "once we cover the theory." The six-phase structure exists to guarantee this.
-- **Educate.** Only now do the lessons stick, because they're attached to something the participant just *did* rather than something they merely heard. Education delivered last, on top of engagement, outlasts any lecture.
+- **Entertain.** If the first few seconds of your video don't grab someone, they scroll past. Open with a hook: a question, a surprising fact, a moment that earns the next five seconds.
+- **Engage.** Now that you have their attention, make them feel involved. Show something relatable, speak directly to a problem they recognise, get them nodding before you teach anything.
+- **Educate.** Only now does your message land, because it's attached to something the viewer already feels rather than something they were told to care about.
 
-Most corporate training runs the sequence backwards — education first, delivered dryly, with engagement hoped for and entertainment forgotten. The 3E order is why rooms like this one stay switched on for a full day.
+Most content does this backwards — education first, delivered flatly, with engagement hoped for and entertainment skipped entirely. The 3E sequence is why a one-minute phone video can outperform a polished corporate deck.
 
 ## What the workshop covers
 
@@ -74,7 +74,7 @@ A room full of staff who went from "AI is something other people use" to having 
 
 Three rules I'd hand to anyone running one of these:
 
-1. **Entertain first, engage second, educate third.** The 3E sequence is the whole game — attention, then participation, then lessons that stick.
+1. **Make content that entertains, engages, then educates.** The 3E framework for the videos (not the workshop) is the skill people take back to their desks — hook first, connect second, teach third.
 2. **Build, don't demo.** If participants haven't produced something by the end, the session failed regardless of the feedback scores.
 3. **Structure beats content.** Six clear phases beat forty informative slides.
 
