@@ -41,8 +41,8 @@ const disciplines = [
     number: "03",
     label: "Coach discipline",
     title: "Clear guidance that leaves the room more capable than before.",
-    copy: "Workshops, documentation, user support and practical feedback delivered without jargon, including an AI workshop for Jamaica Public Service.",
-    proof: "JPS AI facilitator · 2025",
+    copy: "Workshops, documentation, user support and practical feedback delivered without jargon — including repeat AI workshop engagements for Jamaica Public Service.",
+    proof: "JPS AI facilitator · 2025 & 2026",
   },
 ];
 
@@ -120,11 +120,11 @@ const experience = [
       "Campus-wide support across Google Workspace, Cisco Meraki, Windows, Chromebooks, classroom technology, access control, backups and day-to-day user guidance.",
   },
   {
-    years: "2025",
+    years: "2025—NOW",
     company: "Jamaica Public Service",
     role: "AI Workshop Facilitator / Digital Skills Contributor",
     summary:
-      "Delivered practical AI content-creation guidance and reviewed participant video projects and LinkedIn profiles with specific, usable feedback.",
+      "Invited back for repeat engagements delivering hands-on AI content-creation training — practical guidance, live builds and specific feedback on participant video projects and LinkedIn profiles.",
   },
   {
     years: "CURRENT",
@@ -310,6 +310,30 @@ export default async function Home() {
                 ))}
               </div>
             </div>
+            <figure className="workshop-evidence" data-motion="section">
+              <div className="workshop-photos">
+                <Image
+                  src="/assets/images/jps-workshop-2026-1.webp"
+                  alt="Willard Wells facilitating a hands-on AI workshop for Jamaica Public Service staff, August 2026 — participants working on laptops in a boardroom"
+                  width={1400}
+                  height={654}
+                  loading="lazy"
+                  sizes="(max-width: 900px) 94vw, 1200px"
+                />
+                <Image
+                  src="/assets/images/jps-workshop-2026-2.webp"
+                  alt="JPS workshop participants applying AI tools on laptops and phones during the August 2026 session"
+                  width={1280}
+                  height={598}
+                  loading="lazy"
+                  sizes="(max-width: 900px) 94vw, 1200px"
+                />
+              </div>
+              <figcaption>
+                <strong>AI content-creation workshop · Jamaica Public Service · August 2026.</strong>{" "}
+                Hands-on session — every participant building, not just watching.
+              </figcaption>
+            </figure>
           </div>
         </section>
 
@@ -333,6 +357,10 @@ export default async function Home() {
               <p className="mono-label">Open channel / Kingston, Jamaica</p>
               <h2>Let’s make<br /><span>something work.</span></h2>
               <p>Need someone who can support what exists, improve what is struggling and build what comes next? I’d like to hear about it.</p>
+              <p className="workshop-offer">
+                I also run <strong>hands-on AI workshops for teams</strong> — like the repeat engagements delivered for Jamaica Public Service. If your organisation wants staff who can actually use these tools,{" "}
+                <a href="mailto:willardwells@gmail.com?subject=Team%20AI%20workshop%20enquiry">get in touch about a session</a>.
+              </p>
               <div className="contact-links">
                 <a href="mailto:willardwells@gmail.com"><Mail aria-hidden="true" />willardwells@gmail.com</a>
                 <a href="https://github.com/willylondon" target="_blank" rel="noopener noreferrer"><Github aria-hidden="true" />github.com/willylondon</a>

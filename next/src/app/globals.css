@@ -296,6 +296,12 @@ body.hovering .cursor-outline { border-color: var(--cyan); }
 .timeline h3 { margin: 0; font-family: var(--display); font-size: clamp(1.5rem, 2.4vw, 2.5rem); line-height: 1.03; letter-spacing: -.035em; }
 .timeline article > div > span { display: block; margin-top: 16px; color: var(--paper-muted-mid); font-size: 13px; line-height: 1.7; }
 
+.workshop-evidence { margin: 72px 0 0; border-top: 1px solid var(--line); padding-top: 56px; }
+.workshop-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.workshop-photos img { width: 100%; height: auto; border-radius: var(--radius-sm, 6px); border: 1px solid var(--line); }
+.workshop-evidence figcaption { margin-top: 20px; color: var(--paper-muted-mid); font-size: 13px; line-height: 1.7; }
+.workshop-evidence figcaption strong { color: var(--signal); font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; }
+
 .endorsement-section { padding: 70px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--night-3); }
 .endorsement-grid { display: grid; grid-template-columns: .55fr 1fr 1fr; }
 .endorsement-title { display: flex; flex-direction: column; justify-content: space-between; padding-right: 38px; }
@@ -322,6 +328,9 @@ body.hovering .cursor-outline { border-color: var(--cyan); }
 .contact-copy .mono-label { margin-bottom: 24px; color: var(--teal-deep); }
 .contact-copy h2 span { color: var(--cyan-dim); -webkit-text-stroke: 1.2px var(--night); }
 .contact-copy > p:not(.mono-label) { max-width: 590px; margin: 28px 0 0; color: var(--teal-shadow); font-size: 15px; line-height: 1.75; }
+.contact-copy .workshop-offer { max-width: 590px; margin: 14px 0 0; color: var(--teal-shadow); font-size: 14px; line-height: 1.7; }
+.contact-copy .workshop-offer strong { font-weight: 700; }
+.contact-copy .workshop-offer a { color: var(--night); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
 .contact-links { display: grid; gap: 12px; margin-top: 42px; }
 .contact-links a, .contact-links span { width: fit-content; display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
 .contact-links svg { width: 15px; }
@@ -378,6 +387,7 @@ body.hovering .cursor-outline { border-color: var(--cyan); }
   .project-card:nth-child(3) .project-card-copy { display: block; padding: 28px 0 0; border: 0; }
   .more-builds > div { grid-template-columns: 1fr; }
   .experience-layout { grid-template-columns: 1fr; gap: 70px; }
+  .workshop-photos { grid-template-columns: 1fr; }
   .experience-intro { position: static; }
   .endorsement-grid { grid-template-columns: 1fr; }
   .endorsement-title { min-height: 90px; padding: 0 0 28px; }
