@@ -52,6 +52,8 @@ Underneath the phases, AI runs through the whole day in three roles: **research*
 
 Here's the part no curriculum document captures: the room does not move at one speed.
 
+![JPS staff working hands-on during the AI workshop — laptops open, everyone building, nobody watching a presentation](/assets/images/jps-workshop-2026/room.jpg)
+
 Some participants arrive already using ChatGPT daily and need pushing on depth. Others have never opened an AI tool and need permission to experiment without breaking anything. The photos from this year's session show what I consider success: every laptop open, every phone out, nobody watching me talk.
 
 I keep three things running throughout:
