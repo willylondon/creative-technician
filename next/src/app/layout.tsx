@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 import { Bricolage_Grotesque, Manrope, IBM_Plex_Mono } from "next/font/google";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
@@ -157,6 +158,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased" suppressHydrationWarning>
         {children}
+        <Analytics />
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-R13SZWDJ3S"
