@@ -8,6 +8,7 @@ author: "Willy London"
 image: /assets/images/linkedin-social-unsplash.jpg
 image_width: 3000
 image_height: 2000
+description: "I spent today tightening a LinkedIn posting workflow that looked finished on the surface, but still had a few state-management traps underneath."
 ---
 
 I spent today tightening a LinkedIn posting workflow that looked finished on the surface, but still had a few state-management traps underneath.

@@ -4,6 +4,7 @@ date: 2025-03-15
 slug: jamaica-s-new-aged-vehicle-policy-a-step-backward-or-smart-move
 layout: post
 migrated_from: medium
+description: "A crucial question is: Why revert to a policy that we had previously moved away from? If reducing the age of vehicle imports was once considered necessary…"
 ---
 
 # Jamaica’s New Aged Vehicle Policy: A Step Backward or Smart Move?

@@ -4,6 +4,7 @@ date: 2025-06-15
 slug: father-s-day-in-jamaica-a-celebration-or-a-punchline
 layout: post
 migrated_from: medium
+description: "Father’s Day in Jamaica tells a different story—one written in jokes, jabs, and quiet grief."
 ---
 
 # Father’s Day in Jamaica – A Celebration or a Punchline?

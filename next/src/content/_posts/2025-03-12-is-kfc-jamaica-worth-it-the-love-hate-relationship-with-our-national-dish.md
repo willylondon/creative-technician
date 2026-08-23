@@ -4,6 +4,7 @@ date: 2025-03-12
 slug: is-kfc-jamaica-worth-it-the-love-hate-relationship-with-our-national-dish
 layout: post
 migrated_from: medium
+description: "Growing up in Jamaica, every child learns about the country’s national symbols. The Doctor Bird, the Lignum Vitae tree, and the beloved yet controversial…"
 ---
 
 # Is KFC Jamaica Worth It? The Love-Hate Relationship With Our ‘National Dish

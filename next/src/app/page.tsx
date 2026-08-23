@@ -190,6 +190,7 @@ export default async function Home() {
                   alt="Willard Wells thoughtfully reviewing several laptops"
                   fill
                   priority
+                  fetchPriority="high"
                   sizes="(max-width: 900px) 94vw, 56vw"
                 />
                 <div className="portrait-shade" />

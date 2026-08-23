@@ -4,6 +4,7 @@ date: 2025-03-13
 slug: why-are-jps-bills-so-high-the-struggle-of-jamaicans-to-afford-electricity
 layout: post
 migrated_from: medium
+description: "Jamaica Public Service (JPS) and the Burden of High Electricity Costs: A Cry for Justice"
 ---
 
 # Why Are JPS Bills So High? The Struggle of Jamaicans to Afford Electricity

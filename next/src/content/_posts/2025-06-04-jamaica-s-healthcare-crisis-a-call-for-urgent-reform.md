@@ -4,6 +4,7 @@ date: 2025-06-04
 slug: jamaica-s-healthcare-crisis-a-call-for-urgent-reform
 layout: post
 migrated_from: medium
+description: "When the system meant to heal becomes the source of heartbreak, it’s time to act."
 ---
 
 # Jamaica’s Healthcare Crisis: A Call for Urgent Reform

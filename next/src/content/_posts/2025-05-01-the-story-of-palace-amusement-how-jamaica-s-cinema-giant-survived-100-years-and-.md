@@ -4,6 +4,7 @@ date: 2025-05-01
 slug: the-story-of-palace-amusement-how-jamaica-s-cinema-giant-survived-100-years-and-
 layout: post
 migrated_from: medium
+description: "Palace Amusement isn’t just a movie company — it’s a piece of Jamaican cultural fabric, woven into first dates, school trips, family…"
 ---
 
 # The Story of Palace Amusement: How Jamaica’s Cinema Giant Survived 100 Years and Why the Next Move…

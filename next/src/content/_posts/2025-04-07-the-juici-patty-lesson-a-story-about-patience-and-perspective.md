@@ -4,6 +4,7 @@ date: 2025-04-07
 slug: the-juici-patty-lesson-a-story-about-patience-and-perspective
 layout: post
 migrated_from: medium
+description: "As time passed, I noticed a couple at the first cashier taking quite a while. After about seven minutes of waiting behind them, my patience began to wear…"
 ---
 
 # The Juici Patty Lesson: A Story About Patience and Perspective

@@ -8,6 +8,7 @@ image: /assets/images/today-a-star-was-born.webp
 image_width: 1200
 image_height: 630
 featured: false
+description: "So today is my birthday. Without giving away too many details, let’s just say I was born in the 1900s!"
 ---
 
 ## 

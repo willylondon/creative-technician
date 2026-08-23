@@ -4,6 +4,7 @@ date: 2025-03-12
 slug: how-wayne-dawkins-and-p-h-a-s-e-1-academy-are-transforming-jamaican-basketball
 layout: post
 migrated_from: medium
+description: "Basketball in Jamaica has had its fair share of struggles — lack of infrastructure, inconsistent development programs, and a governing body that has often…"
 ---
 
 # How Wayne Dawkins and P.H.A.S.E. 1 Academy Are Transforming Jamaican Basketball

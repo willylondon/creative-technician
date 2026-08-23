@@ -4,6 +4,7 @@ date: 2025-05-17
 slug: how-do-we-become-better-from-competition-if-there-s-nobody-to-compete-with
 layout: post
 migrated_from: medium
+description: "In Jamaica, restrictive basketball contracts are sidelining community leagues and stifling player development."
 ---
 
 # “How Do We Become Better from Competition If There’s Nobody to Compete With?"

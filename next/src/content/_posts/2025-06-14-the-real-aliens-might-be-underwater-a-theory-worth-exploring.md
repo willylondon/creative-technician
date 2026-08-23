@@ -4,6 +4,7 @@ date: 2025-06-14
 slug: the-real-aliens-might-be-underwater-a-theory-worth-exploring
 layout: post
 migrated_from: medium
+description: "We’ve been looking to the stars for answers — but what if the real mystery lies beneath our oceans?"
 ---
 
 # The Real Aliens Might Be Underwater: A Theory Worth Exploring

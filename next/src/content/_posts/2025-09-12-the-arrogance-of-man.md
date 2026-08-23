@@ -4,6 +4,7 @@ date: 2025-09-12
 slug: the-arrogance-of-man
 layout: post
 migrated_from: medium
+description: "I tried to ignore the conversation, but a small voice in me spoke up, the same voice I still can’t silence today: “Did you know Jesus wasn’t a Christian?”"
 ---
 
 # The Arrogance of Man

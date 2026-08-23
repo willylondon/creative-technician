@@ -8,6 +8,7 @@ author: "John Doe"
 image: /assets/images/modern-workspace-unsplash.jpg
 image_width: 3000
 image_height: 2000
+description: "Disclosure: As an Amazon Associate I earn from qualifying purchases. Some links may be affiliate links that support this site at no extra cost to you."
 ---
 
 # Optimizing Your E-Commerce Website for Voice Search in 2026

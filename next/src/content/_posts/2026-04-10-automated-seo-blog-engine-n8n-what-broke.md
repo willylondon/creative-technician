@@ -7,6 +7,7 @@ migrated_from: medium
 image: /assets/images/n8n-code-glasses-unsplash.jpg
 image_width: 3000
 image_height: 1997
+description: "Using n8n, OpenAI, and GitHub to publish SEO content automatically — and the debugging session nobody tells you about."
 ---
 
 # I Built an Automated SEO Blog Engine for 5 Sites — Here's What Actually Broke

@@ -4,6 +4,7 @@ date: 2025-07-01
 slug: a-letter-to-her
 layout: post
 migrated_from: medium
+description: "But it got me thinking. We’re around the same age, and the island isn’t that big."
 ---
 
 # A Letter to Her

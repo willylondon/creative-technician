@@ -4,6 +4,7 @@ date: 2025-03-21
 slug: driven-to-madness-my-experience-with-reckless-jamaican-drivers
 layout: post
 migrated_from: medium
+description: "From taxi men to Fit-driving maams, Jamaican roads are a daily gamble — and I’ve nearly lost three times this week"
 ---
 
 # Driven to Madness: My Experience with Reckless Jamaican Drivers

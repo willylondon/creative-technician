@@ -4,6 +4,7 @@ date: 2025-05-13
 slug: aj-dybantsa-s-jamaican-roots-inspire-a-game-changing-basketball-initiative
 layout: post
 migrated_from: medium
+description: "From Trench Town to the top of U.S. hoops, AJ returns home to uplift a new generation."
 ---
 
 # AJ Dybantsa’s Jamaican Roots Inspire a Game-Changing Basketball Initiative

@@ -5,6 +5,7 @@ date: 2025-11-25
 slug: the-debt-she-paid-how-i-learned-that-kindness-and-self-worth-must-coexist-a-medi
 layout: post
 migrated_from: medium
+description: "Cape Cod Workers, a pipeline connecting Jamaicans with jobs in America. ​My mother, she said, would be the first employee. ​My mother received this news t…"
 ---
 
 # ​The Debt She Paid: How I Learned That Kindness and Self-Worth Must Coexist

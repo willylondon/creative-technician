@@ -4,6 +4,7 @@ date: 2025-06-28
 slug: blanco-caf-san-antonio-a-local-flavor-detour
 layout: post
 migrated_from: medium
+description: "That turned out to be a hopeful prediction. What was meant to be a short stroll turned into a sweaty 20-minute trek under the unforgiving San Antonio sun.…"
 ---
 
 # Blanco Café San Antonio – A Local Flavor Detour

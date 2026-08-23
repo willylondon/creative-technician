@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { Mail, Menu } from "lucide-react";
 
 /**
@@ -6,6 +9,18 @@ import { Mail, Menu } from "lucide-react";
  * works on the homepage and on blog pages alike.
  */
 export default function SiteHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDetailsElement>(null);
+
+  // Keep React state in sync when the <details> is toggled natively.
+  useEffect(() => {
+    const el = menuRef.current;
+    if (!el) return;
+    const onChange = (e: Event) => setMenuOpen((e.target as HTMLDetailsElement).open);
+    el.addEventListener("toggle", onChange);
+    return () => el.removeEventListener("toggle", onChange);
+  }, []);
+
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to content</a>
@@ -32,8 +47,13 @@ export default function SiteHeader() {
             Start a project <Mail aria-hidden="true" />
           </Link>
 
-          <details className="mobile-menu">
-            <summary aria-label="Open navigation" aria-expanded="false"><Menu aria-hidden="true" /></summary>
+          <details className="mobile-menu" ref={menuRef}>
+            <summary
+              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+              aria-expanded={menuOpen}
+            >
+              <Menu aria-hidden="true" />
+            </summary>
             <nav aria-label="Mobile navigation">
               <Link href="/#profile">Profile</Link>
               <Link href="/#work">Work</Link>

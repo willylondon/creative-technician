@@ -5,6 +5,7 @@ date: 2025-09-11
 slug: a-note-of-reflection-tonight-i-dreamed-of-my-mother-and-sister
 layout: post
 migrated_from: medium
+description: "A Note of Reflection — a field note by Willard Wells."
 ---
 
 # A Note of Reflection

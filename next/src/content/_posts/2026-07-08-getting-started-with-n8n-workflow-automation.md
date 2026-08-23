@@ -54,6 +54,7 @@ Get started with n8n today and witness the transformative power of workflow auto
 
 image: "/assets/images/unsplash-imports/photo-1667372393086-9d4001d51cf1.webp"
 image_alt: "graphical user interface"
+description: "Getting Started with n8n Workflow Automation: A Practical Guide for The Creative Technician — a field note by Willard Wells."
 ---
 
 ---

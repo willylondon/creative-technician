@@ -4,6 +4,7 @@ date: 2025-03-21
 slug: it-is-coptic-time-now
 layout: post
 migrated_from: medium
+description: "A Forgotten 1978 Letter from Elder Walter Wells That Still Speaks Truth to Power"
 ---
 
 # It Is Coptic Time Now

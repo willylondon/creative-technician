@@ -4,6 +4,7 @@ date: 2025-07-31
 slug: royalton-blue-waters-review-not-what-we-expected
 layout: post
 migrated_from: medium
+description: "I arrived yesterday with high hopes, but ever since landing, my enthusiasm has taken a nosedive."
 ---
 
 # Royalton Blue Waters Review: Not What We Expected

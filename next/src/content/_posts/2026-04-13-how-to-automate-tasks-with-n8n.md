@@ -8,6 +8,7 @@ author: "John Doe"
 image: /assets/images/person-at-desk-unsplash.jpg
 image_width: 3000
 image_height: 2250
+description: "Disclosure: As an Amazon Associate I earn from qualifying purchases. Some links may be affiliate links that support this site at no extra cost to you."
 ---
 
 # How to Automate Tasks with n8n: A Step-by-Step Guide for Jamaican Small Businesses

@@ -4,6 +4,7 @@ date: 2025-03-12
 slug: the-forgotten-legacy-of-the-ethiopian-zion-coptic-church-in-jamaica
 layout: post
 migrated_from: medium
+description: "The Coptics based their beliefs on the Bible and the teachings of Jamaican nationalist Marcus Garvey, emphasizing Ethiopian destiny and black self-relianc…"
 ---
 
 # The Forgotten Legacy of the Ethiopian Zion Coptic Church in Jamaica

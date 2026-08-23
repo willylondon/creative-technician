@@ -4,6 +4,7 @@ date: 2025-05-12
 slug: jamaica-auto-show-2025-power-prestige-and-progress-at-the-national-arena
 layout: post
 migrated_from: medium
+description: "Jamaica’s biggest car event roared back to life with luxury, electric dreams, and a whole lot of island flair."
 ---
 
 # Jamaica Auto Show 2025: Power, Prestige, and Progress at the National Arena

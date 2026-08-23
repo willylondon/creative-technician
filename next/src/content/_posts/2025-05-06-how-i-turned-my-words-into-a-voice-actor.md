@@ -4,6 +4,7 @@ date: 2025-05-06
 slug: how-i-turned-my-words-into-a-voice-actor
 layout: post
 migrated_from: medium
+description: "Let me walk you through how I used AI to breathe life into my words — and how you can too."
 ---
 
 # How I Turned My Words into a Voice Actor

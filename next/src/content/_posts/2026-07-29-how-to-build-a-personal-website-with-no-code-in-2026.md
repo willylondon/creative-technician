@@ -50,6 +50,7 @@ Remember, your personal website is a representation of who you are and what you 
 
 image: "/assets/images/unsplash-imports/photo-1774901128187-22df3f261ad8.webp"
 image_alt: "Computer screen displaying lines of code"
+description: "How to Build a Personal Website with No Code in 2026: A Guide for The Creative Technician Audience — a field note by Willard Wells."
 ---
 
 ---

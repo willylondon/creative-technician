@@ -6,6 +6,7 @@ layout: post
 image: /assets/images/creative-technician-workflow-hardening-unsplash.jpg
 image_width: 3000
 image_height: 2000
+description: "A real look at the engineering work behind hardening our SEO Content Factory and Daily Blog Publisher so they publish more reliably and stop stepping on e…"
 ---
 
 # What We Actually Fixed in Our Blog Automation Stack Today

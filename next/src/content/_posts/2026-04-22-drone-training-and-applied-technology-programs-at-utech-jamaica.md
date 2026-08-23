@@ -7,6 +7,7 @@ excerpt: Explore UTECH Jamaica's drone training and applied technology programs,
 image: /assets/images/drone-technology-unsplash.jpg
 image_width: 3000
 image_height: 2000
+description: "Are you fascinated by the world of drones and eager to explore their applications beyond recreational flying? If you are a Jamaican or Caribbean resident…"
 ---
 
 # Mastering Drone Technology: UTECH Jamaica Programs for The Creative Technician

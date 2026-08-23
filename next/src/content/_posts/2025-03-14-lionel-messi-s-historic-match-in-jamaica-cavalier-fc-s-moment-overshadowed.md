@@ -4,6 +4,7 @@ date: 2025-03-14
 slug: lionel-messi-s-historic-match-in-jamaica-cavalier-fc-s-moment-overshadowed
 layout: post
 migrated_from: medium
+description: "A Night to Remember: Messi’s First Match in Jamaica and the Overlooked Cavalier FC"
 ---
 
 # Lionel Messi’s Historic Match in Jamaica: Cavalier FC’s Moment Overshadowed?

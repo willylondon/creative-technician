@@ -4,6 +4,7 @@ date: 2025-03-24
 slug: you-are-the-result-of-thousands
 layout: post
 migrated_from: medium
+description: "How many struggles did they face? How many decisions had to go just right? How many things could’ve gone wrong — but didn’t?"
 ---
 
 # You Are the Result of Thousands

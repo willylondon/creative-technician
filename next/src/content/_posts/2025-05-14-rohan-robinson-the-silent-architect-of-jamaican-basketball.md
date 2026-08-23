@@ -4,6 +4,7 @@ date: 2025-05-14
 slug: rohan-robinson-the-silent-architect-of-jamaican-basketball
 layout: post
 migrated_from: medium
+description: "From hardwood warrior to masterful mentor, Robinson’s journey defines grassroots greatness."
 ---
 
 # Rohan Robinson: The Silent Architect of Jamaican Basketball

@@ -4,6 +4,7 @@ date: 2025-03-27
 slug: life-laughter-and-a-vegetarian-who-loved-fish
 layout: post
 migrated_from: medium
+description: "At just three years old, Avril’s beloved pet goat met a tragic fate at her father’s hand, prompting her lifelong vow against meat. Yet she made a curious…"
 ---
 
 # Life, Laughter, and a Vegetarian Who Loved Fish

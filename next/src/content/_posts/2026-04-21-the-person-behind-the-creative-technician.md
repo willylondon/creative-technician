@@ -8,6 +8,7 @@ author: "Willy London"
 image: /assets/images/person-at-desk-unsplash.jpg
 image_width: 3000
 image_height: 2250
+description: "Behind every project, workflow, and post on The Creative Technician, there is a real person trying to figure things out in public."
 ---
 
 Behind every project, workflow, and post on The Creative Technician, there is a real person trying to figure things out in public.

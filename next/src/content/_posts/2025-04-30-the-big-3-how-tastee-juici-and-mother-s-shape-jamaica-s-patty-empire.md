@@ -4,6 +4,7 @@ date: 2025-04-30
 slug: the-big-3-how-tastee-juici-and-mother-s-shape-jamaica-s-patty-empire
 layout: post
 migrated_from: medium
+description: "From legacy to innovation — a deep dive into the rise, rivalry, and reinvention of Jamaica’s top patty companies"
 ---
 
 # The Big 3: How Tastee, Juici, and Mother’s Shape Jamaica’s Patty Empire

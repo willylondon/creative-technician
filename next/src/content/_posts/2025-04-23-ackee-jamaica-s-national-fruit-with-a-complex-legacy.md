@@ -4,6 +4,7 @@ date: 2025-04-23
 slug: ackee-jamaica-s-national-fruit-with-a-complex-legacy
 layout: post
 migrated_from: medium
+description: "1. Harvesting: Only use ackee that has naturally opened on the tree. Forced opening can indicate the fruit is unripe and potentially toxic."
 ---
 
 # 🌿 Ackee: Jamaica’s National Fruit with a Complex Legacy
