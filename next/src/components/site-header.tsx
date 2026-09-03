@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Mail, Menu } from "lucide-react";
+import { NewsletterDialog } from "@/components/newsletter-dialog";
 
 /**
  * Shared site header. Section links use absolute "/#…" paths so the header
@@ -41,6 +42,9 @@ export default function SiteHeader() {
             <Link href="/#experience">Experience</Link>
             <Link href="/#contact">Contact</Link>
             <Link href="/blog">Field notes</Link>
+            <NewsletterDialog>
+              <button type="button">Newsletter</button>
+            </NewsletterDialog>
           </nav>
 
           <Link className="header-resume data-hover" href="/#contact">
@@ -60,6 +64,16 @@ export default function SiteHeader() {
               <Link href="/#experience">Experience</Link>
               <Link href="/#contact">Contact</Link>
               <Link href="/blog">Field notes</Link>
+              <NewsletterDialog>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (menuRef.current) menuRef.current.open = false;
+                  }}
+                >
+                  Newsletter
+                </button>
+              </NewsletterDialog>
               <a href="/Willard-Wells-CV.pdf" download>Download résumé</a>
             </nav>
           </details>

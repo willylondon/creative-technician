@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Post } from "@/lib/posts";
+import NewsletterCTA from "@/components/newsletter-cta";
 
 export const POSTS_PER_PAGE = 12;
 
@@ -75,6 +76,8 @@ export default function BlogArchive({ posts, currentPage, totalPages }: BlogArch
             </article>
           ))}
         </div>
+
+        <NewsletterCTA />
 
         {totalPages > 1 && (
           <nav aria-label="Archive pages" className="mt-16 flex items-center justify-between border-t border-white/10 pt-8 font-mono text-sm uppercase tracking-widest">

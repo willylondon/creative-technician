@@ -9,6 +9,7 @@ import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import ReactMarkdown from "react-markdown";
 import AuthorCard from "@/components/author-card";
+import NewsletterCTA from "@/components/newsletter-cta";
 
 export async function generateStaticParams() {
   const slugs = getAllPostSlugs();
@@ -145,7 +146,9 @@ export default async function PostPage({ params }: PostPageProps) {
           </ReactMarkdown>
         </div>
 
-          <footer className="mt-20 border-t border-white/10 pt-12">
+        <NewsletterCTA />
+
+        <footer className="mt-16 border-t border-white/10 pt-12">
             <AuthorCard />
 
             {related.length > 0 && (

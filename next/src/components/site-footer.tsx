@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { NewsletterDialog } from "@/components/newsletter-dialog";
 
 export default function SiteFooter() {
   return (
@@ -9,6 +10,9 @@ export default function SiteFooter() {
         <div>
           <a href="/Willard-Wells-CV.pdf" download>Résumé</a>
           <Link href="/blog">Field notes</Link>
+          <NewsletterDialog>
+            <button type="button">Newsletter</button>
+          </NewsletterDialog>
           <Link href="/privacy">Privacy</Link>
           <Link href="/terms">Terms</Link>
           <a href="mailto:willardwells@gmail.com">Email</a>

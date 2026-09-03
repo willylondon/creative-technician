@@ -147,10 +147,13 @@ body.hovering .cursor-outline { border-color: var(--cyan); }
 .brand-copy strong, .brand-copy small { display: block; }
 .brand-copy strong { font-family: var(--display); font-size: 15px; font-weight: 700; letter-spacing: -.02em; }
 .brand-copy small { margin-top: 2px; color: var(--paper-muted-mid); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
-.desktop-nav { display: flex; gap: 28px; margin-left: auto; }
-.desktop-nav a { position: relative; color: var(--paper-muted-soft); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
-.desktop-nav a::before { content: "/"; margin-right: 5px; color: var(--paper-muted-deep); }
-.desktop-nav a:hover, .desktop-nav a:focus-visible, .desktop-nav a.is-active { color: var(--cyan); }
+.desktop-nav { display: flex; gap: 28px; margin-left: auto; align-items: center; }
+.desktop-nav a,
+.desktop-nav button { position: relative; background: none; border: none; padding: 0; cursor: pointer; color: var(--paper-muted-soft); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; display: inline-flex; align-items: center; transition: color .15s ease; }
+.desktop-nav a::before,
+.desktop-nav button::before { content: "/"; margin-right: 5px; color: var(--paper-muted-deep); }
+.desktop-nav a:hover, .desktop-nav a:focus-visible, .desktop-nav a.is-active,
+.desktop-nav button:hover, .desktop-nav button:focus-visible { color: var(--cyan); }
 .desktop-nav a.is-active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -12px; height: 2px; background: var(--cyan); }
 .header-resume { min-height: 44px; display: inline-flex; align-items: center; gap: 9px; padding: 0 15px; border: 1px solid var(--line-bright); color: var(--paper); font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; transition: color .2s ease, background .2s ease, border-color .2s ease; }
 .header-resume svg { width: 14px; }
@@ -160,8 +163,10 @@ body.hovering .cursor-outline { border-color: var(--cyan); }
 .mobile-menu summary::-webkit-details-marker { display: none; }
 .mobile-menu summary svg { width: 18px; }
 .mobile-menu nav { position: absolute; top: 52px; right: 0; width: min(290px, calc(100vw - 32px)); padding: 8px; border: 1px solid var(--line-bright); background: var(--night-2); box-shadow: 0 24px 80px rgba(0,0,0,.5); }
-.mobile-menu nav a { min-height: 46px; display: flex; align-items: center; padding: 12px 14px; color: var(--paper-muted-soft); font-family: var(--mono); font-size: 11px; text-transform: uppercase; }
-.mobile-menu nav a:hover, .mobile-menu nav a:focus-visible, .mobile-menu nav a.is-active { color: var(--night); background: var(--cyan); }
+.mobile-menu nav a,
+.mobile-menu nav button { width: 100%; border: none; background: none; text-align: left; cursor: pointer; min-height: 46px; display: flex; align-items: center; padding: 12px 14px; color: var(--paper-muted-soft); font-family: var(--mono); font-size: 11px; text-transform: uppercase; transition: color .15s ease, background .15s ease; }
+.mobile-menu nav a:hover, .mobile-menu nav a:focus-visible, .mobile-menu nav a.is-active,
+.mobile-menu nav button:hover, .mobile-menu nav button:focus-visible { color: var(--night); background: var(--cyan); }
 
 .hero-section {
   position: relative;
@@ -355,8 +360,22 @@ body.hovering .cursor-outline { border-color: var(--cyan); }
 .footer-brand strong { font-family: var(--display); font-size: 14px; }
 .footer-inner > p { margin: 0; color: var(--paper-muted-mid); font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .07em; }
 .footer-inner > div { display: flex; gap: 17px; }
-.footer-inner > div a { color: var(--paper-muted-mid); font-family: var(--mono); font-size: 10px; text-transform: uppercase; }
-.footer-inner > div a:hover { color: var(--cyan); }
+.footer-inner > div a,
+.footer-inner > div button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--paper-muted-mid);
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  transition: color 0.15s ease;
+}
+.footer-inner > div a:hover,
+.footer-inner > div button:hover {
+  color: var(--cyan);
+}
 .footer-inner > small { color: var(--paper-muted-deep); font-family: var(--mono); font-size: 10px; }
 
 @media (max-width: 1100px) {
