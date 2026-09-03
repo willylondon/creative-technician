@@ -1,9 +1,17 @@
 import fs from "fs";
 import path from "path";
 
-// Blog post sources, kept inside the app so the build never reaches outside
-// its own project root.
-const POSTS_PATH = path.join(process.cwd(), "src", "content", "_posts");
+// Blog post sources: check both internal next/src/content/_posts and root _posts if available
+function getPostDirectories(): string[] {
+  const candidates = [
+    path.join(process.cwd(), "src", "content", "_posts"),
+    path.join(process.cwd(), "next", "src", "content", "_posts"),
+    path.join(process.cwd(), "..", "_posts"),
+    path.join(process.cwd(), "_posts"),
+  ];
+  const uniqueDirs = Array.from(new Set(candidates));
+  return uniqueDirs.filter((dir) => fs.existsSync(dir));
+}
 
 export interface Post {
   slug: string;
@@ -44,15 +52,27 @@ function buildExcerpt(content: string): string {
 }
 
 export function getAllPosts(): Post[] {
-  if (!fs.existsSync(POSTS_PATH)) {
+  const dirs = getPostDirectories();
+  if (dirs.length === 0) {
     return [];
   }
 
-  const files = fs.readdirSync(POSTS_PATH);
-  const posts = files
-    .filter((file) => file.endsWith(".md") && file !== "README.md")
-    .map((file) => {
-      const fullPath = path.join(POSTS_PATH, file);
+  const fileMap = new Map<string, string>(); // filename -> fullPath (first found wins)
+  for (const dir of dirs) {
+    try {
+      const files = fs.readdirSync(dir);
+      for (const file of files) {
+        if (file.endsWith(".md") && file !== "README.md" && !fileMap.has(file)) {
+          fileMap.set(file, path.join(dir, file));
+        }
+      }
+    } catch {
+      // directory read error ignored
+    }
+  }
+
+  const posts = Array.from(fileMap.entries())
+    .map(([file, fullPath]) => {
       const fileContents = fs.readFileSync(fullPath, "utf8");
 
       // Simple Frontmatter Parser (Regex)
