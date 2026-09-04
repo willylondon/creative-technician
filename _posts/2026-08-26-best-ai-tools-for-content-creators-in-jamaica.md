@@ -1,11 +1,16 @@
 ---
 layout: post
-title: Best AI Tools for Content Creators in Jamaica
+title: "Best AI Tools for Content Creators in Jamaica"
+short_title: "AI Tools for Jamaican Creators"
+meta_title: "Best AI Tools for Content Creators in Jamaica (2026) | The Creative Technician"
+description: "The best AI tools for Jamaican content creators — free and paid options for writing, image generation, video editing and social media, chosen for local budgets and internet realities."
 date: 2026-08-26
-categories: [The Creative Technician]
-excerpt: Discover the top AI tools to enhance your content creation process in Jamaica.
-image: "https://images.unsplash.com/photo-1664199749338-ba056c0e11fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzI1NDd8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODc3NzA4MDh8&ixlib=rb-4.1.0&q=80&w=1080"
-image_alt: "a couple of men"
+categories: [ai, content-creation]
+featured: true
+image: /assets/images/best-ai-tools-for-content-creators-in-jamaica/hero.jpg
+image_alt: "Two content creators collaborating over AI-assisted work on a laptop"
+image_width: 1600
+image_height: 1067
 ---
 
 # Best AI Tools for Content Creators in Jamaica

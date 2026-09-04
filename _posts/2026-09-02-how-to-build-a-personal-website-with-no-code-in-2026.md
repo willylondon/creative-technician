@@ -1,11 +1,16 @@
 ---
 layout: post
-title: How to Build a Personal Website with No Code in 2026
+title: "How to Build a Personal Website with No Code in 2026"
+short_title: "No-Code Personal Website"
+meta_title: "How to Build a Personal Website with No Code in 2026 | The Creative Technician"
+description: "A step-by-step guide to building a personal website in 2026 without writing code — choosing a builder, structuring your pages, and getting found on Google."
 date: 2026-09-02
-categories: The Creative Technician
-excerpt: A comprehensive guide on creating your personal website without any coding skills required in 2026.
-image: "https://images.unsplash.com/photo-1524635962361-d7f8ae9c79b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzI1NDd8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODgzNzU2MTF8&ixlib=rb-4.1.0&q=80&w=1080"
-image_alt: "computer screen showing blog"
+categories: [web, guides]
+featured: true
+image: /assets/images/how-to-build-a-personal-website-with-no-code-in-2026/hero.jpg
+image_alt: "A website builder open on a laptop screen showing a personal site being assembled"
+image_width: 1600
+image_height: 1067
 ---
 
 # How to Build a Personal Website with No Code in 2026
