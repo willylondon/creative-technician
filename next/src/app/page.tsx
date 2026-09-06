@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { getAllPosts } from "@/lib/posts";
 import SiteEffects from "@/components/site-effects";
+import HeroNodeField from "@/components/hero-node-field";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import ContactForm from "@/components/contact-form";
@@ -156,6 +157,7 @@ export default async function Home() {
 
       <div id="main-content">
         <section className="hero-section" id="top">
+          <HeroNodeField />
           <div className="hero-grid site-container">
             <div className="hero-copy" data-motion="hero-copy">
               <div className="hero-kicker">
