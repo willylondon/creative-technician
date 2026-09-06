@@ -4,8 +4,8 @@ const chapters = [
   {
     id: "p-phase-1",
     kicker: "01 / Stage",
-    title: "A real product model",
-    copy: "This is a GLTF model loaded at runtime — the same pipeline a brand would use with their own product scan or CAD export. Studio-style lighting wraps it: white key light, teal and magenta rims pulled from the site palette.",
+    title: "A real tech artifact",
+    copy: "A GLTF model loaded at runtime — a battle-worn sci-fi engineer helmet, the canonical model of the Three.js world. The same pipeline works with any product scan or CAD export, but this one says systems and hardware, not hydration.",
   },
   {
     id: "p-phase-2",
@@ -68,7 +68,7 @@ export default function Scroll3DProductPage() {
 
       <section className="scroll3d-outro">
         <div className="site-container">
-          <p>Model: Khronos glTF sample (CC0). Swap in any product GLB to make it yours.</p>
+          <p>Model: Khronos “DamagedHelmet” (CC BY). Swap in any product GLB to make it yours.</p>
           <a className="button button-signal" href="/">
             Back to the work
           </a>

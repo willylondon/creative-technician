@@ -10,7 +10,8 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
  * Scroll-3D Product Lab: fixed WebGL canvas behind scrollable copy.
  * A real GLTF product model replaces generated geometry. Scroll drives
  * camera arc, product spin/unbox phases, ring pulses and particle drift.
- * Model: Khronos sample "WaterBottle" (CC0), served from /models/.
+ * Model: Khronos sample "DamagedHelmet" (CC BY 4.0), served from /models/.
+ * The sci-fi engineer helmet reads "systems & technology" — on-brand for the site.
  */
 
 export default function Scroll3DProductScene() {
@@ -59,7 +60,7 @@ export default function Scroll3DProductScene() {
     // ---------- load GLTF product ----------
     const loader = new GLTFLoader();
     loader.load(
-      "/models/water-bottle.glb",
+      "/models/helmet.glb",
       (gltf) => {
         const model = gltf.scene;
         // normalize scale + center
