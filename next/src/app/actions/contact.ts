@@ -48,14 +48,14 @@ const RECIPIENT_EMAIL = process.env.CONTACT_RECIPIENT_EMAIL || CONTACT_EMAIL;
 
 /**
  * Email provider: Resend when RESEND_API_KEY is set (sends from the verified
- * thecreativetechnician.online domain), otherwise Brevo (which can only send
+ * mail.thecreativetechnician.online subdomain), otherwise Brevo (which can only send
  * from the Gmail address verified on that account).
  */
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const BREVO_API_KEY = process.env.BREVO_API_KEY;
 const SENDER_EMAIL =
   process.env.CONTACT_SENDER_EMAIL ||
-  (RESEND_API_KEY ? "hello@thecreativetechnician.online" : "thecreativetechshop@gmail.com");
+  (RESEND_API_KEY ? "hello@mail.thecreativetechnician.online" : "thecreativetechshop@gmail.com");
 
 const PHONE_PATTERN = /^[+()\-.\s\d]{7,25}$/;
 
