@@ -2,8 +2,11 @@
  * Service offers and lead-capture options.
  *
  * This file is the single place to edit prices, packages and the choices shown
- * in the contact form. Offer ids are also the values the form submits, so keep
- * them stable once leads start coming in.
+ * in the contact form. Prices are set just under Jamaican market rates as
+ * researched in October 2026 (local web-design agencies list J$60k–250k for a
+ * small-business site; corporate AI training runs ~US$2,500+/day globally).
+ * Offer ids are also the values the form submits, so keep them stable once
+ * leads start coming in.
  */
 
 export interface Offer {
@@ -13,7 +16,12 @@ export interface Offer {
   audience: string;
   includes: string[];
   timeline: string;
+  /** Display price in Jamaican dollars. */
   price: string;
+  /** Approximate USD equivalent shown under the price (at ~J$158 = US$1). */
+  priceUsd: string;
+  /** Numeric JMD amount, used for structured data. */
+  priceValue: number;
   priceNote: string;
   cta: string;
 }
@@ -31,7 +39,9 @@ export const offers: Offer[] = [
       "Handover session so you can update it",
     ],
     timeline: "2–3 weeks",
-    price: "US$750",
+    price: "J$75,000",
+    priceUsd: "≈ US$475",
+    priceValue: 75000,
     priceNote: "one-time",
     cta: "Start a website",
   },
@@ -47,7 +57,9 @@ export const offers: Offer[] = [
       "Error alerts, docs and a 30-day tune-up",
     ],
     timeline: "1–3 weeks per workflow",
-    price: "US$500",
+    price: "J$45,000",
+    priceUsd: "≈ US$285",
+    priceValue: 45000,
     priceNote: "per workflow",
     cta: "Automate a process",
   },
@@ -63,7 +75,9 @@ export const offers: Offer[] = [
       "As delivered twice for Jamaica Public Service",
     ],
     timeline: "Half-day or full-day",
-    price: "US$1,200",
+    price: "J$175,000",
+    priceUsd: "≈ US$1,100",
+    priceValue: 175000,
     priceNote: "per half-day session",
     cta: "Book a workshop",
   },
@@ -79,7 +93,9 @@ export const offers: Offer[] = [
       "Monthly plain-English health report",
     ],
     timeline: "Monthly, cancel anytime",
-    price: "US$300",
+    price: "J$40,000",
+    priceUsd: "≈ US$255",
+    priceValue: 40000,
     priceNote: "per month",
     cta: "Discuss support",
   },
@@ -93,10 +109,10 @@ export const serviceOptions = [
 ];
 
 export const budgetOptions = [
-  { id: "under-500", label: "Under US$500" },
-  { id: "500-1500", label: "US$500 – 1,500" },
-  { id: "1500-5000", label: "US$1,500 – 5,000" },
-  { id: "5000-plus", label: "US$5,000+" },
+  { id: "under-50k", label: "Under J$50,000" },
+  { id: "50k-150k", label: "J$50,000 – 150,000" },
+  { id: "150k-500k", label: "J$150,000 – 500,000" },
+  { id: "500k-plus", label: "J$500,000+" },
   { id: "unsure", label: "Not sure yet" },
 ];
 

@@ -57,8 +57,8 @@ const structuredData = {
           itemOffered: { "@type": "Service", name: offer.label, description: offer.title },
           priceSpecification: {
             "@type": "PriceSpecification",
-            minPrice: Number(offer.price.replace(/[^0-9.]/g, "")),
-            priceCurrency: "USD",
+            minPrice: offer.priceValue,
+            priceCurrency: "JMD",
           },
         })),
       },

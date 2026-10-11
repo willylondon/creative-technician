@@ -45,7 +45,8 @@ const RATE_LIMIT = 3;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 
 const RECIPIENT_EMAIL = process.env.CONTACT_RECIPIENT_EMAIL || CONTACT_EMAIL;
-const SENDER_EMAIL = process.env.CONTACT_SENDER_EMAIL || RECIPIENT_EMAIL;
+// Brevo only sends from verified senders; this is the one verified on the account.
+const SENDER_EMAIL = process.env.CONTACT_SENDER_EMAIL || "thecreativetechshop@gmail.com";
 
 const PHONE_PATTERN = /^[+()\-.\s\d]{7,25}$/;
 

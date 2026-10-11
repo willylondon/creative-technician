@@ -28,7 +28,7 @@ export default function ServicesSection() {
               <div className="offer-price">
                 <small>Starting at</small>
                 <strong>{offer.price}</strong>
-                <span>{offer.priceNote}</span>
+                <span>{offer.priceNote} · {offer.priceUsd}</span>
               </div>
               <a className="offer-cta data-hover" href="#contact" data-service={offer.id}>
                 {offer.cta} <ArrowDownRight aria-hidden="true" />
@@ -38,7 +38,7 @@ export default function ServicesSection() {
         </div>
 
         <p className="offer-footnote">
-          Prices in USD. Final quotes depend on scope — not sure which fits? <a href="#contact" data-service="other">Describe the problem</a> and I’ll recommend the simplest option.
+          Prices in Jamaican dollars; USD amounts are approximate. Final quotes depend on scope — not sure which fits? <a href="#contact" data-service="other">Describe the problem</a> and I’ll recommend the simplest option.
         </p>
       </div>
     </section>
