@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Scroll3DProductScene from "@/components/scroll-3d-product-scene";
 
 const chapters = [
@@ -69,9 +70,9 @@ export default function Scroll3DProductPage() {
       <section className="scroll3d-outro">
         <div className="site-container">
           <p>Model: Khronos “DamagedHelmet” (CC BY). Swap in any product GLB to make it yours.</p>
-          <a className="button button-signal" href="/">
+          <Link className="button button-signal" href="/">
             Back to the work
-          </a>
+          </Link>
         </div>
       </section>
     </main>

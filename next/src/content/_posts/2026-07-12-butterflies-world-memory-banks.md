@@ -63,9 +63,7 @@ This is the physiological fact that allows the Georgetown experiment to make sen
 
 ---
 
-<div class="pull-quote" aria-hidden="false">
-  <p>Memory may travel not as a message, but as a disturbance.</p>
-</div>
+> **Memory may travel not as a message, but as a disturbance.**
 
 ---
 

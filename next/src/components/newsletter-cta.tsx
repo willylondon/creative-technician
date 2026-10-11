@@ -6,6 +6,7 @@ import { Mail, Sparkles, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { subscribeToNewsletter } from "@/app/actions/brevo";
+import { trackEvent } from "@/lib/track";
 
 interface NewsletterCTAProps {
   className?: string;
@@ -33,6 +34,7 @@ export default function NewsletterCTA({
       setMessage(result.message);
 
       if (result.success) {
+        trackEvent("sign_up", { method: "newsletter", location: "inline" });
         setEmail("");
       }
     } catch {
@@ -44,7 +46,7 @@ export default function NewsletterCTA({
   return (
     <aside
       aria-label="Newsletter Subscription"
-      className={`relative my-10 overflow-hidden rounded-2xl border border-[rgba(234,240,235,0.16)] bg-gradient-to-b from-[#0e1513] to-[#0a0f0e] p-6 sm:p-8 shadow-xl ${className}`}
+      className={`relative my-12 overflow-hidden border border-[rgba(234,240,235,0.16)] border-l-2 border-l-[#72e8ef] bg-[#0e1513] p-6 sm:p-8 ${className}`}
     >
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         <div className="max-w-xl space-y-2">
@@ -62,7 +64,7 @@ export default function NewsletterCTA({
 
         <div className="w-full md:max-w-md">
           {status === "success" ? (
-            <div className="flex items-center gap-3 rounded-xl border border-[#075431] bg-[#075431]/20 p-4 text-sm text-[#3cdf8f]">
+            <div className="flex items-center gap-3 border border-[#075431] bg-[#075431]/20 p-4 text-sm text-[#3cdf8f]">
               <CheckCircle size={20} className="shrink-0" aria-hidden="true" />
               <div>
                 <p className="font-semibold">{message}</p>

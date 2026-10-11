@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import { Bricolage_Grotesque, Manrope, IBM_Plex_Mono } from "next/font/google";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { offers, CONTACT_EMAIL, WHATSAPP_NUMBER } from "@/lib/offers";
 import "./globals.css";
 
 const displayFont = Bricolage_Grotesque({
@@ -23,6 +24,70 @@ const monoFont = IBM_Plex_Mono({
   variable: "--font-mono",
   display: "swap",
 });
+
+const SAME_AS = [
+  "https://github.com/willylondon",
+  "https://www.tiktok.com/@willylondon",
+  "https://www.instagram.com/willylondon/",
+  "https://x.com/willylondon",
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": `${SITE_URL}/#business`,
+      name: SITE_NAME,
+      description:
+        "Websites, n8n and AI automation, team AI workshops and IT support for businesses and organisations in Jamaica.",
+      url: SITE_URL,
+      email: CONTACT_EMAIL,
+      telephone: `+${WHATSAPP_NUMBER}`,
+      image: `${SITE_URL}/assets/images/willard-wells-hero.webp`,
+      areaServed: "Jamaica",
+      address: { "@type": "PostalAddress", addressLocality: "Kingston", addressCountry: "JM" },
+      founder: { "@id": `${SITE_URL}/#person` },
+      sameAs: SAME_AS,
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Services",
+        itemListElement: offers.map((offer) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: offer.label, description: offer.title },
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            minPrice: offer.priceValue,
+            priceCurrency: "JMD",
+          },
+        })),
+      },
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: "Willard Wells",
+      alternateName: "Willy London",
+      jobTitle: "IT Support Specialist & Automation Builder",
+      url: SITE_URL,
+      image: `${SITE_URL}/assets/images/willy-london-avatar.webp`,
+      worksFor: { "@id": `${SITE_URL}/#business` },
+      address: { "@type": "PostalAddress", addressLocality: "Kingston", addressCountry: "JM" },
+      knowsAbout: [
+        "IT support",
+        "Google Workspace administration",
+        "Networking",
+        "n8n automation",
+        "AI tools",
+        "Next.js",
+        "Web development",
+        "Corporate AI training",
+      ],
+      alumniOf: ["Vantage Point"],
+      sameAs: SAME_AS,
+    },
+  ],
+};
 
 export const viewport: Viewport = {
   themeColor: "#050807",
@@ -86,74 +151,10 @@ export default function RootLayout({
           data-key="zCLC+rjJQ9XshNm2L5qAkQ"
           async
         />
-        {/* Schema.org LocalBusiness */}
+        {/* Schema.org: one business + one person, linked, with the service catalogue */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: SITE_NAME,
-              description:
-                "IT infrastructure expert and digital growth coach specialising in automation workflows, website development, and content systems for creative professionals.",
-              url: SITE_URL,
-              telephone: "+1-876-861-7153",
-              email: "willardwells@gmail.com",
-              areaServed: "Jamaica",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Kingston",
-                addressCountry: "JM",
-              },
-              image:
-                `${SITE_URL}/assets/images/photo-from-willy-london.webp`,
-              priceRange: "$$$",
-              knowsLanguage: ["en"],
-              sameAs: [
-                "https://www.tiktok.com/@willylondon",
-                "https://www.instagram.com/willylondon/",
-                "https://x.com/willylondon",
-              ],
-            }),
-          }}
-        />
-        {/* Schema.org Person */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": ["Person", "ProfessionalService"],
-              name: "Willard Wells",
-              alternateName: "Willy London",
-              jobTitle: "IT Automation Consultant & Creative Technician",
-              url: SITE_URL,
-              image:
-                `${SITE_URL}/assets/images/photo-from-willy-london.webp`,
-              description:
-                "Kingston-based IT support specialist and digital solutions builder with 20+ years of experience in systems, networking, AI automation and web delivery.",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Kingston",
-                addressCountry: "JM",
-              },
-              sameAs: [
-                "https://tiktok.com/@willylondon",
-                "https://instagram.com/willylondon",
-                "https://x.com/willylondon",
-              ],
-              knowsAbout: [
-                "IT Infrastructure",
-                "n8n Automation",
-                "Content Creation",
-                "AI Tools",
-                "Google Workspace",
-                "Jekyll",
-                "JavaScript",
-              ],
-              alumniOf: ["Vantage Point"],
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
       <body className="antialiased" suppressHydrationWarning>

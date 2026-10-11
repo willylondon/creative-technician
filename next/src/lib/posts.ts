@@ -1,16 +1,13 @@
 import fs from "fs";
 import path from "path";
 
-// Blog post sources: check both internal next/src/content/_posts and root _posts if available
+// Published posts live only in src/content/_posts. The repo-root _posts folder
+// (the old auto-blog target) and src/content/_archive are deliberately not read.
+// Keep this path static so the build doesn't trace the whole project.
+const POSTS_DIR = path.join(process.cwd(), "src", "content", "_posts");
+
 function getPostDirectories(): string[] {
-  const candidates = [
-    path.join(process.cwd(), "src", "content", "_posts"),
-    path.join(process.cwd(), "next", "src", "content", "_posts"),
-    path.join(process.cwd(), "..", "_posts"),
-    path.join(process.cwd(), "_posts"),
-  ];
-  const uniqueDirs = Array.from(new Set(candidates));
-  return uniqueDirs.filter((dir) => fs.existsSync(dir));
+  return fs.existsSync(POSTS_DIR) ? [POSTS_DIR] : [];
 }
 
 export interface Post {
@@ -21,6 +18,37 @@ export interface Post {
   excerpt?: string;
   coverImage?: string;
   categories?: string[];
+  topic: PostTopic;
+}
+
+/**
+ * "builds" = client-relevant technical write-ups; "life" = personal essays,
+ * Jamaica commentary and hiking. A post can force its topic with a
+ * `topic: builds|life` frontmatter line; otherwise categories decide.
+ */
+export type PostTopic = "builds" | "life";
+
+export const POST_TOPICS: { id: PostTopic; label: string; description: string }[] = [
+  { id: "builds", label: "Builds", description: "Automation, AI, web and IT support — how real systems were built, broken and fixed." },
+  { id: "life", label: "Life", description: "Jamaica, hiking, basketball and personal essays." },
+];
+
+const BUILD_CATEGORIES = new Set([
+  "automation", "n8n", "ai", "it support", "troubleshooting", "blogging", "instagram",
+  "linkedin", "email", "web", "workshops", "teaching", "technology", "tech", "seo",
+]);
+
+// Older posts without categories that are still technical build stories.
+const BUILD_SLUGS = new Set([
+  "automated-seo-blog-engine-n8n-what-broke",
+  "what-we-actually-fixed-in-our-blog-automation-stack-today",
+  "when-automation-breaks-the-real-work-begins",
+]);
+
+function resolveTopic(slug: string, categories: string[], override?: string): PostTopic {
+  if (override === "builds" || override === "life") return override;
+  if (BUILD_SLUGS.has(slug)) return "builds";
+  return categories.some((c) => BUILD_CATEGORIES.has(c.toLowerCase())) ? "builds" : "life";
 }
 
 const EXCERPT_LENGTH = 155;
@@ -135,6 +163,7 @@ export function getAllPosts(): Post[] {
         excerpt: metadata.description || buildExcerpt(cleanedContent),
         coverImage,
         categories,
+        topic: resolveTopic(slug, categories, metadata.topic),
       };
     })
     .sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
@@ -169,8 +198,10 @@ export function getReadingTime(content: string): number {
 
 /** Posts sharing the most categories with the given post, newest first. */
 export function getRelatedPosts(slug: string, limit = 3): Post[] {
-  const posts = getAllPosts();
-  const current = posts.find((p) => p.slug === slug);
+  const all = getAllPosts();
+  const current = all.find((p) => p.slug === slug);
+  // Stay within the same topic, so a build story never suggests a personal essay.
+  const posts = current ? all.filter((p) => p.topic === current.topic) : all;
   if (!current?.categories?.length) {
     return posts.filter((p) => p.slug !== slug).slice(0, limit);
   }
@@ -197,4 +228,21 @@ export function getRelatedPosts(slug: string, limit = 3): Post[] {
 export function getAllPostSlugs(): string[] {
   const posts = getAllPosts();
   return posts.map((post) => post.slug);
+}
+
+/**
+ * Formats a post's frontmatter date as written, ignoring time zones.
+ * `new Date("2026-08-22")` is midnight UTC, which renders as Aug 21 anywhere
+ * west of Greenwich — including Jamaica — so read the calendar date directly.
+ */
+export function formatPostDate(
+  date: string,
+  options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" },
+): string {
+  const match = date.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  const parsed = match
+    ? new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])))
+    : new Date(date);
+  if (Number.isNaN(parsed.getTime())) return "";
+  return parsed.toLocaleDateString("en-US", { ...options, timeZone: "UTC" });
 }

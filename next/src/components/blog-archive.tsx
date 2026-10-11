@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Post } from "@/lib/posts";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { POST_TOPICS, formatPostDate, getReadingTime, type Post, type PostTopic } from "@/lib/posts";
 import NewsletterCTA from "@/components/newsletter-cta";
 
 export const POSTS_PER_PAGE = 12;
@@ -13,94 +14,126 @@ interface BlogArchiveProps {
   posts: Post[];
   currentPage: number;
   totalPages: number;
+  /** Set on /blog/builds and /blog/life, which list every post in that topic on one page. */
+  topic?: PostTopic;
 }
 
 function pageHref(page: number): string {
   return page <= 1 ? "/blog" : `/blog/page/${page}`;
 }
 
-export default function BlogArchive({ posts, currentPage, totalPages }: BlogArchiveProps) {
+const tabs = [
+  { href: "/blog", label: "All notes", id: undefined },
+  ...POST_TOPICS.map((t) => ({ href: `/blog/${t.id}`, label: t.label, id: t.id })),
+];
+
+function topicLabel(topic: PostTopic): string {
+  return POST_TOPICS.find((t) => t.id === topic)?.label ?? topic;
+}
+
+function PostCard({ post, featured = false }: { post: Post; featured?: boolean }) {
+  return (
+    <article className={`journal-card${featured ? " journal-card-featured" : ""}`}>
+      <Link href={`/blog/${post.slug}`} className="journal-card-link data-hover">
+        <div className="journal-card-media">
+          {post.coverImage ? (
+            <Image
+              src={post.coverImage}
+              alt=""
+              fill
+              sizes={featured ? "(max-width: 900px) 94vw, 720px" : "(max-width: 760px) 94vw, (max-width: 1100px) 47vw, 400px"}
+              priority={featured}
+            />
+          ) : (
+            <span className="journal-card-placeholder" aria-hidden="true">{topicLabel(post.topic)}</span>
+          )}
+        </div>
+        <div className="journal-card-copy">
+          <p className="journal-card-meta">
+            <span>{topicLabel(post.topic)}</span>
+            <time dateTime={post.date.slice(0, 10)}>{formatPostDate(post.date, { year: "numeric", month: "short", day: "numeric" })}</time>
+            <span>{getReadingTime(post.content)} min</span>
+          </p>
+          <h2>{post.title}</h2>
+          {post.excerpt && <p className="journal-card-excerpt">{post.excerpt}</p>}
+          <span className="journal-card-more">Read note <ArrowUpRight aria-hidden="true" /></span>
+        </div>
+      </Link>
+    </article>
+  );
+}
+
+export default function BlogArchive({ posts, currentPage, totalPages, topic }: BlogArchiveProps) {
   const start = (currentPage - 1) * POSTS_PER_PAGE;
-  const visiblePosts = posts.slice(start, start + POSTS_PER_PAGE);
+  const visiblePosts = topic ? posts : posts.slice(start, start + POSTS_PER_PAGE);
+  const activeTopic = POST_TOPICS.find((t) => t.id === topic);
+  // Lead with a featured note on the first page of each listing.
+  const showFeatured = currentPage === 1 && visiblePosts.length > 2;
+  const [featured, ...rest] = showFeatured ? visiblePosts : [undefined, ...visiblePosts];
 
   return (
-    <main id="main-content" className="min-h-screen bg-background p-4 py-16 text-foreground sm:p-6 sm:py-20">
-      <div className="mx-auto max-w-4xl">
-        <header className="mb-12">
-          <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl">
-            Field Notes
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
-            20+ years of IT experience, automation stories, and hiking field
-            guides.
-          </p>
-        </header>
-
-        <div className="grid gap-12 lg:grid-cols-2">
-          {visiblePosts.map((post) => (
-            <article key={post.slug} className="group relative flex flex-col items-start bg-white/5 border border-white/5 rounded-3xl p-6 transition-all hover:bg-white/10 hover:border-white/10">
-              {post.coverImage && (
-                <div className="relative w-full aspect-[16/9] mb-6 overflow-hidden rounded-2xl bg-black shadow-lg">
-                  <Image
-                    src={post.coverImage}
-                    alt={post.title}
-                    fill
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
+    <main id="main-content" className="journal-shell">
+      <section className="journal-head">
+        <div className="site-container">
+          <div className="section-marker"><span>05</span><p>Field notes{activeTopic ? ` / ${activeTopic.label}` : ""}</p></div>
+          <div className="journal-head-grid">
+            <h1>
+              {activeTopic ? (
+                <>{activeTopic.label}<br /><span>field notes.</span></>
+              ) : (
+                <>The messy middle,<br /><span>documented.</span></>
               )}
-
-              <time className="relative z-10 mb-3 flex items-center text-sm text-cyan-400 font-mono tracking-widest uppercase">
-                {new Date(post.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-              <h2 className="text-2xl font-bold font-heading mb-3 group-hover:text-white text-slate-200 transition-colors">
-                <Link href={`/blog/${post.slug}`}>
-                  <span className="absolute inset-0 z-20" />
-                  <span className="relative z-10">{post.title}</span>
-                </Link>
-              </h2>
-              <p className="relative z-10 text-sm text-muted-foreground leading-relaxed flex-grow">
-                {post.excerpt}
-              </p>
-              <div className="relative z-10 mt-4 flex items-center text-sm font-medium text-cyan-400 group-hover:text-cyan-300">
-                Read article
-                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="ml-1 h-4 w-4 stroke-current">
-                  <path d="M6.75 5.75 9.25 8l-2.5 2.25" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <NewsletterCTA />
-
-        {totalPages > 1 && (
-          <nav aria-label="Archive pages" className="mt-16 flex items-center justify-between border-t border-white/10 pt-8 font-mono text-sm uppercase tracking-widest">
-            {currentPage > 1 ? (
-              <Link rel="prev" href={pageHref(currentPage - 1)} className="text-cyan-400 hover:text-cyan-300">
-                ← Newer
+            </h1>
+            <p>
+              {activeTopic?.description ??
+                "Build stories from 20+ years in IT — what worked, what broke and how it got fixed — plus life, hiking and Jamaica."}
+            </p>
+          </div>
+          <nav aria-label="Filter notes by topic" className="journal-tabs">
+            {tabs.map((tab) => (
+              <Link
+                key={tab.href}
+                href={tab.href}
+                aria-current={tab.id === topic ? "page" : undefined}
+                className="data-hover"
+              >
+                {tab.label}
               </Link>
-            ) : (
-              <span aria-hidden="true" />
-            )}
-            <span className="text-muted-foreground">
-              Page {currentPage} of {totalPages}
-            </span>
-            {currentPage < totalPages ? (
-              <Link rel="next" href={pageHref(currentPage + 1)} className="text-cyan-400 hover:text-cyan-300">
-                Older →
-              </Link>
-            ) : (
-              <span aria-hidden="true" />
-            )}
+            ))}
           </nav>
-        )}
-      </div>
+        </div>
+      </section>
+
+      <section className="journal-list">
+        <div className="site-container">
+          {featured && <PostCard post={featured} featured />}
+          <div className="journal-grid">
+            {rest.map((post) => post && <PostCard key={post.slug} post={post} />)}
+          </div>
+
+          {!topic && totalPages > 1 && (
+            <nav aria-label="Archive pages" className="journal-pages">
+              {currentPage > 1 ? (
+                <Link rel="prev" href={pageHref(currentPage - 1)} className="text-link data-hover">
+                  <ArrowLeft aria-hidden="true" /> Newer
+                </Link>
+              ) : (
+                <span aria-hidden="true" />
+              )}
+              <span>Page {currentPage} of {totalPages}</span>
+              {currentPage < totalPages ? (
+                <Link rel="next" href={pageHref(currentPage + 1)} className="text-link data-hover">
+                  Older <ArrowRight aria-hidden="true" />
+                </Link>
+              ) : (
+                <span aria-hidden="true" />
+              )}
+            </nav>
+          )}
+
+          <NewsletterCTA />
+        </div>
+      </section>
     </main>
   );
 }

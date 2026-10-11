@@ -37,11 +37,9 @@ My workflow kept creating folders instead of files. I'd ask for `_posts/my-file.
 
 I spent an hour fighting a bug where n8n was creating folders named `==_posts` in my repository. It turned out I had a typo in my n8n Expression. I wrote:
 
-{% raw %}
 ```liquid
 =={{ $json.filePath }}
 ```
-{% endraw %}
 
 That extra equals sign was treated as text, so n8n literally sent a file path starting with equals signs to GitHub. Always check your raw expressions.
 
@@ -53,7 +51,6 @@ When testing, I kept getting a `422 Unprocessable Entity` error saying "SHA wasn
 
 Getting the file into GitHub was step one. Step two was making it show up. My site is static HTML and CSS, but Jekyll uses Liquid tags to make it dynamic. I added this loop to my homepage to fetch the data automatically:
 
-{% raw %}
 ```liquid
 {% for post in site.posts limit:3 %}
   <div class="card">
@@ -62,7 +59,6 @@ Getting the file into GitHub was step one. Step two was making it show up. My si
   </div>
 {% endfor %}
 ```
-{% endraw %}
 
 ## Why Do This?
 

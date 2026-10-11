@@ -7,15 +7,21 @@ import {
   Check,
   Github,
   Mail,
+  CalendarDays,
   MapPin,
+  MessageCircle,
   Sparkles,
 } from "lucide-react";
-import { getAllPosts } from "@/lib/posts";
+import { formatPostDate, getAllPosts } from "@/lib/posts";
 import SiteEffects from "@/components/site-effects";
 import HeroNodeField from "@/components/hero-node-field";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import ContactForm from "@/components/contact-form";
+import ServicesSection from "@/components/services-section";
+import MobileCta from "@/components/mobile-cta";
+import TrackedLink from "@/components/tracked-link";
+import { BOOKING_URL, WHATSAPP_URL } from "@/lib/offers";
 
 const selectedPostSlugs = [
   "how-i-built-an-instagram-join-bot-with-n8n-meta-and-one-very-specific-token",
@@ -82,8 +88,8 @@ const projects = [
       "A live platform for Jamaican trails, events, galleries and stories, supported by Git-based publishing, GitHub Actions and n8n/Telegram automation.",
     image: "/assets/images/hero_image.webp",
     imageAlt: "Lifestyle Hikers at a waterfall in Jamaica",
-    href: "https://lifestylehikers.com",
-    cta: "Visit the live site",
+    href: "/work/lifestyle-hikers",
+    cta: "Read the case study",
     tags: ["Web platform", "GitHub Actions", "n8n", "Production"],
   },
   {
@@ -106,8 +112,8 @@ const projects = [
       "A one-message onboarding route connecting Instagram, Meta permissions and automated replies to remove repetitive admin from a growing outdoor community.",
     image: "/assets/images/instagram-dm-autoresponder-connected-instagram.webp",
     imageAlt: "Instagram account connected to an automated onboarding workflow",
-    href: "/blog/how-i-built-an-instagram-join-bot-with-n8n-meta-and-one-very-specific-token",
-    cta: "Read the build story",
+    href: "/work/instagram-join-bot",
+    cta: "Read the case study",
     tags: ["Meta Graph API", "Instagram", "n8n", "Community ops"],
   },
 ];
@@ -170,11 +176,11 @@ export default async function Home() {
                 <span>Coach discipline.</span>
               </h1>
               <p className="hero-lede">
-                I’m <strong>Willard Wells</strong>—a technology professional who keeps critical systems reliable, turns ambitious ideas into working products and helps people feel capable with the tools in front of them.
+                I’m <strong>Willard Wells</strong>. I build websites, automations and AI training that save Jamaican businesses and teams real hours every week — backed by 20+ years of keeping critical systems running.
               </p>
               <div className="hero-actions">
-                <a className="button button-signal data-hover" href="#work">
-                  Explore the work <ArrowDownRight aria-hidden="true" />
+                <a className="button button-signal data-hover" href="#services">
+                  Services &amp; pricing <ArrowDownRight aria-hidden="true" />
                 </a>
                 <a className="button button-wire data-hover" href="#contact">
                   Start a project <Mail aria-hidden="true" />
@@ -184,7 +190,7 @@ export default async function Home() {
 
             <div className="hero-visual" data-motion="hero-visual">
               <div className="visual-index" aria-hidden="true">
-                PORTFOLIO / {String(projects.length + clientBuilds.length).padStart(2, "0")}
+                {projects.length + clientBuilds.length} SHIPPED PROJECTS · KINGSTON, JA
               </div>
               <div className="portrait-panel">
                 <Image
@@ -239,9 +245,11 @@ export default async function Home() {
           </div>
         </section>
 
+        <ServicesSection />
+
         <section className="work-section" id="work">
           <div className="site-container" data-motion="section">
-            <div className="section-marker section-marker-dark"><span>02</span><p>Selected work</p></div>
+            <div className="section-marker section-marker-dark"><span>03</span><p>Selected work</p></div>
             <div className="work-head">
               <h2>Not concepts.<br /><span>Working proof.</span></h2>
               <p>Projects selected to show range, judgment and the ability to move from a fuzzy problem to a usable result.</p>
@@ -295,7 +303,7 @@ export default async function Home() {
 
         <section className="experience-section" id="experience" data-motion="section">
           <div className="site-container">
-            <div className="section-marker"><span>03</span><p>Experience signal</p></div>
+            <div className="section-marker"><span>04</span><p>Experience signal</p></div>
             <div className="experience-layout">
               <div className="experience-intro">
                 <h2>Built on<br /><span>showing up.</span></h2>
@@ -333,7 +341,8 @@ export default async function Home() {
               </div>
               <figcaption>
                 <strong>AI content-creation workshop · Jamaica Public Service · August 2026.</strong>{" "}
-                Hands-on session — every participant building, not just watching.
+                Hands-on session — every participant building, not just watching.{" "}
+                <Link href="/work/jps-ai-workshop" className="data-hover">Read the case study →</Link>
               </figcaption>
             </figure>
           </div>
@@ -361,28 +370,57 @@ export default async function Home() {
               <p>Need someone who can support what exists, improve what is struggling and build what comes next? I’d like to hear about it.</p>
               <p className="workshop-offer">
                 I also run <strong>hands-on AI workshops for teams</strong> — like the repeat engagements delivered for Jamaica Public Service. If your organisation wants staff who can actually use these tools,{" "}
-                <a href="mailto:willardwells@gmail.com?subject=Team%20AI%20workshop%20enquiry">get in touch about a session</a>.
+                <a href="#contact-form" data-service="workshop">get in touch about a session</a>.
               </p>
+              <ol className="next-steps" aria-label="What happens next">
+                <li><span>01</span>You send the details — takes two minutes.</li>
+                <li><span>02</span>I reply within one business day to set up a short call.</li>
+                <li><span>03</span>You get a written proposal with scope, price and dates.</li>
+              </ol>
+              <div className="contact-quick">
+                <TrackedLink
+                  className="button button-dark data-hover"
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  event="whatsapp_click"
+                  eventParams={{ location: "contact" }}
+                >
+                  WhatsApp me <MessageCircle aria-hidden="true" />
+                </TrackedLink>
+                {BOOKING_URL && (
+                  <TrackedLink
+                    className="button button-dark-wire data-hover"
+                    href={BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    event="booking_click"
+                    eventParams={{ location: "contact" }}
+                  >
+                    Book a 20-min call <CalendarDays aria-hidden="true" />
+                  </TrackedLink>
+                )}
+              </div>
               <div className="contact-links">
-                <a href="mailto:willardwells@gmail.com"><Mail aria-hidden="true" />willardwells@gmail.com</a>
+                <TrackedLink href="mailto:willardwells@gmail.com" event="email_click" eventParams={{ location: "contact" }}><Mail aria-hidden="true" />willardwells@gmail.com</TrackedLink>
                 <a href="https://github.com/willylondon" target="_blank" rel="noopener noreferrer"><Github aria-hidden="true" />github.com/willylondon</a>
                 <span><MapPin aria-hidden="true" />Kingston, Jamaica</span>
               </div>
             </div>
-            <ContactForm />
+            <div id="contact-form"><ContactForm /></div>
           </div>
         </section>
 
         {selectedPosts.length > 0 && (
           <section className="notes-section" data-motion="section">
             <div className="site-container">
-              <div className="section-marker"><span>04</span><p>Field notes</p></div>
+              <div className="section-marker"><span>05</span><p>Field notes</p></div>
               <div className="notes-head"><h2>The messy middle,<br />documented.</h2><Link href="/blog" className="text-link data-hover">Browse all notes <ArrowRight aria-hidden="true" /></Link></div>
               <div className="notes-list">
                 {selectedPosts.map((post, index) => (
                   <Link key={post.slug} href={`/blog/${post.slug}`} className="note-row data-hover">
                     <span>0{index + 1}</span>
-                    <div><p>{post.date ? new Date(post.date).toLocaleDateString("en-US", { month: "short", year: "numeric" }) : "Field note"}</p><h3>{post.title}</h3></div>
+                    <div><p>{post.date ? formatPostDate(post.date, { month: "short", year: "numeric" }) : "Field note"}</p><h3>{post.title}</h3></div>
                     <ArrowUpRight aria-hidden="true" />
                   </Link>
                 ))}
@@ -393,6 +431,7 @@ export default async function Home() {
       </div>
 
       <SiteFooter />
+      <MobileCta />
     </main>
   );
 }

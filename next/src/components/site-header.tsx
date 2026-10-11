@@ -37,10 +37,9 @@ export default function SiteHeader() {
           </Link>
 
           <nav className="desktop-nav" aria-label="Primary navigation">
-            <Link href="/#profile">Profile</Link>
+            <Link href="/#services">Services</Link>
             <Link href="/#work">Work</Link>
             <Link href="/#experience">Experience</Link>
-            <Link href="/#contact">Contact</Link>
             <Link href="/blog">Field notes</Link>
             <NewsletterDialog>
               <button type="button">Newsletter</button>
@@ -59,7 +58,7 @@ export default function SiteHeader() {
               <Menu aria-hidden="true" />
             </summary>
             <nav aria-label="Mobile navigation">
-              <Link href="/#profile">Profile</Link>
+              <Link href="/#services">Services &amp; pricing</Link>
               <Link href="/#work">Work</Link>
               <Link href="/#experience">Experience</Link>
               <Link href="/#contact">Contact</Link>

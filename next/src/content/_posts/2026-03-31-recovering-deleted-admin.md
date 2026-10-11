@@ -32,7 +32,7 @@ The screen said *"The command completed successfully!"* I breathed a sigh of rel
 
 **The Lesson:** When you open Command Prompt from the blue recovery screens, you aren't actually inside your real Windows system. You are operating inside a temporary, invisible "Ghost OS" called **Windows PE** (running on the temporary `X:` drive). Any users you create there vanish into thin air the second you restart!
 
-<img src="/assets/images/ghost_vs_real.webp" alt="Ghost OS vs Real Windows OS" style="width:100%; border-radius: 8px;" />
+![Ghost OS vs Real Windows OS](/assets/images/ghost_vs_real.webp)
 
 ### The Ultimate Solution: The 'Utilman' Hack
 To actually fix the computer, I had to trick that "Ghost OS" into leaving a backdoor open on my *real* operating system. If you ever find yourself in this situation, here is exactly how to do it.
@@ -47,7 +47,7 @@ Next, I navigated to the core system folder:
 **Step 2: Setting the Trap**
 Now for the hack. I decided to temporarily replace the "Accessibility / Ease of Access" button on the Windows lock screen with a Command Prompt.
 
-<img src="/assets/images/utilman_swap.webp" alt="Swapping utilman.exe for cmd.exe" style="width:100%; border-radius: 8px;" />
+![Swapping utilman.exe for cmd.exe](/assets/images/utilman_swap.webp)
 
 First, I renamed the original accessibility tool to back it up:
 `ren utilman.exe utilman.exe.bak`
