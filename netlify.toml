@@ -1,0 +1,6 @@
+# This site is hosted on Vercel (see next/). The Netlify site linked to this
+# repo is a leftover from the old Jekyll version and has failed every deploy
+# preview since the Jekyll files were removed. Skip all Netlify builds until
+# the Netlify site is unlinked from the repo.
+[build]
+  ignore = "exit 0"
