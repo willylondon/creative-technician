@@ -4,7 +4,6 @@ import {
   ArrowDownRight,
   ArrowRight,
   ArrowUpRight,
-  Check,
   Github,
   Mail,
   CalendarDays,
@@ -27,30 +26,6 @@ const selectedPostSlugs = [
   "how-i-built-an-instagram-join-bot-with-n8n-meta-and-one-very-specific-token",
   "how-i-built-a-headless-cms-with-google-sheets-n8n",
   "when-automation-breaks-the-real-work-begins",
-];
-
-const disciplines = [
-  {
-    number: "01",
-    label: "IT brain",
-    title: "Systems that stay dependable when real people depend on them.",
-    copy: "Campus-wide support, networking, Google Workspace administration, devices, security and calm problem-solving built across two decades.",
-    proof: "15+ years at Hillel Academy",
-  },
-  {
-    number: "02",
-    label: "Creator hands",
-    title: "Ideas turned into tools, sites and automations people can use.",
-    copy: "Next.js, TypeScript, n8n, APIs and AI models brought together around the actual business process—not technology for its own sake.",
-    proof: "From requirement to deployment",
-  },
-  {
-    number: "03",
-    label: "Coach discipline",
-    title: "Clear guidance that leaves the room more capable than before.",
-    copy: "Workshops, documentation, user support and practical feedback delivered without jargon — including repeat AI workshop engagements for Jamaica Public Service.",
-    proof: "JPS AI facilitator · 2025 & 2026",
-  },
 ];
 
 // Smaller client sites, shown after the detailed projects above. Lifestyle
@@ -123,29 +98,21 @@ const experience = [
     years: "2010—NOW",
     company: "Hillel Academy",
     role: "IT Support Specialist / Systems Support Technician",
-    summary:
-      "Campus-wide support across Google Workspace, Cisco Meraki, Windows, Chromebooks, classroom technology, access control, backups and day-to-day user guidance.",
   },
   {
     years: "2025—NOW",
     company: "Jamaica Public Service",
     role: "AI Workshop Facilitator / Digital Skills Contributor",
-    summary:
-      "Invited back for repeat engagements delivering hands-on AI content-creation training — practical guidance, live builds and specific feedback on participant video projects and LinkedIn profiles.",
   },
   {
     years: "CURRENT",
     company: "The Creative Technician",
     role: "Independent AI, Automation & Web Solutions Builder",
-    summary:
-      "Designs and deploys websites, prototypes and workflows with Next.js, TypeScript, n8n, AI APIs, GitHub and Vercel.",
   },
   {
     years: "2003—2007",
     company: "Cape Cod Workers Program",
     role: "System Administrator",
-    summary:
-      "Configured workstations, accounts, software and storage while supporting security, hardware and everyday troubleshooting.",
   },
 ];
 
@@ -168,15 +135,15 @@ export default async function Home() {
             <div className="hero-copy" data-motion="hero-copy">
               <div className="hero-kicker">
                 <span className="status-dot" />
-                <span>IT Support · AI Automation · Web Solutions</span>
+                <span>IT brain · Creator hands · Coach discipline</span>
               </div>
-              <h1 aria-label="IT brain. Creator hands. Coach discipline.">
-                <span>IT brain.</span>
-                <span className="outline-type">Creator hands.</span>
-                <span>Coach discipline.</span>
+              <h1 aria-label="Websites. Automation. AI training.">
+                <span>Websites.</span>
+                <span className="outline-type">Automation.</span>
+                <span>AI training.</span>
               </h1>
               <p className="hero-lede">
-                I’m <strong>Willard Wells</strong>. I build websites, automations and AI training that save Jamaican businesses and teams real hours every week — backed by 20+ years of keeping critical systems running.
+                Built to save Jamaican businesses and teams real hours every week. I’m <strong>Willard Wells</strong> — 20+ years keeping critical systems running, now building the tools and training that make teams faster.
               </p>
               <div className="hero-actions">
                 <a className="button button-signal data-hover" href="#services">
@@ -190,7 +157,7 @@ export default async function Home() {
 
             <div className="hero-visual" data-motion="hero-visual">
               <div className="visual-index" aria-hidden="true">
-                {projects.length + clientBuilds.length} SHIPPED PROJECTS · KINGSTON, JA
+                {projects.length + clientBuilds.length} SHIPPED PROJECTS
               </div>
               <div className="portrait-panel">
                 <Image
@@ -222,34 +189,11 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="profile-section" id="profile" data-motion="section">
-          <div className="site-container">
-            <div className="section-marker"><span>01</span><p>Operating profile</p></div>
-            <div className="profile-head">
-              <h2>One technician.<br />Three useful modes.</h2>
-              <p>
-                The value is in the overlap: support experience keeps the work grounded, creative instinct makes it feel human, and disciplined delivery gets it across the line.
-              </p>
-            </div>
-            <div className="discipline-grid">
-              {disciplines.map((discipline) => (
-                <article className="discipline-card" key={discipline.number}>
-                  <div className="discipline-top"><span>{discipline.number}</span><ArrowUpRight aria-hidden="true" /></div>
-                  <p className="mono-label">{discipline.label}</p>
-                  <h3>{discipline.title}</h3>
-                  <p>{discipline.copy}</p>
-                  <strong><Check aria-hidden="true" />{discipline.proof}</strong>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <ServicesSection />
 
         <section className="work-section" id="work">
           <div className="site-container" data-motion="section">
-            <div className="section-marker section-marker-dark"><span>03</span><p>Selected work</p></div>
+            <div className="section-marker section-marker-dark"><span>02</span><p>Selected work</p></div>
             <div className="work-head">
               <h2>Not concepts.<br /><span>Working proof.</span></h2>
               <p>Projects selected to show range, judgment and the ability to move from a fuzzy problem to a usable result.</p>
@@ -301,9 +245,23 @@ export default async function Home() {
           </div>
         </section>
 
+        <section className="endorsement-section" data-motion="section">
+          <div className="site-container endorsement-grid">
+            <div className="endorsement-title"><Sparkles aria-hidden="true" /><p>Signals from collaborators</p></div>
+            <figure>
+              <blockquote>“He wasn’t just a developer; he was a true creative partner.”</blockquote>
+              <figcaption>Lifestyle Hikers <span>Outdoor community</span></figcaption>
+            </figure>
+            <figure>
+              <blockquote>“One person doing the work of an entire agency.”</blockquote>
+              <figcaption>Master Bryan Kukibo <span>Martial arts educator</span></figcaption>
+            </figure>
+          </div>
+        </section>
+
         <section className="experience-section" id="experience" data-motion="section">
           <div className="site-container">
-            <div className="section-marker"><span>04</span><p>Experience signal</p></div>
+            <div className="section-marker"><span>03</span><p>Experience</p></div>
             <div className="experience-layout">
               <div className="experience-intro">
                 <h2>Built on<br /><span>showing up.</span></h2>
@@ -315,7 +273,7 @@ export default async function Home() {
                 {experience.map((item) => (
                   <article key={`${item.company}-${item.years}`}>
                     <time>{item.years}</time>
-                    <div><p>{item.company}</p><h3>{item.role}</h3><span>{item.summary}</span></div>
+                    <div><p>{item.company}</p><h3>{item.role}</h3></div>
                   </article>
                 ))}
               </div>
@@ -344,20 +302,6 @@ export default async function Home() {
                 Hands-on session — every participant building, not just watching.{" "}
                 <Link href="/work/jps-ai-workshop" className="data-hover">Read the case study →</Link>
               </figcaption>
-            </figure>
-          </div>
-        </section>
-
-        <section className="endorsement-section" data-motion="section">
-          <div className="site-container endorsement-grid">
-            <div className="endorsement-title"><Sparkles aria-hidden="true" /><p>Signals from collaborators</p></div>
-            <figure>
-              <blockquote>“He wasn’t just a developer; he was a true creative partner.”</blockquote>
-              <figcaption>Lifestyle Hikers <span>Outdoor community</span></figcaption>
-            </figure>
-            <figure>
-              <blockquote>“One person doing the work of an entire agency.”</blockquote>
-              <figcaption>Master Bryan Kukibo <span>Martial arts educator</span></figcaption>
             </figure>
           </div>
         </section>
@@ -414,7 +358,7 @@ export default async function Home() {
         {selectedPosts.length > 0 && (
           <section className="notes-section" data-motion="section">
             <div className="site-container">
-              <div className="section-marker"><span>05</span><p>Field notes</p></div>
+              <div className="section-marker"><span>04</span><p>Field notes</p></div>
               <div className="notes-head"><h2>The messy middle,<br />documented.</h2><Link href="/blog" className="text-link data-hover">Browse all notes <ArrowRight aria-hidden="true" /></Link></div>
               <div className="notes-list">
                 {selectedPosts.map((post, index) => (

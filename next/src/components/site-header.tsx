@@ -28,7 +28,7 @@ export default function SiteHeader() {
 
       <header className="site-header">
         <div className="site-container header-inner">
-          <Link href="/#top" className="brand data-hover" aria-label="The Creative Technician, home">
+          <Link href="/#top" className="brand data-hover">
             <span className="brand-symbol" aria-hidden="true"><i />CT</span>
             <span className="brand-copy">
               <strong>The Creative Technician</strong>

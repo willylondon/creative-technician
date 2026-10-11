@@ -5,7 +5,7 @@ export default function ServicesSection() {
   return (
     <section className="services-section" id="services" data-motion="section">
       <div className="site-container">
-        <div className="section-marker"><span>02</span><p>Services &amp; pricing</p></div>
+        <div className="section-marker"><span>01</span><p>Services &amp; pricing</p></div>
         <div className="profile-head">
           <h2>Ways to<br /><span className="services-accent">work together.</span></h2>
           <p>
@@ -13,7 +13,8 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        <div className="offer-grid">
+        <p className="offer-swipe-hint" aria-hidden="true">Swipe to compare →</p>
+        <div className="offer-grid" tabIndex={0} role="region" aria-label="Service packages">
           {offers.map((offer, index) => (
             <article className="offer-card" key={offer.id}>
               <div className="discipline-top"><span>{String(index + 1).padStart(2, "0")}</span><span>{offer.timeline}</span></div>
