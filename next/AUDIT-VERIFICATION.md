@@ -17,18 +17,21 @@ npm run test:smoke
 
 `test:smoke` starts the built app on localhost and checks seven pages, response headers, Open Graph/canonical URLs, server-rendered analytics exclusion, optional form fields, confirmed phone, offer schema, the new case-study route, sitemap and 404 status. It is an HTTP check, not a browser interaction or delivery test.
 
-## Browser checks before promotion
+## Browser verification on the PR preview
 
-The editing environment could not launch a browser process or expose its localhost server to the available cloud browser. Therefore these interaction checks remain unverified:
+The local process sandbox could not launch Chromium or expose localhost to the cloud browser. After GitHub created the normal Vercel preview, cloud Chromium could test application commit `dbabd05e41d514bff40ddc193ba65f83a82575e7` on October 11, 2026.
 
-- Fresh visitor: no Google, Ahrefs or Vercel analytics requests before acceptance; rejection persists through navigation.
-- Cookie settings: accept, reopen, close, reject after acceptance, reload, and cross-tab revocation. Known first-party Google analytics cookies should be removed on rejection.
-- Storage-disabled browser: consent remains fail-closed. A temporary session-storage guard or `analytics=off` URL fallback prevents an old acceptance from reviving after a failed rejection save.
-- Short-height viewport (393 × 252 CSS pixels): open menu, scroll to the final item, select a link, reopen, dismiss with Escape and verify focus returns to the disclosure control.
-- Enquiry: required fields remain required, budget/timeline can stay empty, workshop CTA preselects the service, and existing success/error/retry behavior is preserved. Use isolated/mock delivery for browser tests.
-- New package details: expand/collapse each scope disclosure, compare mobile cards, and check keyboard focus and text wrapping.
+Verified through the rendered UI and DOM:
 
-No mobile Lighthouse score, Core Web Vitals measurement, real-device result, live form submission or newsletter-delivery result is claimed.
+- No Google, Ahrefs or Vercel analytics script elements on a fresh visit or after rejection. All three appear only after **Allow analytics**. Reopening, closing and changing the settings works.
+- Rejecting after acceptance reloads the page with those scripts absent. Revocation in a second tab also reloads the first tab with no analytics script elements.
+- At 300% zoom, the viewport is 393 × 252 CSS pixels. The menu is scrollable (`scrollHeight` 338, `clientHeight` 166); its bottom remains within the viewport, and scrolling reaches Download résumé. Escape closes it and returns focus to the disclosure. Reopening and selecting Field notes works and closes the menu.
+- Workshop CTA preselects the workshop. Budget and timeline are labeled optional and neither has the native required attribute. No enquiry was submitted.
+- Automation, workshop and support scope disclosures expand to the approved limits and exclusions.
+- Builds metadata, one Privacy Policy H1, and the new AI Reporting Engine case study render correctly. Its evidence is explicitly architectural rather than a measured result.
+- Newsletter dialog focuses the email field and Escape closes it with focus restored. No subscription was submitted.
+
+Limits: this verifies rendered script gating, not a complete third-party network/cookie audit. Storage-denial, cookie-removal and failure-path behavior are covered by isolated automated tests; real-device/touch behavior and deferred-script loading races were not exhaustively tested. No mobile Lighthouse score, Core Web Vitals measurement or live email-delivery result is claimed.
 
 ## Hardening boundaries
 
