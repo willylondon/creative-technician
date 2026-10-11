@@ -7,11 +7,33 @@ import SiteFooter from "@/components/site-footer";
 import BlogArchive from "@/components/blog-archive";
 
 const topic = POST_TOPICS.find((t) => t.id === "life")!;
+const title = `Life — Field Notes | ${SITE_NAME}`;
+const previewImage = {
+  url: "/assets/images/hero_image.webp",
+  width: 1200,
+  height: 627,
+  alt: "A Lifestyle Hikers member at a waterfall in Jamaica",
+};
 
 export const metadata: Metadata = {
-  title: `Life — Field Notes | ${SITE_NAME}`,
+  title,
   description: topic.description,
   alternates: { canonical: "/blog/life" },
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    title,
+    description: topic.description,
+    url: "/blog/life",
+    images: [previewImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@willylondon",
+    title,
+    description: topic.description,
+    images: [previewImage],
+  },
 };
 
 export default function LifePage() {

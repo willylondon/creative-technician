@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
-import { Analytics } from "@vercel/analytics/react";
+import { AnalyticsConsentControls } from "@/components/analytics-consent";
 import { Bricolage_Grotesque, Manrope, IBM_Plex_Mono } from "next/font/google";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { offers, CONTACT_EMAIL, WHATSAPP_NUMBER } from "@/lib/offers";
@@ -153,27 +152,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased" suppressHydrationWarning>
         {children}
-        <Analytics />
-        {/* Analytics load after the page is idle so they never delay first paint.
-            The tiny inline gtag stub runs first, so conversion events fired
-            before gtag.js arrives are queued in dataLayer, not lost. */}
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-R13SZWDJ3S');
-          `}
-        </Script>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-R13SZWDJ3S"
-          strategy="lazyOnload"
-        />
-        <Script
-          src="https://analytics.ahrefs.com/analytics.js"
-          data-key="zCLC+rjJQ9XshNm2L5qAkQ"
-          strategy="lazyOnload"
-        />
+        <AnalyticsConsentControls />
       </body>
     </html>
   );

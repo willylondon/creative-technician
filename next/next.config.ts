@@ -17,6 +17,21 @@ const archivedPostRedirects = [
 }));
 
 const nextConfig: NextConfig = {
+  poweredByHeader: false,
+  async headers() {
+    return [{
+      source: "/:path*",
+      headers: [
+        { key: "X-Content-Type-Options", value: "nosniff" },
+        { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        { key: "X-Frame-Options", value: "SAMEORIGIN" },
+        // Baseline restrictions compatible with static rendering, analytics,
+        // external images and the existing admin page. A strict script policy
+        // needs a separate nonce/hash rollout and browser compatibility checks.
+        { key: "Content-Security-Policy", value: "object-src 'none'; base-uri 'self'; frame-ancestors 'self'" },
+      ],
+    }];
+  },
   images: {
     remotePatterns: [
       {

@@ -122,7 +122,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               </figure>
             ))}
 
-            <div className="section-marker"><span>03</span><p>Results</p></div>
+            <div className="section-marker"><span>03</span><p>{study.resultsHeading ?? "Results"}</p></div>
             <ul className="case-results">
               {study.results.map((result) => <li key={result}><Check aria-hidden="true" />{result}</li>)}
             </ul>

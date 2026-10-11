@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Mail, Menu } from "lucide-react";
+import { Mail, Menu, X } from "lucide-react";
 import { NewsletterDialog } from "@/components/newsletter-dialog";
 
 /**
@@ -54,10 +54,11 @@ export default function SiteHeader() {
             <summary
               aria-label={menuOpen ? "Close navigation" : "Open navigation"}
               aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
             >
-              <Menu aria-hidden="true" />
+              {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
             </summary>
-            <nav aria-label="Mobile navigation">
+            <nav id="mobile-navigation" aria-label="Mobile navigation">
               <Link href="/#services">Services &amp; pricing</Link>
               <Link href="/#work">Work</Link>
               <Link href="/#experience">Experience</Link>

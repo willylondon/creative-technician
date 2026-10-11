@@ -2,9 +2,8 @@
  * Service offers and lead-capture options.
  *
  * This file is the single place to edit prices, packages and the choices shown
- * in the contact form. Prices are set just under Jamaican market rates as
- * researched in October 2026 (local web-design agencies list J$60k–250k for a
- * small-business site; corporate AI training runs ~US$2,500+/day globally).
+ * in the contact form. Starting packages were reviewed against the Jamaican
+ * market in October 2026; final costs and delivery dates depend on the quote.
  * Offer ids are also the values the form submits, so keep them stable once
  * leads start coming in.
  */
@@ -15,6 +14,8 @@ export interface Offer {
   title: string;
   audience: string;
   includes: string[];
+  /** Full package limits and separately quoted work, shown in the scope FAQ. */
+  scopeDetails: string[];
   timeline: string;
   /** Display price in Jamaican dollars. */
   price: string;
@@ -33,10 +34,14 @@ export const offers: Offer[] = [
     title: "A fast, credible website that brings in enquiries.",
     audience: "Small businesses, professionals and personal brands.",
     includes: [
-      "Up to 5 pages, mobile-first",
-      "Contact form, WhatsApp & Google Business setup",
-      "Basic SEO, analytics and hosting setup",
-      "Handover session so you can update it",
+      "Up to 5 standard pages, mobile-first",
+      "Contact form, WhatsApp & basic SEO",
+      "2 revision rounds & 45-minute handover",
+      "14-day defect-fix period",
+    ],
+    scopeDetails: [
+      "One design direction, up to 5 standard pages, a contact form, WhatsApp links and basic SEO. Includes 2 consolidated revision rounds, a 45-minute handover and 14 days of defect fixes after delivery.",
+      "You supply the copy and branding. Domain, hosting, email, paid plugins and ongoing maintenance cost extra. E-commerce, booking systems and custom integrations are quoted separately.",
     ],
     timeline: "2–3 weeks",
     price: "J$75,000",
@@ -51,15 +56,19 @@ export const offers: Offer[] = [
     title: "Workflows that remove the repetitive admin.",
     audience: "Teams drowning in copy-paste, follow-ups and reporting.",
     includes: [
-      "Process mapping before any build",
-      "n8n workflow connecting your existing tools",
-      "AI steps where they genuinely help",
-      "Error alerts, docs and a 30-day tune-up",
+      "1 workflow connecting 2 existing apps",
+      "1 trigger and up to 5 actions",
+      "Testing, failure alerts & operating guide",
+      "1 refinement & 45-minute handover",
+    ],
+    scopeDetails: [
+      "One workflow connecting 2 existing apps through standard integrations, with 1 trigger and up to 5 actions. Includes testing, basic failure alerts, an operating guide, 1 refinement, a 45-minute handover and 14 days of defect fixes after delivery.",
+      "Software subscriptions and API usage cost extra. Complex branching, two-way sync, data migration, custom AI agents and ongoing monitoring are quoted separately.",
     ],
     timeline: "1–3 weeks per workflow",
-    price: "J$45,000",
-    priceUsd: "≈ US$285",
-    priceValue: 45000,
+    price: "J$60,000",
+    priceUsd: "≈ US$380",
+    priceValue: 60000,
     priceNote: "per workflow",
     cta: "Automate a process",
   },
@@ -69,16 +78,20 @@ export const offers: Offer[] = [
     title: "Hands-on AI training your staff will actually use.",
     audience: "Organisations that want capable staff, not just licences.",
     includes: [
-      "Tailored to your team’s real tasks",
-      "Live builds — everyone works, not watches",
-      "Prompt library and follow-up resources",
-      "As delivered twice for Jamaica Public Service",
+      "4 hours live online, including breaks",
+      "Up to 10 people and 2 team use cases",
+      "45-minute planning call & materials",
+      "45-minute follow-up within 30 days",
     ],
-    timeline: "Half-day or full-day",
+    scopeDetails: [
+      "The base workshop is live online: 4 hours including breaks, for up to 10 participants. Includes a 45-minute planning call, preparation for up to 2 team use cases, materials and a 45-minute follow-up within 30 days.",
+      "On-site delivery, travel, venue and catering are quoted separately. Larger groups, additional use cases and full-day sessions need a separate quote.",
+    ],
+    timeline: "4-hour live online session",
     price: "J$175,000",
     priceUsd: "≈ US$1,100",
     priceValue: 175000,
-    priceNote: "per half-day session",
+    priceNote: "per online half-day",
     cta: "Book a workshop",
   },
   {
@@ -87,15 +100,19 @@ export const offers: Offer[] = [
     title: "Dependable systems without a full-time IT hire.",
     audience: "Offices, schools and small teams in Kingston.",
     includes: [
-      "Google Workspace & device administration",
-      "Network, backup and security check-ups",
-      "Priority remote support hours",
-      "Monthly plain-English health report",
+      "Up to 5 users and 5 computers",
+      "4 remote support hours per month",
+      "Monthly check-in & health report included",
+      "Extra time only with your approval",
+    ],
+    scopeDetails: [
+      "Up to 5 users and 5 computers, with 4 remote support hours each month including the monthly check-in and report. Unused hours do not roll over. Support hours and response arrangements are confirmed in your written quote.",
+      "Extra time is J$7,500 per hour, billed in 30-minute increments and only after your approval. Hardware, licences, on-site visits, migrations, server administration, incident response and after-hours work are quoted separately.",
     ],
     timeline: "Monthly, cancel anytime",
-    price: "J$40,000",
-    priceUsd: "≈ US$255",
-    priceValue: 40000,
+    price: "J$25,000",
+    priceUsd: "≈ US$160",
+    priceValue: 25000,
     priceNote: "per month",
     cta: "Discuss support",
   },
@@ -128,7 +145,8 @@ export function labelFor(options: { id: string; label: string }[], id: string): 
 }
 
 /** International format, digits only, for wa.me links. */
-export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "18768617153";
+export const WHATSAPP_NUMBER = "18768617153";
+export const CONTACT_PHONE_DISPLAY = "+1 876 861 7153";
 
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   "Hi Willard, I found you through The Creative Technician and I’d like to talk about a project.",

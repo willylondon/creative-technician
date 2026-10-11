@@ -39,8 +39,24 @@ export default function ServicesSection() {
         </div>
 
         <p className="offer-footnote">
-          Prices in Jamaican dollars; USD amounts are approximate. Final quotes depend on scope — not sure which fits? <a href="#contact" data-service="other">Describe the problem</a> and I’ll recommend the simplest option.
+          Starting prices are in Jamaican dollars; USD amounts are approximate.
+          Your written quote confirms deliverables, schedule, third-party costs and
+          any applicable tax. <a href="#contact" data-service="other">Describe the problem</a> and I’ll recommend the simplest option.
         </p>
+
+        <div className="mt-10 border-t border-white/10">
+          <h3 className="font-heading pt-6 text-2xl text-[var(--paper)]">What the starting prices cover</h3>
+          {offers.map((offer) => (
+            <details key={offer.id} className="border-b border-white/10">
+              <summary className="cursor-pointer py-5 text-sm font-medium text-[var(--paper)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400">
+                {offer.label}: included scope and extras
+              </summary>
+              <ul className="max-w-3xl list-disc space-y-3 pb-6 pl-5 text-sm leading-relaxed text-[var(--paper-muted-mid)]">
+                {offer.scopeDetails.map((detail) => <li key={detail}>{detail}</li>)}
+              </ul>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
   );

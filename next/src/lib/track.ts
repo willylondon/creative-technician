@@ -1,4 +1,5 @@
 import { track } from "@vercel/analytics";
+import { analyticsAllowed } from "@/lib/analytics-consent";
 
 type EventParams = Record<string, string | number | boolean | undefined>;
 
@@ -10,10 +11,11 @@ declare global {
 
 /**
  * Sends a conversion event to both Google Analytics and Vercel Analytics.
- * Safe to call before either script has loaded; failures are swallowed so
- * tracking can never break a form or link.
+ * Only sends after explicit analytics consent; pre-consent events are discarded.
+ * Failures are swallowed so tracking can never break a form or link.
  */
 export function trackEvent(name: string, params: EventParams = {}) {
+  if (!analyticsAllowed()) return;
   try {
     window.gtag?.("event", name, params);
   } catch {

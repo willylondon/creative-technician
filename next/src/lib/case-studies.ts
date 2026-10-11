@@ -1,9 +1,9 @@
 /**
  * Case studies shown at /work/[slug].
  *
- * Every result here is taken from the matching build story on the blog — keep
- * it that way. Add measured numbers (hours saved, sign-ups, response times)
- * only when they have actually been measured.
+ * Results must be supported by the matching build story or an existing
+ * project artifact. Label architecture-only evidence clearly. Add measured
+ * numbers (hours saved, sign-ups, response times) only when measured.
  */
 
 export interface CaseStudy {
@@ -19,6 +19,7 @@ export interface CaseStudy {
   gallery?: { src: string; alt: string; width: number; height: number }[];
   challenge: string[];
   approach: { title: string; copy: string }[];
+  resultsHeading?: string;
   results: string[];
   stack: string[];
   quote?: { text: string; source: string; role: string };
@@ -26,6 +27,50 @@ export interface CaseStudy {
 }
 
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: "ai-reporting-engine",
+    title: "AI Reporting Engine: from media to a report",
+    client: "Independent build",
+    type: "Automation architecture · AI reporting",
+    year: "2026",
+    service: "automation",
+    summary:
+      "A multi-route n8n workflow for extracting or transcribing content, preparing an AI prompt and routing a report to email, Telegram and Google Drive.",
+    image: {
+      src: "/assets/images/Screenshot 2026-04-30 at 11.40.41 AM.webp",
+      alt: "n8n reporting workflow showing Google Drive input, transcript and video routes, an AI agent, and email, Telegram and Drive outputs",
+      width: 800,
+      height: 418,
+    },
+    challenge: [
+      "The workflow starts with files in Google Drive. An existing transcript and a video need different preparation before either can be used to generate a report.",
+      "Those input paths need to converge on a shared prompt and report-generation stage, then branch to the destinations where the report will be used.",
+    ],
+    approach: [
+      {
+        title: "Route the source file",
+        copy: "The saved workflow shows a Google Drive trigger followed by file-type routing. The transcript branch validates, downloads and extracts text; the video branch prepares and downloads the video, then transcribes it with Whisper and formats the transcription.",
+      },
+      {
+        title: "Combine the material for the prompt",
+        copy: "Both branches feed a merge step. The workflow then fetches a skills database from Google Sheets, combines the data and prepares the AI prompt.",
+      },
+      {
+        title: "Generate and deliver the report",
+        copy: "An AI agent connected to an OpenRouter model feeds a report-generation step. The output branches are labelled Send Email, Send Telegram and Save to Drive.",
+      },
+    ],
+    resultsHeading: "Implementation evidence",
+    results: [
+      "The workflow screenshot shows separate transcript and video preparation paths leading to one reporting sequence.",
+      "Email, Telegram and Google Drive are represented as distinct output branches.",
+      "This case study documents the workflow architecture. Measured time savings, delivery success rates and production performance are not included.",
+    ],
+    stack: ["n8n", "Google Drive", "Google Sheets", "Whisper", "OpenRouter", "Gmail", "Telegram"],
+    links: [
+      { label: "View the workflow screenshot", href: "/assets/images/Screenshot%202026-04-30%20at%2011.40.41%20AM.webp" },
+    ],
+  },
   {
     slug: "jps-ai-workshop",
     title: "Hands-on AI training for Jamaica Public Service",

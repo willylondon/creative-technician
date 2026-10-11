@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CookieSettingsButton } from "@/components/analytics-consent";
 import { NewsletterDialog } from "@/components/newsletter-dialog";
 
 export default function SiteFooter() {
@@ -14,6 +15,7 @@ export default function SiteFooter() {
             <button type="button">Newsletter</button>
           </NewsletterDialog>
           <Link href="/privacy">Privacy</Link>
+          <CookieSettingsButton />
           <Link href="/terms">Terms</Link>
           <a href="mailto:willardwells@gmail.com">Email</a>
         </div>
