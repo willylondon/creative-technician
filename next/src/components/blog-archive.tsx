@@ -75,7 +75,7 @@ export default function BlogArchive({ posts, currentPage, totalPages, topic }: B
     <main id="main-content" className="journal-shell">
       <section className="journal-head">
         <div className="site-container">
-          <div className="section-marker"><span>05</span><p>Field notes{activeTopic ? ` / ${activeTopic.label}` : ""}</p></div>
+          <div className="section-marker"><span>04</span><p>Field notes{activeTopic ? ` / ${activeTopic.label}` : ""}</p></div>
           <div className="journal-head-grid">
             <h1>
               {activeTopic ? (

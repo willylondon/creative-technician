@@ -145,12 +145,6 @@ export default function RootLayout({
       className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}
     >
       <head>
-        {/* Ahrefs analytics */}
-        <script
-          src="https://analytics.ahrefs.com/analytics.js"
-          data-key="zCLC+rjJQ9XshNm2L5qAkQ"
-          async
-        />
         {/* Schema.org: one business + one person, linked, with the service catalogue */}
         <script
           type="application/ld+json"
@@ -160,11 +154,9 @@ export default function RootLayout({
       <body className="antialiased" suppressHydrationWarning>
         {children}
         <Analytics />
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-R13SZWDJ3S"
-          strategy="afterInteractive"
-        />
+        {/* Analytics load after the page is idle so they never delay first paint.
+            The tiny inline gtag stub runs first, so conversion events fired
+            before gtag.js arrives are queued in dataLayer, not lost. */}
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -173,6 +165,15 @@ export default function RootLayout({
             gtag('config', 'G-R13SZWDJ3S');
           `}
         </Script>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-R13SZWDJ3S"
+          strategy="lazyOnload"
+        />
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="zCLC+rjJQ9XshNm2L5qAkQ"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
