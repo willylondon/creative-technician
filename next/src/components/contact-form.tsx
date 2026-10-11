@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { sendContactMessage, type LeadInput } from "@/app/actions/contact";
 import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import {
@@ -205,30 +206,28 @@ export default function ContactForm() {
 
       <div className="form-row">
         <div className="form-field">
-          <label htmlFor="contact-budget">Budget</label>
+          <label htmlFor="contact-budget">Budget <span>(optional)</span></label>
           <select
             id="contact-budget"
             value={values.budget}
             onChange={(e) => update("budget", e.target.value)}
-            required
             disabled={locked}
           >
-            <option value="" disabled>Choose…</option>
+            <option value="">Choose if you know…</option>
             {budgetOptions.map((option) => (
               <option key={option.id} value={option.id}>{option.label}</option>
             ))}
           </select>
         </div>
         <div className="form-field">
-          <label htmlFor="contact-timeline">Timeline</label>
+          <label htmlFor="contact-timeline">Timeline <span>(optional)</span></label>
           <select
             id="contact-timeline"
             value={values.timeline}
             onChange={(e) => update("timeline", e.target.value)}
-            required
             disabled={locked}
           >
-            <option value="" disabled>Choose…</option>
+            <option value="">Choose if you know…</option>
             {timelineOptions.map((option) => (
               <option key={option.id} value={option.id}>{option.label}</option>
             ))}
@@ -296,7 +295,10 @@ export default function ContactForm() {
           {busy ? "Sending…" : "Send enquiry"}
         </button>
       )}
-      <p className="form-note">Reply within one business day · No obligation · Your details are never shared.</p>
+      <p className="form-note">
+        Reply within one business day · No obligation. Your enquiry is processed by
+        our email and workflow providers so we can respond. <Link href="/privacy">Privacy policy</Link>.
+      </p>
     </form>
   );
 }

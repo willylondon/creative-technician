@@ -15,6 +15,7 @@ import {
   serviceOptions,
   timelineOptions,
 } from "@/lib/offers";
+import { isLeadOption } from "@/lib/contact-validation";
 
 export interface LeadInput {
   name: string;
@@ -22,8 +23,8 @@ export interface LeadInput {
   email: string;
   phone?: string;
   service: string;
-  budget: string;
-  timeline: string;
+  budget?: string;
+  timeline?: string;
   message: string;
   /** Honeypot: real visitors never see or fill this field. */
   website?: string;
@@ -61,10 +62,6 @@ const PHONE_PATTERN = /^[+()\-.\s\d]{7,25}$/;
 
 function clip(value: string | undefined, max: number): string {
   return (value ?? "").trim().slice(0, max);
-}
-
-function isOption(options: { id: string }[], id: string): boolean {
-  return options.some((option) => option.id === id);
 }
 
 interface OutgoingEmail {
@@ -243,11 +240,14 @@ export async function sendContactMessage(input: LeadInput): Promise<ContactResul
   if (phone && !PHONE_PATTERN.test(phone)) {
     return { success: false, message: "Please check the phone / WhatsApp number." };
   }
-  if (!isOption(serviceOptions, service)) {
+  if (!isLeadOption(serviceOptions, service)) {
     return { success: false, message: "Please choose what you need help with." };
   }
-  if (!isOption(budgetOptions, budget) || !isOption(timelineOptions, timeline)) {
-    return { success: false, message: "Please choose a budget and timeline." };
+  if (!isLeadOption(budgetOptions, budget, true)) {
+    return { success: false, message: "Please choose a listed budget or leave it blank." };
+  }
+  if (!isLeadOption(timelineOptions, timeline, true)) {
+    return { success: false, message: "Please choose a listed timeline or leave it blank." };
   }
 
   const ip = await getClientIp();
@@ -269,8 +269,8 @@ export async function sendContactMessage(input: LeadInput): Promise<ContactResul
   }
 
   const serviceLabel = labelFor(serviceOptions, service);
-  const budgetLabel = labelFor(budgetOptions, budget);
-  const timelineLabel = labelFor(timelineOptions, timeline);
+  const budgetLabel = budget ? labelFor(budgetOptions, budget) : "Not provided";
+  const timelineLabel = timeline ? labelFor(timelineOptions, timeline) : "Not provided";
 
   const lead = {
     receivedAt: new Date().toISOString(),

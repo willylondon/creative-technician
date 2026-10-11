@@ -75,8 +75,8 @@ const projects = [
       "A multi-route n8n system that validates media, extracts or transcribes content, shapes AI output, then delivers the finished report to email, Telegram and Drive.",
     image: "/assets/images/Screenshot 2026-04-30 at 11.40.41 AM.webp",
     imageAlt: "Multi-stage n8n reporting workflow built by Willard Wells",
-    href: "https://www.youtube.com/@JamrockAI",
-    cta: "See the build channel",
+    href: "/work/ai-reporting-engine",
+    cta: "Read the case study",
     tags: ["n8n", "OpenRouter", "Google APIs", "Fallback routing"],
   },
   {
@@ -226,6 +226,13 @@ export default async function Home() {
                 </article>
               ))}
             </div>
+
+            <Link href="/work/jps-ai-workshop" className="featured-training data-hover">
+              <p className="mono-label">Selected training / Jamaica Public Service</p>
+              <h3>Hands-on AI training. Invited back a second year.</h3>
+              <p>AI-assisted scripting, phone-shot video and CapCut editing, delivered for JPS in 2025 and 2026. Every participant makes something during the session.</p>
+              <span className="text-link">Read the JPS case study <ArrowUpRight aria-hidden="true" /></span>
+            </Link>
 
             <div className="more-builds">
               <p className="mono-label">More client builds</p>

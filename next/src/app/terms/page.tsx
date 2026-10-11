@@ -6,17 +6,39 @@ import ReactMarkdown from "react-markdown";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import SiteEffects from "@/components/site-effects";
+import { SITE_NAME } from "@/lib/site";
+
+const title = "Terms of Service | The Creative Technician";
+const description = "Terms of Service for The Creative Technician. Terms of engagement, service agreements, payment terms, and delivery policies.";
+const previewImage = {
+  url: "/assets/images/willy-london-avatar.webp",
+  width: 637,
+  height: 637,
+  alt: "Willard Wells, The Creative Technician",
+};
 
 export const metadata: Metadata = {
-  title: "Terms of Service | The Creative Technician",
-  description:
-    "Terms of Service for The Creative Technician. Terms of engagement, service agreements, payment terms, and delivery policies.",
-  alternates: {
-    canonical: "/terms",
+  title,
+  description,
+  alternates: { canonical: "/terms" },
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    title,
+    description,
+    url: "/terms",
+    images: [previewImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@willylondon",
+    title,
+    description,
+    images: [previewImage],
   },
 };
 
-function getTermsContent(): { title: string; date: string; content: string } {
+function getTermsContent(): { date: string; content: string } {
   const possiblePaths = [
     path.join(process.cwd(), "src", "content", "terms-of-service.md"),
     path.join(process.cwd(), "next", "src", "content", "terms-of-service.md"),
@@ -34,20 +56,24 @@ function getTermsContent(): { title: string; date: string; content: string } {
 
   if (!fileContent) {
     return {
-      title: "Terms of Service",
-      date: "April 2026",
-      content: "# Terms of Service\n\nTerms of Service content is currently being updated.",
+      date: "",
+      content: "Terms of Service content is currently being updated.",
     };
   }
 
   // Strip frontmatter
   const match = fileContent.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
   const content = match ? match[2] : fileContent;
+  const date = content.match(/^\*\*Last Updated:\*\*\s*(.+)$/m)?.[1] ?? "";
+  // The page header renders these once; keep the source date authoritative.
+  const body = content
+    .replace(/^\s*# Terms of Service\s*\r?\n/, "")
+    .replace(/^\*\*Last Updated:\*\*[^\r\n]*(?:\r?\n|$)/m, "")
+    .trim();
 
   return {
-    title: "Terms of Service",
-    date: "April 5, 2026",
-    content,
+    date,
+    content: body,
   };
 }
 
@@ -74,9 +100,11 @@ export default function TermsPage() {
               <span className="inline-block px-2.5 py-1 text-xs font-mono uppercase tracking-widest text-cyan-400 bg-cyan-950/40 border border-cyan-500/30 rounded">
                 Legal & Compliance
               </span>
-              <time className="text-xs font-mono text-muted-foreground">
-                Last updated: {date}
-              </time>
+              {date && (
+                <time className="text-xs font-mono text-muted-foreground">
+                  Last updated: {date}
+                </time>
+              )}
             </div>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl font-heading leading-tight text-white">
               Terms of Service
