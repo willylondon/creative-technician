@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { subscribeToNewsletter } from "@/app/actions/brevo";
+import { trackEvent } from "@/lib/track";
 
 interface NewsletterDialogProps {
   children?: React.ReactNode;
@@ -44,6 +45,7 @@ export function NewsletterDialog({
       setMessage(result.message);
 
       if (result.success) {
+        trackEvent("sign_up", { method: "newsletter", location: "dialog" });
         setEmail("");
         setTimeout(() => {
           setOpen(false);
@@ -82,7 +84,7 @@ export function NewsletterDialog({
       <DialogContent>
         <div className="flex flex-col items-center gap-3 text-center">
           <div
-            className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-[rgba(234,240,235,0.18)] bg-[#121b18] text-[#72e8ef] shadow-inner"
+            className="flex size-12 shrink-0 items-center justify-center border border-[rgba(234,240,235,0.18)] bg-[#121b18] text-[#72e8ef] shadow-inner"
             aria-hidden="true"
           >
             <Sparkles size={22} strokeWidth={2} />
@@ -122,7 +124,7 @@ export function NewsletterDialog({
             <div
               role="status"
               aria-live="polite"
-              className={`flex items-start gap-2.5 rounded-lg border p-3 text-xs leading-relaxed ${
+              className={`flex items-start gap-2.5 border p-3 text-xs leading-relaxed ${
                 status === "success"
                   ? "border-[#075431] bg-[#075431]/20 text-[#3cdf8f]"
                   : "border-[#7e1b1b] bg-[#7e1b1b]/20 text-[#f87171]"

@@ -60,7 +60,9 @@ Include the serious reasons – Acknowledge that not having children isn’t alw
 
 ### Before You Go
 Let’s pause the jokes. Let’s recognize the real fathers—no matter how they came to be fathers, or how many there are. Father’s Day in Jamaica doesn’t have to be a punchline. It can be a tribute.
-<FAQ>
+
+### FAQ
+
 
 Q1: Why isn’t Father’s Day as big as Mother’s Day in Jamaica?
 A: Social norms lean toward celebrating mothers. Mother’s Day gets official parades, school events, and public love. Fathers get a meme or two—and then the jokes.

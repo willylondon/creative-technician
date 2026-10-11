@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Scroll3DNodeScene from "@/components/scroll-3d-node-scene";
 
 const chapters = [
@@ -69,9 +70,9 @@ export default function Scroll3DNodePage() {
       <section className="scroll3d-outro">
         <div className="site-container">
           <p>Eleven nodes, ten wires, zero stock models — all generated geometry.</p>
-          <a className="button button-signal" href="/">
+          <Link className="button button-signal" href="/">
             Back to the work
-          </a>
+          </Link>
         </div>
       </section>
     </main>

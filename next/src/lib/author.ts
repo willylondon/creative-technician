@@ -1,9 +1,10 @@
 export const siteAuthor = {
-  name: "Willy London",
-  role: "IT Consultant & Systems Architect with 20+ years of expertise.",
+  name: "Willard Wells",
+  handle: "Willy London",
+  role: "IT support specialist and builder of websites, automations and AI training — 20+ years in technology, based in Kingston, Jamaica.",
   avatar: {
-    src: "/assets/images/willy-london-avatar.jpg",
-    alt: "Willy London in a beach portrait wearing a coral cap",
-    fallback: "WL",
+    src: "/assets/images/willy-london-avatar.webp",
+    alt: "Willard Wells in a beach portrait wearing a coral cap",
+    fallback: "WW",
   },
 } as const;

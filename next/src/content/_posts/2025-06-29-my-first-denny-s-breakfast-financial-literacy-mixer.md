@@ -68,7 +68,9 @@ I left with a lesson: Community and conversation matter more than fancy plating.
 Before You Go
 Let’s carry the conversation forward—how can we bring financial literacy into classrooms where we live? Drop your ideas below, or share your own story from a community breakfast event!
 
-<FAQ>
+
+### FAQ
+
 Q: Was the event open to anyone?
 A: No only those who registertered and was attending the ISTELive25
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Scroll3DScene from "@/components/scroll-3d-scene";
 
 const chapters = [
@@ -69,9 +70,9 @@ export default function Scroll3DLabPage() {
       <section className="scroll3d-outro">
         <div className="site-container">
           <p>Built with Three.js, GSAP ScrollTrigger and zero 3D model downloads.</p>
-          <a className="button button-signal" href="/">
+          <Link className="button button-signal" href="/">
             Back to the work
-          </a>
+          </Link>
         </div>
       </section>
     </main>
