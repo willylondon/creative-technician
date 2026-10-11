@@ -45,8 +45,17 @@ const RATE_LIMIT = 3;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 
 const RECIPIENT_EMAIL = process.env.CONTACT_RECIPIENT_EMAIL || CONTACT_EMAIL;
-// Brevo only sends from verified senders; this is the one verified on the account.
-const SENDER_EMAIL = process.env.CONTACT_SENDER_EMAIL || "thecreativetechshop@gmail.com";
+
+/**
+ * Email provider: Resend when RESEND_API_KEY is set (sends from the verified
+ * thecreativetechnician.online domain), otherwise Brevo (which can only send
+ * from the Gmail address verified on that account).
+ */
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const BREVO_API_KEY = process.env.BREVO_API_KEY;
+const SENDER_EMAIL =
+  process.env.CONTACT_SENDER_EMAIL ||
+  (RESEND_API_KEY ? "hello@thecreativetechnician.online" : "thecreativetechshop@gmail.com");
 
 const PHONE_PATTERN = /^[+()\-.\s\d]{7,25}$/;
 
@@ -58,46 +67,120 @@ function isOption(options: { id: string }[], id: string): boolean {
   return options.some((option) => option.id === id);
 }
 
-async function sendBrevoEmail(apiKey: string, payload: object): Promise<boolean> {
-  const response = await fetch("https://api.brevo.com/v3/smtp/email", {
-    method: "POST",
-    headers: {
-      accept: "application/json",
-      "content-type": "application/json",
-      "api-key": apiKey,
-    },
-    body: JSON.stringify(payload),
-  });
-  if (!response.ok) {
-    const detail = await response.json().catch(() => ({}));
-    console.error("Brevo email failed", response.status, JSON.stringify(detail));
-  }
-  return response.ok;
+interface OutgoingEmail {
+  fromName: string;
+  to: { email: string; name: string };
+  replyTo: { email: string; name: string };
+  subject: string;
+  html: string;
+  /** Tag for Resend analytics (letters, numbers, - and _ only). */
+  tag: string;
 }
 
-/** Saves the lead as a Brevo contact on the leads list (standard attributes only). */
-async function saveBrevoContact(apiKey: string, email: string, name: string): Promise<boolean> {
-  const listId = Number.parseInt(process.env.BREVO_LEADS_LIST_ID ?? "", 10);
-  if (Number.isNaN(listId)) return false;
-
-  const response = await fetch("https://api.brevo.com/v3/contacts", {
-    method: "POST",
-    headers: {
-      accept: "application/json",
-      "content-type": "application/json",
-      "api-key": apiKey,
-    },
-    body: JSON.stringify({
-      email,
-      attributes: { FIRSTNAME: name.split(/\s+/)[0] },
-      listIds: [listId],
-      updateEnabled: true,
-    }),
-  });
-  if (!response.ok) {
-    console.error("Brevo lead contact failed", response.status);
+async function sendEmail(email: OutgoingEmail): Promise<boolean> {
+  if (RESEND_API_KEY) {
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${RESEND_API_KEY}`,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        from: `${email.fromName} <${SENDER_EMAIL}>`,
+        to: [email.to.email],
+        reply_to: email.replyTo.email,
+        subject: email.subject,
+        html: email.html,
+        tags: [{ name: "type", value: email.tag }],
+      }),
+    });
+    if (!response.ok) {
+      const detail = await response.json().catch(() => ({}));
+      console.error("Resend email failed", response.status, JSON.stringify(detail));
+    }
+    return response.ok;
   }
-  return response.ok;
+
+  if (BREVO_API_KEY) {
+    const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "content-type": "application/json",
+        "api-key": BREVO_API_KEY,
+      },
+      body: JSON.stringify({
+        sender: { name: email.fromName, email: SENDER_EMAIL },
+        to: [email.to],
+        replyTo: email.replyTo,
+        subject: email.subject,
+        htmlContent: email.html,
+      }),
+    });
+    if (!response.ok) {
+      const detail = await response.json().catch(() => ({}));
+      console.error("Brevo email failed", response.status, JSON.stringify(detail));
+    }
+    return response.ok;
+  }
+
+  return false;
+}
+
+/**
+ * Saves the lead as a contact: in the Resend "Website leads" segment when
+ * configured, otherwise on a Brevo leads list. Best-effort — the notification
+ * email and webhook are what count as delivery.
+ */
+async function saveLeadContact(email: string, name: string): Promise<boolean> {
+  const [firstName, ...rest] = name.split(/\s+/);
+  const segmentId = process.env.RESEND_LEADS_SEGMENT_ID;
+
+  if (RESEND_API_KEY && segmentId) {
+    const response = await fetch("https://api.resend.com/contacts", {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${RESEND_API_KEY}`,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        first_name: firstName,
+        last_name: rest.join(" ") || undefined,
+        // Leads did not opt in to marketing, so keep them out of broadcasts.
+        unsubscribed: true,
+        segments: [{ id: segmentId }],
+      }),
+    });
+    if (!response.ok) {
+      console.error("Resend lead contact failed", response.status);
+    }
+    return response.ok;
+  }
+
+  const listId = Number.parseInt(process.env.BREVO_LEADS_LIST_ID ?? "", 10);
+  if (BREVO_API_KEY && !Number.isNaN(listId)) {
+    const response = await fetch("https://api.brevo.com/v3/contacts", {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "content-type": "application/json",
+        "api-key": BREVO_API_KEY,
+      },
+      body: JSON.stringify({
+        email,
+        attributes: { FIRSTNAME: firstName },
+        listIds: [listId],
+        updateEnabled: true,
+      }),
+    });
+    if (!response.ok) {
+      console.error("Brevo lead contact failed", response.status);
+    }
+    return response.ok;
+  }
+
+  return false;
 }
 
 /** Forwards the full lead to an n8n / Zapier webhook (e.g. to append a Google Sheet row). */
@@ -175,9 +258,9 @@ export async function sendContactMessage(input: LeadInput): Promise<ContactResul
     };
   }
 
-  const apiKey = process.env.BREVO_API_KEY;
-  if (!apiKey && !process.env.LEAD_WEBHOOK_URL) {
-    console.error("Contact form has no delivery channel: set BREVO_API_KEY or LEAD_WEBHOOK_URL");
+  const canEmail = Boolean(RESEND_API_KEY || BREVO_API_KEY);
+  if (!canEmail && !process.env.LEAD_WEBHOOK_URL) {
+    console.error("Contact form has no delivery channel: set RESEND_API_KEY, BREVO_API_KEY or LEAD_WEBHOOK_URL");
     return {
       success: false,
       fallback: true,
@@ -239,24 +322,21 @@ export async function sendContactMessage(input: LeadInput): Promise<ContactResul
       <p>— Willard Wells<br/>The Creative Technician · Kingston, Jamaica</p>
     </div>`;
 
-  const tasks: Promise<boolean>[] = [postLeadWebhook(lead)];
-  if (apiKey) {
-    tasks.push(
-      sendBrevoEmail(apiKey, {
-        sender: { name: "The Creative Technician", email: SENDER_EMAIL },
-        to: [{ email: RECIPIENT_EMAIL, name: "Willard Wells" }],
-        replyTo: { email, name },
-        subject: `New lead: ${serviceLabel} — ${name}${organization ? ` (${organization})` : ""}`,
-        htmlContent: notifyHtml,
-      }),
-      saveBrevoContact(apiKey, email, name),
-    );
-  }
-
-  const [webhookResult, notifyResult] = await Promise.allSettled(tasks);
+  const [webhookResult, notifyResult] = await Promise.allSettled([
+    postLeadWebhook(lead),
+    sendEmail({
+      fromName: "The Creative Technician",
+      to: { email: RECIPIENT_EMAIL, name: "Willard Wells" },
+      replyTo: { email, name },
+      subject: `New lead: ${serviceLabel} — ${name}${organization ? ` (${organization})` : ""}`,
+      html: notifyHtml,
+      tag: "lead_notification",
+    }),
+    saveLeadContact(email, name),
+  ]);
   const delivered =
     (webhookResult.status === "fulfilled" && webhookResult.value) ||
-    (notifyResult?.status === "fulfilled" && notifyResult.value);
+    (notifyResult.status === "fulfilled" && notifyResult.value);
 
   if (!delivered) {
     return {
@@ -267,19 +347,24 @@ export async function sendContactMessage(input: LeadInput): Promise<ContactResul
   }
 
   // Only confirm to the visitor once the lead is safely captured.
-  if (apiKey) {
-    await sendBrevoEmail(apiKey, {
-      sender: { name: "Willard Wells — The Creative Technician", email: SENDER_EMAIL },
-      to: [{ email, name }],
+  let confirmed = false;
+  if (canEmail) {
+    confirmed = await sendEmail({
+      fromName: "Willard Wells — The Creative Technician",
+      to: { email, name },
       replyTo: { email: RECIPIENT_EMAIL, name: "Willard Wells" },
       subject: "Thanks — I’ve got your message",
-      htmlContent: autoReplyHtml,
-    }).catch((error) => console.error("Auto-reply threw", error));
+      html: autoReplyHtml,
+      tag: "lead_auto_reply",
+    }).catch((error) => {
+      console.error("Auto-reply threw", error);
+      return false;
+    });
   }
 
   return {
     success: true,
-    message: apiKey
+    message: confirmed
       ? "Message sent! Check your inbox for a confirmation — I’ll reply within one business day."
       : "Message sent! I’ll reply within one business day.",
   };
