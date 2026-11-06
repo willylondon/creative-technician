@@ -77,17 +77,16 @@ export function AnalyticsConsentControls() {
       {(consent === null || settingsOpen) && (
         <section
           aria-label="Cookie settings"
-          className="bottom-[max(5rem,env(safe-area-inset-bottom))] max-h-[calc(100dvh-6rem)] rounded-2xl border border-white/20 bg-[#101713] p-5 text-sm text-white shadow-2xl md:bottom-[max(1rem,env(safe-area-inset-bottom))] md:max-h-[calc(100dvh-2rem)]"
-          style={{ position: "fixed", left: "1rem", right: "1rem", maxWidth: "36rem", overflowY: "auto", zIndex: 100 }}
+          // Compact and anchored bottom-right on wider screens so it never covers
+          // the hero copy and calls to action on first load.
+          className="fixed inset-x-4 bottom-[max(5rem,env(safe-area-inset-bottom))] max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-2xl border border-white/20 bg-[#101713] p-4 text-sm text-white shadow-2xl md:left-auto md:right-4 md:bottom-[max(1rem,env(safe-area-inset-bottom))] md:w-[24rem] md:max-h-[calc(100dvh-2rem)]"
+          style={{ zIndex: 100 }}
         >
-          <h2 className="mb-2 text-lg font-semibold">Your analytics choice</h2>
+          <h2 className="mb-1.5 text-base font-semibold">Your analytics choice</h2>
           <p className="leading-relaxed text-white/80">
-            With your permission, Google Analytics, Ahrefs and Vercel Analytics help us understand visits and improve this site. Optional analytics stay off until you accept. We save your choice in this browser.
+            Google Analytics, Ahrefs and Vercel Analytics stay off unless you allow them. Your choice is saved in this browser and can be changed in Cookie settings. <Link className="underline underline-offset-4" href="/privacy">Privacy policy</Link>
           </p>
-          <p className="mt-2 text-white/80">
-            You can change your choice in Cookie settings at any time. <Link className="underline underline-offset-4" href="/privacy">Privacy policy</Link>
-          </p>
-          <div className="mt-4 flex flex-wrap gap-3">
+          <div className="mt-3 flex flex-wrap gap-3">
             <button type="button" onClick={() => choose("rejected")} className="rounded-lg border border-white/40 px-4 py-2 font-semibold hover:bg-white/10">Reject analytics</button>
             <button type="button" onClick={() => choose("accepted")} className="rounded-lg border border-white/40 px-4 py-2 font-semibold hover:bg-white/10">Allow analytics</button>
             {consent !== null && <button type="button" onClick={() => setSettingsOpen(false)} className="px-2 py-2 underline underline-offset-4">Close</button>}
