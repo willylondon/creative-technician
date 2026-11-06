@@ -22,11 +22,9 @@ import MobileCta from "@/components/mobile-cta";
 import TrackedLink from "@/components/tracked-link";
 import { BOOKING_URL, WHATSAPP_URL } from "@/lib/offers";
 
-const selectedPostSlugs = [
-  "how-i-built-an-instagram-join-bot-with-n8n-meta-and-one-very-specific-token",
-  "how-i-built-a-headless-cms-with-google-sheets-n8n",
-  "when-automation-breaks-the-real-work-begins",
-];
+// The homepage shows the newest client-relevant "builds" posts, so it always
+// matches the /blog archive instead of drifting from a hand-picked list.
+const FIELD_NOTE_COUNT = 3;
 
 // Smaller client sites, shown after the detailed projects above. Lifestyle
 // Hikers is deliberately absent: it is project 01 and was listed twice.
@@ -117,10 +115,9 @@ const experience = [
 ];
 
 export default async function Home() {
-  const allPosts = getAllPosts();
-  const selectedPosts = selectedPostSlugs
-    .map((slug) => allPosts.find((post) => post.slug === slug))
-    .filter((post): post is NonNullable<typeof post> => Boolean(post));
+  const selectedPosts = getAllPosts()
+    .filter((post) => post.topic === "builds")
+    .slice(0, FIELD_NOTE_COUNT);
 
   return (
     <main className="portfolio-shell">
@@ -162,11 +159,11 @@ export default async function Home() {
               <div className="portrait-panel">
                 <Image
                   src="/assets/images/willard-wells-hero.webp"
-                  alt="Willard Wells thoughtfully reviewing several laptops"
+                  alt="Willard Wells thoughtfully reviewing several laptops, beside the words: Competence is often measured by what remains when everyone else has stopped looking."
                   fill
                   priority
                   fetchPriority="high"
-                  sizes="(max-width: 900px) 94vw, 56vw"
+                  sizes="(max-width: 900px) 94vw, min(56vw, 690px)"
                 />
                 <div className="portrait-shade" />
               </div>
@@ -313,6 +310,23 @@ export default async function Home() {
           </div>
         </section>
 
+        {selectedPosts.length > 0 && (
+          <section className="notes-section" data-motion="section">
+            <div className="site-container">
+              <div className="section-marker"><span>04</span><p>Field notes</p></div>
+              <div className="notes-head"><h2>The messy middle,<br />documented.</h2><Link href="/blog" className="text-link data-hover">Browse all notes <ArrowRight aria-hidden="true" /></Link></div>
+              <div className="notes-list">
+                {selectedPosts.map((post, index) => (
+                  <Link key={post.slug} href={`/blog/${post.slug}`} className="note-row data-hover">
+                    <span>0{index + 1}</span>
+                    <div><p>{post.date ? formatPostDate(post.date, { month: "short", year: "numeric" }) : "Field note"}</p><h3>{post.title}</h3></div>
+                    <ArrowUpRight aria-hidden="true" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
         <section className="contact-section" id="contact">
           <div className="site-container contact-layout" data-motion="section">
             <div className="contact-copy">
@@ -362,23 +376,6 @@ export default async function Home() {
           </div>
         </section>
 
-        {selectedPosts.length > 0 && (
-          <section className="notes-section" data-motion="section">
-            <div className="site-container">
-              <div className="section-marker"><span>04</span><p>Field notes</p></div>
-              <div className="notes-head"><h2>The messy middle,<br />documented.</h2><Link href="/blog" className="text-link data-hover">Browse all notes <ArrowRight aria-hidden="true" /></Link></div>
-              <div className="notes-list">
-                {selectedPosts.map((post, index) => (
-                  <Link key={post.slug} href={`/blog/${post.slug}`} className="note-row data-hover">
-                    <span>0{index + 1}</span>
-                    <div><p>{post.date ? formatPostDate(post.date, { month: "short", year: "numeric" }) : "Field note"}</p><h3>{post.title}</h3></div>
-                    <ArrowUpRight aria-hidden="true" />
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
       </div>
 
       <SiteFooter />
