@@ -212,7 +212,7 @@ export default async function Home() {
                       fill
                       sizes="(max-width: 760px) 100vw, 50vw"
                     />
-                    <span>{project.cta}<ArrowUpRight aria-hidden="true" /></span>
+                    <span>{project.cta}<ArrowRight aria-hidden="true" /></span>
                   </Link>
                   <div className="project-card-copy">
                     <p className="project-overline"><span>{project.index}</span>{project.type}</p>
@@ -228,7 +228,7 @@ export default async function Home() {
               <p className="mono-label">Selected training / Jamaica Public Service</p>
               <h3>Hands-on AI training. Invited back a second year.</h3>
               <p>AI-assisted scripting, phone-shot video and CapCut editing, delivered for JPS in 2025 and 2026. Every participant makes something during the session.</p>
-              <span className="text-link">Read the JPS case study <ArrowUpRight aria-hidden="true" /></span>
+              <span className="text-link">Read the JPS case study <ArrowRight aria-hidden="true" /></span>
             </Link>
 
             <div className="more-builds">
@@ -240,7 +240,7 @@ export default async function Home() {
                       <span>{String(projects.length + i + 1).padStart(2, "0")}</span>
                       <h3>{build.title}</h3>
                       <p>{build.description}</p>
-                      <small>{build.tags} ↗</small>
+                      <small>{build.tags} <ArrowUpRight aria-hidden="true" /></small>
                     </article>
                   </a>
                 ))}
@@ -304,7 +304,7 @@ export default async function Home() {
               <figcaption>
                 <strong>AI content-creation workshop · Jamaica Public Service · August 2026.</strong>{" "}
                 Hands-on session — every participant building, not just watching.{" "}
-                <Link href="/work/jps-ai-workshop" className="data-hover">Read the case study →</Link>
+                <Link href="/work/jps-ai-workshop" className="data-hover">Read the case study <ArrowRight aria-hidden="true" /></Link>
               </figcaption>
             </figure>
           </div>
@@ -320,7 +320,7 @@ export default async function Home() {
                   <Link key={post.slug} href={`/blog/${post.slug}`} className="note-row data-hover">
                     <span>0{index + 1}</span>
                     <div><p>{post.date ? formatPostDate(post.date, { month: "short", year: "numeric" }) : "Field note"}</p><h3>{post.title}</h3></div>
-                    <ArrowUpRight aria-hidden="true" />
+                    <ArrowRight aria-hidden="true" />
                   </Link>
                 ))}
               </div>
