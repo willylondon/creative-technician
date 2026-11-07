@@ -7,14 +7,6 @@ migrated_from: medium
 description: "From legacy to innovation — a deep dive into the rise, rivalry, and reinvention of Jamaica’s top patty companies"
 ---
 
-# The Big 3: How Tastee, Juici, and Mother’s Shape Jamaica’s Patty Empire
-
-
-From legacy to innovation — a deep dive into the rise, rivalry, and reinvention of Jamaica’s top patty companies
-
-
-### The Big 3: How Tastee, Juici, and Mother’s Shape Jamaica’s Patty Empire
-
 #### From legacy to innovation — a deep dive into the rise, rivalry, and reinvention of Jamaica’s top patty companies
 ![](/assets/images/medium-imports/medium-1*zO2I1-chWbhrWqBuLitfog.webp)
 **The Big 3: Jamaica’s Patty Powerhouses — A Blogger’s Deep Dive**

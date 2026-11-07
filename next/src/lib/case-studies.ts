@@ -90,8 +90,8 @@ export const caseStudies: CaseStudy[] = [
       {
         src: "/assets/images/jps-workshop-2026-2.webp",
         alt: "JPS workshop participants applying AI tools on laptops and phones",
-        width: 1400,
-        height: 654,
+        width: 1280,
+        height: 598,
       },
     ],
     challenge: [

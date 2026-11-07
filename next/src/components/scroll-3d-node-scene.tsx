@@ -25,6 +25,7 @@ export default function Scroll3DNodeScene() {
   const progressRef = useRef(0);
 
   useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const canvas = canvasRef.current;
     const holder = holderRef.current;
     if (!canvas || !holder) return;
@@ -181,7 +182,7 @@ export default function Scroll3DNodeScene() {
     let raf = 0;
     const clock = new THREE.Clock();
     const render = () => {
-      const t = clock.getElapsedTime();
+      const t = reduceMotion ? 0 : clock.getElapsedTime();
       const p = progressRef.current;
 
       // camera travels along the pipeline, ending pulled back on the whole flow
@@ -211,12 +212,12 @@ export default function Scroll3DNodeScene() {
       nodeDefs.forEach((def, i) => {
         const nThresh = (i / (nodeDefs.length - 1)) * 0.82;
         const lit = THREE.MathUtils.smoothstep(p, nThresh, nThresh + 0.12);
-        const idleGlow = 0.5 + 0.5 * Math.sin(t * 2 + i * 1.3);
+        const idleGlow = reduceMotion ? 0.5 : 0.5 + 0.5 * Math.sin(t * 2 + i * 1.3);
         (nodeMatOn[i].color as THREE.Color).copy(dim).lerp(def.accent ? accentB : accentA, Math.max(lit, idleGlow * 0.18));
         shellMats[i].opacity = lit * (0.35 + idleGlow * 0.25);
         nodeShells[i].rotation.y = t * 0.4 + i;
         nodeShells[i].rotation.x = t * 0.23;
-        nodes[i].position.y = def.pos.y + Math.sin(t * 1.1 + i * 0.9) * 0.06;
+        nodes[i].position.y = def.pos.y + (reduceMotion ? 0 : Math.sin(t * 1.1 + i * 0.9) * 0.06);
       });
 
       // wires light up ahead of the wavefront
@@ -238,13 +239,15 @@ export default function Scroll3DNodeScene() {
       });
 
       // ambient drift
-      const pos = pGeo.attributes.position as THREE.BufferAttribute;
-      for (let i = 0; i < pCount; i++) {
-        let y = pos.getY(i) + 0.0015 * (0.4 + pSeed[i]);
-        if (y > 6) y = -6;
-        pos.setY(i, y);
+      if (!reduceMotion) {
+        const pos = pGeo.attributes.position as THREE.BufferAttribute;
+        for (let i = 0; i < pCount; i++) {
+          let y = pos.getY(i) + 0.0015 * (0.4 + pSeed[i]);
+          if (y > 6) y = -6;
+          pos.setY(i, y);
+        }
+        pos.needsUpdate = true;
       }
-      pos.needsUpdate = true;
 
       renderer.render(scene, camera);
       raf = requestAnimationFrame(render);

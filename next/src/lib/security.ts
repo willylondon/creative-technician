@@ -31,12 +31,23 @@ const buckets = new Map<string, Bucket>();
  * strict guarantee — move to a shared store (e.g. Upstash Redis) if abuse
  * continues.
  */
+const MAX_BUCKETS = 1000;
+
 export function checkRateLimit(
   key: string,
   limit: number,
   windowMs: number
 ): boolean {
   const now = Date.now();
+
+  if (buckets.size > MAX_BUCKETS) {
+    for (const [k, b] of buckets) {
+      if (now > b.resetAt) {
+        buckets.delete(k);
+      }
+    }
+  }
+
   const bucket = buckets.get(key);
 
   if (!bucket || now > bucket.resetAt) {

@@ -17,6 +17,7 @@ export interface Post {
   content: string;
   excerpt?: string;
   coverImage?: string;
+  coverAlt?: string;
   categories?: string[];
   topic: PostTopic;
 }
@@ -128,40 +129,117 @@ export function getAllPosts(): Post[] {
         date = date || new Date().toISOString().split("T")[0];
       }
 
-      // Extract first image to act as coverImage if none is specified
-      let coverImage = metadata.image;
-      let cleanedContent = content;
-      
-      if (!coverImage) {
-        // Matches remote and root-relative images. Local paths matter now that
-        // the previously remote images are served from public/.
-        const firstImgRegex = /!\[(.*?)\]\(((?:https?:\/\/|\/)[^)\s]+)\)/;
-        const imgMatch = content.match(firstImgRegex);
-        if (imgMatch) {
-          coverImage = imgMatch[2];
-          // Remove the first image from content to avoid rendering it twice
-          cleanedContent = content.replace(firstImgRegex, '').trim();
+      const title = metadata.title || "Untitled";
+
+      // Strip Kramdown/Jekyll inline attribute lists ({: ... }) and empty headings
+      let cleanedContent = content
+        .replace(/\{:[^}\r\n]+\}/g, "")
+        .replace(/^#{1,6}[ \t]*$/gm, "")
+        .trim();
+
+      const normalizeHeading = (value: string) =>
+        value
+          .toLowerCase()
+          .replace(/[\u00a0\s]+/g, " ")
+          .replace(/^['"*_]+|['"*_]+$/g, "")
+          .trim();
+
+      const stripLeadingDuplicateTitleAndDeck = (body: string): string => {
+        let next = body.trimStart();
+        // Strip leading # H1 or ### H3 if it duplicates the post title
+        const leadingHeadingMatch = next.match(/^(#{1,3})\s+([^\r\n]+)\r?\n+/);
+        if (
+          leadingHeadingMatch &&
+          (leadingHeadingMatch[1] === "#" ||
+            normalizeHeading(leadingHeadingMatch[2]) === normalizeHeading(title))
+        ) {
+          next = next.slice(leadingHeadingMatch[0].length).trimStart();
         }
+        // Strip bold standalone title line (e.g. **Title**) if it duplicates the post title
+        const leadingBoldMatch = next.match(/^\*\*([^\r\n*]+)\*\*\r?\n+/);
+        if (
+          leadingBoldMatch &&
+          normalizeHeading(leadingBoldMatch[1]) === normalizeHeading(title)
+        ) {
+          next = next.slice(leadingBoldMatch[0].length).trimStart();
+        }
+        // Strip leading blockquote if it duplicates the frontmatter description
+        if (metadata.description) {
+          const leadingQuoteMatch = next.match(/^>\s*([^\r\n]+)\r?\n+/);
+          if (
+            leadingQuoteMatch &&
+            normalizeHeading(leadingQuoteMatch[1]) ===
+              normalizeHeading(metadata.description)
+          ) {
+            next = next.slice(leadingQuoteMatch[0].length).trimStart();
+          }
+        }
+        return next;
+      };
+
+      cleanedContent = stripLeadingDuplicateTitleAndDeck(cleanedContent);
+
+      // Extract first image to act as coverImage if none is specified, or deduplicate
+      // when frontmatter `image:` matches the first Markdown image in the body.
+      let coverImage = metadata.image;
+      let coverAlt = metadata.image_alt || "";
+
+      // Matches remote and root-relative images. Local paths matter now that
+      // the previously remote images are served from public/.
+      const firstImgRegex = /!\[(.*?)\]\(((?:https?:\/\/|\/)[^)\s]+)\)/;
+      const imgMatch = cleanedContent.match(firstImgRegex);
+
+      if (!coverImage && imgMatch) {
+        coverAlt = coverAlt || imgMatch[1].trim();
+        coverImage = imgMatch[2];
+        // Remove the first image from content to avoid rendering it twice
+        cleanedContent = cleanedContent.replace(firstImgRegex, "").trim();
+      } else if (coverImage && imgMatch && imgMatch[2] === coverImage) {
+        coverAlt = coverAlt || imgMatch[1].trim();
+        const leadingImgRegex = new RegExp(
+          `^\\s*!\\[[^\\]]*\\]\\(${coverImage.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\)\\s*`
+        );
+        cleanedContent = cleanedContent.replace(leadingImgRegex, "").trim();
       }
 
-      // Extract categories from frontmatter ("categories: [A, B]" or "categories: A, B")
+      cleanedContent = stripLeadingDuplicateTitleAndDeck(cleanedContent);
+
+      // Extract categories from frontmatter:
+      // Supports inline ("categories: [A, B]" or "categories: A, B")
+      // and multi-line YAML lists ("categories:\n  - A\n  - B").
       let categories: string[] = [];
-      const catMatch = frontMatter.match(/^categories:\s*(.+)$/m);
-      if (catMatch) {
-        categories = catMatch[1]
-          .replace(/^\[|\]$/g, "")
-          .split(",")
-          .map((c: string) => c.trim())
+      const multiLineCatMatch = frontMatter.match(
+        /^categories:\s*\r?\n((?:[ \t]*-[ \t]+.+\r?\n?)+)/m
+      );
+      if (multiLineCatMatch) {
+        categories = multiLineCatMatch[1]
+          .split(/\r?\n/)
+          .map((line: string) =>
+            line
+              .replace(/^[ \t]*-[ \t]+/, "")
+              .trim()
+              .replace(/^['"]|['"]$/g, "")
+          )
           .filter(Boolean);
+      } else {
+        const catMatch = frontMatter.match(/^categories:[ \t]*(.+)$/m);
+        if (catMatch) {
+          categories = catMatch[1]
+            .replace(/^\[|\]$/g, "")
+            .split(",")
+            .map((c: string) => c.trim().replace(/^['"]|['"]$/g, ""))
+            .filter(Boolean);
+        }
       }
 
       return {
         slug,
-        title: metadata.title || "Untitled",
+        title,
         date,
         content: cleanedContent,
         excerpt: metadata.description || buildExcerpt(cleanedContent),
         coverImage,
+        coverAlt: coverImage ? coverAlt || title : undefined,
         categories,
         topic: resolveTopic(slug, categories, metadata.topic),
       };

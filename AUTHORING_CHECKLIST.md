@@ -1,13 +1,15 @@
-Authoring checklist (keeps the same look + faster load)
+# Authoring Checklist (Next.js 16 + Sveltia CMS)
 
-- Post front matter:
-  - `image` is optional now. If you skip it, the site auto-uses `/assets/images/default-post-cover.svg`.
-  - If you want a custom cover, use:
-  - `image: /assets/images/post-cover.png`
-  - `image_width: 1200`
-  - `image_height: 630`
-- Inline images in posts:
-  - Use {: width="W" height="H" loading="lazy" decoding="async" } after the image.
-  - Visual size still auto-fits the card because CSS uses max-width: 100%.
-- If you skip width/height:
-  - It will still look the same, but may cause small layout shifts while loading.
+- **Post location:** Published posts live in `next/src/content/_posts/YYYY-MM-DD-slug.md`.
+- **Frontmatter fields:**
+  - `title`: Post title (rendered as the page `<h1>` in the header; do not repeat `# Title` in the Markdown body).
+  - `date`: `YYYY-MM-DD` publication date.
+  - `description`: 1–2 sentence summary used for SEO meta descriptions, Open Graph cards, and the article deck.
+  - `categories`: Inline list (`categories: [Automation, n8n]`) or multi-line YAML list (`categories:\n  - Automation\n  - n8n`).
+  - `topic` *(optional)*: `builds` or `life` (auto-inferred from `categories` when omitted).
+  - `image` *(optional)*: Root-relative path under `next/public/assets/images/...` (e.g. `/assets/images/post-cover.webp`). If omitted, the first Markdown image in the post body is promoted to the hero cover automatically.
+  - `image_alt` *(optional)*: Accessible alt text for the cover image (falls back to the first Markdown image's alt text or the post title).
+- **Inline images in posts:**
+  - Use standard Markdown syntax: `![Descriptive alt text](/assets/images/example.webp)`
+  - Do **not** append Jekyll/Kramdown `{: width="..." ... }` attribute blocks; `react-markdown` automatically applies `loading="lazy"` and `decoding="async"` to all inline images.
+

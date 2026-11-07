@@ -7,13 +7,6 @@ migrated_from: medium
 description: "How many struggles did they face? How many decisions had to go just right? How many things could’ve gone wrong — but didn’t?"
 ---
 
-# You Are the Result of Thousands
-
-
-Your ancestors are cheering for you
-
-
-### You Are the Result of Thousands
 Your ancestors are cheering for you
 
 ![](/assets/images/medium-imports/medium-1*u1zvjK3jKx0-oRvIRU5gOA.webp)

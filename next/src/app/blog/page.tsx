@@ -18,6 +18,14 @@ export const metadata: Metadata = {
     description:
       "20+ years of IT experience, automation stories, and hiking field guides from Kingston, Jamaica.",
     url: "/blog",
+    images: ["/assets/images/willy-london-avatar.webp"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Blog Archive | ${SITE_NAME}`,
+    description:
+      "20+ years of IT experience, automation stories, and hiking field guides from Kingston, Jamaica.",
+    images: ["/assets/images/willy-london-avatar.webp"],
   },
 };
 

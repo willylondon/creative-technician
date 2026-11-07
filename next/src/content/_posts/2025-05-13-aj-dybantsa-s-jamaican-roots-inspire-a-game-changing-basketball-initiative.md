@@ -7,13 +7,6 @@ migrated_from: medium
 description: "From Trench Town to the top of U.S. hoops, AJ returns home to uplift a new generation."
 ---
 
-# AJ Dybantsa’s Jamaican Roots Inspire a Game-Changing Basketball Initiative
-
-
-From Trench Town to the top of U.S. hoops, AJ returns home to uplift a new generation.
-
-
-### AJ Dybantsa’s Jamaican Roots Inspire a Game-Changing Basketball Initiative
 *From Trench Town to the top of U.S. hoops, AJ returns home to uplift a new generation.*
 
 ![](/assets/images/medium-imports/medium-1*NYVzY7SdrBIFyGlOq9gWnQ.webp)

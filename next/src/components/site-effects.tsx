@@ -118,47 +118,6 @@ export default function SiteEffects() {
       }));
     }
 
-    const mobileMenu = document.querySelector<HTMLDetailsElement>(".mobile-menu");
-    const mobileMenuSummary = mobileMenu?.querySelector<HTMLElement>("summary");
-
-    if (mobileMenu && mobileMenuSummary) {
-      const syncMenuState = () => {
-        const label = mobileMenu.open ? "Close navigation" : "Open navigation";
-        mobileMenuSummary.setAttribute("aria-label", label);
-        mobileMenuSummary.setAttribute("aria-expanded", String(mobileMenu.open));
-      };
-      const closeMenu = () => {
-        mobileMenu.open = false;
-        syncMenuState();
-      };
-      const menuLinks = Array.from(mobileMenu.querySelectorAll<HTMLAnchorElement>("nav a"));
-
-      const onDocumentKeydown = (event: KeyboardEvent) => {
-        if (event.key === "Escape" && mobileMenu.open) {
-          closeMenu();
-          mobileMenuSummary.focus();
-        }
-      };
-      const onDocumentClick = (event: MouseEvent) => {
-        if (mobileMenu.open && !mobileMenu.contains(event.target as Node)) {
-          closeMenu();
-        }
-      };
-
-      syncMenuState();
-      mobileMenu.addEventListener("toggle", syncMenuState);
-      menuLinks.forEach((link) => link.addEventListener("click", closeMenu));
-      document.addEventListener("keydown", onDocumentKeydown);
-      document.addEventListener("click", onDocumentClick);
-
-      cleanup.push(() => {
-        mobileMenu.removeEventListener("toggle", syncMenuState);
-        menuLinks.forEach((link) => link.removeEventListener("click", closeMenu));
-        document.removeEventListener("keydown", onDocumentKeydown);
-        document.removeEventListener("click", onDocumentClick);
-      });
-    }
-
     const sectionLinks = Array.from(
       document.querySelectorAll<HTMLAnchorElement>(
         '.desktop-nav a[href^="#"], .desktop-nav a[href^="/#"], .mobile-menu nav a[href^="#"], .mobile-menu nav a[href^="/#"]',

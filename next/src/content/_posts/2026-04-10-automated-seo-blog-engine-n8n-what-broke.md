@@ -5,14 +5,11 @@ slug: automated-seo-blog-engine-n8n-what-broke
 layout: post
 migrated_from: medium
 image: /assets/images/n8n-code-glasses-unsplash.jpg
+image_alt: "Glasses resting in front of a screen of code"
 image_width: 3000
 image_height: 1997
 description: "Using n8n, OpenAI, and GitHub to publish SEO content automatically — and the debugging session nobody tells you about."
 ---
-
-# I Built an Automated SEO Blog Engine for 5 Sites — Here's What Actually Broke
-
-> Using n8n, OpenAI, and GitHub to publish SEO content automatically — and the debugging session nobody tells you about.
 
 I spent today wiring up something I've been thinking about for a while: a single n8n workflow that generates, formats, and publishes SEO blog posts to five different websites — automatically, every Monday morning.
 

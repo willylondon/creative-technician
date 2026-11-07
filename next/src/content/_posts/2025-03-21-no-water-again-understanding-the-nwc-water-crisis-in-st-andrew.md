@@ -4,16 +4,9 @@ date: 2025-03-21
 slug: no-water-again-understanding-the-nwc-water-crisis-in-st-andrew
 layout: post
 migrated_from: medium
-description: "The National Water Commission (NWC) is responsible for supplying potable water across Jamaica, but in Kingston and St. Andrew, many residents feel that we…"
+description: "“No water again and of course no update from NWC 🙄” It’s a message many of us in Harbour View, Bull Bay, Windward Road, and other parts of St. Andrew…"
 ---
 
-# 💧“No Water Again?” — Understanding the NWC Water Crisis in St. Andrew
-
-
-🚿 Introduction: A Crisis Hiding in Plain Sight
-
-
-### 💧“No Water Again?” — Understanding the NWC Water Crisis in St. Andrew
 ![](/assets/images/medium-imports/medium-1*tznin8AetGFDpamnOjfvPg.webp)
 
 ### 🚿 Introduction: A Crisis Hiding in Plain Sight

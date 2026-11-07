@@ -4,13 +4,9 @@ date: 2025-06-29
 slug: my-first-denny-s-breakfast-financial-literacy-mixer
 layout: post
 migrated_from: medium
-description: "Stepping into Denny’s early on a sunday morning, I wasn’t sure what to expect. I arrived for a breakfast mixer hosted by SimpleFinancial.org, an event aim…"
+description: "I never imagined my first trip to Denny’s would come with a side of scrambled eggs—and fiscal clarity. Stepping into Denny’s early on a sunday morning, I…"
 ---
 
-# My First Denny’s Breakfast & Financial Literacy Mixer 🍳
-
-
-### My First Denny’s Breakfast & Financial Literacy Mixer 🍳
 ![](/assets/images/medium-imports/medium-1*ZacpSgRS33rW7T4iBLCDtA.webp)
 I never imagined my first trip to Denny’s would come with a side of scrambled eggs—and fiscal clarity.
 

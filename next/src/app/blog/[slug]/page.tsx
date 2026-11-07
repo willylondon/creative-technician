@@ -134,7 +134,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 <figure className="post-cover">
                   <Image
                     src={post.coverImage}
-                    alt=""
+                    alt={post.coverAlt || post.title}
                     fill
                     priority
                     sizes="(max-width: 1100px) 94vw, 1040px"
@@ -148,6 +148,7 @@ export default async function PostPage({ params }: PostPageProps) {
             <div className="post-body prose prose-invert prose-lg">
               <ReactMarkdown
                 components={{
+                  h1: "h2",
                   img: (props) => {
                     const { node, alt, ...rest } = props;
                     void node;

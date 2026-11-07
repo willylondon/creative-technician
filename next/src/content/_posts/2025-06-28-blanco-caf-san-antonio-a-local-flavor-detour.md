@@ -4,16 +4,9 @@ date: 2025-06-28
 slug: blanco-caf-san-antonio-a-local-flavor-detour
 layout: post
 migrated_from: medium
-description: "That turned out to be a hopeful prediction. What was meant to be a short stroll turned into a sweaty 20-minute trek under the unforgiving San Antonio sun.…"
+description: "When breakfast becomes a mini adventure in the Texas heat. Waze told me it was a five-minute walk. That turned out to be a hopeful prediction. What was…"
 ---
 
-# Blanco Café San Antonio – A Local Flavor Detour
-
-
-When breakfast becomes a mini adventure in the Texas heat.
-
-
-### Blanco Café San Antonio – A Local Flavor Detour
 When breakfast becomes a mini adventure in the Texas heat.
 
 ![](/assets/images/medium-imports/medium-1*YUotfiXDSaL9p1u9_31sTQ.webp)

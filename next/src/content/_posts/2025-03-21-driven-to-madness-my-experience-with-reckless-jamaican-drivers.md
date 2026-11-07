@@ -7,13 +7,6 @@ migrated_from: medium
 description: "From taxi men to Fit-driving maams, Jamaican roads are a daily gamble — and I’ve nearly lost three times this week"
 ---
 
-# Driven to Madness: My Experience with Reckless Jamaican Drivers
-
-
-From taxi men to Fit-driving maams, Jamaican roads are a daily gamble — and I’ve nearly lost three times this week
-
-
-### Driven to Madness: My Experience with Reckless Jamaican Drivers
 From taxi men to Fit-driving maams, Jamaican roads are a daily gamble — and I’ve nearly lost three times this week
 
 ![](/assets/images/medium-imports/medium-1*MEvbaygPWrsAybI2GajR6A.webp)

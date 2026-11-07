@@ -7,15 +7,6 @@ migrated_from: medium
 description: "I tried to ignore the conversation, but a small voice in me spoke up, the same voice I still can’t silence today: “Did you know Jesus wasn’t a Christian?”"
 ---
 
-# The Arrogance of Man
-
-
-The Arrogance of Man
-
-
-### The Arrogance of Man
-
-### The Arrogance of Man
 ![](/assets/images/medium-imports/medium-1*YLbAAMEec2ciyD8FHGBObA.webp)
 Many years ago, I was invited to a Bible social by a friend. His mother had passed, and I went to show support. As I sat quietly, I overheard some of her Christian friends sharing what they did to “stay closer to Christ.” One said she didn’t eat rice. Another said she avoided TV. Others only spent time with fellow churchgoers.
 

@@ -24,6 +24,7 @@ export default function Scroll3DProductScene() {
   });
 
   useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const canvas = canvasRef.current;
     const holder = holderRef.current;
     if (!canvas || !holder) return;
@@ -159,7 +160,7 @@ export default function Scroll3DProductScene() {
     let raf = 0;
     const clock = new THREE.Clock();
     const render = () => {
-      const t = clock.getElapsedTime();
+      const t = reduceMotion ? 0 : clock.getElapsedTime();
       const p = progressRef.current;
       const { model } = loadStateRef.current;
 
@@ -175,7 +176,7 @@ export default function Scroll3DProductScene() {
         // phase 0→0.5: showcase spin; 0.5→1: tilt into hero pose + float
         model.rotation.y = t * 0.25 + p * Math.PI * 2.2;
         model.rotation.z = Math.sin(p * Math.PI) * 0.18;
-        model.position.y = Math.sin(t * 1.1) * 0.08 * (0.4 + p);
+        model.position.y = reduceMotion ? 0 : Math.sin(t * 1.1) * 0.08 * (0.4 + p);
         const heroScale = 1 + p * 0.15;
         model.scale.setScalar(heroScale);
       }
@@ -186,14 +187,16 @@ export default function Scroll3DProductScene() {
       });
       discEdge.rotation.z = t * 0.2 + p * Math.PI;
 
-      const pos = pGeo.attributes.position as THREE.BufferAttribute;
-      const drift = 0.002 + p * 0.005;
-      for (let i = 0; i < pCount; i++) {
-        let y = pos.getY(i) + drift * (0.4 + pSeed[i]);
-        if (y > 6) y = -6;
-        pos.setY(i, y);
+      if (!reduceMotion) {
+        const pos = pGeo.attributes.position as THREE.BufferAttribute;
+        const drift = 0.002 + p * 0.005;
+        for (let i = 0; i < pCount; i++) {
+          let y = pos.getY(i) + drift * (0.4 + pSeed[i]);
+          if (y > 6) y = -6;
+          pos.setY(i, y);
+        }
+        pos.needsUpdate = true;
       }
-      pos.needsUpdate = true;
 
       renderer.render(scene, camera);
       raf = requestAnimationFrame(render);

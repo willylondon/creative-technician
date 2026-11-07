@@ -7,13 +7,6 @@ migrated_from: medium
 description: "Once a symbol of promise for Jamaican basketball, Independence Park now stands at the center of a growing controversy."
 ---
 
-# Independence Park and Jamaica Basketball: A Partnership Under Pressure
-
-
-Once a symbol of promise for Jamaican basketball, Independence Park now stands at the center of a growing controversy.
-
-
-### Independence Park and Jamaica Basketball: A Partnership Under Pressure
 *Once a symbol of promise for Jamaican basketball, Independence Park now stands at the center of a growing controversy.*
 
 ![](/assets/images/medium-imports/medium-1*MN0tMus-2jPloyPvQmG8QQ.webp)

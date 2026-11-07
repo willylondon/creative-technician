@@ -24,7 +24,7 @@ const chapters = [
     id: "p-phase-4",
     kicker: "04 / Swap",
     title: "Make it yours",
-    copy: "Replace /models/water-bottle.glb with your product's GLB, edit the chapter copy, done. One component (scroll-3d-product-scene.tsx), no build steps for assets — Vercel serves the model as a static file.",
+    copy: "Replace /models/helmet.glb with your product's GLB, edit the chapter copy, done. One component (scroll-3d-product-scene.tsx), no build steps for assets — Vercel serves the model as a static file.",
   },
 ];
 

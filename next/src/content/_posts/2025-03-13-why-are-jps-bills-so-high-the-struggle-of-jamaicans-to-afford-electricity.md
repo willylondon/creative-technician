@@ -7,13 +7,6 @@ migrated_from: medium
 description: "Jamaica Public Service (JPS) and the Burden of High Electricity Costs: A Cry for Justice"
 ---
 
-# Why Are JPS Bills So High? The Struggle of Jamaicans to Afford Electricity
-
-
-Jamaica Public Service (JPS) and the Burden of High Electricity Costs: A Cry for Justice
-
-
-### Why Are JPS Bills So High? The Struggle of Jamaicans to Afford Electricity
 ![](/assets/images/medium-imports/medium-1*DYefiy6DXqpMd0vt7mab_g.webp)
 **Jamaica Public Service (JPS) and the Burden of High Electricity Costs: A Cry for Justice**
 
