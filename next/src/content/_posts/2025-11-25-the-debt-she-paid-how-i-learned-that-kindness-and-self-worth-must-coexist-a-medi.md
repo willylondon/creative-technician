@@ -5,14 +5,12 @@ date: 2025-11-25
 slug: the-debt-she-paid-how-i-learned-that-kindness-and-self-worth-must-coexist-a-medi
 layout: post
 migrated_from: medium
-description: "Cape Cod Workers, a pipeline connecting Jamaicans with jobs in America. ​My mother, she said, would be the first employee. ​My mother received this news t…"
+description: "A meditation on worth… A meditation on worth, boundaries, and the costly lessons my Jamaican mother left behind. There is a truth about human nature no…"
 ---
 
-# ​The Debt She Paid: How I Learned That Kindness and Self-Worth Must Coexist
 ​A meditation on worth…
 
 
-### ​**The Debt She Paid: How I Learned That Kindness and Self-Worth Must Coexist
 ​A meditation on worth, boundaries, and the costly lessons my Jamaican mother left behind.**
 ![](/assets/images/medium-imports/medium-1*L-7G1mza4qDlSN4BAjXIfA.webp)
 ​There is a truth about human nature no one teaches you directly. You learn it through proximity, through watching, until the conclusion becomes undeniable.

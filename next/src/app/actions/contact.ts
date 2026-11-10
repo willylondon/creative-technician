@@ -1,9 +1,11 @@
 "use server";
 
 import {
-  checkRateLimit,
+  OUTBOUND_TIMEOUT_MS,
+  checkSharedRateLimit,
   escapeHtml,
   getClientIp,
+  hashKey,
   isValidEmail,
 } from "@/lib/security";
 import {
@@ -44,6 +46,14 @@ const MAX_FIELD_LENGTH = 200;
 const MAX_MESSAGE_LENGTH = 5000;
 const RATE_LIMIT = 3;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
+
+// The auto-reply goes to whatever address was typed into the form, so it is
+// capped separately: one per address per day, and a site-wide hourly ceiling.
+// Beyond either cap the lead is still delivered; only the confirmation is skipped.
+const AUTO_REPLY_PER_ADDRESS = 1;
+const AUTO_REPLY_ADDRESS_WINDOW_MS = 24 * 60 * 60 * 1000;
+const AUTO_REPLY_GLOBAL = 30;
+const AUTO_REPLY_GLOBAL_WINDOW_MS = 60 * 60 * 1000;
 
 const RECIPIENT_EMAIL = process.env.CONTACT_RECIPIENT_EMAIL || CONTACT_EMAIL;
 
@@ -90,6 +100,7 @@ async function sendEmail(email: OutgoingEmail): Promise<boolean> {
         html: email.html,
         tags: [{ name: "type", value: email.tag }],
       }),
+      signal: AbortSignal.timeout(OUTBOUND_TIMEOUT_MS),
     });
     if (!response.ok) {
       const detail = await response.json().catch(() => ({}));
@@ -113,6 +124,7 @@ async function sendEmail(email: OutgoingEmail): Promise<boolean> {
         subject: email.subject,
         htmlContent: email.html,
       }),
+      signal: AbortSignal.timeout(OUTBOUND_TIMEOUT_MS),
     });
     if (!response.ok) {
       const detail = await response.json().catch(() => ({}));
@@ -148,6 +160,7 @@ async function saveLeadContact(email: string, name: string): Promise<boolean> {
         unsubscribed: true,
         segments: [{ id: segmentId }],
       }),
+      signal: AbortSignal.timeout(OUTBOUND_TIMEOUT_MS),
     });
     if (!response.ok) {
       console.error("Resend lead contact failed", response.status);
@@ -170,6 +183,7 @@ async function saveLeadContact(email: string, name: string): Promise<boolean> {
         listIds: [listId],
         updateEnabled: true,
       }),
+      signal: AbortSignal.timeout(OUTBOUND_TIMEOUT_MS),
     });
     if (!response.ok) {
       console.error("Brevo lead contact failed", response.status);
@@ -194,6 +208,7 @@ async function postLeadWebhook(lead: Record<string, string>): Promise<boolean> {
         : {}),
     },
     body: JSON.stringify(lead),
+    signal: AbortSignal.timeout(OUTBOUND_TIMEOUT_MS),
   });
   if (!response.ok) {
     console.error("Lead webhook failed", response.status);
@@ -251,7 +266,7 @@ export async function sendContactMessage(input: LeadInput): Promise<ContactResul
   }
 
   const ip = await getClientIp();
-  if (!checkRateLimit(`contact:${ip}`, RATE_LIMIT, RATE_WINDOW_MS)) {
+  if (!(await checkSharedRateLimit(`contact:${ip}`, RATE_LIMIT, RATE_WINDOW_MS))) {
     return {
       success: false,
       message: "Too many messages sent. Please try again later.",
@@ -348,7 +363,15 @@ export async function sendContactMessage(input: LeadInput): Promise<ContactResul
 
   // Only confirm to the visitor once the lead is safely captured.
   let confirmed = false;
-  if (canEmail) {
+  const mayAutoReply =
+    canEmail &&
+    (await checkSharedRateLimit(
+      `autoreply:${hashKey(email)}`,
+      AUTO_REPLY_PER_ADDRESS,
+      AUTO_REPLY_ADDRESS_WINDOW_MS,
+    )) &&
+    (await checkSharedRateLimit("autoreply:all", AUTO_REPLY_GLOBAL, AUTO_REPLY_GLOBAL_WINDOW_MS));
+  if (mayAutoReply) {
     confirmed = await sendEmail({
       fromName: "Willard Wells — The Creative Technician",
       to: { email, name },

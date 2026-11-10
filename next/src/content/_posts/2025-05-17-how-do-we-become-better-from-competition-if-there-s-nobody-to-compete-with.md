@@ -7,13 +7,6 @@ migrated_from: medium
 description: "In Jamaica, restrictive basketball contracts are sidelining community leagues and stifling player development."
 ---
 
-# “How Do We Become Better from Competition If There’s Nobody to Compete With?"
-
-
-In Jamaica, restrictive basketball contracts are sidelining community leagues and stifling player development.
-
-
-### **“How Do We Become Better from Competition If There’s Nobody to Compete With?"**
 *In Jamaica, restrictive basketball contracts are sidelining community leagues and stifling player development.*
 
 ![](/assets/images/medium-imports/medium-1*Ik9gcC8iPqTXDt_wISzxBg.webp)

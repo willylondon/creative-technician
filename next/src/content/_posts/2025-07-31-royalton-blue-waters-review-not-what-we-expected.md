@@ -7,13 +7,6 @@ migrated_from: medium
 description: "I arrived yesterday with high hopes, but ever since landing, my enthusiasm has taken a nosedive."
 ---
 
-# Royalton Blue Waters Review: Not What We Expected
-
-
-I arrived yesterday with high hopes, but ever since landing, my enthusiasm has taken a nosedive.
-
-
-### Royalton Blue Waters Review: Not What We Expected
 I arrived yesterday with high hopes, but ever since landing, my enthusiasm has taken a nosedive.
 
 ![](/assets/images/medium-imports/medium-1*Xu4Y5d5A8s5mYl20wQHPeg.webp)

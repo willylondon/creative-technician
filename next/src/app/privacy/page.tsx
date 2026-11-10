@@ -42,8 +42,6 @@ function getPrivacyContent(): { date: string; content: string } {
   const possiblePaths = [
     path.join(process.cwd(), "src", "content", "privacy-policy.md"),
     path.join(process.cwd(), "next", "src", "content", "privacy-policy.md"),
-    path.join(process.cwd(), "..", "privacy-policy.md"),
-    path.join(process.cwd(), "privacy-policy.md"),
   ];
 
   let fileContent = "";

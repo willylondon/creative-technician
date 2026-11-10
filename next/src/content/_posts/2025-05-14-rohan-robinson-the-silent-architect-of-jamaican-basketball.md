@@ -7,13 +7,6 @@ migrated_from: medium
 description: "From hardwood warrior to masterful mentor, Robinson’s journey defines grassroots greatness."
 ---
 
-# Rohan Robinson: The Silent Architect of Jamaican Basketball
-
-
-From hardwood warrior to masterful mentor, Robinson’s journey defines grassroots greatness.
-
-
-### Rohan Robinson: The Silent Architect of Jamaican Basketball
 *From hardwood warrior to masterful mentor, Robinson’s journey defines grassroots greatness.*
 
 ![](/assets/images/medium-imports/medium-1*heWaxSvhnzes8VsASj9PTw.webp)

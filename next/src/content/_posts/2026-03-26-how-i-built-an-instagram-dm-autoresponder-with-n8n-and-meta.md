@@ -80,11 +80,11 @@ You need:
 Here is what the Instagram/Page connection looked like on my end.
 I redacted the personal and business-specific bits, because a tutorial should teach the setup without turning into a data leak:
 
-![Connected Instagram account inside Meta settings](/assets/images/instagram-dm-autoresponder-connected-instagram.webp){: width="3018" height="1798" loading="lazy" decoding="async" }
+![Connected Instagram account inside Meta settings](/assets/images/instagram-dm-autoresponder-connected-instagram.webp)
 
 Then I checked Page access and confirmed the correct Facebook user had **Full control**:
 
-![Facebook Page access showing full control](/assets/images/instagram-dm-autoresponder-page-access.webp){: width="3022" height="1786" loading="lazy" decoding="async" }
+![Facebook Page access showing full control](/assets/images/instagram-dm-autoresponder-page-access.webp)
 
 If you skip this part, you will spend hours blaming tokens for a problem that is actually permissions.
 
@@ -119,7 +119,7 @@ The fix was not "generate another random token and pray." The fix was using the 
 The Graph API Explorer setup looked like this.
 Again, I redacted the actual token and account-specific details:
 
-![Meta Graph API Explorer permissions for Instagram messaging](/assets/images/instagram-dm-autoresponder-graph-api-explorer.webp){: width="2984" height="1628" loading="lazy" decoding="async" }
+![Meta Graph API Explorer permissions for Instagram messaging](/assets/images/instagram-dm-autoresponder-graph-api-explorer.webp)
 
 Then I queried the accounts endpoint for the Page token:
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, Mail, MessageCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, Mail, MessageCircle } from "lucide-react";
 import {
   POST_TOPICS,
   formatPostDate,
@@ -11,7 +11,7 @@ import {
   getReadingTime,
   getRelatedPosts,
 } from "@/lib/posts";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, socialImage } from "@/lib/site";
 import { offers, WHATSAPP_URL } from "@/lib/offers";
 import SiteEffects from "@/components/site-effects";
 import SiteHeader from "@/components/site-header";
@@ -43,7 +43,9 @@ export async function generateMetadata({
   }
 
   const canonical = `/blog/${post.slug}`;
-  const images = post.coverImage ? [post.coverImage] : undefined;
+  // Posts without a cover (or with an SVG one, which crawlers skip) still get a card.
+  const cover = socialImage(post.coverImage);
+  const images = cover === DEFAULT_OG_IMAGE.url ? [DEFAULT_OG_IMAGE] : [cover];
 
   return {
     title: `${post.title} | ${SITE_NAME}`,
@@ -98,7 +100,7 @@ export default async function PostPage({ params }: PostPageProps) {
     description: post.excerpt,
     datePublished: post.date,
     dateModified: post.date,
-    image: post.coverImage ? `${SITE_URL}${post.coverImage}` : undefined,
+    image: `${SITE_URL}${socialImage(post.coverImage)}`,
     author: {
       "@type": "Person",
       name: "Willard Wells",
@@ -134,7 +136,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 <figure className="post-cover">
                   <Image
                     src={post.coverImage}
-                    alt=""
+                    alt={post.coverAlt || post.title}
                     fill
                     priority
                     sizes="(max-width: 1100px) 94vw, 1040px"
@@ -148,6 +150,7 @@ export default async function PostPage({ params }: PostPageProps) {
             <div className="post-body prose prose-invert prose-lg">
               <ReactMarkdown
                 components={{
+                  h1: "h2",
                   img: (props) => {
                     const { node, alt, ...rest } = props;
                     void node;
@@ -202,7 +205,7 @@ export default async function PostPage({ params }: PostPageProps) {
                           <p>{formatPostDate(relatedPost.date, { year: "numeric", month: "short", day: "numeric" })}</p>
                           <h3>{relatedPost.title}</h3>
                         </div>
-                        <ArrowUpRight aria-hidden="true" />
+                        <ArrowRight aria-hidden="true" />
                       </Link>
                     ))}
                   </div>

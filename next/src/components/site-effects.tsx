@@ -81,7 +81,15 @@ export default function SiteEffects() {
           heroBounds = hero?.getBoundingClientRect() ?? null;
         };
 
+        let shown = false;
         const move = (event: MouseEvent) => {
+          if (!shown) {
+            // Jump to the pointer before revealing, so the ring never slides in from the corner.
+            shown = true;
+            gsap.set(dot, { x: event.clientX - 3, y: event.clientY - 3 });
+            gsap.set(outline, { x: event.clientX - 17, y: event.clientY - 17 });
+            document.body.classList.add("cursor-active");
+          }
           dotX(event.clientX - 3);
           dotY(event.clientY - 3);
           ringX(event.clientX - 17);
@@ -100,6 +108,7 @@ export default function SiteEffects() {
         window.addEventListener("resize", refreshBounds);
         cleanup.push(() => {
           window.removeEventListener("mousemove", move);
+          document.body.classList.remove("cursor-active");
           window.removeEventListener("scroll", refreshBounds);
           window.removeEventListener("resize", refreshBounds);
         });
@@ -116,47 +125,6 @@ export default function SiteEffects() {
         element.removeEventListener("mouseenter", onEnter);
         element.removeEventListener("mouseleave", onLeave);
       }));
-    }
-
-    const mobileMenu = document.querySelector<HTMLDetailsElement>(".mobile-menu");
-    const mobileMenuSummary = mobileMenu?.querySelector<HTMLElement>("summary");
-
-    if (mobileMenu && mobileMenuSummary) {
-      const syncMenuState = () => {
-        const label = mobileMenu.open ? "Close navigation" : "Open navigation";
-        mobileMenuSummary.setAttribute("aria-label", label);
-        mobileMenuSummary.setAttribute("aria-expanded", String(mobileMenu.open));
-      };
-      const closeMenu = () => {
-        mobileMenu.open = false;
-        syncMenuState();
-      };
-      const menuLinks = Array.from(mobileMenu.querySelectorAll<HTMLAnchorElement>("nav a"));
-
-      const onDocumentKeydown = (event: KeyboardEvent) => {
-        if (event.key === "Escape" && mobileMenu.open) {
-          closeMenu();
-          mobileMenuSummary.focus();
-        }
-      };
-      const onDocumentClick = (event: MouseEvent) => {
-        if (mobileMenu.open && !mobileMenu.contains(event.target as Node)) {
-          closeMenu();
-        }
-      };
-
-      syncMenuState();
-      mobileMenu.addEventListener("toggle", syncMenuState);
-      menuLinks.forEach((link) => link.addEventListener("click", closeMenu));
-      document.addEventListener("keydown", onDocumentKeydown);
-      document.addEventListener("click", onDocumentClick);
-
-      cleanup.push(() => {
-        mobileMenu.removeEventListener("toggle", syncMenuState);
-        menuLinks.forEach((link) => link.removeEventListener("click", closeMenu));
-        document.removeEventListener("keydown", onDocumentKeydown);
-        document.removeEventListener("click", onDocumentClick);
-      });
     }
 
     const sectionLinks = Array.from(

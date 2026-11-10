@@ -22,12 +22,29 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: ArchivePageProps): Promise<Metadata> {
   const { page } = await params;
+  const title = `Blog Archive – Page ${page} | ${SITE_NAME}`;
+  const description =
+    "20+ years of IT experience, automation stories, and hiking field guides from Kingston, Jamaica.";
+  const canonical = `/blog/page/${page}`;
 
   return {
-    title: `Blog Archive – Page ${page} | ${SITE_NAME}`,
-    description:
-      "20+ years of IT experience, automation stories, and hiking field guides from Kingston, Jamaica.",
-    alternates: { canonical: `/blog/page/${page}` },
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      type: "website",
+      siteName: SITE_NAME,
+      title,
+      description,
+      url: canonical,
+      images: ["/assets/images/willy-london-avatar.webp"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/assets/images/willy-london-avatar.webp"],
+    },
   };
 }
 

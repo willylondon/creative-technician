@@ -42,8 +42,6 @@ function getTermsContent(): { date: string; content: string } {
   const possiblePaths = [
     path.join(process.cwd(), "src", "content", "terms-of-service.md"),
     path.join(process.cwd(), "next", "src", "content", "terms-of-service.md"),
-    path.join(process.cwd(), "..", "terms-of-service.md"),
-    path.join(process.cwd(), "terms-of-service.md"),
   ];
 
   let fileContent = "";

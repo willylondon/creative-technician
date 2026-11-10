@@ -123,7 +123,7 @@ export default function Scroll3DScene() {
     let raf = 0;
     const clock = new THREE.Clock();
     const render = () => {
-      const t = clock.getElapsedTime();
+      const t = reduceMotion ? 0 : clock.getElapsedTime();
       const p = progressRef.current;
 
       // camera: dolly + arc across scroll progress
@@ -139,7 +139,7 @@ export default function Scroll3DScene() {
       slabs.forEach((slab, i) => {
         const k = i / slabs.length;
         slab.rotation.y = p * Math.PI * 2 * (k - 0.5);
-        const scalePulse = 1 + Math.sin(t * 1.4 + k * 6) * 0.03;
+        const scalePulse = reduceMotion ? 1 : 1 + Math.sin(t * 1.4 + k * 6) * 0.03;
         slab.scale.setScalar(scalePulse);
       });
 
@@ -152,14 +152,16 @@ export default function Scroll3DScene() {
       });
 
       // particles drift upward, faster later in the scroll
-      const pos = pGeo.attributes.position as THREE.BufferAttribute;
-      const drift = 0.002 + p * 0.006;
-      for (let i = 0; i < pCount; i++) {
-        let y = pos.getY(i) + drift * (0.4 + pSeed[i]);
-        if (y > 6) y = -6;
-        pos.setY(i, y);
+      if (!reduceMotion) {
+        const pos = pGeo.attributes.position as THREE.BufferAttribute;
+        const drift = 0.002 + p * 0.006;
+        for (let i = 0; i < pCount; i++) {
+          let y = pos.getY(i) + drift * (0.4 + pSeed[i]);
+          if (y > 6) y = -6;
+          pos.setY(i, y);
+        }
+        pos.needsUpdate = true;
       }
-      pos.needsUpdate = true;
 
       renderer.render(scene, camera);
       raf = requestAnimationFrame(render);
@@ -180,7 +182,6 @@ export default function Scroll3DScene() {
         else anyObj.material?.dispose?.();
       });
       cleanupFns.forEach((fn) => fn());
-      void reduceMotion;
     };
   }, [holderRef, canvasRef]);
 

@@ -7,13 +7,6 @@ migrated_from: medium
 description: "A Forgotten 1978 Letter from Elder Walter Wells That Still Speaks Truth to Power"
 ---
 
-# It Is Coptic Time Now
-
-
-A Forgotten 1978 Letter from Elder Walter Wells That Still Speaks Truth to Power
-
-
-### It Is Coptic Time Now
 ![](/assets/images/medium-imports/medium-1*R-OEMDBXIyRywRJXdgmjAQ.webp)
 
 ### A Forgotten 1978 Letter from Elder Walter Wells That Still Speaks Truth to Power

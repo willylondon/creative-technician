@@ -4,16 +4,11 @@ date: 2026-04-22
 slug: what-we-actually-fixed-in-our-blog-automation-stack-today
 layout: post
 image: /assets/images/creative-technician-workflow-hardening-unsplash.jpg
+image_alt: "Laptop and technical workspace during a workflow debugging and hardening session"
 image_width: 3000
 image_height: 2000
-description: "A real look at the engineering work behind hardening our SEO Content Factory and Daily Blog Publisher so they publish more reliably and stop stepping on e…"
+description: "A real look at the engineering work behind hardening our SEO Content Factory and Daily Blog Publisher so they publish more reliably and stop stepping on each other."
 ---
-
-# What We Actually Fixed in Our Blog Automation Stack Today
-
-> A real look at the engineering work behind hardening our SEO Content Factory and Daily Blog Publisher so they publish more reliably and stop stepping on each other.
-
-![Laptop displaying code on a desk](/assets/images/creative-technician-workflow-hardening-unsplash.jpg)
 
 There is a version of automation work that looks glamorous from the outside.
 

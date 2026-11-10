@@ -4,16 +4,9 @@ date: 2025-03-27
 slug: life-laughter-and-a-vegetarian-who-loved-fish
 layout: post
 migrated_from: medium
-description: "At just three years old, Avril’s beloved pet goat met a tragic fate at her father’s hand, prompting her lifelong vow against meat. Yet she made a curious…"
+description: "Why My Mom’s Fish Exception Makes Perfect Sense Life is like my mother’s vegetarianism — full of well-intentioned contradictions. Avril Harvey,…"
 ---
 
-# Life, Laughter, and a Vegetarian Who Loved Fish
-
-
-Why My Mom’s Fish Exception Makes Perfect Sense
-
-
-### Life, Laughter, and a Vegetarian Who Loved Fish
 **Why My Mom’s Fish Exception Makes Perfect Sense**
 
 ![](/assets/images/medium-imports/medium-1*OIOCTCYqta697hlqyEcEfA.webp)

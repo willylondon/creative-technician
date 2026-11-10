@@ -7,13 +7,6 @@ migrated_from: medium
 description: "But it got me thinking. We’re around the same age, and the island isn’t that big."
 ---
 
-# A Letter to Her
-
-
-For the one whose soul feels familiar.
-
-
-### A Letter to Her
 For the one whose soul feels familiar.
 
 ![](/assets/images/medium-imports/medium-1*Po5KTCAdGee8wFYOTeo29g.webp)

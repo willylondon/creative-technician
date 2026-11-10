@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import * as crypto from "node:crypto";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { runInNewContext } from "node:vm";
@@ -57,7 +58,8 @@ function loadServerAction() {
   }
   const security = compile("./security.ts", {
     "next/headers": { headers: async () => new Map([["x-real-ip", "127.0.0.1"]]) },
-  });
+    "node:crypto": crypto,
+  }, { process: { env: {} }, console });
   const action = compile("../app/actions/contact.ts", {
     "@/lib/security": security,
     "@/lib/offers": offers,
@@ -65,6 +67,7 @@ function loadServerAction() {
   }, {
     process: { env: { RESEND_API_KEY: "local-test-only" } },
     console,
+    AbortSignal,
     fetch: async (url, request) => {
       assert.equal(url, "https://api.resend.com/emails");
       deliveries.push(JSON.parse(request.body));
@@ -109,4 +112,17 @@ test("the server action rejects unknown budget or timeline values before deliver
     assert.equal(deliveries.length, 0);
     assert.match(result.message, /listed (budget|timeline)/);
   }
+});
+
+test("a repeat enquiry from the same address is delivered without a second auto-reply", async () => {
+  const { sendContactMessage, deliveries } = loadServerAction();
+  const first = await sendContactMessage(validLead);
+  const second = await sendContactMessage({ ...validLead, email: " LEAD@example.test " });
+  assert.equal(first.success, true);
+  assert.equal(second.success, true);
+  assert.match(first.message, /confirmation/);
+  assert.doesNotMatch(second.message, /confirmation/);
+  // Two lead notifications, but only one confirmation to the visitor's address.
+  assert.equal(deliveries.length, 3);
+  assert.equal(deliveries.filter((mail) => mail.to[0] === "lead@example.test").length, 1);
 });

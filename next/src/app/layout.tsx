@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { AnalyticsConsentControls } from "@/components/analytics-consent";
 import { Bricolage_Grotesque, Manrope, IBM_Plex_Mono } from "next/font/google";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/site";
 import { offers, CONTACT_EMAIL, WHATSAPP_NUMBER } from "@/lib/offers";
 import "./globals.css";
 
@@ -110,14 +110,7 @@ export const metadata: Metadata = {
     description:
       "20+ years of IT support experience, practical AI automation and modern web delivery—from Kingston, Jamaica.",
     url: "/",
-    images: [
-      {
-        url: "/assets/images/willy-london-avatar.webp",
-        width: 637,
-        height: 637,
-        alt: "Willard Wells — IT support, AI automation and web solutions",
-      },
-    ],
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
@@ -125,7 +118,7 @@ export const metadata: Metadata = {
     title: "Willard Wells | IT Support, AI Automation & Web Solutions",
     description:
       "20+ years of IT support experience, practical AI automation and modern web delivery—from Kingston, Jamaica.",
-    images: ["/assets/images/willy-london-avatar.webp"],
+    images: [DEFAULT_OG_IMAGE.url],
   },
   icons: {
     icon: "/favicon.ico",

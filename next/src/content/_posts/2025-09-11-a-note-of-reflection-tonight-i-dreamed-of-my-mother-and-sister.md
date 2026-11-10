@@ -1,18 +1,14 @@
 ---
-title: "A Note of Reflection
-Tonight I dreamed of my mother and sister."
+title: "A Note of Reflection: Tonight I Dreamed of My Mother and Sister"
 date: 2025-09-11
 slug: a-note-of-reflection-tonight-i-dreamed-of-my-mother-and-sister
 layout: post
 migrated_from: medium
-description: "A Note of Reflection — a field note by Willard Wells."
+description: "Tonight I dreamed of my mother and sister. My mother was releasing a bird from the house — a sign of freedom, of peace, of letting go."
 ---
 
-# A Note of Reflection
-Tonight I dreamed of my mother and sister.
+![](/assets/images/medium-imports/medium-1*WbcFK5_9PeAr8aTctUj9gQ.webp)
 
-
-![](/assets/images/medium-imports/medium-1*WbcFK5_9PeAr8aTctUj9gQ.webp)A Note of Reflection
 Tonight I dreamed of my mother and sister.
 My mother was releasing a bird from the house —
 a sign of freedom, of peace, of letting go.

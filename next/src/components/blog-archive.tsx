@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { POST_TOPICS, formatPostDate, getReadingTime, type Post, type PostTopic } from "@/lib/posts";
 import NewsletterCTA from "@/components/newsletter-cta";
 
@@ -56,7 +56,7 @@ function PostCard({ post, featured = false }: { post: Post; featured?: boolean }
           </p>
           <h2>{post.title}</h2>
           {post.excerpt && <p className="journal-card-excerpt">{post.excerpt}</p>}
-          <span className="journal-card-more">Read note <ArrowUpRight aria-hidden="true" /></span>
+          <span className="journal-card-more">Read note <ArrowRight aria-hidden="true" /></span>
         </div>
       </Link>
     </article>

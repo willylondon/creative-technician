@@ -11,8 +11,6 @@ featured: false
 description: "So today is my birthday. Without giving away too many details, let’s just say I was born in the 1900s!"
 ---
 
-## 
-
 **So today is my birthday. Without giving away too many details, let’s just say I was born in the 1900s!**
 
 It is now 2026 and it feels like just yesterday I was dreaming about being an adult, exploring the world, and taking in all the cultures and experiences this planet has to offer. I’ve grown a lot and learned even more. Some lessons came through experience and others in the classroom, whether from an article, a podcast, or a meaningful conversation.

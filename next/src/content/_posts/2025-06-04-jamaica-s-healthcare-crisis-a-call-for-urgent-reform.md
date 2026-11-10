@@ -7,13 +7,6 @@ migrated_from: medium
 description: "When the system meant to heal becomes the source of heartbreak, it’s time to act."
 ---
 
-# Jamaica’s Healthcare Crisis: A Call for Urgent Reform
-
-
-When the system meant to heal becomes the source of heartbreak, it’s time to act.
-
-
-### Jamaica’s Healthcare Crisis: A Call for Urgent Reform
 *When the system meant to heal becomes the source of heartbreak, it’s time to act.*
 
 ![](/assets/images/medium-imports/medium-1*0XJsEYb94ZteYmbBmGGBRQ.webp)

@@ -7,13 +7,6 @@ migrated_from: medium
 description: "How Chinese EVs are rewiring Jamaica’s auto economy — and why your next business move might involve a steering wheel"
 ---
 
-# I Sold Him a Business, He Paid for a Car
-
-
-How Chinese EVs are rewiring Jamaica’s auto economy — and why your next business move might involve a steering wheel
-
-
-### **I Sold Him a Business, He Paid for a Car**
 How Chinese EVs are rewiring Jamaica’s auto economy — and why your next business move might involve a steering wheel
 
 ![](/assets/images/medium-imports/medium-1*KxsNfgjU2iJTD3DGtjLJzA.webp)

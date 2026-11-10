@@ -7,6 +7,18 @@
     <title>Content Manager</title>
   </head>
   <body>
-    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+    <!--
+      Pinned to an exact release with a Subresource Integrity hash: this page
+      holds a GitHub token with write access to the repo, so the browser must
+      refuse any bundle other than the one that was reviewed.
+      To upgrade, change the version and regenerate the hash:
+        curl -sSL https://unpkg.com/@sveltia/cms@VERSION/dist/sveltia-cms.js \
+          | openssl dgst -sha384 -binary | openssl base64 -A
+    -->
+    <script
+      src="https://unpkg.com/@sveltia/cms@0.253.1/dist/sveltia-cms.js"
+      integrity="sha384-YXjq3mkXJGchCcuDN3/22Wn7iy4syPQIe0Ht4Ls+6Mk+BtChdpMaDhMFxWlzvke4"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

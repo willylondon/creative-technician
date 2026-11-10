@@ -7,13 +7,6 @@ migrated_from: medium
 description: "A Night to Remember: Messi’s First Match in Jamaica and the Overlooked Cavalier FC"
 ---
 
-# Lionel Messi’s Historic Match in Jamaica: Cavalier FC’s Moment Overshadowed?
-
-
-A Night to Remember: Messi’s First Match in Jamaica and the Overlooked Cavalier FC
-
-
-### **Lionel Messi’s Historic Match in Jamaica: Cavalier FC’s Moment Overshadowed?**
 ![](/assets/images/medium-imports/medium-1*ARgWmWpxCf8Ggggz605GXQ.webp)
 **A Night to Remember: Messi’s First Match in Jamaica and the Overlooked Cavalier FC**
 

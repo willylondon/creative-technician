@@ -7,13 +7,6 @@ migrated_from: medium
 description: "Jamaica’s biggest car event roared back to life with luxury, electric dreams, and a whole lot of island flair."
 ---
 
-# Jamaica Auto Show 2025: Power, Prestige, and Progress at the National Arena
-
-
-Jamaica’s biggest car event roared back to life with luxury, electric dreams, and a whole lot of island flair.
-
-
-### Jamaica Auto Show 2025: Power, Prestige, and Progress at the National Arena
 *Jamaica’s biggest car event roared back to life with luxury, electric dreams, and a whole lot of island flair.*
 
 ![](/assets/images/medium-imports/medium-1*KK2AldmdJ04svWlLRWk7Jg.webp)

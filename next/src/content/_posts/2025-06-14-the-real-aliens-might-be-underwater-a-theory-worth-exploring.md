@@ -7,13 +7,6 @@ migrated_from: medium
 description: "We’ve been looking to the stars for answers — but what if the real mystery lies beneath our oceans?"
 ---
 
-# The Real Aliens Might Be Underwater: A Theory Worth Exploring
-
-
-We’ve been looking to the stars for answers — but what if the real mystery lies beneath our oceans?
-
-
-### The Real Aliens Might Be Underwater: A Theory Worth Exploring
 We’ve been looking to the stars for answers — but what if the real mystery lies beneath our oceans?
 
 ![](/assets/images/medium-imports/medium-1*HbmbhcB4RTwfTTRQfL3XYQ.webp)

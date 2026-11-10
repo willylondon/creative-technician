@@ -4,16 +4,9 @@ date: 2025-03-15
 slug: jamaica-s-new-aged-vehicle-policy-a-step-backward-or-smart-move
 layout: post
 migrated_from: medium
-description: "A crucial question is: Why revert to a policy that we had previously moved away from? If reducing the age of vehicle imports was once considered necessary…"
+description: "Jamaica’s government is moving to reintroduce an aged vehicle import policy that permits the importation of used vehicles up to 10 years old for cars and…"
 ---
 
-# Jamaica’s New Aged Vehicle Policy: A Step Backward or Smart Move?
-
-
-Jamaica’s Aged Vehicle Import Policy: A Comprehensive Analysis
-
-
-### Jamaica’s New Aged Vehicle Policy: A Step Backward or Smart Move?
 ![](/assets/images/medium-imports/medium-1*NL0C28LFFE1dM8ha7stTQw.webp)
 
 ### Jamaica’s Aged Vehicle Import Policy: A Comprehensive Analysis

@@ -4,16 +4,8 @@ date: 2025-12-11
 slug: when-winning-becomes-humiliation-the-hollow-victory-of-jamaica-s-158-26-basketba
 layout: post
 migrated_from: medium
-description: "After forty minutes of sweat, strategy, and struggle, two teams meet at center court. They clasp hands, look each other in the eye, and acknowledge a shar…"
+description: "The handshake line is supposed to mean something. After forty minutes of sweat, strategy, and struggle, two teams meet at center court. They clasp hands,…"
 ---
-
-# When Winning Becomes Humiliation: The Hollow Victory of Jamaica’s 158–26 Basketball Game
-
-
-A meditation on what we lose when we confuse dominance with excellence
-
-
-### When Winning Becomes Humiliation: The Hollow Victory of Jamaica’s 158–26 Basketball Game
 
 #### A meditation on what we lose when we confuse dominance with excellence
 The handshake line is supposed to mean something.
