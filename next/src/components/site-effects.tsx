@@ -81,7 +81,15 @@ export default function SiteEffects() {
           heroBounds = hero?.getBoundingClientRect() ?? null;
         };
 
+        let shown = false;
         const move = (event: MouseEvent) => {
+          if (!shown) {
+            // Jump to the pointer before revealing, so the ring never slides in from the corner.
+            shown = true;
+            gsap.set(dot, { x: event.clientX - 3, y: event.clientY - 3 });
+            gsap.set(outline, { x: event.clientX - 17, y: event.clientY - 17 });
+            document.body.classList.add("cursor-active");
+          }
           dotX(event.clientX - 3);
           dotY(event.clientY - 3);
           ringX(event.clientX - 17);
@@ -100,6 +108,7 @@ export default function SiteEffects() {
         window.addEventListener("resize", refreshBounds);
         cleanup.push(() => {
           window.removeEventListener("mousemove", move);
+          document.body.classList.remove("cursor-active");
           window.removeEventListener("scroll", refreshBounds);
           window.removeEventListener("resize", refreshBounds);
         });

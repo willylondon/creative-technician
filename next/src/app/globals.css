@@ -42,7 +42,7 @@
   --paper-muted-mid: #7f8c85;
   --paper-muted-soft: #9ca9a2;
   --paper-muted-bright: #e7ede8;
-  --teal-outline: #2a7f84; /* outline-word fill; ≥3:1 on --night for large text */
+  --teal-outline: #3a9da2; /* outline-word fill; ≥3:1 on --night for large text */
   --teal-deep: #0b686b;
   --teal-shadow: #295355;
   --cyan-dim: #50c8cd;
@@ -135,7 +135,11 @@ button, summary, a { -webkit-tap-highlight-color: transparent; }
   border-radius: 999px;
   pointer-events: none;
   mix-blend-mode: difference;
+  /* Parked at the top-left corner until the pointer first moves, so stay hidden until then. */
+  opacity: 0;
+  transition: opacity .2s ease;
 }
+body.cursor-active .cursor-dot, body.cursor-active .cursor-outline { opacity: 1; }
 .cursor-dot { width: 6px; height: 6px; background: var(--paper); }
 .cursor-outline { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.9); }
 body.hovering .cursor-outline { border-color: var(--cyan); }
