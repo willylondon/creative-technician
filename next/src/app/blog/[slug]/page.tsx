@@ -11,7 +11,7 @@ import {
   getReadingTime,
   getRelatedPosts,
 } from "@/lib/posts";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, socialImage } from "@/lib/site";
 import { offers, WHATSAPP_URL } from "@/lib/offers";
 import SiteEffects from "@/components/site-effects";
 import SiteHeader from "@/components/site-header";
@@ -43,7 +43,9 @@ export async function generateMetadata({
   }
 
   const canonical = `/blog/${post.slug}`;
-  const images = post.coverImage ? [post.coverImage] : undefined;
+  // Posts without a cover (or with an SVG one, which crawlers skip) still get a card.
+  const cover = socialImage(post.coverImage);
+  const images = cover === DEFAULT_OG_IMAGE.url ? [DEFAULT_OG_IMAGE] : [cover];
 
   return {
     title: `${post.title} | ${SITE_NAME}`,
@@ -98,7 +100,7 @@ export default async function PostPage({ params }: PostPageProps) {
     description: post.excerpt,
     datePublished: post.date,
     dateModified: post.date,
-    image: post.coverImage ? `${SITE_URL}${post.coverImage}` : undefined,
+    image: `${SITE_URL}${socialImage(post.coverImage)}`,
     author: {
       "@type": "Person",
       name: "Willard Wells",

@@ -1,6 +1,6 @@
 "use server";
 
-import { checkRateLimit, getClientIp, isValidEmail } from "@/lib/security";
+import { OUTBOUND_TIMEOUT_MS, checkSharedRateLimit, getClientIp, isValidEmail } from "@/lib/security";
 
 interface SubscribeResult {
   success: boolean;
@@ -24,7 +24,7 @@ export async function subscribeToNewsletter(email: string): Promise<SubscribeRes
   }
 
   const ip = await getClientIp();
-  if (!checkRateLimit(`newsletter:${ip}`, RATE_LIMIT, RATE_WINDOW_MS)) {
+  if (!(await checkSharedRateLimit(`newsletter:${ip}`, RATE_LIMIT, RATE_WINDOW_MS))) {
     return {
       success: false,
       message: "Too many attempts. Please try again later.",
@@ -50,6 +50,7 @@ export async function subscribeToNewsletter(email: string): Promise<SubscribeRes
         listIds: [resolveListId()],
         updateEnabled: true,
       }),
+      signal: AbortSignal.timeout(OUTBOUND_TIMEOUT_MS),
     });
 
     if (response.ok) {
