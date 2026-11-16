@@ -2,8 +2,8 @@ import type { Workspace } from "@/lib/invoices";
 
 export type WorkspaceSnapshot = { workspace: Workspace; revision: string };
 
-async function request<T>(body?: object): Promise<T> {
-  const response = await fetch("/invoices/data", body ? {
+async function request<T>(body?: object, query = ""): Promise<T> {
+  const response = await fetch("/invoices/data" + query, body ? {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
@@ -16,6 +16,7 @@ async function request<T>(body?: object): Promise<T> {
 
 export const cloud = {
   load: () => request<WorkspaceSnapshot>(),
+  loadHistory: () => request<WorkspaceSnapshot & { sentAtById: Record<string, string> }>(undefined, "?history=1"),
   save: (workspace: Workspace, revision: string) => request<WorkspaceSnapshot>({ action: "save", workspace, revision }),
   pdf: async (id: string, number: string) => {
     const url = "/invoices/data?pdf=" + encodeURIComponent(id);
@@ -25,5 +26,5 @@ export const cloud = {
     return { url, file };
   },
   email: (id: string, invoice: string) =>
-    request<{ alreadySent: boolean }>({ action: "email", id, invoice }),
+    request<{ alreadySent: boolean; sentAt: string }>({ action: "email", id, invoice }),
 };

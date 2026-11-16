@@ -23,7 +23,7 @@ async function authenticated(request: NextRequest, action: () => Promise<unknown
 export async function GET(request: NextRequest) {
   return authenticated(request, async () => {
     const id = request.nextUrl.searchParams.get("pdf");
-    if (!id) return store.load();
+    if (!id) return request.nextUrl.searchParams.has("history") ? store.loadHistory() : store.load();
     const result = await store.pdf(id);
     return new NextResponse(result.stream, { headers: {
       "Content-Type": "application/pdf",

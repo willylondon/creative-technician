@@ -175,6 +175,7 @@
 .recordClient strong { font: 700 1.13rem/1.18 var(--display); }
 .recordClient small, .recordAmount { font: 500 .81rem/1.35 var(--mono); }
 .recordClient small { color: var(--paper-muted); margin-top: 5px; }
+.recordClient .recordSent { color: var(--cyan); }
 .recordAmount { text-align: right; overflow-wrap: anywhere; }
 .recordArrow { color: var(--cyan); }
 .empty { border-top: 1px solid var(--iv-border); margin: 0; padding: 32px 21px; color: var(--paper-muted); }

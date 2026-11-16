@@ -1,4 +1,4 @@
-import { BlobPreconditionFailedError, BlobError, get, put } from "@vercel/blob";
+import { BlobPreconditionFailedError, BlobError, get, list, put } from "@vercel/blob";
 import { createHash } from "node:crypto";
 import { INVOICE_EMAIL, emptyWorkspace, readWorkspace, type SavedInvoice, type Workspace } from "@/lib/invoices";
 import { SITE_NAME } from "@/lib/site";
@@ -7,6 +7,7 @@ import { renderInvoicePdf } from "./pdf";
 
 const EMAIL_TIMEOUT_MS = 8000;
 const workspacePath = "ct-invoices/v1/workspace.json";
+const emailPrefix = "ct-invoices/v1/email/";
 const attemptsPath = "ct-invoices/v1/pin-attempts-4digit.json";
 const access = { access: "private" } as const;
 
@@ -50,9 +51,62 @@ export async function reservePinAttempt() {
   return false;
 }
 
+function fingerprint(value: string) {
+  return createHash("sha256").update(value).digest("hex");
+}
+
 function pdfKey(invoice: SavedInvoice) {
-  const version = createHash("sha256").update(JSON.stringify(invoice)).digest("hex");
-  return "ct-invoices/v1/pdf/" + version + ".pdf";
+  return "ct-invoices/v1/pdf/" + fingerprint(JSON.stringify(invoice)) + ".pdf";
+}
+
+async function readReceipt(path: string) {
+  const receipt = await readJson(path);
+  if (!receipt) return null;
+  const { sentAt } = JSON.parse(receipt.content) as { sentAt: string };
+  return sentAt;
+}
+
+async function writeReceipt(path: string, sentAt: string) {
+  try { await writeJson(path, { sentAt }); }
+  catch (error) { if (!conflicted(error)) throw error; }
+}
+
+async function preserveLegacyReceipt(invoice: SavedInvoice) {
+  const version = fingerprint(JSON.stringify(invoice));
+  const sentAt = await readReceipt(emailPrefix + version + ".json");
+  if (!sentAt) return;
+  // Carry the original time in the path because the copy has a new upload time.
+  const original = Date.parse(sentAt);
+  if (Number.isFinite(original)) {
+    await writeReceipt(emailPrefix + fingerprint(invoice.id) + "/" + version + "-" + original + ".json", sentAt);
+  }
+}
+
+export async function loadHistory() {
+  const snapshot = await load();
+  const ids = new Map(snapshot.workspace.invoices.map((invoice) => [fingerprint(invoice.id), invoice.id]));
+  const legacyIds = new Map(snapshot.workspace.invoices.map((invoice) => [fingerprint(JSON.stringify(invoice)), invoice.id]));
+  const sentAtById = new Map<string, string>();
+  if (!ids.size) return { ...snapshot, sentAtById: {} };
+
+  let cursor: string | undefined;
+  do {
+    const page = await list({ prefix: emailPrefix, cursor });
+    for (const { pathname, uploadedAt } of page.blobs) {
+      const relativePath = pathname.slice(emailPrefix.length);
+      const receipt = /^([a-f0-9]{64})(?:\/([a-f0-9]{64})(?:-(\d{13}))?)?\.json$/.exec(relativePath);
+      if (!receipt) continue;
+      const [, first, version, original] = receipt;
+      const id = version ? ids.get(first) : legacyIds.get(first);
+      if (id === undefined) continue;
+
+      const sentAt = (original ? new Date(Number(original)) : uploadedAt).toISOString();
+      if (sentAt > (sentAtById.get(id) ?? "")) sentAtById.set(id, sentAt);
+    }
+    cursor = page.hasMore ? page.cursor : undefined;
+  } while (cursor);
+
+  return { ...snapshot, sentAtById: Object.fromEntries(sentAtById) };
 }
 
 async function storePdf(invoice: SavedInvoice) {
@@ -84,7 +138,11 @@ export async function save(next: Workspace, revision: string) {
   const changed = next.invoices.filter((invoice) => JSON.stringify(invoice) !== JSON.stringify(prior.get(invoice.id)));
   if (changed.length > 20) throw new InvoiceError("Import up to 20 invoices at a time.", 413);
   for (let index = 0; index < changed.length; index += 5) {
-    await Promise.all(changed.slice(index, index + 5).map(storePdf));
+    await Promise.all(changed.slice(index, index + 5).map(async (invoice) => {
+      const previous = prior.get(invoice.id);
+      if (previous) await preserveLegacyReceipt(previous);
+      await storePdf(invoice);
+    }));
   }
 
   try {
@@ -124,9 +182,10 @@ export async function email(id: string, expected: string) {
   const sender = process.env.CONTACT_SENDER_EMAIL ?? "hello@mail.thecreativetechnician.online";
   if (!apiKey) throw new InvoiceError("The site's email service is unavailable.", 503);
 
-  const key = createHash("sha256").update(expected).digest("hex");
-  const receiptPath = "ct-invoices/v1/email/" + key + ".json";
-  if (await readJson(receiptPath)) return { alreadySent: true };
+  const key = fingerprint(expected);
+  const receiptPath = emailPrefix + fingerprint(invoice.id) + "/" + key + ".json";
+  const existing = await readReceipt(receiptPath) ?? await readReceipt(emailPrefix + key + ".json");
+  if (existing) return { alreadySent: true, sentAt: existing };
 
   const content = Buffer.from(await new Response(await archivedPdf(invoice)).arrayBuffer()).toString("base64");
   const response = await fetch("https://api.resend.com/emails", {
@@ -140,7 +199,7 @@ export async function email(id: string, expected: string) {
     signal: AbortSignal.timeout(EMAIL_TIMEOUT_MS),
   });
   if (!response.ok) throw new InvoiceError("The email service could not send this invoice. Try again shortly.", 502);
-  try { await writeJson(receiptPath, { sentAt: new Date().toISOString() }); }
-  catch (error) { if (!conflicted(error)) throw error; }
-  return { alreadySent: false };
+  const sentAt = new Date().toISOString();
+  await writeReceipt(receiptPath, sentAt);
+  return { alreadySent: false, sentAt };
 }
