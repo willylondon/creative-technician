@@ -2,9 +2,9 @@ import { BlobPreconditionFailedError, BlobError, get, put } from "@vercel/blob";
 import { createHash } from "node:crypto";
 import { INVOICE_EMAIL, emptyWorkspace, readWorkspace, type SavedInvoice, type Workspace } from "@/lib/invoices";
 import { SITE_NAME } from "@/lib/site";
-import { OUTBOUND_TIMEOUT_MS } from "@/lib/security";
 import { renderInvoicePdf } from "./pdf";
 
+const EMAIL_TIMEOUT_MS = 8000;
 const workspacePath = "ct-invoices/v1/workspace.json";
 const attemptsPath = "ct-invoices/v1/pin-attempts.json";
 const access = { access: "private" } as const;
@@ -137,7 +137,7 @@ export async function email(id: string, expected: string) {
       text: `Hi ${invoice.client},\n\nPlease find invoice ${invoice.number} attached.\n\nThank you,\n${SITE_NAME}`,
       attachments: [{ filename: invoice.number + ".pdf", content, content_type: "application/pdf" }],
     }),
-    signal: AbortSignal.timeout(OUTBOUND_TIMEOUT_MS),
+    signal: AbortSignal.timeout(EMAIL_TIMEOUT_MS),
   });
   if (!response.ok) throw new InvoiceError("The email service could not send this invoice. Try again shortly.", 502);
   try { await writeJson(receiptPath, { sentAt: new Date().toISOString() }); }
