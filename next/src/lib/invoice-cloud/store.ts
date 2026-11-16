@@ -6,7 +6,7 @@ import { renderInvoicePdf } from "./pdf";
 
 const EMAIL_TIMEOUT_MS = 8000;
 const workspacePath = "ct-invoices/v1/workspace.json";
-const attemptsPath = "ct-invoices/v1/pin-attempts.json";
+const attemptsPath = "ct-invoices/v1/pin-attempts-4digit.json";
 const access = { access: "private" } as const;
 
 export class InvoiceError extends Error {
@@ -37,8 +37,8 @@ export async function reservePinAttempt() {
   for (let tryNumber = 0; tryNumber < 4; tryNumber++) {
     const stored = await readJson(attemptsPath);
     const previous = stored ? JSON.parse(stored.content) as { count: number; end: number } : null;
-    const window = previous && previous.end > now ? previous : { count: 0, end: now + 10 * 60_000 };
-    if (window.count >= 30) return false;
+    const window = previous && previous.end > now ? previous : { count: 0, end: now + 60 * 60_000 };
+    if (window.count >= 5) return false;
     try {
       await writeJson(attemptsPath, { ...window, count: window.count + 1 }, stored?.revision);
       return true;

@@ -37,7 +37,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Invoice workspace
 
-The private workspace is served by the same Next.js app at `/invoices`. Enter the same PIN on each device to access synced invoices. Use **Settings** to set the preferred payment account. Its instructions appear on new invoices and can be edited for each client. **Email invoice** sends the PDF through the site’s Resend account, using the invoice contact address for replies. Use **Get PDF** to download or share a copy to Google Drive.
+The private workspace is served by the same Next.js app at `/invoices`. Enter the same four-digit PIN on each device to access synced invoices. Use **Settings** to set the preferred payment account. Its instructions appear on new invoices and can be edited for each client. **Email invoice** sends the PDF through the site’s Resend account, using the invoice contact address for replies. Use **Get PDF** to download or share a copy to Google Drive.
 
 Connect a private Vercel Blob store to the production project. Set `INVOICE_PIN_HASH` to `salt:hash` (hex for a 16-byte random salt and a 32-byte Node.js scrypt result) and `INVOICE_SESSION_KEY` to a random secret at least 32 characters long. Rotating the PIN hash or session key signs out all devices. The canonical website origin is used by default. For a separate deployment set `INVOICE_APP_ORIGIN` to its origin.
 

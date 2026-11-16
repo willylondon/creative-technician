@@ -15,8 +15,12 @@ export function configured() {
     && Boolean(process.env.BLOB_READ_WRITE_TOKEN || (process.env.BLOB_STORE_ID && process.env.VERCEL_OIDC_TOKEN));
 }
 
+export function isInvoicePin(pin: string) {
+  return /^[0-9]{4}$/.test(pin);
+}
+
 export function matchesPin(pin: string) {
-  if (!configured() || !/^\d{8,12}$/.test(pin)) return false;
+  if (!configured() || !isInvoicePin(pin)) return false;
   const [salt, expected] = process.env.INVOICE_PIN_HASH!.split(":");
   return timingSafeEqual(scryptSync(pin, Buffer.from(salt, "hex"), 32), Buffer.from(expected, "hex"));
 }

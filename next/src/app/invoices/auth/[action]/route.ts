@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/security";
-import { configured, cookieOptions, issueSession, matchesPin, origin, sessionCookie } from "@/lib/invoice-cloud/session";
+import { configured, cookieOptions, isInvoicePin, issueSession, matchesPin, origin, sessionCookie } from "@/lib/invoice-cloud/session";
 import { reservePinAttempt } from "@/lib/invoice-cloud/store";
 
 const redirect = (path: string) => NextResponse.redirect(origin() + path, {
@@ -22,10 +22,10 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
   const body = await request.text();
   if (body.length > 128) return new NextResponse(null, { status: 400 });
   const pin = new URLSearchParams(body).get("pin") ?? "";
-  if (!/^\d{8,12}$/.test(pin)) return redirect("/invoices?auth=failed");
+  if (!isInvoicePin(pin)) return redirect("/invoices?auth=failed");
 
   const ip = request.headers.get("x-vercel-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
-  if (!checkRateLimit("invoices-pin:" + ip, 6, 10 * 60_000)) return redirect("/invoices?auth=limited");
+  if (!checkRateLimit("invoices-pin:" + ip, 5, 60 * 60_000)) return redirect("/invoices?auth=limited");
   try {
     if (!(await reservePinAttempt())) return redirect("/invoices?auth=limited");
   } catch {
