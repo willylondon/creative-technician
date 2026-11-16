@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { siteAuthor } from "@/lib/author";
 
 export default function AuthorCard() {
@@ -19,8 +20,8 @@ export default function AuthorCard() {
         <h3 className="text-lg font-bold">{siteAuthor.name}</h3>
         <p className="text-sm text-slate-400">{siteAuthor.role}</p>
         <p className="mt-3 text-sm">
-          <Link href="/#services" className="font-medium text-cyan-400 underline-offset-4 hover:underline">
-            Need something like this built? See services &amp; pricing →
+          <Link href="/#services" className="inline-flex items-center gap-1.5 font-medium text-cyan-400 underline-offset-4 hover:underline">
+            Need something like this built? See services &amp; pricing <ArrowRight aria-hidden="true" className="size-4" />
           </Link>
         </p>
       </div>

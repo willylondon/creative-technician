@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, Mail, MessageCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, Mail, MessageCircle } from "lucide-react";
 import {
   POST_TOPICS,
   formatPostDate,
@@ -202,7 +202,7 @@ export default async function PostPage({ params }: PostPageProps) {
                           <p>{formatPostDate(relatedPost.date, { year: "numeric", month: "short", day: "numeric" })}</p>
                           <h3>{relatedPost.title}</h3>
                         </div>
-                        <ArrowUpRight aria-hidden="true" />
+                        <ArrowRight aria-hidden="true" />
                       </Link>
                     ))}
                   </div>

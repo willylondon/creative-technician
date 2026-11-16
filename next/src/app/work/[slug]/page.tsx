@@ -189,7 +189,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 <Link key={other.slug} href={`/work/${other.slug}`} className="note-row data-hover">
                   <span>{other.client}</span>
                   <div><p>{other.type}</p><h3>{other.title}</h3></div>
-                  <ArrowUpRight aria-hidden="true" />
+                  <ArrowRight aria-hidden="true" />
                 </Link>
               ))}
             </div>
