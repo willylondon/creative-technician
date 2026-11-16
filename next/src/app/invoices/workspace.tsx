@@ -19,6 +19,7 @@ type Feedback = { text: string; error?: boolean } | null;
 const subscribe = () => () => {};
 const getClient = () => true;
 const getServer = () => false;
+const sentDate = new Intl.DateTimeFormat("en-JM", { dateStyle: "medium", timeStyle: "short", timeZone: "America/Jamaica" });
 
 function loadStorage(): Workspace {
   const value = localStorage.getItem(INVOICE_STORAGE);
@@ -85,6 +86,7 @@ function InvoiceScreen({ synced }: { synced?: WorkspaceSnapshot }) {
   const [warning, setWarning] = useState(initial.warning);
   const [feedback, setFeedback] = useState<Feedback>(null);
   const [search, setSearch] = useState("");
+  const [sentAtById, setSentAtById] = useState<Record<string, string>>({});
   const [settings, setSettings] = useState(initial.workspace.settings);
 
   useEffect(() => {
@@ -128,9 +130,15 @@ function InvoiceScreen({ synced }: { synced?: WorkspaceSnapshot }) {
       setFeedback(null);
       if (target !== "editor") {
         try {
-          const snapshot = await latest();
-          setWorkspace(snapshot.workspace);
-          if (target === "settings") setSettings(snapshot.workspace.settings);
+          if (target === "history" && synced) {
+            const history = await cloud.loadHistory();
+            setWorkspace(history.workspace);
+            setSentAtById((previous) => ({ ...previous, ...history.sentAtById }));
+          } else {
+            const snapshot = await latest();
+            setWorkspace(snapshot.workspace);
+            if (target === "settings") setSettings(snapshot.workspace.settings);
+          }
         } catch {
           setFeedback({ error: true, text: "Unable to refresh saved invoices and settings." });
         }
@@ -244,6 +252,10 @@ function InvoiceScreen({ synced }: { synced?: WorkspaceSnapshot }) {
     void perform(async () => {
       try {
         const result = await cloud.email(selected.id, JSON.stringify(selected));
+        setSentAtById((previous) => {
+          if ((previous[selected.id] ?? "") >= result.sentAt) return previous;
+          return { ...previous, [selected.id]: result.sentAt };
+        });
         setFeedback({ text: result.alreadySent ? "This version was already emailed to " + selected.email + "." : "Invoice emailed to " + selected.email + "." });
       } catch (error) {
         fail(error, "Couldn’t email the invoice.");
@@ -415,7 +427,15 @@ function InvoiceScreen({ synced }: { synced?: WorkspaceSnapshot }) {
                 {filtered.map((entry) => (
                   <li key={entry.id}>
                     <button type="button" disabled={busy} onClick={() => start(entry)}>
-                      <span className={styles.recordClient}><strong>{entry.client}</strong><small>{entry.number} · {displayDate(entry.issued)}</small></span>
+                      <span className={styles.recordClient}>
+                        <strong>{entry.client}</strong>
+                        <small>{entry.number} · {displayDate(entry.issued)}</small>
+                        {Object.hasOwn(sentAtById, entry.id) && (
+                          <small className={styles.recordSent}>
+                            Emailed <time dateTime={sentAtById[entry.id]}>{sentDate.format(new Date(sentAtById[entry.id]))}</time>
+                          </small>
+                        )}
+                      </span>
                       <span className={styles.recordStatus} data-paid={entry.paid || undefined}>{entry.paid ? "Paid" : "Unpaid"}</span>
                       <span className={styles.recordAmount}>{entry.currency} {money(totalCents(entry))}</span>
                       <ArrowUpRight className={styles.recordArrow} size={18} aria-hidden="true" />
