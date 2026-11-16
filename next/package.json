@@ -2,6 +2,7 @@
   "name": "next",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -17,11 +18,13 @@
     "@tailwindcss/typography": "^0.5.20",
     "@types/three": "^0.185.4",
     "@vercel/analytics": "^2.0.1",
+    "@vercel/blob": "^2.9.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "gsap": "^3.15.0",
     "lucide-react": "^0.575.0",
     "next": "^16.4.5",
+    "pdfkit": "^0.20.2",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-markdown": "^9.0.1",
@@ -31,6 +34,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/pdfkit": "^0.17.7",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
@@ -38,5 +42,10 @@
     "shadcn": "^3.8.5",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@vercel/cli-config": {
+      "zod": "^4.6.6"
+    }
   }
 }

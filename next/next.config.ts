@@ -18,6 +18,7 @@ const archivedPostRedirects = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  serverExternalPackages: ["pdfkit"],
   async headers() {
     return [{
       source: "/:path*",
