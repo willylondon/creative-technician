@@ -2,6 +2,7 @@ import { BlobPreconditionFailedError, BlobError, get, put } from "@vercel/blob";
 import { createHash } from "node:crypto";
 import { INVOICE_EMAIL, emptyWorkspace, readWorkspace, type SavedInvoice, type Workspace } from "@/lib/invoices";
 import { SITE_NAME } from "@/lib/site";
+import { invoiceEmailMessage } from "./email-template";
 import { renderInvoicePdf } from "./pdf";
 
 const EMAIL_TIMEOUT_MS = 8000;
@@ -133,8 +134,7 @@ export async function email(id: string, expected: string) {
     headers: { Authorization: "Bearer " + apiKey, "Content-Type": "application/json", "Idempotency-Key": "ct-invoice/" + key },
     body: JSON.stringify({
       from: `${SITE_NAME} <${sender}>`, to: [invoice.email], reply_to: INVOICE_EMAIL,
-      subject: "Invoice " + invoice.number + " from " + SITE_NAME,
-      text: `Hi ${invoice.client},\n\nPlease find invoice ${invoice.number} attached.\n\nThank you,\n${SITE_NAME}`,
+      ...invoiceEmailMessage(invoice),
       attachments: [{ filename: invoice.number + ".pdf", content, content_type: "application/pdf" }],
     }),
     signal: AbortSignal.timeout(EMAIL_TIMEOUT_MS),
