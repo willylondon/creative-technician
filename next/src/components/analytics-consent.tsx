@@ -3,6 +3,7 @@
 import { useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import Script from "next/script";
+import { usePathname } from "next/navigation";
 import { Analytics } from "@vercel/analytics/react";
 import {
   analyticsAllowed,
@@ -25,6 +26,12 @@ export function CookieSettingsButton() {
 }
 
 export function AnalyticsConsentControls() {
+  const pathname = usePathname();
+  if (pathname === "/invoices") return null;
+  return <SiteAnalyticsConsentControls />;
+}
+
+function SiteAnalyticsConsentControls() {
   const consent = useSyncExternalStore(subscribeToAnalyticsConsent, getAnalyticsConsent, serverConsent);
   const [settingsOpen, setSettingsOpen] = useState(false);
 
