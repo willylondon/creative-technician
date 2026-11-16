@@ -25,14 +25,14 @@ export default async function InvoicesPage({ searchParams }: {
     <main className={styles.loading}>
       <div className={styles.signIn}>
         <h1>The Creative Technician</h1>
-        <p>{ready ? "Enter your PIN to open your invoices." : "The invoice workspace is awaiting setup."}</p>
+        <p>{ready ? "Enter your four-digit PIN to open your invoices." : "The invoice workspace is awaiting setup."}</p>
         {query.auth === "failed" && <p role="alert">That PIN didn’t match.</p>}
-        {query.auth === "limited" && <p role="alert">Too many attempts. Try again in a few minutes.</p>}
+        {query.auth === "limited" && <p role="alert">Too many attempts. Try again in an hour.</p>}
         {query.auth === "unavailable" && <p role="alert">Unable to unlock the workspace right now.</p>}
         {ready && <form method="post" action="/invoices/auth/unlock" className={styles.pinForm}>
           <label className={styles.field}>
             <span>Invoice PIN</span>
-            <input type="password" name="pin" inputMode="numeric" autoComplete="current-password" required pattern="[0-9]{8,12}" maxLength={12} />
+            <input type="password" name="pin" inputMode="numeric" autoComplete="current-password" required pattern="[0-9]{4}" minLength={4} maxLength={4} />
           </label>
           <button className={`${styles.button} ${styles.primary}`} type="submit">Unlock invoices</button>
         </form>}
